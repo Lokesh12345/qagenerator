@@ -93,5 +93,126 @@
     "confidence": "high",
     "lastUpdated": "2023-10-01",
     "verified": false
+  },
+  "ib-9": {
+    "primaryQuestion": "Define multipart form data?",
+    "alternativeQuestions": [
+      "What is multipart form data?",
+      "How does multipart form data work?",
+      "Explain the use of multipart form data.",
+      "When should you use multipart form data?",
+      "What is the purpose of multipart form data?",
+      "How is multipart form data different from other encodings?",
+      "Why use multipart form data in forms?",
+      "What are the benefits of multipart form data?",
+      "How do you implement multipart form data?",
+      "What is the structure of multipart form data?",
+      "How does multipart form data handle files?",
+      "What are the components of multipart form data?",
+      "How does multipart form data work with file uploads?",
+      "What are the alternatives to multipart form data?",
+      "How is multipart form data processed on the server?",
+      "What encoding type is used for file uploads?",
+      "How do you set up multipart form data in HTML?",
+      "What does multipart form data look like?",
+      "How is multipart form data transmitted?",
+      "What is the role of boundaries in multipart form data?"
+    ],
+    "answerDescriptions": [
+      "Used for sending files in forms.",
+      "Part of the enctype attribute.",
+      "Allows multiple parts in a single request.",
+      "Supports file and data uploads.",
+      "Essential for file upload forms."
+    ],
+    "answer": {
+      "summary": "Multipart form data is used to send files and data in a single request.",
+      "detailed": "Multipart form data allows files and data to be sent in a single HTTP request. It uses boundaries to separate different parts of the data. Each part can contain a different type of content, such as text or binary data. This encoding is essential for forms that require file uploads.\n\n- **Method or Keyword** | **When to use** | **One-line code syntax example**\n  --- | --- | ---\n  enctype=\"multipart/form-data\" | For file uploads in forms | `<form enctype=\"multipart/form-data\">`\n\n- Remember: Use it for any form that includes file inputs.\n\n```html\n<form action=\"/upload\" method=\"post\" enctype=\"multipart/form-data\">\n  <input type=\"file\" name=\"file\">\n  <input type=\"submit\">\n</form>\n```",
+      "whenToUse": "Use multipart form data when your form includes file uploads.",
+      "realWorldContext": "Commonly used in web applications that allow users to upload images, documents, or other files."
+    },
+    "category": "Web Development",
+    "subcategory": "HTML",
+    "difficulty": "intermediate",
+    "tags": [
+      "HTML",
+      "forms",
+      "file uploads",
+      "enctype",
+      "multipart",
+      "web development",
+      "HTTP",
+      "data encoding",
+      "form submission",
+      "web forms",
+      "server processing",
+      "client-server"
+    ],
+    "conceptTriggers": [
+      "form submission",
+      "file handling",
+      "HTTP requests",
+      "data encoding",
+      "web forms"
+    ],
+    "naturalFollowups": [
+      "How do you handle file uploads on the server?",
+      "What are the security considerations with multipart form data?",
+      "How do you parse multipart form data?",
+      "What libraries support multipart form data?",
+      "How do you validate file uploads?",
+      "What is the maximum file size for uploads?",
+      "How do you handle errors in file uploads?",
+      "What are the alternatives to multipart form data?",
+      "How do you test multipart form data?",
+      "What are the common issues with multipart form data?",
+      "How do you optimize file uploads?",
+      "What are the best practices for using multipart form data?",
+      "How do you handle multiple file uploads?",
+      "What are the limitations of multipart form data?",
+      "How do you secure file uploads?"
+    ],
+    "relatedQuestions": [
+      "What is the enctype attribute in HTML?",
+      "How do you use the POST method in forms?",
+      "What are the different encoding types for forms?",
+      "How do you create a file input in HTML?",
+      "What is the difference between GET and POST methods?",
+      "How do you handle form data in JavaScript?",
+      "What is the role of boundaries in multipart form data?",
+      "How do you use AJAX to submit forms?",
+      "What are the security risks of file uploads?",
+      "How do you implement file upload progress bars?",
+      "What are the common HTTP status codes for form submissions?",
+      "How do you handle large file uploads?",
+      "What is the difference between application/x-www-form-urlencoded and multipart/form-data?",
+      "How do you debug form submission issues?",
+      "What are the best practices for form design?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not setting the enctype attribute correctly.",
+        "explanation": "Without the correct enctype, files won't be uploaded properly."
+      },
+      {
+        "mistake": "Forgetting to include file inputs in the form.",
+        "explanation": "File inputs are necessary for uploading files."
+      },
+      {
+        "mistake": "Not handling file uploads on the server side.",
+        "explanation": "Server-side handling is required to process uploaded files."
+      },
+      {
+        "mistake": "Ignoring security checks for uploaded files.",
+        "explanation": "Uploaded files can pose security risks if not properly checked."
+      },
+      {
+        "mistake": "Using GET method for file uploads.",
+        "explanation": "GET method is not suitable for file uploads; use POST instead."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
   }
 }
