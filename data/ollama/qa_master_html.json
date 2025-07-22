@@ -1,14 +1,86 @@
 {
-  "question-id": {
-    "primaryQuestion": "What are void elements in HTML?",
+  "question-9-define-multipart-form-data": {
+    "primaryQuestion": "9. Define multipart form data?",
+    "category": "HTML/CSS/JavaScript",
+    "subcategory": "Web Form Handling",
+    "difficulty": "Intermediate",
     "answer": {
-      "summary": "HTML elements that do not require closing tags.",
-      "detailed": "Void elements, also known as self-closing or empty elements, are those which either don't have content within them at all (like the line break `<br />`) or always contain a single piece of content and therefore never need to be closed with an ending tag. Examples include `<img>`, `<hr>`, and `<input>`."
+      "summary": "Multipart form data is used to send file data in web forms.",
+      "detailed": "When a user submits a form that includes files (like an image or document), the browser sends this data as part of the HTTP request. To handle this, the server-side code uses a specific content type in the response envelope, such as 'multipart/form-data'. The detailed explanation and examples would typically include code snippets and explanations of how to process file data received via multipart form data."
     },
-    "category": "HTML",
-    "difficulty": "beginner",
+    "alternativeQuestions": [
+      "Explain multipart form data in web development",
+      "Define the concept of multipart form data for web forms",
+      "Give a clear explanation of multipart form data in web browsers",
+      "Unpack the meaning of multipart form data used in online submissions",
+      "Illustrate how multipart form data is handled during web form submission",
+      "Explain the difference between single-part and multipart form data",
+      "Provide an example scenario to demonstrate how multipart form data works",
+      "Relate multipart form data to cookies and session management in web apps",
+      "Conclude by emphasizing the importance of understanding multipart form data for web development"
+    ],
+    "answerDescriptions": [
+      "Multipart form data is",
+      "1. A method for sending data in web forms",
+      "2. Consists of multiple parts, each with its own field and file upload",
+      "3. Used when attaching files or submitting complex data structures",
+      "4. Typically sent via HTTP as part of a web request"
+    ],
     "tags": [
-      "void-element"
-    ]
+      "multipart/form-data",
+      "HTTP request method",
+      "form fields",
+      "file uploads",
+      "content-disposition header",
+      "data transmission",
+      "web form submission"
+    ],
+    "naturalFollowups": [
+      "Can you explain how multipart form data works?",
+      "What is the difference between regular form data and multipart form data?",
+      "In a web application, when should we use multipart form data instead of JSON?",
+      "How does the client (browser) handle and send multipart form data to the server?",
+      "When working with file uploads in multipart form data, what are the steps involved for both the client and server sides?",
+      "Can you give an example scenario where using multipart form data would be more appropriate than other methods like RESTful APIs or JSON-P requests?",
+      "What security measures should be taken when handling and storing multipart form data on both the client and server sides?"
+    ],
+    "relatedQuestions": [
+      "What is multipart/form-data in HTTP? Explain its structure.",
+      "How does a client send form data using multipart/form-data? Show an example.",
+      "What are the key headers associated with multipart/form-data requests?",
+      "In what scenarios would you prefer to use multipart/form-data over other data formats like JSON or XML?",
+      "Explain the difference between a POST request with multipart/form-data and one without. Provide examples.",
+      "How do servers process and handle incoming multipart/form-data requests? Describe the steps involved.",
+      "What are some security concerns related to using multipart/form-data for data transmission? How can they be mitigated?",
+      "In an e-commerce application, how would you integrate a file upload form (multipart/form-data) with server-side processing and validation?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Common error",
+        "explanation": "Standard explanation"
+      },
+      {
+        "mistake": "Syntax mistake",
+        "explanation": "Check syntax carefully"
+      },
+      {
+        "mistake": "Logic error",
+        "explanation": "Review the logic"
+      },
+      {
+        "mistake": "Performance issue",
+        "explanation": "Consider optimization"
+      }
+    ],
+    "conceptTriggers": [
+      "multipart/form-data",
+      "HTTP request method",
+      "form fields",
+      "file uploads",
+      "content-disposition header"
+    ],
+    "confidence": "high",
+    "lastUpdated": "2025-07-22",
+    "verified": false
   }
 }

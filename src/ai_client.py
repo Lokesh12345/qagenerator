@@ -55,7 +55,7 @@ class AIClient:
         defaults = {
             "openai": "gpt-4o-mini",
             "claude": "claude-3-5-haiku-20241022",
-            "ollama": "phi3:mini"  # Changed to faster model
+            "ollama": "qwen:7b"  # Better quality model for comprehensive responses
         }
         return defaults.get(self.provider, "phi3:mini")
     

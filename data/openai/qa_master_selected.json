@@ -1,0 +1,114 @@
+{
+  "ib-4": {
+    "primaryQuestion": "What is the advantage of collapsing white space?",
+    "alternativeQuestions": [
+      "Why does HTML collapse white space?",
+      "How does white space collapsing benefit HTML?",
+      "What is the purpose of collapsing white space in HTML?",
+      "Why is white space collapsing important in web development?",
+      "How does collapsing white space affect HTML readability?",
+      "What happens when white space is collapsed in HTML?",
+      "Why do browsers collapse multiple spaces into one?",
+      "What are the benefits of white space collapsing in HTML?",
+      "How does collapsing white space help developers?",
+      "What is the role of white space collapsing in HTML formatting?",
+      "Why is white space collapsing used in HTML?",
+      "What does collapsing white space achieve in HTML?",
+      "How does white space collapsing improve HTML code?",
+      "What is the effect of collapsing white space on HTML layout?",
+      "Why is collapsing white space a feature in HTML?",
+      "How does collapsing white space enhance HTML structure?",
+      "What is the impact of white space collapsing on HTML rendering?",
+      "Why is collapsing white space beneficial for HTML developers?",
+      "How does collapsing white space simplify HTML coding?",
+      "What is the significance of collapsing white space in HTML?"
+    ],
+    "answerDescriptions": [
+      "Collapsing white space simplifies HTML code.",
+      "It improves readability by reducing unnecessary spaces.",
+      "White space collapsing ensures consistent layout rendering.",
+      "It helps maintain clean and organized HTML structure.",
+      "Collapsing white space reduces file size for faster loading."
+    ],
+    "answer": {
+      "summary": "Collapsing white space in HTML treats multiple spaces as a single space, enhancing readability and consistency.",
+      "detailed": "In HTML, collapsing white space means that a sequence of white space characters is treated as a single space. This helps developers format code without worrying about extra spaces affecting the layout. \n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|------------------------------|\n| HTML whitespace   | Formatting  | `<p>Text with    spaces</p>` |\n\n- Remember: Browsers automatically collapse spaces.\n- Use it to keep HTML code clean and readable.\n\n```html\n<p>This    is    a    paragraph.</p>\n<!-- Renders as: This is a paragraph. -->\n```",
+      "whenToUse": "Use when writing HTML to ensure clean and consistent formatting.",
+      "realWorldContext": "Web developers use white space collapsing to maintain readable and manageable HTML code, ensuring that the layout is rendered consistently across different browsers."
+    },
+    "category": "Web Development",
+    "subcategory": "HTML",
+    "difficulty": "Easy",
+    "tags": [
+      "HTML",
+      "white space",
+      "code formatting",
+      "web development",
+      "browser rendering",
+      "layout consistency",
+      "readability",
+      "clean code",
+      "HTML structure",
+      "web standards",
+      "HTML best practices",
+      "HTML layout",
+      "HTML rendering",
+      "HTML design",
+      "HTML coding",
+      "HTML optimization"
+    ],
+    "conceptTriggers": [
+      "HTML",
+      "white space",
+      "code formatting",
+      "browser rendering",
+      "layout consistency",
+      "readability",
+      "clean code",
+      "HTML structure",
+      "web standards",
+      "HTML best practices"
+    ],
+    "naturalFollowups": [
+      "How does white space affect HTML rendering?",
+      "What are HTML best practices for formatting?",
+      "How do browsers interpret white space in HTML?",
+      "What is the impact of white space on web page performance?",
+      "How can white space be managed in HTML and CSS?",
+      "What are common mistakes with white space in HTML?",
+      "How does white space collapsing differ in CSS?",
+      "What tools help manage white space in HTML?",
+      "How does white space affect SEO in HTML?",
+      "What are the differences between HTML and CSS white space handling?"
+    ],
+    "relatedQuestions": [
+      "How does HTML handle white space?",
+      "What is the difference between HTML and CSS white space handling?",
+      "How can you manage white space in CSS?",
+      "What are best practices for HTML formatting?",
+      "How does white space affect HTML performance?",
+      "What tools help optimize HTML white space?",
+      "How does white space collapsing improve web page loading?",
+      "What are common pitfalls with white space in HTML?",
+      "How does white space impact HTML readability?",
+      "What is the role of white space in HTML design?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming white space is preserved in HTML.",
+        "explanation": "HTML automatically collapses multiple spaces into one, which can affect layout if not understood."
+      },
+      {
+        "mistake": "Overusing non-breaking spaces to control layout.",
+        "explanation": "This can lead to inconsistent rendering across different browsers."
+      },
+      {
+        "mistake": "Ignoring the impact of white space on HTML readability.",
+        "explanation": "Properly formatted HTML with collapsed white space is easier to read and maintain."
+      }
+    ],
+    "confidence": "High",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  }
+}

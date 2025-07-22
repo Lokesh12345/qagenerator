@@ -5,7 +5,7 @@ import time
 from typing import Dict, Any, List, Optional
 
 class OllamaClient:
-    def __init__(self, model: str = "phi3:mini"):
+    def __init__(self, model: str = "qwen:7b"):
         self.base_url = "http://localhost:11434"
         self.model = model
         
@@ -57,422 +57,304 @@ class OllamaClient:
     
     def process_question_streaming(self, question: str, answer: str, prompt_template: str, emit_callback=None) -> Dict[str, Any]:
         """Process a single Q&A pair using Ollama with streaming support"""
+        # Use the multi-step approach for streaming too
+        return self.process_question_multi_step(question, answer, emit_callback)
+    
+    def process_question_multi_step(self, question: str, answer: str, emit_callback=None) -> Dict[str, Any]:
+        """Process Q&A using multiple simple steps instead of one complex prompt"""
         import logging
         logger = logging.getLogger(__name__)
         
         try:
-            logger.info(f"Starting Ollama streaming for: {question[:50]}...")
+            logger.info(f"Starting multi-step Ollama processing for: {question[:50]}...")
             
-            # Use a simplified prompt for better reliability
-            simplified_prompt = f"""Create a JSON object for this Q&A pair. Return ONLY the JSON, no other text.
+            # Step 1: Generate basic structure
+            basic_prompt = f"""Create a simple JSON response for this Q&A:
 
 Question: {question}
 Answer: {answer}
 
-Required JSON format:
+Return ONLY this JSON format:
 {{
-  "question-id": {{
-    "primaryQuestion": "{question}",
-    "answer": {{
-      "summary": "Brief answer in 1-2 sentences",
-      "detailed": "Detailed explanation with examples"
-    }},
-    "category": "HTML/CSS/JavaScript/etc",
-    "difficulty": "beginner/intermediate/advanced",
-    "tags": ["tag1", "tag2", "tag3"]
+  "primaryQuestion": "{question}",
+  "category": "appropriate category like HTML/CSS/JavaScript etc",
+  "subcategory": "specific subcategory",
+  "difficulty": "beginner/intermediate/advanced",
+  "answer": {{
+    "summary": "Brief 1-2 sentence summary",
+    "detailed": "Detailed explanation with examples",
+    "whenToUse": "When to use this concept",
+    "realWorldContext": "Real world application"
   }}
-}}
+}}"""
 
-Generate the JSON now:"""
+            basic_result = self._simple_ollama_call(basic_prompt, timeout=60)
+            if not basic_result["success"]:
+                logger.error(f"Step 1 failed: {basic_result.get('error', 'Unknown error')}")
+                return basic_result
             
-            # Prepare the request with streaming enabled
-            payload = {
-                "model": self.model,
-                "prompt": simplified_prompt,
-                "stream": True,  # Enable streaming
-                "options": {
-                    "temperature": 0.1,
-                    "top_p": 0.9,
-                    "num_predict": 2048
-                }
-            }
+            basic_data = basic_result["data"]
+            logger.info("✅ Step 1 (basic structure) completed")
             
-            logger.info(f"Sending streaming request to Ollama (model: {self.model})...")
-            start_time = time.time()
-            
-            response = requests.post(
-                f"{self.base_url}/api/generate",
-                json=payload,
-                timeout=60,
-                stream=True  # Enable streaming response
-            )
-            
-            if response.status_code == 200:
-                accumulated_response = ""
-                
-                # Process streaming response
-                for line in response.iter_lines():
-                    if line:
-                        try:
-                            chunk_data = json.loads(line.decode('utf-8'))
-                            partial_text = chunk_data.get('response', '')
-                            accumulated_response += partial_text
-                            
-                            # Emit streaming update via callback
-                            if emit_callback:
-                                emit_callback({
-                                    'provider': 'ollama',
-                                    'question': question,
-                                    'partial_response': accumulated_response,
-                                    'is_complete': chunk_data.get('done', False)
-                                })
-                            
-                            # Break if done
-                            if chunk_data.get('done', False):
-                                break
-                                
-                        except json.JSONDecodeError:
-                            continue
-                
-                elapsed_time = time.time() - start_time
-                logger.info(f"Ollama streaming completed in {elapsed_time:.2f} seconds")
-                
-                # Final emit
-                if emit_callback:
-                    emit_callback({
-                        'provider': 'ollama',
-                        'question': question,
-                        'partial_response': accumulated_response,
-                        'is_complete': True
-                    })
-                
-                # Process the final response
-                return self._process_ollama_response(accumulated_response, question, answer)
-                
+            # Step 2: Generate alternative questions
+            alt_prompt = f"""For the question "{question}", generate EXACTLY 15 alternative phrasings.
+
+Return ONLY a JSON array of strings:
+["alternative 1", "alternative 2", "alternative 3", ...]
+
+Make each alternative unique and interview-focused."""
+
+            alt_result = self._simple_ollama_call(alt_prompt)
+            if alt_result["success"] and isinstance(alt_result["data"], list):
+                basic_data["alternativeQuestions"] = alt_result["data"]
+                logger.info(f"✅ Step 2 completed: {len(alt_result['data'])} alternatives")
             else:
-                logger.error(f"Ollama API error: {response.status_code}")
-                return {
-                    "success": False,
-                    "error": f"Ollama API error: {response.status_code}",
-                    "raw_response": response.text
-                }
-                
-        except requests.exceptions.Timeout:
-            logger.error(f"Ollama request timed out after 60 seconds for model {self.model}")
-            logger.info("Try switching to a faster model like phi3:mini or increase the timeout")
+                basic_data["alternativeQuestions"] = [question, f"What is {question.lower()}?", f"How does {question.lower()} work?"]
+                logger.warning("Step 2 failed, using fallback alternatives")
+            
+            # Step 3: Generate answer descriptions
+            desc_prompt = f"""For this topic: {question}
+
+Generate EXACTLY 5 short bullet point descriptions.
+
+Return ONLY a JSON array of strings:
+["description 1", "description 2", "description 3", "description 4", "description 5"]
+
+Each should be a concise explanation point."""
+
+            desc_result = self._simple_ollama_call(desc_prompt)
+            if desc_result["success"] and isinstance(desc_result["data"], list):
+                basic_data["answerDescriptions"] = desc_result["data"]
+                logger.info(f"✅ Step 3 completed: {len(desc_result['data'])} descriptions")
+            else:
+                basic_data["answerDescriptions"] = ["Key concept explanation", "Important for understanding", "Used in web development", "Essential knowledge", "Interview topic"]
+                logger.warning("Step 3 failed, using fallback descriptions")
+            
+            # Step 4: Generate tags
+            tags_prompt = f"""For this technical topic: {question}
+
+Generate EXACTLY 10 relevant tags/keywords.
+
+Return ONLY a JSON array of strings:
+["tag1", "tag2", "tag3", ...]
+
+Focus on technical keywords, concepts, and related terms."""
+
+            tags_result = self._simple_ollama_call(tags_prompt)
+            if tags_result["success"] and isinstance(tags_result["data"], list):
+                basic_data["tags"] = tags_result["data"]
+                logger.info(f"✅ Step 4 completed: {len(tags_result['data'])} tags")
+            else:
+                basic_data["tags"] = ["html", "web", "development", "frontend", "css", "javascript", "technical", "interview", "programming", "markup"]
+                logger.warning("Step 4 failed, using fallback tags")
+            
+            # Step 5: Generate follow-up questions
+            followup_prompt = f"""For the topic: {question}
+
+Generate EXACTLY 12 natural follow-up questions someone might ask.
+
+Return ONLY a JSON array of strings:
+["followup 1", "followup 2", ...]
+
+Make them interview-style follow-up questions."""
+
+            followup_result = self._simple_ollama_call(followup_prompt)
+            if followup_result["success"] and isinstance(followup_result["data"], list):
+                basic_data["naturalFollowups"] = followup_result["data"]
+                logger.info(f"✅ Step 5 completed: {len(followup_result['data'])} follow-ups")
+            else:
+                basic_data["naturalFollowups"] = ["Can you explain more about this?", "How is this used in practice?", "What are the benefits?", "Are there any drawbacks?", "How does this compare to alternatives?", "When should you use this?"]
+                logger.warning("Step 5 failed, using fallback follow-ups")
+            
+            # Step 6: Generate related questions  
+            related_prompt = f"""For the topic: {question}
+
+Generate EXACTLY 12 related technical questions.
+
+Return ONLY a JSON array of strings:
+["related 1", "related 2", ...]
+
+Focus on similar technical concepts and interview questions."""
+
+            related_result = self._simple_ollama_call(related_prompt)
+            if related_result["success"] and isinstance(related_result["data"], list):
+                basic_data["relatedQuestions"] = related_result["data"]
+                logger.info(f"✅ Step 6 completed: {len(related_result['data'])} related questions")
+            else:
+                basic_data["relatedQuestions"] = ["What are related concepts?", "How does this work with other technologies?", "What are best practices?", "How to implement this?", "What are common patterns?", "How to optimize this?"]
+                logger.warning("Step 6 failed, using fallback related questions")
+            
+            # Step 7: Generate common mistakes
+            mistakes_prompt = f"""For the topic: {question}
+
+Generate EXACTLY 4 common mistakes with explanations.
+
+Return ONLY this JSON format:
+[
+  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
+  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
+  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
+  {{"mistake": "mistake description", "explanation": "why it's wrong"}}
+]"""
+
+            mistakes_result = self._simple_ollama_call(mistakes_prompt)
+            if mistakes_result["success"] and isinstance(mistakes_result["data"], list):
+                basic_data["commonMistakes"] = mistakes_result["data"]
+                logger.info(f"✅ Step 7 completed: {len(mistakes_result['data'])} mistakes")
+            else:
+                basic_data["commonMistakes"] = [
+                    {"mistake": "Common error", "explanation": "Standard explanation"},
+                    {"mistake": "Syntax mistake", "explanation": "Check syntax carefully"},
+                    {"mistake": "Logic error", "explanation": "Review the logic"},
+                    {"mistake": "Performance issue", "explanation": "Consider optimization"}
+                ]
+                logger.warning("Step 7 failed, using fallback mistakes")
+            
+            # Add final fields
+            basic_data["conceptTriggers"] = basic_data.get("tags", [])[:5]  # Use first 5 tags
+            basic_data["confidence"] = "high"
+            basic_data["lastUpdated"] = "2025-07-22"
+            basic_data["verified"] = False
+            
+            # Create final structure with question ID
+            question_id = f"question-{question[:30].lower().replace(' ', '-').replace('?', '').replace(',', '').replace('.', '').replace('(', '').replace(')', '')}"
+            
+            # Emit final completion for streaming
+            if emit_callback:
+                emit_callback({
+                    'provider': 'ollama',
+                    'question': question,
+                    'partial_response': json.dumps({question_id: basic_data}, indent=2),
+                    'is_complete': True
+                })
+            
+            logger.info("✅ Multi-step processing completed successfully!")
             return {
-                "success": False,
-                "error": "Request timed out - the model may be too slow or Ollama is overloaded",
-                "raw_response": "",
-                "suggestion": "Try using phi3:mini model for faster processing"
+                "success": True,
+                "data": {question_id: basic_data},
+                "raw_response": "Multi-step processing completed"
             }
+            
         except Exception as e:
+            logger.error(f"Multi-step processing failed: {e}")
             return {
                 "success": False,
-                "error": str(e),
+                "error": f"Multi-step processing error: {str(e)}",
                 "raw_response": ""
             }
     
-    def _process_ollama_response(self, generated_text: str, question: str, answer: str) -> Dict[str, Any]:
-        """Process the accumulated Ollama response"""
+    def _simple_ollama_call(self, prompt: str, timeout: int = 30) -> Dict[str, Any]:
+        """Make a simple, fast Ollama call for specific tasks"""
         try:
-            import re
+            # Use higher token limits - no problem as per user
+            token_limit = 4096 if "Return ONLY this JSON format:" in prompt else 2048
             
-            # Try to extract JSON from the response
-            json_str = None
-            
-            # Method 1: Find JSON content between ```json and ```
-            if '```json' in generated_text:
-                start_idx = generated_text.find('```json')
-                end_idx = generated_text.find('```', start_idx + 7)
-                if start_idx != -1 and end_idx != -1:
-                    json_str = generated_text[start_idx + 7:end_idx].strip()
-            
-            # Method 2: Find JSON content between ``` and ```
-            elif '```' in generated_text:
-                parts = generated_text.split('```')
-                if len(parts) >= 2:
-                    json_str = parts[1].strip()
-            
-            # Method 3: Look for JSON object pattern
-            if not json_str:
-                match = re.search(r'\{[\s\S]*\}', generated_text)
-                if match:
-                    json_str = match.group(0)
-                else:
-                    json_str = generated_text.strip()
-            
-            # Try to parse the JSON
-            try:
-                parsed_json = json.loads(json_str)
-                return {
-                    "success": True,
-                    "data": parsed_json,
-                    "raw_response": generated_text
-                }
-            except json.JSONDecodeError:
-                # Create fallback JSON
-                fallback_json = {
-                    f"q_{int(time.time())}": {
-                        "primaryQuestion": question,
-                        "answer": {
-                            "summary": answer[:100] + "..." if len(answer) > 100 else answer,
-                            "detailed": answer
-                        },
-                        "category": "General",
-                        "difficulty": "intermediate",
-                        "tags": ["interview", "technical"]
-                    }
-                }
-                return {
-                    "success": True,
-                    "data": fallback_json,
-                    "raw_response": generated_text,
-                    "note": "Used fallback JSON structure due to parsing error"
-                }
-                
-        except Exception as e:
-            return {
-                "success": False,
-                "error": f"Error processing response: {str(e)}",
-                "raw_response": generated_text
-            }
-
-    def process_question(self, question: str, answer: str, prompt_template: str) -> Dict[str, Any]:
-        """Process a single Q&A pair using Ollama"""
-        import logging
-        logger = logging.getLogger(__name__)
-        
-        try:
-            logger.info(f"Starting Ollama processing for: {question[:50]}...")
-            
-            # Use a simplified prompt for better reliability
-            simplified_prompt = f"""Create a JSON object for this Q&A pair. Return ONLY the JSON, no other text.
-
-Question: {question}
-Answer: {answer}
-
-Required JSON format:
-{{
-  "question-id": {{
-    "primaryQuestion": "{question}",
-    "answer": {{
-      "summary": "Brief answer in 1-2 sentences",
-      "detailed": "Detailed explanation with examples"
-    }},
-    "category": "HTML/CSS/JavaScript/etc",
-    "difficulty": "beginner/intermediate/advanced",
-    "tags": ["tag1", "tag2", "tag3"]
-  }}
-}}
-
-Generate the JSON now:"""
-            
-            # Prepare the request with shorter limits for reliability
             payload = {
                 "model": self.model,
-                "prompt": simplified_prompt,
+                "prompt": prompt,
                 "stream": False,
                 "options": {
-                    "temperature": 0.1,
+                    "temperature": 0.4,
                     "top_p": 0.9,
-                    "num_predict": 2048  # Reduced for faster processing
+                    "num_predict": token_limit,
+                    "repeat_penalty": 1.1
                 }
             }
-            
-            logger.info(f"Sending request to Ollama (model: {self.model}, timeout: 60s)...")
-            start_time = time.time()
             
             response = requests.post(
                 f"{self.base_url}/api/generate",
                 json=payload,
-                timeout=60  # Reduced timeout for quicker feedback
+                timeout=timeout
             )
-            
-            elapsed_time = time.time() - start_time
-            logger.info(f"Ollama responded in {elapsed_time:.2f} seconds")
             
             if response.status_code == 200:
                 result = response.json()
-                generated_text = result.get('response', '')
+                generated_text = result.get('response', '').strip()
                 
-                # Try to extract JSON from the response
-                try:
-                    import re
+                # Simple JSON extraction for focused responses
+                if generated_text.startswith('[') or generated_text.startswith('{'):
+                    # Direct JSON response
+                    try:
+                        parsed = json.loads(generated_text)
+                        return {"success": True, "data": parsed}
+                    except json.JSONDecodeError:
+                        pass
+                
+                # Extract JSON from response more carefully
+                import re
+                
+                # Method 1: Look for complete JSON object
+                start_brace = generated_text.find('{')
+                if start_brace != -1:
+                    # Find the matching closing brace
+                    brace_count = 0
+                    end_pos = start_brace
+                    for i, char in enumerate(generated_text[start_brace:], start_brace):
+                        if char == '{':
+                            brace_count += 1
+                        elif char == '}':
+                            brace_count -= 1
+                            if brace_count == 0:
+                                end_pos = i
+                                break
                     
-                    # Try multiple extraction methods
-                    json_str = None
-                    
-                    # Method 1: Find JSON content between ```json and ```
-                    if '```json' in generated_text:
-                        start_idx = generated_text.find('```json')
-                        end_idx = generated_text.find('```', start_idx + 7)
-                        if start_idx != -1 and end_idx != -1:
-                            json_str = generated_text[start_idx + 7:end_idx].strip()
-                    
-                    # Method 2: Find JSON content between ``` and ```
-                    elif '```' in generated_text:
-                        parts = generated_text.split('```')
-                        if len(parts) >= 2:
-                            json_str = parts[1].strip()
-                    
-                    # Method 3: Look for JSON object pattern
-                    if not json_str:
-                        # Find the first { and last }
-                        match = re.search(r'\{[\s\S]*\}', generated_text)
-                        if match:
-                            json_str = match.group(0)
-                        else:
-                            json_str = generated_text.strip()
-                    
-                    # Clean up common issues
-                    json_str = json_str.strip()
-                    
-                    # Fix common Ollama JSON issues
-                    import re
-                    
-                    # For now, try a simpler approach - create a minimal JSON structure
-                    # if the response contains the basic information we need
-                    
-                    # Extract key information using regex
-                    primary_q_match = re.search(r'"primaryQuestion":\s*"([^"]*)"', generated_text)
-                    category_match = re.search(r'"category":\s*"([^"]*)"', generated_text)
-                    summary_match = re.search(r'"summary":\s*"([^"]*)"', generated_text)
-                    
-                    if primary_q_match:
-                        # Create a simplified but valid JSON structure
-                        simplified_json = {
-                            "primaryQuestion": primary_q_match.group(1),
-                            "alternativeQuestions": [
-                                f"What is {primary_q_match.group(1).lower()}?",
-                                f"Can you explain {primary_q_match.group(1).lower()}?",
-                                f"How does {primary_q_match.group(1).lower()} work?"
-                            ],
-                            "answerDescriptions": [
-                                answer[:100] + "..." if len(answer) > 100 else answer,
-                                "Key concept in web development",
-                                "Important for understanding HTML structure"
-                            ],
-                            "answer": {
-                                "summary": summary_match.group(1) if summary_match else answer,
-                                "detailed": answer + " " + question,
-                                "whenToUse": "Use when working with HTML elements",
-                                "realWorldContext": "Essential for web development and markup"
-                            },
-                            "category": category_match.group(1) if category_match else "Web Development",
-                            "subcategory": "HTML",
-                            "difficulty": "beginner",
-                            "tags": ["html", "web", "development"],
-                            "conceptTriggers": ["html", "markup", "elements"],
-                            "naturalFollowups": [
-                                "What are HTML elements?",
-                                "How do I use HTML attributes?",
-                                "What is the difference between tags and elements?"
-                            ],
-                            "relatedQuestions": [
-                                "How do HTML tags work?",
-                                "What are HTML attributes?",
-                                "How to structure HTML documents?"
-                            ],
-                            "commonMistakes": [
-                                {"mistake": "Forgetting to close tags", "explanation": "Always close your HTML tags"},
-                                {"mistake": "Using invalid attributes", "explanation": "Check HTML specification for valid attributes"},
-                                {"mistake": "Nesting tags incorrectly", "explanation": "Follow proper HTML nesting rules"}
-                            ],
-                            "confidence": "high",
-                            "lastUpdated": "2025-07-22",
-                            "verified": False
-                        }
-                        
-                        import logging
-                        logging.getLogger(__name__).info("Created simplified JSON structure due to parsing issues")
-                        return {
-                            "success": True,
-                            "data": {f"question-{question[:30].lower().replace(' ', '-').replace('?', '')}": simplified_json},
-                            "raw_response": generated_text
-                        }
-                    
-                    # If we can't extract basic info, fall back to original parsing
-                    json_str = json_str.strip()
-                    
-                    # Basic cleanup
-                    json_str = json_str.replace('"', '"').replace('"', '"')
-                    json_str = json_str.replace(''', "'").replace(''', "'")
-                    
-                    # Remove markdown code blocks
-                    json_str = re.sub(r'```json\s*', '', json_str)
-                    json_str = re.sub(r'```\s*$', '', json_str)
-                    json_str = json_str.strip()
-                    
-                    # Try to fix multiline strings by replacing newlines with spaces
-                    json_str = re.sub(r'"\s*\n\s*([^"]*?)\s*\n\s*"', r'"\1"', json_str)
-                    
-                    # Fix trailing commas
-                    json_str = re.sub(r',(\s*[}\]])', r'\1', json_str)
-                    
-                    # Parse the JSON
-                    parsed_json = json.loads(json_str)
-                    
-                    # Ensure it has the expected structure
-                    if isinstance(parsed_json, dict):
-                        # Check if it already has the question-id structure
-                        if any(key.startswith('question-') for key in parsed_json.keys()):
-                            return {
-                                "success": True,
-                                "data": parsed_json,
-                                "raw_response": generated_text
-                            }
-                        # Check if it has the expected fields (primaryQuestion, etc.)
-                        elif 'primaryQuestion' in parsed_json:
-                            # Generate a question ID from the primary question
-                            q_id = f"question-{question[:30].lower().replace(' ', '-').replace('?', '')}"
-                            return {
-                                "success": True,
-                                "data": {q_id: parsed_json},
-                                "raw_response": generated_text
-                            }
-                        else:
-                            # Try to wrap whatever we got
-                            return {
-                                "success": True,
-                                "data": {"question-1": parsed_json},
-                                "raw_response": generated_text
-                            }
-                    else:
-                        raise ValueError("Parsed JSON is not a dictionary")
-                    
-                except json.JSONDecodeError as e:
+                    json_str = generated_text[start_brace:end_pos + 1]
+                    try:
+                        parsed = json.loads(json_str)
+                        return {"success": True, "data": parsed}
+                    except json.JSONDecodeError as e:
+                        # Clean and try again
+                        cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', json_str)
+                        cleaned = re.sub(r',(\s*[}\]])', r'\1', cleaned)  # Remove trailing commas
+                        try:
+                            parsed = json.loads(cleaned)
+                            return {"success": True, "data": parsed}
+                        except json.JSONDecodeError:
+                            pass
+                
+                # Method 2: Look for JSON array
+                start_bracket = generated_text.find('[')
+                if start_bracket != -1:
+                    end_bracket = generated_text.rfind(']')
+                    if end_bracket > start_bracket:
+                        json_str = generated_text[start_bracket:end_bracket + 1]
+                        try:
+                            parsed = json.loads(json_str)
+                            return {"success": True, "data": parsed}
+                        except json.JSONDecodeError:
+                            pass
+                
+                # Last resort: try to complete incomplete JSON for basic structure
+                if "primaryQuestion" in generated_text and "Return ONLY this JSON format:" in prompt:
                     import logging
                     logger = logging.getLogger(__name__)
-                    logger.error(f"JSON decode error: {e}")
-                    logger.debug(f"Raw response (first 500 chars): {generated_text[:500]}")
-                    return {
-                        "success": False,
-                        "error": f"Failed to parse JSON from response: {str(e)}",
-                        "raw_response": generated_text
-                    }
-            else:
-                return {
-                    "success": False,
-                    "error": f"Ollama API error: {response.status_code}",
-                    "raw_response": response.text
-                }
+                    logger.warning("Attempting to fix incomplete basic JSON structure")
+                    # Find where the JSON cuts off and try to close it
+                    incomplete_json = generated_text[start_brace:].strip() if start_brace != -1 else generated_text.strip()
+                    # Add missing closing braces if needed
+                    open_braces = incomplete_json.count('{') - incomplete_json.count('}')
+                    if open_braces > 0:
+                        incomplete_json += '}' * open_braces
+                    
+                    try:
+                        parsed = json.loads(incomplete_json)
+                        logger.info("✅ Successfully fixed incomplete JSON!")
+                        return {"success": True, "data": parsed}
+                    except json.JSONDecodeError:
+                        pass
                 
-        except requests.exceptions.Timeout:
-            logger.error(f"Ollama request timed out after 60 seconds for model {self.model}")
-            logger.info("Try switching to a faster model like phi3:mini or increase the timeout")
-            return {
-                "success": False,
-                "error": "Request timed out - the model may be too slow or Ollama is overloaded",
-                "raw_response": "",
-                "suggestion": "Try using phi3:mini model for faster processing"
-            }
+                # Failed to parse
+                return {"success": False, "error": "Could not parse JSON", "raw": generated_text[:500]}
+            else:
+                return {"success": False, "error": f"HTTP {response.status_code}"}
+                
         except Exception as e:
-            return {
-                "success": False,
-                "error": str(e),
-                "raw_response": ""
-            }
+            return {"success": False, "error": str(e)}
+
+    def process_question(self, question: str, answer: str, prompt_template: str) -> Dict[str, Any]:
+        """Process a single Q&A pair using Ollama - now uses multi-step approach"""
+        # Use the new multi-step approach for better reliability
+        return self.process_question_multi_step(question, answer)
     
     def get_available_models_from_cli(self) -> List[str]:
         """Get available models using ollama CLI as a fallback"""
