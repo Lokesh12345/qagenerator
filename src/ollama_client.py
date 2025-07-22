@@ -68,25 +68,29 @@ class OllamaClient:
         try:
             logger.info(f"Starting multi-step Ollama processing for: {question[:50]}...")
             
-            # Step 1: Generate basic structure
-            basic_prompt = f"""Create a simple JSON response for this Q&A:
+            # Step 1: Generate basic structure following strict format
+            basic_prompt = f"""You are a highly structured, rule-based data-generation assistant.
+
+Generate the basic structure for this Q&A following STRICT formatting rules:
 
 Question: {question}
 Answer: {answer}
 
-Return ONLY this JSON format:
+Return ONLY this JSON format with NO markdown, NO wrapping, NO commentary:
 {{
   "primaryQuestion": "{question}",
-  "category": "appropriate category like HTML/CSS/JavaScript etc",
-  "subcategory": "specific subcategory",
-  "difficulty": "beginner/intermediate/advanced",
+  "category": "single word like HTML, CSS, JavaScript, Angular, etc",
+  "subcategory": "specific subcategory like Layout, Forms, Events",
+  "difficulty": "beginner",
   "answer": {{
-    "summary": "Brief 1-2 sentence summary",
-    "detailed": "Detailed explanation with examples",
-    "whenToUse": "When to use this concept",
-    "realWorldContext": "Real world application"
+    "summary": "1-2 sentence plain summary of the concept",
+    "detailed": "Detailed explanation following programming format rules if applicable",
+    "whenToUse": "1-2 lines on when this is practically applied", 
+    "realWorldContext": "Short real-world use case or example scenario"
   }}
-}}"""
+}}
+
+CRITICAL: Use double quotes only, no nested objects except in answer section."""
 
             basic_result = self._simple_ollama_call(basic_prompt, timeout=60)
             if not basic_result["success"]:
@@ -96,13 +100,18 @@ Return ONLY this JSON format:
             basic_data = basic_result["data"]
             logger.info("✅ Step 1 (basic structure) completed")
             
-            # Step 2: Generate alternative questions
-            alt_prompt = f"""For the question "{question}", generate EXACTLY 15 alternative phrasings.
+            # Step 2: Generate alternative questions following strict format
+            alt_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Return ONLY a JSON array of strings:
-["alternative 1", "alternative 2", "alternative 3", ...]
+For the question "{question}", generate EXACTLY 15-20 alternative phrasings following STRICT rules.
 
-Make each alternative unique and interview-focused."""
+REQUIRED: Return ONLY a JSON array of simple double-quoted strings - NO nested objects, NO markdown:
+["alternative question 1", "alternative question 2", "alternative question 3", ...]
+
+CORRECT FORMAT: Simple strings in array
+WRONG FORMAT: Objects with "question" key
+
+Make each alternative unique, interview-focused, and clearly different phrasing."""
 
             alt_result = self._simple_ollama_call(alt_prompt)
             if alt_result["success"] and isinstance(alt_result["data"], list):
@@ -112,90 +121,119 @@ Make each alternative unique and interview-focused."""
                 basic_data["alternativeQuestions"] = [question, f"What is {question.lower()}?", f"How does {question.lower()} work?"]
                 logger.warning("Step 2 failed, using fallback alternatives")
             
-            # Step 3: Generate answer descriptions
-            desc_prompt = f"""For this topic: {question}
+            # Step 3: Generate answer descriptions following strict format  
+            desc_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Generate EXACTLY 5 short bullet point descriptions.
+For this topic: {question}
 
-Return ONLY a JSON array of strings:
-["description 1", "description 2", "description 3", "description 4", "description 5"]
+Generate EXACTLY 5 clear, standalone one-line bullets following STRICT rules.
 
-Each should be a concise explanation point."""
+REQUIRED: Return ONLY a JSON array of simple double-quoted strings:
+["bullet point 1", "bullet point 2", "bullet point 3", "bullet point 4", "bullet point 5"]
+
+CORRECT: Clear standalone explanations, no numbered lists
+WRONG: Numbered bullets, incomplete sentences, nested objects
+
+Each bullet should be concise but complete explanation."""
 
             desc_result = self._simple_ollama_call(desc_prompt)
             if desc_result["success"] and isinstance(desc_result["data"], list):
                 basic_data["answerDescriptions"] = desc_result["data"]
                 logger.info(f"✅ Step 3 completed: {len(desc_result['data'])} descriptions")
             else:
-                basic_data["answerDescriptions"] = ["Key concept explanation", "Important for understanding", "Used in web development", "Essential knowledge", "Interview topic"]
+                basic_data["answerDescriptions"] = ["Fundamental web development concept", "Essential for creating structured content", "Used in all modern web applications", "Required knowledge for frontend developers", "Common topic in technical interviews"]
                 logger.warning("Step 3 failed, using fallback descriptions")
             
-            # Step 4: Generate tags
-            tags_prompt = f"""For this technical topic: {question}
+            # Step 4: Generate tags following strict format
+            category = basic_data.get("category", "").lower()
+            tags_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Generate EXACTLY 10 relevant tags/keywords.
+For this technical topic: {question}
+Category: {category}
 
-Return ONLY a JSON array of strings:
+Generate EXACTLY 8-12 highly relevant keywords following STRICT rules.
+
+REQUIRED: Return ONLY a JSON array of simple double-quoted strings:
 ["tag1", "tag2", "tag3", ...]
 
-Focus on technical keywords, concepts, and related terms."""
+CRITICAL RULE: If category is HTML-only, DO NOT include CSS terms like "styling", "layout", "design"
+CORRECT: Focus on technical keywords directly related to the specific category
+WRONG: Mixing CSS terms in HTML questions, generic terms
+
+Focus on precise technical keywords and concepts."""
 
             tags_result = self._simple_ollama_call(tags_prompt)
             if tags_result["success"] and isinstance(tags_result["data"], list):
                 basic_data["tags"] = tags_result["data"]
                 logger.info(f"✅ Step 4 completed: {len(tags_result['data'])} tags")
             else:
-                basic_data["tags"] = ["html", "web", "development", "frontend", "css", "javascript", "technical", "interview", "programming", "markup"]
+                basic_data["tags"] = ["html", "web-development", "frontend", "markup", "elements", "attributes", "semantic", "structure", "technical-interview", "programming"]
                 logger.warning("Step 4 failed, using fallback tags")
             
-            # Step 5: Generate follow-up questions
-            followup_prompt = f"""For the topic: {question}
+            # Step 5: Generate follow-up questions following strict format
+            followup_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Generate EXACTLY 12 natural follow-up questions someone might ask.
+For the topic: {question}
 
-Return ONLY a JSON array of strings:
-["followup 1", "followup 2", ...]
+Generate EXACTLY 10-15 natural follow-up interview questions following STRICT rules.
 
-Make them interview-style follow-up questions."""
+REQUIRED: Return ONLY a JSON array of simple double-quoted strings:
+["followup question 1", "followup question 2", ...]
+
+CORRECT: Interview-style questions that naturally follow from the main topic
+WRONG: Nested objects, generic questions, non-interview format
+
+Make them specific, technical follow-up questions an interviewer would ask."""
 
             followup_result = self._simple_ollama_call(followup_prompt)
             if followup_result["success"] and isinstance(followup_result["data"], list):
                 basic_data["naturalFollowups"] = followup_result["data"]
                 logger.info(f"✅ Step 5 completed: {len(followup_result['data'])} follow-ups")
             else:
-                basic_data["naturalFollowups"] = ["Can you explain more about this?", "How is this used in practice?", "What are the benefits?", "Are there any drawbacks?", "How does this compare to alternatives?", "When should you use this?"]
+                basic_data["naturalFollowups"] = ["Can you provide a practical example of implementing this?", "How does this concept integrate with modern web frameworks?", "What are the performance implications of using this approach?", "How would you explain this to a junior developer?", "What are common pitfalls when working with this concept?", "How does this relate to accessibility standards?"]
                 logger.warning("Step 5 failed, using fallback follow-ups")
             
-            # Step 6: Generate related questions  
-            related_prompt = f"""For the topic: {question}
+            # Step 6: Generate related questions following strict format
+            related_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Generate EXACTLY 12 related technical questions.
+For the topic: {question}
 
-Return ONLY a JSON array of strings:
-["related 1", "related 2", ...]
+Generate EXACTLY 10-15 related technical interview questions following STRICT rules.
 
-Focus on similar technical concepts and interview questions."""
+REQUIRED: Return ONLY a JSON array of simple double-quoted strings:
+["related question 1", "related question 2", ...]
+
+CORRECT: Similar technical concepts, associated interview questions
+WRONG: Nested objects, unrelated topics, non-technical questions
+
+Focus on similar technical concepts and related interview topics."""
 
             related_result = self._simple_ollama_call(related_prompt)
             if related_result["success"] and isinstance(related_result["data"], list):
                 basic_data["relatedQuestions"] = related_result["data"]
                 logger.info(f"✅ Step 6 completed: {len(related_result['data'])} related questions")
             else:
-                basic_data["relatedQuestions"] = ["What are related concepts?", "How does this work with other technologies?", "What are best practices?", "How to implement this?", "What are common patterns?", "How to optimize this?"]
+                basic_data["relatedQuestions"] = ["How do semantic HTML elements improve accessibility?", "What is the difference between block and inline elements?", "How does HTML validation affect browser rendering?", "What are the best practices for HTML document structure?", "How do HTML attributes enhance element functionality?", "What is the role of DOCTYPE in HTML documents?"]
                 logger.warning("Step 6 failed, using fallback related questions")
             
-            # Step 7: Generate common mistakes
-            mistakes_prompt = f"""For the topic: {question}
+            # Step 7: Generate common mistakes following strict format
+            mistakes_prompt = f"""You are a highly structured, rule-based data-generation assistant.
 
-Generate EXACTLY 4 common mistakes with explanations.
+For the topic: {question}
 
-Return ONLY this JSON format:
+Generate EXACTLY 3-5 common real-world mistakes with explanations following STRICT rules.
+
+REQUIRED: Return ONLY this JSON format - NO markdown, NO wrapping:
 [
-  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
-  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
-  {{"mistake": "mistake description", "explanation": "why it's wrong"}},
-  {{"mistake": "mistake description", "explanation": "why it's wrong"}}
-]"""
+  {{"mistake": "brief real-world mistake description", "explanation": "how to fix or avoid it"}},
+  {{"mistake": "specific technical error", "explanation": "detailed solution"}},
+  {{"mistake": "practical implementation mistake", "explanation": "best practice guidance"}}
+]
+
+CRITICAL: NO placeholder values like "Common error" or "Standard explanation"
+CORRECT: Real, specific mistakes developers actually make
+
+Focus on genuine, practical mistakes with actionable solutions."""
 
             mistakes_result = self._simple_ollama_call(mistakes_prompt)
             if mistakes_result["success"] and isinstance(mistakes_result["data"], list):
@@ -203,15 +241,16 @@ Return ONLY this JSON format:
                 logger.info(f"✅ Step 7 completed: {len(mistakes_result['data'])} mistakes")
             else:
                 basic_data["commonMistakes"] = [
-                    {"mistake": "Common error", "explanation": "Standard explanation"},
-                    {"mistake": "Syntax mistake", "explanation": "Check syntax carefully"},
-                    {"mistake": "Logic error", "explanation": "Review the logic"},
-                    {"mistake": "Performance issue", "explanation": "Consider optimization"}
+                    {"mistake": "Not properly closing HTML tags", "explanation": "Always ensure every opening tag has a matching closing tag to prevent layout issues"},
+                    {"mistake": "Using incorrect attribute syntax", "explanation": "Use proper attribute format with quotes and valid values"},
+                    {"mistake": "Missing required attributes", "explanation": "Include all necessary attributes for proper functionality and accessibility"},
+                    {"mistake": "Improper nesting of elements", "explanation": "Follow HTML hierarchy rules and avoid invalid parent-child relationships"}
                 ]
                 logger.warning("Step 7 failed, using fallback mistakes")
             
-            # Add final fields
-            basic_data["conceptTriggers"] = basic_data.get("tags", [])[:5]  # Use first 5 tags
+            # Add final fields following strict format requirements
+            concept_triggers = basic_data.get("tags", [])[:5] if basic_data.get("tags") else ["concept1", "concept2", "concept3", "concept4", "concept5"]
+            basic_data["conceptTriggers"] = concept_triggers
             basic_data["confidence"] = "high"
             basic_data["lastUpdated"] = "2025-07-22"
             basic_data["verified"] = False
