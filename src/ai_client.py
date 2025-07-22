@@ -1,5 +1,5 @@
 """
-Clean AI Client supporting OpenAI and Claude for Q&A processing
+Clean AI Client supporting OpenAI, Claude, and Ollama for Q&A processing
 """
 import os
 import json
@@ -9,6 +9,7 @@ import requests
 from datetime import datetime
 from dotenv import load_dotenv
 from .cache_manager import get_cache
+from .ollama_client import OllamaClient
 
 # Load environment variables from .env file
 load_dotenv()
@@ -16,17 +17,22 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 class AIClient:
-    def __init__(self, provider: str = "openai", model: str = None):
+    def __init__(self, provider: str = "ollama", model: str = None):
         self.provider = provider.lower()
         self.model = model or self._get_default_model()
         
-        # Only support OpenAI and Claude
-        if self.provider not in ['openai', 'claude']:
-            raise ValueError(f"Unsupported provider: {self.provider}. Only 'openai' and 'claude' are supported.")
+        # Support OpenAI, Claude, and Ollama
+        if self.provider not in ['openai', 'claude', 'ollama']:
+            raise ValueError(f"Unsupported provider: {self.provider}. Only 'openai', 'claude', and 'ollama' are supported.")
         
         # Load API keys from environment
         self.openai_key = os.getenv('OPENAI_API_KEY')
         self.claude_key = os.getenv('ANTHROPIC_API_KEY')
+        
+        # Initialize Ollama client if needed
+        self.ollama_client = None
+        if self.provider == "ollama":
+            self.ollama_client = OllamaClient(model=self.model)
         
         # Load prompt template
         self.prompt_template = self._load_prompt_template()
@@ -38,14 +44,20 @@ class AIClient:
             raise ValueError("OpenAI API key not found. Set OPENAI_API_KEY environment variable.")
         elif self.provider == "claude" and not self.claude_key:
             raise ValueError("Claude API key not found. Set ANTHROPIC_API_KEY environment variable.")
+        elif self.provider == "ollama":
+            # Test Ollama connection
+            test_result = self.ollama_client.test_connection()
+            if test_result["status"] != "connected":
+                raise ValueError(f"Ollama connection failed: {test_result['message']}")
     
     def _get_default_model(self):
         """Get default model for each provider"""
         defaults = {
             "openai": "gpt-4o-mini",
-            "claude": "claude-3-5-haiku-20241022"
+            "claude": "claude-3-5-haiku-20241022",
+            "ollama": "qwen:7b"
         }
-        return defaults.get(self.provider, "gpt-4o-mini")
+        return defaults.get(self.provider, "qwen:7b")
     
     def _load_prompt_template(self):
         """Load the prompt template from file"""
@@ -99,6 +111,9 @@ Generate a comprehensive answer and convert into the required JSON format. Creat
                 result = self._call_openai(full_prompt, qa_id)
             elif self.provider == "claude":
                 result = self._call_claude(full_prompt, qa_id)
+            elif self.provider == "ollama":
+                # For Ollama, when no answer is provided, pass empty string
+                result = self._call_ollama(question, "", qa_id)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -141,6 +156,8 @@ Convert this into the required JSON format."""
                 result = self._call_openai(full_prompt, qa_id)
             elif self.provider == "claude":
                 result = self._call_claude(full_prompt, qa_id)
+            elif self.provider == "ollama":
+                result = self._call_ollama(question, "", qa_id)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -284,6 +301,19 @@ Convert this into the required JSON format."""
         """Generate ID from question"""
         return question[:30].lower().replace(' ', '-').replace('?', '').replace(',', '').replace('.', '')
     
+    def _call_ollama(self, question: str, answer: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
+        """Call Ollama API"""
+        try:
+            result = self.ollama_client.process_question(question, answer, self.prompt_template)
+            if result["success"]:
+                return result["data"]
+            else:
+                logger.error(f"Ollama processing failed: {result.get('error', 'Unknown error')}")
+                return None
+        except Exception as e:
+            logger.error(f"Ollama call failed: {e}")
+            return None
+    
     def test_connection(self) -> bool:
         """Test if the AI service is available"""
         try:
@@ -291,6 +321,9 @@ Convert this into the required JSON format."""
                 return bool(self.openai_key)
             elif self.provider == "claude":
                 return bool(self.claude_key)
+            elif self.provider == "ollama":
+                test_result = self.ollama_client.test_connection()
+                return test_result["status"] == "connected"
             return False
         except Exception:
             return False
@@ -312,6 +345,10 @@ Convert this into the required JSON format."""
                 "claude-3-sonnet-20240229",
                 "claude-3-haiku-20240307"
             ]
+        elif self.provider == "ollama":
+            # Get dynamically from Ollama
+            models = self.ollama_client.list_models()
+            return [model['name'] for model in models]
         return []
     
     def get_cache_stats(self) -> Dict[str, Any]:

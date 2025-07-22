@@ -89,10 +89,12 @@ python test_preview_fix.py
 The `AIClient` class provides:
 - Support for OpenAI models: gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo
 - Support for Claude models: claude-3-5-sonnet, claude-3-5-haiku, claude-3-opus, claude-3-sonnet, claude-3-haiku
-- Default models: OpenAI (gpt-4o-mini), Claude (claude-3-5-haiku-20241022)
+- Support for Ollama models: dynamically detected from local installation
+- Default models: OpenAI (gpt-4o-mini), Claude (claude-3-5-haiku-20241022), Ollama (phi3:mini)
 - Automatic caching with intelligent similarity matching
-- Cost estimation and cache statistics
+- Cost estimation and cache statistics (free for Ollama)
 - Fallback prompt templates
+- Robust JSON parsing for local models
 
 ### Caching Intelligence
 
@@ -122,7 +124,11 @@ The caching system features:
 
 ## Troubleshooting
 
-- **AI Connection**: Ensure API keys are set: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
+- **AI Connection**: Ensure API keys are set: `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`, or Ollama is running for local models
+- **Ollama Issues**: 
+  - Ensure Ollama is running: `ollama serve`
+  - Check available models: `ollama list`
+  - Install models if needed: `ollama pull phi3:mini`
 - **Port Conflicts**: Use `start_app.py` to auto-find free ports
 - **Cache Issues**: Check `cache/` directory permissions and file corruption
 - **Scraping Issues**: Verify network connectivity and website structure changes

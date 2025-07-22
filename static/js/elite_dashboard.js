@@ -726,15 +726,52 @@ class EliteDashboard {
         `;
     }
 
-    loadAiProviders() {
-        // Load available providers and models
-        const providers = {
-            openai: ['gpt-4o', 'gpt-4o-mini', 'gpt-4-turbo'],
-            claude: ['claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022']
-        };
-        
-        this.aiProviders = providers;
-        this.updateModelOptions();
+    async loadAiProviders() {
+        try {
+            const response = await fetch('/api/ai-providers');
+            const data = await response.json();
+            
+            this.aiProviders = {};
+            const providerSelect = document.getElementById('aiProvider');
+            
+            // Store provider models
+            Object.entries(data.providers).forEach(([key, provider]) => {
+                this.aiProviders[key] = provider.models;
+                
+                // Update provider select option text if needed
+                const option = providerSelect.querySelector(`option[value="${key}"]`);
+                if (option) {
+                    if (provider.available === false && provider.message) {
+                        option.textContent = `${provider.name} (${provider.message})`;
+                        option.disabled = true;
+                    } else {
+                        option.textContent = provider.name;
+                        option.disabled = false;
+                    }
+                }
+            });
+            
+            // Set current provider if available
+            if (data.current.provider && data.current.model) {
+                providerSelect.value = data.current.provider;
+                this.updateModelOptions();
+                document.getElementById('aiModel').value = data.current.model;
+            } else {
+                this.updateModelOptions();
+            }
+            
+        } catch (error) {
+            console.error('Failed to load AI providers:', error);
+            // Fallback to hardcoded providers
+            this.aiProviders = {
+                openai: ['gpt-4o', 'gpt-4o-mini', 'gpt-4-turbo'],
+                claude: ['claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022'],
+                ollama: ['qwen:7b', 'phi3:mini']
+            };
+            // Set default provider to ollama
+            document.getElementById('aiProvider').value = 'ollama';
+            this.updateModelOptions();
+        }
     }
 
     updateModelOptions() {

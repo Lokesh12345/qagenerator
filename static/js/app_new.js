@@ -553,12 +553,36 @@ class ModernQAGenerator {
     }
 
     async loadAiProviders() {
-        // This method loads available AI providers and models
-        this.aiProviders = {
-            openai: ['gpt-4o', 'gpt-4o-mini', 'gpt-4-turbo'],
-            claude: ['claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022']
-        };
-        this.updateModelOptions();
+        try {
+            const response = await fetch('/api/ai-providers');
+            const data = await response.json();
+            
+            this.aiProviders = {};
+            
+            // Store provider models
+            Object.entries(data.providers).forEach(([key, provider]) => {
+                this.aiProviders[key] = provider.models;
+            });
+            
+            // Set current provider if available
+            if (data.current.provider && data.current.model) {
+                document.getElementById('aiProvider').value = data.current.provider;
+                this.updateModelOptions();
+                document.getElementById('aiModel').value = data.current.model;
+            } else {
+                this.updateModelOptions();
+            }
+            
+        } catch (error) {
+            console.error('Failed to load AI providers:', error);
+            // Fallback to hardcoded providers
+            this.aiProviders = {
+                openai: ['gpt-4o', 'gpt-4o-mini', 'gpt-4-turbo'],
+                claude: ['claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022'],
+                ollama: ['phi3:mini', 'qwen:7b']
+            };
+            this.updateModelOptions();
+        }
     }
 
     updateModelOptions() {

@@ -120,8 +120,28 @@ def get_ai_providers():
                 'claude-3-haiku-20240307'
             ],
             'default': 'claude-3-5-haiku-20241022'
+        },
+        'ollama': {
+            'name': 'Ollama (Local)',
+            'models': [],  # Will be populated dynamically
+            'default': 'qwen:7b'
         }
     }
+    
+    # Get Ollama models dynamically if available
+    try:
+        from src.ollama_client import OllamaClient
+        ollama_client = OllamaClient()
+        ollama_models = ollama_client.list_models()
+        if ollama_models:
+            providers['ollama']['models'] = [model['name'] for model in ollama_models]
+            providers['ollama']['available'] = True
+        else:
+            providers['ollama']['available'] = False
+            providers['ollama']['message'] = 'Ollama is not running or has no models'
+    except Exception as e:
+        providers['ollama']['available'] = False
+        providers['ollama']['message'] = f'Cannot connect to Ollama: {str(e)}'
     
     return jsonify({
         'providers': providers,
@@ -196,8 +216,11 @@ def start_scraping():
     # Ensure we have an AI client
     global current_ai_client
     if not current_ai_client:
-        # Default to OpenAI
-        current_ai_client = AIClient(provider='openai')
+        # Default to Ollama, fallback to OpenAI
+        try:
+            current_ai_client = AIClient(provider='ollama', model='qwen:7b')
+        except:
+            current_ai_client = AIClient(provider='openai')
     
     data = request.json
     
@@ -955,30 +978,37 @@ def find_free_port(start_port=8080):
 
 if __name__ == '__main__':
     logger.info("Starting Q&A Generator Web App...")
-    logger.info("AI providers: OpenAI, Claude")
-    logger.info("Set your API keys: OPENAI_API_KEY, ANTHROPIC_API_KEY")
+    logger.info("AI providers: Ollama (preferred), OpenAI, Claude")
+    logger.info("For local processing: Ensure Ollama is running with models")
+    logger.info("For API processing: Set OPENAI_API_KEY or ANTHROPIC_API_KEY")
     
-    # Try to initialize with available provider
-    openai_key = os.getenv('OPENAI_API_KEY')
-    claude_key = os.getenv('ANTHROPIC_API_KEY')
-    
-    if openai_key:
-        try:
-            current_ai_client = AIClient(provider='openai')
-            logger.info("✅ Initialized with OpenAI")
-        except Exception as e:
-            logger.warning(f"OpenAI initialization failed: {e}")
+    # Try to initialize with available provider - prioritize Ollama first
+    try:
+        current_ai_client = AIClient(provider='ollama', model='qwen:7b')
+        logger.info("✅ Initialized with Ollama (qwen:7b)")
+    except Exception as e:
+        logger.warning(f"Ollama initialization failed: {e}")
+        # Fallback to API providers
+        openai_key = os.getenv('OPENAI_API_KEY')
+        claude_key = os.getenv('ANTHROPIC_API_KEY')
+        
+        if openai_key:
+            try:
+                current_ai_client = AIClient(provider='openai')
+                logger.info("✅ Initialized with OpenAI")
+            except Exception as e:
+                logger.warning(f"OpenAI initialization failed: {e}")
+                current_ai_client = None
+        elif claude_key:
+            try:
+                current_ai_client = AIClient(provider='claude')
+                logger.info("✅ Initialized with Claude")
+            except Exception as e:
+                logger.warning(f"Claude initialization failed: {e}")
+                current_ai_client = None
+        else:
+            logger.warning("⚠️  No AI providers available. Install Ollama or set OPENAI_API_KEY/ANTHROPIC_API_KEY")
             current_ai_client = None
-    elif claude_key:
-        try:
-            current_ai_client = AIClient(provider='claude')
-            logger.info("✅ Initialized with Claude")
-        except Exception as e:
-            logger.warning(f"Claude initialization failed: {e}")
-            current_ai_client = None
-    else:
-        logger.warning("⚠️  No API keys found. Please set OPENAI_API_KEY or ANTHROPIC_API_KEY")
-        current_ai_client = None
     
     # Find available port
     port = find_free_port()
