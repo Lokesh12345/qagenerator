@@ -198,7 +198,8 @@
                         <option value="ollama" selected>Ollama (Local)</option>
                     </select>
                     <select class="w-full text-xs px-2 py-1.5 border border-gray-200 rounded-md" id="aiModel">
-                        <option value="qwen:7b">qwen:7b</option>
+                        <option value="phi3:mini" selected>phi3:mini (faster)</option>
+                        <option value="qwen:7b">qwen:7b (larger model)</option>
                     </select>
                     <button class="w-full bg-gray-100 text-gray-700 text-xs py-1.5 px-3 rounded-md hover:bg-gray-200 transition-colors" id="saveAiProvider">
                         Save & Test
@@ -332,6 +333,36 @@
                             <div class="text-lg font-bold text-red-700" id="errorCount">0</div>
                             <div class="text-xs text-red-600">Errors</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Live AI Response Preview (Ollama only) -->
+            <div class="glass-card rounded-lg shadow-soft" id="livePreviewCard" style="display: none;">
+                <div class="p-3 border-b border-gray-200/50">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-semibold text-gray-800">Live AI Response</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-700" id="streamingStatus">
+                                <i class="fas fa-circle animate-pulse mr-1"></i>Streaming
+                            </span>
+                            <button class="text-xs text-gray-400 hover:text-gray-600" id="clearPreviewBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="text-xs text-gray-600 mb-2">
+                        <i class="fas fa-robot mr-1"></i>Ollama is generating response...
+                    </div>
+                    <textarea class="w-full h-32 text-xs font-mono bg-gray-50 border border-gray-200 rounded-md p-2 resize-none" 
+                              id="livePreviewText" 
+                              placeholder="AI response will appear here as it's being generated..."
+                              readonly></textarea>
+                    <div class="mt-2 flex items-center justify-between text-xs text-gray-500">
+                        <span>Processing: <span id="currentQuestionPreview">-</span></span>
+                        <span><span id="responseLength">0</span> characters</span>
                     </div>
                 </div>
             </div>

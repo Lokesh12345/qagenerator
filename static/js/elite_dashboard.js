@@ -109,6 +109,11 @@ class EliteDashboard {
         document.getElementById('refreshCacheStats').addEventListener('click', () => {
             this.refreshCacheStats();
         });
+
+        // Live preview controls
+        document.getElementById('clearPreviewBtn').addEventListener('click', () => {
+            this.clearLivePreview();
+        });
         
     }
 
@@ -139,6 +144,10 @@ class EliteDashboard {
 
         this.socket.on('processing_step', (data) => {
             this.handleProcessingStep(data);
+        });
+
+        this.socket.on('ai_streaming', (data) => {
+            this.handleAiStreaming(data);
         });
     }
 
@@ -486,6 +495,10 @@ class EliteDashboard {
         // Show progress panels
         document.getElementById('progressCard').style.display = 'block';
         document.getElementById('questionProgressCard').style.display = 'block';
+        
+        // Show live preview for Ollama
+        this.showLivePreview();
+        this.clearLivePreview();
 
         try {
             const response = await fetch('/api/start-scraping', {
@@ -996,6 +1009,73 @@ class EliteDashboard {
             icon.classList.remove('fa-chevron-up');
             icon.classList.add('fa-chevron-down');
         });
+    }
+    
+    showLivePreview() {
+        // Only show for Ollama
+        const provider = document.getElementById('aiProvider').value;
+        if (provider === 'ollama') {
+            document.getElementById('livePreviewCard').style.display = 'block';
+        }
+    }
+    
+    hideLivePreview() {
+        document.getElementById('livePreviewCard').style.display = 'none';
+    }
+    
+    updateLivePreview(question, response, isComplete = false) {
+        const previewText = document.getElementById('livePreviewText');
+        const currentQuestion = document.getElementById('currentQuestionPreview');
+        const responseLength = document.getElementById('responseLength');
+        const streamingStatus = document.getElementById('streamingStatus');
+        
+        // Update current question
+        currentQuestion.textContent = question.substring(0, 50) + (question.length > 50 ? '...' : '');
+        
+        // Update response text
+        previewText.value = response;
+        
+        // Update character count
+        responseLength.textContent = response.length;
+        
+        // Auto scroll to bottom
+        previewText.scrollTop = previewText.scrollHeight;
+        
+        // Update status
+        if (isComplete) {
+            streamingStatus.innerHTML = '<i class="fas fa-check mr-1"></i>Complete';
+            streamingStatus.className = 'px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-700';
+        } else {
+            streamingStatus.innerHTML = '<i class="fas fa-circle animate-pulse mr-1"></i>Streaming';
+            streamingStatus.className = 'px-2 py-1 text-xs rounded-full bg-green-100 text-green-700';
+        }
+    }
+    
+    clearLivePreview() {
+        document.getElementById('livePreviewText').value = '';
+        document.getElementById('currentQuestionPreview').textContent = '-';
+        document.getElementById('responseLength').textContent = '0';
+        const streamingStatus = document.getElementById('streamingStatus');
+        streamingStatus.innerHTML = '<i class="fas fa-circle animate-pulse mr-1"></i>Ready';
+        streamingStatus.className = 'px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700';
+    }
+    
+    handleAiStreaming(data) {
+        // Only show streaming for Ollama
+        if (data.provider !== 'ollama') return;
+        
+        this.updateLivePreview(
+            data.question || 'Processing...',
+            data.partial_response || '',
+            data.is_complete || false
+        );
+        
+        // If complete, hide the preview after a few seconds
+        if (data.is_complete) {
+            setTimeout(() => {
+                this.hideLivePreview();
+            }, 3000);
+        }
     }
     
     

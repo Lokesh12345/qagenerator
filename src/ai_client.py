@@ -55,9 +55,9 @@ class AIClient:
         defaults = {
             "openai": "gpt-4o-mini",
             "claude": "claude-3-5-haiku-20241022",
-            "ollama": "qwen:7b"
+            "ollama": "phi3:mini"  # Changed to faster model
         }
-        return defaults.get(self.provider, "qwen:7b")
+        return defaults.get(self.provider, "phi3:mini")
     
     def _load_prompt_template(self):
         """Load the prompt template from file"""
@@ -113,7 +113,8 @@ Generate a comprehensive answer and convert into the required JSON format. Creat
                 result = self._call_claude(full_prompt, qa_id)
             elif self.provider == "ollama":
                 # For Ollama, when no answer is provided, pass empty string
-                result = self._call_ollama(question, "", qa_id)
+                streaming_callback = getattr(self, '_streaming_callback', None)
+                result = self._call_ollama(question, "", qa_id, streaming_callback)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -157,7 +158,9 @@ Convert this into the required JSON format."""
             elif self.provider == "claude":
                 result = self._call_claude(full_prompt, qa_id)
             elif self.provider == "ollama":
-                result = self._call_ollama(question, "", qa_id)
+                # Check if streaming callback is available (passed from Flask app)
+                streaming_callback = getattr(self, '_streaming_callback', None)
+                result = self._call_ollama(question, answer, qa_id, streaming_callback)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -301,10 +304,19 @@ Convert this into the required JSON format."""
         """Generate ID from question"""
         return question[:30].lower().replace(' ', '-').replace('?', '').replace(',', '').replace('.', '')
     
-    def _call_ollama(self, question: str, answer: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
-        """Call Ollama API"""
+    def _call_ollama(self, question: str, answer: str, qa_id: str = None, streaming_callback=None) -> Optional[Dict[str, Any]]:
+        """Call Ollama API with optional streaming"""
         try:
-            result = self.ollama_client.process_question(question, answer, self.prompt_template)
+            # Use streaming if callback is provided
+            if streaming_callback:
+                result = self.ollama_client.process_question_streaming(
+                    question, answer, self.prompt_template, streaming_callback
+                )
+            else:
+                result = self.ollama_client.process_question(
+                    question, answer, self.prompt_template
+                )
+                
             if result["success"]:
                 return result["data"]
             else:
@@ -354,3 +366,11 @@ Convert this into the required JSON format."""
     def get_cache_stats(self) -> Dict[str, Any]:
         """Get cache statistics"""
         return self.cache.get_stats()
+    
+    def set_streaming_callback(self, callback):
+        """Set callback function for streaming updates (Ollama only)"""
+        self._streaming_callback = callback
+    
+    def clear_streaming_callback(self):
+        """Clear streaming callback"""
+        self._streaming_callback = None

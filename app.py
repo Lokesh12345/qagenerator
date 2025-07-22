@@ -724,38 +724,61 @@ def run_bulk_processing_job(job):
                 logger.info(f"Processing question {i+1}/{job.total_questions}: {qa_item['question'][:50]}...")
                 
                 # Emit detailed progress update
+                answer_length = len(qa_item['answer']) if qa_item.get('answer') else 0
                 socketio.emit('scraping_progress', {
                     'job_id': job.job_id,
                     'current_question': qa_item['question'][:100] + '...',
-                    'current_answer_length': 0,
+                    'current_answer_length': answer_length,
                     'progress': (i / job.total_questions) * 100,
                     'processed': i,
                     'total': job.total_questions,
-                    'step': 'processing_with_ai',
+                    'step': 'processing_with_ai' if answer_length > 0 else 'generating_answer',
                     'source': qa_item.get('source', 'bulk_input')
                 })
                 
                 # Emit detailed step info
+                has_answer = qa_item.get('answer') and qa_item['answer']
                 socketio.emit('processing_step', {
                     'job_id': job.job_id,
                     'step': 'ai_start',
                     'question_id': qa_item['id'],
                     'question': qa_item['question'],
-                    'answer_preview': 'Generating answer with AI...',
+                    'answer_preview': qa_item['answer'][:200] + '...' if has_answer and len(qa_item['answer']) > 200 else (qa_item['answer'] if has_answer else 'Generating answer with AI...'),
                     'timestamp': datetime.now().isoformat(),
                     'ai_provider': current_ai_client.provider
                 })
                 
-                # Process with AI client (question only)
+                # Set up streaming callback for Ollama
+                if current_ai_client.provider == 'ollama':
+                    def streaming_emit(data):
+                        socketio.emit('ai_streaming', data)
+                    current_ai_client.set_streaming_callback(streaming_emit)
+                
+                # Process with AI client - use appropriate method based on available data
                 start_time = time.time()
                 try:
-                    processed_item = current_ai_client.format_question_to_json(
-                        qa_item['question'],
-                        qa_item['id']
-                    )
+                    # Check if we have an answer to provide context
+                    if qa_item.get('answer') and qa_item['answer']:
+                        logger.info(f"Using Q&A processing with answer context ({len(qa_item['answer'])} chars)")
+                        processed_item = current_ai_client.format_qa_to_json(
+                            qa_item['question'],
+                            qa_item['answer'],
+                            qa_item['id']
+                        )
+                    else:
+                        logger.info("Using question-only processing, AI will generate answer")
+                        # No answer available, AI will generate one
+                        processed_item = current_ai_client.format_question_to_json(
+                            qa_item['question'],
+                            qa_item['id']
+                        )
                 except Exception as ai_error:
                     logger.error(f"AI processing error: {ai_error}")
                     processed_item = None
+                finally:
+                    # Clear streaming callback after processing
+                    if current_ai_client.provider == 'ollama':
+                        current_ai_client.clear_streaming_callback()
                 
                 processing_time = time.time() - start_time
                 
@@ -903,6 +926,12 @@ def run_processing_job(job):
                     'ai_provider': current_ai_client.provider
                 })
                 
+                # Set up streaming callback for Ollama
+                if current_ai_client.provider == 'ollama':
+                    def streaming_emit(data):
+                        socketio.emit('ai_streaming', data)
+                    current_ai_client.set_streaming_callback(streaming_emit)
+                
                 # Process with AI client with better error handling
                 start_time = time.time()
                 try:
@@ -914,6 +943,10 @@ def run_processing_job(job):
                 except Exception as ai_error:
                     logger.error(f"AI processing error: {ai_error}")
                     processed_item = None
+                finally:
+                    # Clear streaming callback after processing
+                    if current_ai_client.provider == 'ollama':
+                        current_ai_client.clear_streaming_callback()
                 
                 processing_time = time.time() - start_time
                 
@@ -1075,8 +1108,8 @@ if __name__ == '__main__':
     
     # Try to initialize with available provider - prioritize Ollama first
     try:
-        current_ai_client = AIClient(provider='ollama', model='qwen:7b')
-        logger.info("✅ Initialized with Ollama (qwen:7b)")
+        current_ai_client = AIClient(provider='ollama', model='phi3:mini')
+        logger.info("✅ Initialized with Ollama (phi3:mini)")
     except Exception as e:
         logger.warning(f"Ollama initialization failed: {e}")
         # Fallback to API providers

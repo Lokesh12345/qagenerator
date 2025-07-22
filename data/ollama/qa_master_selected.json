@@ -1,0 +1,74 @@
+{
+  "question-can-we-display-a-web-page-insi": {
+    "primaryQuestion": "Can web pages be nested within other web pages?",
+    "alternativeQuestions": [
+      "What is can web pages be nested within other web pages??",
+      "Can you explain can web pages be nested within other web pages??",
+      "How does can web pages be nested within other web pages? work?"
+    ],
+    "answerDescriptions": [
+      "",
+      "Key concept in web development",
+      "Important for understanding HTML structure"
+    ],
+    "answer": {
+      "summary": "Web page nesting is possible using HTML containers, frames, or sections. Hierarchical structures can be created, but limitations such as performance and maintenance exist.",
+      "detailed": " Can we display a web page inside a web page or Is nesting of webpages possible?",
+      "whenToUse": "Use when working with HTML elements",
+      "realWorldContext": "Essential for web development and markup"
+    },
+    "category": "Web Development",
+    "subcategory": "HTML",
+    "difficulty": "beginner",
+    "tags": [
+      "html",
+      "web",
+      "development"
+    ],
+    "conceptTriggers": [
+      "html",
+      "markup",
+      "elements"
+    ],
+    "naturalFollowups": [
+      "What are HTML elements?",
+      "How do I use HTML attributes?",
+      "What is the difference between tags and elements?"
+    ],
+    "relatedQuestions": [
+      "How do HTML tags work?",
+      "What are HTML attributes?",
+      "How to structure HTML documents?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Forgetting to close tags",
+        "explanation": "Always close your HTML tags"
+      },
+      {
+        "mistake": "Using invalid attributes",
+        "explanation": "Check HTML specification for valid attributes"
+      },
+      {
+        "mistake": "Nesting tags incorrectly",
+        "explanation": "Follow proper HTML nesting rules"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2025-07-22",
+    "verified": false
+  },
+  "q_1753177855": {
+    "primaryQuestion": "4. What is the advantage of collapsing white space?",
+    "answer": {
+      "summary": "In HTML, a blank sequence of whitespace characters is treated as a single space character, Because t...",
+      "detailed": "In HTML, a blank sequence of whitespace characters is treated as a single space character, Because the browser collapses multiple spaces into a single space character and this helps a developer to indent lines of text without worrying about multiple spaces and maintain readability and understandability of HTML codes."
+    },
+    "category": "General",
+    "difficulty": "intermediate",
+    "tags": [
+      "interview",
+      "technical"
+    ]
+  }
+}

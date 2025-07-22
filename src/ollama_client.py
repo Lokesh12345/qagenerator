@@ -1,6 +1,7 @@
 import requests
 import json
 import subprocess
+import time
 from typing import Dict, Any, List, Optional
 
 class OllamaClient:
@@ -54,41 +55,242 @@ class OllamaClient:
         except:
             return []
     
-    def process_question(self, question: str, answer: str, prompt_template: str) -> Dict[str, Any]:
-        """Process a single Q&A pair using Ollama"""
+    def process_question_streaming(self, question: str, answer: str, prompt_template: str, emit_callback=None) -> Dict[str, Any]:
+        """Process a single Q&A pair using Ollama with streaming support"""
+        import logging
+        logger = logging.getLogger(__name__)
+        
         try:
-            # Format the prompt with clearer instructions for Ollama
-            formatted_prompt = prompt_template.replace("{{QUESTION}}", question).replace("{{ANSWER}}", answer)
+            logger.info(f"Starting Ollama streaming for: {question[:50]}...")
             
-            # Add explicit JSON instruction for Ollama
-            formatted_prompt = f"""IMPORTANT: You must return ONLY valid JSON, starting with {{ and ending with }}.
-
-{formatted_prompt}
+            # Use a simplified prompt for better reliability
+            simplified_prompt = f"""Create a JSON object for this Q&A pair. Return ONLY the JSON, no other text.
 
 Question: {question}
 Answer: {answer}
 
-Now generate the JSON object with all required fields. Remember to wrap the JSON response in a code block using ```json and ```."""
+Required JSON format:
+{{
+  "question-id": {{
+    "primaryQuestion": "{question}",
+    "answer": {{
+      "summary": "Brief answer in 1-2 sentences",
+      "detailed": "Detailed explanation with examples"
+    }},
+    "category": "HTML/CSS/JavaScript/etc",
+    "difficulty": "beginner/intermediate/advanced",
+    "tags": ["tag1", "tag2", "tag3"]
+  }}
+}}
+
+Generate the JSON now:"""
             
-            # Prepare the request
+            # Prepare the request with streaming enabled
             payload = {
                 "model": self.model,
-                "prompt": formatted_prompt,
-                "stream": False,
+                "prompt": simplified_prompt,
+                "stream": True,  # Enable streaming
                 "options": {
-                    "temperature": 0.1,  # Lower temperature for more consistent JSON
+                    "temperature": 0.1,
                     "top_p": 0.9,
-                    "seed": 42,  # Fixed seed for reproducibility
-                    "num_predict": 4096  # Ollama uses num_predict instead of max_tokens
+                    "num_predict": 2048
                 }
             }
             
-            # Make the request
+            logger.info(f"Sending streaming request to Ollama (model: {self.model})...")
+            start_time = time.time()
+            
             response = requests.post(
                 f"{self.base_url}/api/generate",
                 json=payload,
-                timeout=120
+                timeout=60,
+                stream=True  # Enable streaming response
             )
+            
+            if response.status_code == 200:
+                accumulated_response = ""
+                
+                # Process streaming response
+                for line in response.iter_lines():
+                    if line:
+                        try:
+                            chunk_data = json.loads(line.decode('utf-8'))
+                            partial_text = chunk_data.get('response', '')
+                            accumulated_response += partial_text
+                            
+                            # Emit streaming update via callback
+                            if emit_callback:
+                                emit_callback({
+                                    'provider': 'ollama',
+                                    'question': question,
+                                    'partial_response': accumulated_response,
+                                    'is_complete': chunk_data.get('done', False)
+                                })
+                            
+                            # Break if done
+                            if chunk_data.get('done', False):
+                                break
+                                
+                        except json.JSONDecodeError:
+                            continue
+                
+                elapsed_time = time.time() - start_time
+                logger.info(f"Ollama streaming completed in {elapsed_time:.2f} seconds")
+                
+                # Final emit
+                if emit_callback:
+                    emit_callback({
+                        'provider': 'ollama',
+                        'question': question,
+                        'partial_response': accumulated_response,
+                        'is_complete': True
+                    })
+                
+                # Process the final response
+                return self._process_ollama_response(accumulated_response, question, answer)
+                
+            else:
+                logger.error(f"Ollama API error: {response.status_code}")
+                return {
+                    "success": False,
+                    "error": f"Ollama API error: {response.status_code}",
+                    "raw_response": response.text
+                }
+                
+        except requests.exceptions.Timeout:
+            logger.error(f"Ollama request timed out after 60 seconds for model {self.model}")
+            logger.info("Try switching to a faster model like phi3:mini or increase the timeout")
+            return {
+                "success": False,
+                "error": "Request timed out - the model may be too slow or Ollama is overloaded",
+                "raw_response": "",
+                "suggestion": "Try using phi3:mini model for faster processing"
+            }
+        except Exception as e:
+            return {
+                "success": False,
+                "error": str(e),
+                "raw_response": ""
+            }
+    
+    def _process_ollama_response(self, generated_text: str, question: str, answer: str) -> Dict[str, Any]:
+        """Process the accumulated Ollama response"""
+        try:
+            import re
+            
+            # Try to extract JSON from the response
+            json_str = None
+            
+            # Method 1: Find JSON content between ```json and ```
+            if '```json' in generated_text:
+                start_idx = generated_text.find('```json')
+                end_idx = generated_text.find('```', start_idx + 7)
+                if start_idx != -1 and end_idx != -1:
+                    json_str = generated_text[start_idx + 7:end_idx].strip()
+            
+            # Method 2: Find JSON content between ``` and ```
+            elif '```' in generated_text:
+                parts = generated_text.split('```')
+                if len(parts) >= 2:
+                    json_str = parts[1].strip()
+            
+            # Method 3: Look for JSON object pattern
+            if not json_str:
+                match = re.search(r'\{[\s\S]*\}', generated_text)
+                if match:
+                    json_str = match.group(0)
+                else:
+                    json_str = generated_text.strip()
+            
+            # Try to parse the JSON
+            try:
+                parsed_json = json.loads(json_str)
+                return {
+                    "success": True,
+                    "data": parsed_json,
+                    "raw_response": generated_text
+                }
+            except json.JSONDecodeError:
+                # Create fallback JSON
+                fallback_json = {
+                    f"q_{int(time.time())}": {
+                        "primaryQuestion": question,
+                        "answer": {
+                            "summary": answer[:100] + "..." if len(answer) > 100 else answer,
+                            "detailed": answer
+                        },
+                        "category": "General",
+                        "difficulty": "intermediate",
+                        "tags": ["interview", "technical"]
+                    }
+                }
+                return {
+                    "success": True,
+                    "data": fallback_json,
+                    "raw_response": generated_text,
+                    "note": "Used fallback JSON structure due to parsing error"
+                }
+                
+        except Exception as e:
+            return {
+                "success": False,
+                "error": f"Error processing response: {str(e)}",
+                "raw_response": generated_text
+            }
+
+    def process_question(self, question: str, answer: str, prompt_template: str) -> Dict[str, Any]:
+        """Process a single Q&A pair using Ollama"""
+        import logging
+        logger = logging.getLogger(__name__)
+        
+        try:
+            logger.info(f"Starting Ollama processing for: {question[:50]}...")
+            
+            # Use a simplified prompt for better reliability
+            simplified_prompt = f"""Create a JSON object for this Q&A pair. Return ONLY the JSON, no other text.
+
+Question: {question}
+Answer: {answer}
+
+Required JSON format:
+{{
+  "question-id": {{
+    "primaryQuestion": "{question}",
+    "answer": {{
+      "summary": "Brief answer in 1-2 sentences",
+      "detailed": "Detailed explanation with examples"
+    }},
+    "category": "HTML/CSS/JavaScript/etc",
+    "difficulty": "beginner/intermediate/advanced",
+    "tags": ["tag1", "tag2", "tag3"]
+  }}
+}}
+
+Generate the JSON now:"""
+            
+            # Prepare the request with shorter limits for reliability
+            payload = {
+                "model": self.model,
+                "prompt": simplified_prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.1,
+                    "top_p": 0.9,
+                    "num_predict": 2048  # Reduced for faster processing
+                }
+            }
+            
+            logger.info(f"Sending request to Ollama (model: {self.model}, timeout: 60s)...")
+            start_time = time.time()
+            
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json=payload,
+                timeout=60  # Reduced timeout for quicker feedback
+            )
+            
+            elapsed_time = time.time() - start_time
+            logger.info(f"Ollama responded in {elapsed_time:.2f} seconds")
             
             if response.status_code == 200:
                 result = response.json()
@@ -257,10 +459,13 @@ Now generate the JSON object with all required fields. Remember to wrap the JSON
                 }
                 
         except requests.exceptions.Timeout:
+            logger.error(f"Ollama request timed out after 60 seconds for model {self.model}")
+            logger.info("Try switching to a faster model like phi3:mini or increase the timeout")
             return {
                 "success": False,
-                "error": "Request timed out",
-                "raw_response": ""
+                "error": "Request timed out - the model may be too slow or Ollama is overloaded",
+                "raw_response": "",
+                "suggestion": "Try using phi3:mini model for faster processing"
             }
         except Exception as e:
             return {
