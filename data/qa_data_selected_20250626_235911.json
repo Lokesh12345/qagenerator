@@ -1,0 +1,55 @@
+{
+  "angular-q1": {
+    "primaryQuestion": "Why were client-side frameworks like Angular introduced?",
+    "alternativeQuestions": [
+      "What are some alternative methods to handling dynamic content on the web without using client-side frameworks like Angular?",
+      "How do frontend development tools differ in their approach from traditional JavaScript libraries such as jQuery when it comes to maintaining complex applications?",
+      "In what scenarios might VanillaJS or plain HTML/CSS be more appropriate than a full-fledged framework like Angular for web application development?",
+      "What limitations of client-side frameworks did developers face before the introduction of modern solutions that led to their creation and subsequent adoption in industry standards?"
+    ],
+    "answerDescriptions": [
+      "Before introducing complex logic, maintaining code became difficult.",
+      "Separation of concerns was hard to manage with jQuery for large applications."
+    ],
+    "answers": {
+      "summary": "Client-side frameworks like Angular were introduced as an easier and more organized approach to develop dynamic web apps without cumbersome maintenance.",
+      "detailed": "The increasing complexity in websites necessitated a system that could handle complex logic while maintaining separation of concerns. VanillaJS was not equipped for this, especially with data handling across views which jQuery fell short on as well.",
+      "whenToUse": "When developing advanced web applications like Single-Page Applications where Angular's capabilities shine in organizing code and easing maintenance effort",
+      "realWorldContext": "Large eCommerce sites, social networking platforms that require complex logic handling and separation of concerns"
+    },
+    "category": "Programming",
+    "subcategory": "Framework",
+    "difficulty": "medium",
+    "tags": [
+      "Dynamic Content Management",
+      "Separation Of Concerns",
+      "Single-Page Applications"
+    ],
+    "conceptTriggers": [
+      "Client-Side Frameworks",
+      "Maintainability in Code Development",
+      "Data Handling Across Views"
+    ],
+    "naturalFollowups": [
+      "What are some key features of Angular?",
+      "How do data binding and two-way communication work in Angular?"
+    ],
+    "relatedQuestions": [
+      "How does a server-side rendering approach compare to client-side frameworks like Angular for SEO purposes?",
+      "Can you describe the architecture behind Single Page Applications using modern JavaScript libraries other than Angular, such as React or Vue.js?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using raw VanillaJS to manage complex logic which results in hard-to-read and maintain code",
+        "explanation": "This is wrong because it leads to bloated scripts that are difficult for multiple developers to understand. To fix this, modularizing the application using libraries like Angular can provide better structure."
+      },
+      {
+        "mistake": "Overusing jQuery without understanding its limitations which causes performance issues in large applications",
+        "explanation": "JQuery is not optimized for handling data across multiple views and complex logic, leading to suboptimal application performances. One can avoid this by learning about client-side frameworks like Angular that are specifically designed with these tasks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2025-06-26",
+    "verified": false
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "angular-q2": {
+    "primaryQuestion": "How does an Angular application work?",
+    "alternativeQuestions": [
+      "Can you explain How does an Angular application work?",
+      "What do you know about How does an Angular application work?",
+      "How would you describe How does an Angular application work?",
+      "Tell me about How does an Angular application work",
+      "What's your understanding of How does an Angular application work?",
+      "Could you elaborate on How does an Angular application work?",
+      "In your experience, How does an Angular application work?",
+      "How does How does an Angular application work work?",
+      "What are the key aspects of How does an Angular application work?",
+      "Explain the concept of How does an Angular application work"
+    ],
+    "answerDescriptions": [
+      {
+        "summary": "Angular apps are built using TypeScript modules and a module loader to initialize components",
+        "detailed": "An Angular application's functionality begins with the entry point, usually defined in `main.ts`. This file sets up an empty browser environment by creating elements that can host your app\u2019s views. It then calls `bootstrapModule` from `@angular/platform-browser`, passing it a module declaration (usually `AppModule`) which encapsulates component definitions.",
+        "whenToUse": "When explaining the bootstrap process and initializing an Angular application for beginners or as part of setting up app structure",
+        "realWorldContext": "In real world web development, such bootstrapping is essential when developing Single Page Applications (SPAs) using Angular to manage UI interactions efficiently without full page reloads."
+      },
+      {
+        "summary": "The `angular.json` file dictates build configurations crucial for app deployment and running",
+        "detailed": "This JSON configuration holds the key settings that tell the Angular CLI how your application should be built, including entry points like 'main.ts', which is used in conjunction with Webpack to generate bundles of code executable directly in a browser.",
+        "whenToUse": "When preparing for deployment or optimizing build processes within an Angular project",
+        "realWorldContext": "In enterprise-scale applications, understanding `angular.json` configurations is necessary when scaling the app across different environments and platforms."
+      }
+    ],
+    "answer": {
+      "summary": "Angular apps start by bootstrapping a main module that contains all other component definitions which are then made interactive within an empty browser environment created in `main.ts`",
+      "detailed": "The process begins when Angular locates the entry point, often defined as 'main.ts' in your application settings (within angular-cli or manually configured). At this line of code: [...], AppModule is bootstrapped by invoking a function from `@angular/platform-browser` library that initializes an empty browser environment and makes it ready for the main module to populate with components. This setup ensures efficient management, routing capabilities, and dynamic interactions without full page refreshes.",
+      "whenToUse": "When instructing on Angular initialization steps or explaining component interaction within a live development setting",
+      "realWorldContext": "Angular bootstrapping is widely used in web applications to deliver interactive user experiences by managing browser-hosted views, which are particularly relevant when developing modern SPAs with complex routing and data handling needs."
+    },
+    "category": "angular",
+    "subcategory": "concepts",
+    "difficulty": "intermediate",
+    "tags": [
+      "entryPoint",
+      "typescript",
+      "angular",
+      "spa",
+      "framework",
+      "AppModule",
+      "frontend",
+      "bootstrapModule"
+    ],
+    "conceptTriggers": [
+      "moduleLoader",
+      "bootstrappingProcess"
+    ],
+    "naturalFollowups": [
+      {
+        "followup question 1": "Can you explain the role of RouterModule in conjunction with AppModule bootstrapping process?"
+      },
+      {
+        "followup question 2": "How do lazy loading modules enhance performance and reduce initial load time, especially considering a large application structure?"
+      },
+      {
+        "followup question 3": "What are the best practices for structuring module imports within AppModule to ensure optimal app scalability?"
+      }
+    ],
+    "relatedQuestions": [
+      {
+        "related question 1": "How does Angular'ner handle state management across different components and modules?",
+        "whenToUse": "When discussing global states or application-wide data consistency"
+      },
+      {
+        "related question 2": "What are the implications of using Service Workers in an Angular app, especially concerning caching strategies for assets like CSS/JS files?",
+        "whenToUse": "When discussing advanced performance optimization techniques or user experience aspects related to network requests"
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Omitting `bootstrapModule(AppModule)` call within the 'main.ts' entry point",
+        "explanation": "This is a common error where developers forget to bootstrap their main module, resulting in Angular not initializing components properly.",
+        "howToFix": "Ensure that every time you start an Angular application with `ng serve`, the following line of code appears and executes: `bootstrapModule(AppModule);`"
+      },
+      {
+        "mistake": "Neglecting proper import statements in AppModule",
+        "explanation": "Missed or incorrect imports can lead to components not being initialized correctly.",
+        "howToFix": "Double-check all component, module and routing definitions are accurately imported within your `AppModule`. Use Angular CLI's dependency tree visualizations for guidance."
+      },
+      {
+        "mistake": "Misconfiguring the entry point in angular.json",
+        "explanation": "'main.ts' should be correctly set as the 'start' property under `architect -> build:options`. Incorrect settings can lead to failures during app bootstrapping.",
+        "howToFix": "Verify that your entry point in angular.json matches with what is specified for execution within main.ts and any associated commands."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2025-06-26",
+    "verified": false
+  }
+}

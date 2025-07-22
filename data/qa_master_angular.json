@@ -1,0 +1,830 @@
+{
+  "angular-q1": {
+    "primaryQuestion": "Why were client-side frameworks like Angular introduced?",
+    "alternativeQuestions": [
+      "What led to the creation of client-side frameworks like Angular?",
+      "Why is Angular considered a client-side framework?",
+      "What problems do client-side frameworks solve?",
+      "How did Angular improve web development?",
+      "What are the advantages of using Angular over VanillaJS?",
+      "Why did developers move from jQuery to Angular?",
+      "What challenges did Angular address in web development?",
+      "Why are client-side frameworks necessary for modern web apps?",
+      "How does Angular enhance the development of SPAs?",
+      "What issues do client-side frameworks like Angular resolve?"
+    ],
+    "answerDescriptions": [
+      "Client-side frameworks simplify web application development.",
+      "They help maintain separation of concerns in code.",
+      "Angular allows for the creation of Single-Page Applications.",
+      "They reduce the complexity of managing dynamic web content."
+    ],
+    "answer": {
+      "summary": "Client-side frameworks like Angular were introduced to simplify the development of complex web applications and maintain better code organization.",
+      "detailed": "Client-side frameworks were developed to address the challenges of maintaining complex web applications. They help in organizing code and managing data across views efficiently.\n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|--------------|-----------------------------|\n| Angular Components | When creating reusable UI elements | `<app-component></app-component>` |\n| Data Binding | To synchronize data between model and view | `{{ dataProperty }}` |\n| Dependency Injection | To manage service instances | `constructor(private service: MyService) {}` |",
+      "whenToUse": "Use client-side frameworks when developing complex web applications that require efficient data handling and code organization.",
+      "realWorldContext": "In modern web development, frameworks like Angular are essential for building scalable applications, especially for Single-Page Applications (SPAs) that require dynamic content updates without full page reloads."
+    },
+    "category": "Web Development",
+    "subcategory": "Client-Side Frameworks",
+    "difficulty": "Medium",
+    "tags": [
+      "Angular",
+      "Client-Side Frameworks",
+      "Web Development",
+      "Single-Page Applications",
+      "JavaScript"
+    ],
+    "conceptTriggers": [
+      "Dynamic Web Applications",
+      "Separation of Concerns",
+      "User Interface Components",
+      "Data Binding",
+      "Service Management"
+    ],
+    "naturalFollowups": [
+      "What are the key features of Angular?",
+      "How does Angular compare to React?",
+      "What is the role of components in Angular?",
+      "What is data binding in Angular?",
+      "How does Angular handle routing?",
+      "What are the benefits of using TypeScript with Angular?",
+      "How does Angular improve performance in web applications?",
+      "What is the significance of dependency injection in Angular?",
+      "How do you create a service in Angular?",
+      "What are the common use cases for Angular?"
+    ],
+    "relatedQuestions": [
+      "What are the advantages of using client-side frameworks?",
+      "How do client-side frameworks differ from server-side frameworks?",
+      "What is the history of Angular?",
+      "What are the main components of Angular?",
+      "How does Angular handle state management?",
+      "What is the difference between AngularJS and Angular?",
+      "How do you optimize an Angular application?",
+      "What are Angular modules?",
+      "How does Angular implement routing?",
+      "What is the lifecycle of an Angular component?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using components effectively.",
+        "explanation": "Failing to break down the application into reusable components can lead to code duplication and maintenance challenges."
+      },
+      {
+        "mistake": "Ignoring Angular's dependency injection.",
+        "explanation": "Not leveraging dependency injection can result in tightly coupled code and difficulties in testing."
+      },
+      {
+        "mistake": "Overusing jQuery with Angular.",
+        "explanation": "Mixing jQuery with Angular can lead to conflicts and undermine Angular's data binding capabilities."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q2": {
+    "primaryQuestion": "How does an Angular application work?",
+    "alternativeQuestions": [
+      "What is the structure of an Angular application?",
+      "Can you explain the workflow of an Angular app?",
+      "How is an Angular application initialized?",
+      "What are the main components of an Angular application?",
+      "How does Angular handle application bootstrapping?",
+      "What role does angular.json play in an Angular app?",
+      "What is the entry point of an Angular application?",
+      "How does the main.ts file function in Angular?",
+      "What is the purpose of AppModule in Angular?",
+      "How do components get declared in Angular?",
+      "What happens during the bootstrapping process in Angular?",
+      "Can you describe the lifecycle of an Angular application?",
+      "How does Angular manage dependencies?",
+      "What is the significance of the build section in angular.json?",
+      "How does Angular create a browser environment?",
+      "What is the relationship between main.ts and AppModule?",
+      "How do modules work in Angular applications?",
+      "What configurations are found in angular.json?",
+      "How does Angular handle component declarations?",
+      "What is the role of bootstrapModule in Angular?"
+    ],
+    "answerDescriptions": [
+      "Angular apps start with angular.json for configuration.",
+      "The main.ts file bootstraps the application.",
+      "AppModule is crucial for component declarations.",
+      "Angular creates a browser environment for execution."
+    ],
+    "answer": {
+      "summary": "An Angular application is initialized through a configuration file and a main entry point that bootstraps the application.",
+      "detailed": "An Angular application consists of a configuration file named angular.json and a main entry point file, typically main.ts. The angular.json file contains settings for the app, while main.ts bootstraps the application by calling bootstrapModule, which initializes the AppModule containing component declarations.\n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|-----------------------------|\n| angular.json      | To configure the Angular app | { \"projects\": { \"my-app\": { ... } } } |\n| main.ts           | To bootstrap the Angular app | platformBrowserDynamic().bootstrapModule(AppModule); |\n\n- Remember: angular.json is the configuration hub.\n- main.ts is the entry point for bootstrapping.\n\n```typescript\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\nimport { AppModule } from './app/app.module';\n\nplatformBrowserDynamic().bootstrapModule(AppModule)\n  .catch(err => console.error(err));\n```",
+      "whenToUse": "Use this understanding when discussing Angular architecture or troubleshooting application startup issues.",
+      "realWorldContext": "In a real-world scenario, understanding how Angular initializes helps in configuring applications correctly and debugging startup problems."
+    },
+    "category": "Frameworks",
+    "subcategory": "Angular",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "bootstrapping",
+      "configuration",
+      "application structure",
+      "main.ts",
+      "AppModule",
+      "angular.json",
+      "components",
+      "initialization",
+      "dependency management"
+    ],
+    "conceptTriggers": [
+      "Angular architecture",
+      "application lifecycle",
+      "module system",
+      "component declarations",
+      "environment setup",
+      "configuration files",
+      "bootstrapping process",
+      "entry points",
+      "dependency injection",
+      "project structure"
+    ],
+    "naturalFollowups": [
+      "What are the benefits of using Angular?",
+      "How do you create components in Angular?",
+      "What is dependency injection in Angular?",
+      "How do services work in Angular?",
+      "What is the difference between modules and components?",
+      "How do you manage state in an Angular application?",
+      "What are Angular directives?",
+      "How does routing work in Angular?",
+      "What are Angular pipes?",
+      "How do you optimize an Angular application?"
+    ],
+    "relatedQuestions": [
+      "What is Angular?",
+      "How do you create a new Angular project?",
+      "What is the role of services in Angular?",
+      "How do you implement routing in Angular?",
+      "What are Angular decorators?",
+      "How does Angular handle forms?",
+      "What is the purpose of NgModule?",
+      "How do you use RxJS in Angular?",
+      "What are Angular lifecycle hooks?",
+      "How do you test an Angular application?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not configuring angular.json correctly.",
+        "description": "This can lead to build errors or misconfigurations."
+      },
+      {
+        "mistake": "Forgetting to bootstrap the AppModule.",
+        "description": "Without bootstrapping, the application won't run."
+      },
+      {
+        "mistake": "Improperly declaring components in AppModule.",
+        "description": "This can cause runtime errors or components not to render."
+      }
+    ],
+    "confidence": "High",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q3": {
+    "primaryQuestion": "What are some of the advantages of Angular over other frameworks?",
+    "alternativeQuestions": [
+      "What benefits does Angular offer compared to other frameworks?",
+      "How is Angular better than other web development frameworks?",
+      "What are the key advantages of using Angular?",
+      "Why should I choose Angular over other frameworks?",
+      "What makes Angular stand out among web frameworks?",
+      "What are the strengths of Angular compared to its competitors?",
+      "Can you list the advantages of Angular?",
+      "What features set Angular apart from other frameworks?",
+      "What are the unique benefits of using Angular?",
+      "Why is Angular preferred by developers over other frameworks?"
+    ],
+    "answerDescriptions": [
+      "Built-in features like routing and state management.",
+      "Declarative UI using HTML for easier development.",
+      "Long-term support from Google ensures stability.",
+      "Comprehensive ecosystem with many integrated tools."
+    ],
+    "answer": {
+      "summary": "Angular offers numerous built-in features, a declarative UI, and long-term support from Google.",
+      "detailed": "Angular is a platform for building web applications that provides many features out of the box, making development easier and more efficient.\n\n| Feature                  | When to use                                | Example Syntax               |\n|--------------------------|--------------------------------------------|------------------------------|\n| Routing                  | For navigation between different views     | `RouterModule.forRoot(routes)` |\n| State Management         | To manage application state                | `@ngrx/store`                |\n| HTTP Services            | For making HTTP requests                   | `HttpClient.get(url)`       |\n| Reactive Programming      | To handle asynchronous data streams        | `Observable.of(data)`       |\n\n- Angular simplifies complex applications with built-in features.\n- Using HTML for UI makes it more accessible.\n- Google\u2019s support ensures longevity and updates.\n\n```typescript\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  template: `<h1>Hello, Angular!</h1>`\n})\nexport class AppComponent {}\n```",
+      "whenToUse": "Use Angular when you need a robust framework with built-in features for large-scale applications.",
+      "realWorldContext": "Angular is often used in enterprise-level applications where maintainability and scalability are critical."
+    },
+    "category": "Frameworks",
+    "subcategory": "Angular",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "Web Development",
+      "Framework Comparison",
+      "Frontend",
+      "JavaScript"
+    ],
+    "conceptTriggers": [
+      "Built-in features",
+      "Declarative UI",
+      "Long-term support",
+      "Google ecosystem",
+      "Routing",
+      "State management",
+      "Reactive programming",
+      "Component-based architecture",
+      "Dependency injection",
+      "Cross-platform development"
+    ],
+    "naturalFollowups": [
+      "What are the disadvantages of Angular?",
+      "How does Angular compare to React?",
+      "What is the learning curve for Angular?",
+      "What types of applications are best suited for Angular?",
+      "Can Angular be used for mobile development?",
+      "What are the performance considerations with Angular?",
+      "How does Angular handle testing?",
+      "What is the community support like for Angular?",
+      "What are some popular applications built with Angular?",
+      "How does Angular's architecture differ from other frameworks?"
+    ],
+    "relatedQuestions": [
+      "What is Angular?",
+      "How does Angular handle routing?",
+      "What is the role of TypeScript in Angular?",
+      "What are Angular components?",
+      "How do you manage state in Angular?",
+      "What is the difference between AngularJS and Angular?",
+      "How do you optimize performance in Angular applications?",
+      "What are Angular services?",
+      "How does dependency injection work in Angular?",
+      "What are the best practices for Angular development?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not utilizing Angular's built-in features effectively.",
+        "description": "Many developers overlook the powerful features Angular provides out of the box."
+      },
+      {
+        "mistake": "Ignoring the importance of TypeScript.",
+        "description": "TypeScript enhances Angular development, but some developers stick to plain JavaScript."
+      },
+      {
+        "mistake": "Neglecting performance optimization.",
+        "description": "Failing to optimize Angular applications can lead to slow performance."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q4": {
+    "primaryQuestion": "List out differences between AngularJS and Angular?",
+    "alternativeQuestions": [
+      "What are the key differences between AngularJS and Angular?",
+      "How does AngularJS differ from Angular?",
+      "Can you compare AngularJS and Angular?",
+      "What sets Angular apart from AngularJS?",
+      "What are the main distinctions between AngularJS and Angular?",
+      "Explain the differences between AngularJS and Angular.",
+      "What are the contrasting features of AngularJS and Angular?",
+      "How do AngularJS and Angular vary from each other?",
+      "What are the differences in architecture between AngularJS and Angular?",
+      "Describe the differences between AngularJS and Angular in detail.",
+      "What improvements does Angular have over AngularJS?",
+      "How is Angular different from AngularJS in terms of performance?",
+      "What are the differences in syntax between AngularJS and Angular?",
+      "In what ways do AngularJS and Angular differ in development?",
+      "What are the differences in data binding between AngularJS and Angular?",
+      "How do AngularJS and Angular handle dependency injection differently?",
+      "What are the differences in mobile support between AngularJS and Angular?",
+      "What is the difference in community support for AngularJS vs Angular?"
+    ],
+    "answerDescriptions": [
+      "AngularJS is based on JavaScript, while Angular uses TypeScript.",
+      "AngularJS employs a two-way data binding approach, whereas Angular uses a reactive programming model.",
+      "Angular has a modular architecture, unlike AngularJS.",
+      "Angular provides better performance and optimization features compared to AngularJS."
+    ],
+    "answer": {
+      "summary": "AngularJS is an older framework based on JavaScript, while Angular is a modern framework built with TypeScript, offering improved performance and features.",
+      "detailed": "AngularJS is a JavaScript-based framework for building web applications, while Angular is a TypeScript-based framework that enhances performance and modularity.\n\n| Feature                  | AngularJS                       | Angular                          |\n|--------------------------|---------------------------------|----------------------------------|\n| Language                 | JavaScript                      | TypeScript                       |\n| Data Binding             | Two-way                        | One-way with reactive programming |\n| Architecture             | MVC                             | Component-based                  |\n| Performance              | Slower due to digest cycle      | Faster with Ahead-of-Time (AOT) compilation |\n\n- Remember: Angular is the evolution of AngularJS.\n- Think of Angular as the next generation with better tooling.\n\n```typescript\n// Example of a component in Angular\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {\n  title = 'Angular Example';\n}\n```",
+      "whenToUse": "Use Angular when building modern web applications that require high performance and maintainability.",
+      "realWorldContext": "Many enterprises have migrated from AngularJS to Angular for better performance and maintainability in their applications."
+    },
+    "category": "Web Development",
+    "subcategory": "Frameworks",
+    "difficulty": "Intermediate",
+    "tags": [
+      "AngularJS",
+      "Angular",
+      "JavaScript",
+      "TypeScript",
+      "Web Frameworks",
+      "Front-end Development"
+    ],
+    "conceptTriggers": [
+      "Single Page Applications",
+      "Two-way Data Binding",
+      "Component-based Architecture",
+      "Dependency Injection",
+      "Reactive Programming"
+    ],
+    "naturalFollowups": [
+      "What are the advantages of using Angular over AngularJS?",
+      "How do I migrate from AngularJS to Angular?",
+      "What are the best practices for Angular development?",
+      "Can you explain the component lifecycle in Angular?",
+      "What is the role of services in Angular?",
+      "How does routing work in Angular?",
+      "What are the performance optimization techniques in Angular?",
+      "How does Angular handle state management?",
+      "What are the differences in testing AngularJS vs Angular?",
+      "What tools can help with Angular development?"
+    ],
+    "relatedQuestions": [
+      "What is Angular?",
+      "What is AngularJS?",
+      "How to migrate from AngularJS to Angular?",
+      "What are the features of Angular?",
+      "How does Angular handle forms?",
+      "What is the difference between Angular and React?",
+      "What is the architecture of Angular?",
+      "What are Angular modules?",
+      "How does dependency injection work in Angular?",
+      "What are the lifecycle hooks in Angular?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing AngularJS with Angular",
+        "description": "Many developers mix up the two frameworks due to their similar names."
+      },
+      {
+        "mistake": "Not using TypeScript features in Angular",
+        "description": "Failing to leverage TypeScript's features can lead to less maintainable code."
+      },
+      {
+        "mistake": "Ignoring performance optimizations in Angular",
+        "description": "Not utilizing AOT compilation and lazy loading can result in slower applications."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q5": {
+    "primaryQuestion": "How are Angular expressions different from JavaScript expressions?",
+    "alternativeQuestions": [
+      "What distinguishes Angular expressions from JavaScript expressions?",
+      "Can you explain the differences between Angular and JavaScript expressions?",
+      "In what ways do Angular expressions differ from JavaScript expressions?",
+      "How do Angular expressions compare to JavaScript expressions?",
+      "What are the key differences between Angular and JavaScript expressions?",
+      "How do Angular expressions work differently than JavaScript expressions?",
+      "What is the contrast between Angular expressions and JavaScript expressions?",
+      "How are Angular expressions evaluated compared to JavaScript expressions?",
+      "What makes Angular expressions unique compared to JavaScript expressions?",
+      "Can you highlight the differences between Angular expressions and JavaScript expressions?"
+    ],
+    "answerDescriptions": [
+      "Angular expressions can be used directly in HTML.",
+      "Angular expressions evaluate against a local scope object.",
+      "JavaScript expressions evaluate against the global window object.",
+      "Angular expressions restrict access to local scope properties."
+    ],
+    "answer": {
+      "summary": "Angular expressions differ from JavaScript expressions primarily in their evaluation context and usage within HTML.",
+      "detailed": "1. Angular expressions allow JavaScript to be written in HTML, while JavaScript expressions do not.\n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|-----------------------------|\n| Angular Expression | Use in templates to bind data | {{ message }} |\n\n- Angular expressions are evaluated in the context of the local scope.\n- JavaScript expressions are evaluated in the global context.\n\n```html\n<div>{{ message }}</div>\n```",
+      "whenToUse": "Use Angular expressions in templates to bind data to the view.",
+      "realWorldContext": "In an Angular application, you often need to display component properties in the template using Angular expressions."
+    },
+    "category": "Programming",
+    "subcategory": "Angular",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "JavaScript",
+      "Expressions",
+      "Templates",
+      "Scope"
+    ],
+    "conceptTriggers": [
+      "Data binding",
+      "Scope management",
+      "Template syntax",
+      "Component interaction",
+      "View updates"
+    ],
+    "naturalFollowups": [
+      "What are some examples of Angular expressions?",
+      "How do you bind data in Angular?",
+      "What is the purpose of the local scope in Angular?",
+      "Can you use JavaScript directly in Angular templates?",
+      "How does Angular handle scope inheritance?",
+      "What are the limitations of Angular expressions?",
+      "How do Angular expressions affect performance?",
+      "What is the difference between Angular expressions and filters?",
+      "How do you debug Angular expressions?",
+      "What are the best practices for using Angular expressions?"
+    ],
+    "relatedQuestions": [
+      "What is data binding in Angular?",
+      "How does Angular handle scope?",
+      "What are the differences between AngularJS and Angular?",
+      "How do you create components in Angular?",
+      "What is the role of the controller in Angular?",
+      "How do you pass data between components in Angular?",
+      "What are Angular directives?",
+      "How do you use services in Angular?",
+      "What is dependency injection in Angular?",
+      "How do you manage state in Angular applications?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Trying to access global variables in Angular expressions.",
+        "explanation": "Angular expressions are evaluated in the local scope, not the global scope."
+      },
+      {
+        "mistake": "Using JavaScript syntax instead of Angular expression syntax.",
+        "explanation": "Angular expressions require specific syntax like {{ }} for binding."
+      },
+      {
+        "mistake": "Overcomplicating expressions with too much logic.",
+        "explanation": "Keep expressions simple; complex logic should be handled in the component."
+      }
+    ],
+    "confidence": "High",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q6": {
+    "primaryQuestion": "What are Single Page Applications (SPA)?",
+    "alternativeQuestions": [
+      "Can you explain Single Page Applications?",
+      "What defines a Single Page Application?",
+      "How do Single Page Applications work?",
+      "What are the benefits of a Single Page Application?",
+      "What is the architecture of a Single Page Application?",
+      "What technologies are used in Single Page Applications?",
+      "How do SPAs differ from traditional web applications?",
+      "What are the challenges of building a Single Page Application?",
+      "Can you give examples of Single Page Applications?",
+      "What is the user experience like in a Single Page Application?",
+      "How does routing work in Single Page Applications?",
+      "What role does JavaScript play in Single Page Applications?",
+      "What are the performance implications of Single Page Applications?",
+      "How do SPAs handle state management?",
+      "What frameworks are commonly used for SPAs?",
+      "What is the SEO impact of Single Page Applications?",
+      "How do SPAs manage data fetching?",
+      "What are the security considerations for Single Page Applications?",
+      "What is the future of Single Page Applications?"
+    ],
+    "answerDescriptions": [
+      "SPAs load a single HTML page and dynamically update content.",
+      "They enhance user experience by minimizing page reloads.",
+      "JavaScript is crucial for manipulating the DOM in SPAs.",
+      "SPAs can be built using various frameworks like Angular and React."
+    ],
+    "answer": {
+      "summary": "Single Page Applications (SPAs) are web applications that load a single HTML page and dynamically update content without reloading the entire page.",
+      "detailed": "1. SPAs provide a seamless user experience by loading content dynamically without full page reloads.\n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|-----------------------------|\n| AJAX              | To fetch data asynchronously | `fetch('/api/data')` |\n| History API       | To manage browser history | `history.pushState({}, '', '/new-url')` |\n| Routing           | To handle navigation | `router.navigate(['/path'])` |\n\n- Remember: SPAs = speed + dynamic content.\n- Think of SPAs as a single app interface that updates as needed.\n\n```javascript\n// Example of fetching data in a SPA\nfetch('/api/data')\n  .then(response => response.json())\n  .then(data => console.log(data));\n```",
+      "whenToUse": "Use SPAs when you need a fast, interactive user experience with minimal page reloads.",
+      "realWorldContext": "Popular SPAs include Gmail, Google Maps, and Facebook, where users interact with dynamic content seamlessly."
+    },
+    "category": "Web Development",
+    "subcategory": "Single Page Applications",
+    "difficulty": "Intermediate",
+    "tags": [
+      "SPA",
+      "Web Applications",
+      "JavaScript",
+      "User Experience",
+      "Frontend Development"
+    ],
+    "conceptTriggers": [
+      "Dynamic Content",
+      "AJAX",
+      "Routing",
+      "Client-Side Rendering",
+      "Performance Optimization",
+      "Frameworks",
+      "User Interaction",
+      "State Management",
+      "Browser History",
+      "SEO Challenges"
+    ],
+    "naturalFollowups": [
+      "What frameworks can be used to build SPAs?",
+      "How do SPAs handle routing?",
+      "What are the SEO implications of SPAs?",
+      "What are the best practices for building SPAs?",
+      "How do SPAs manage state?",
+      "What are the performance considerations for SPAs?",
+      "How do SPAs differ from multi-page applications?",
+      "What are the security risks associated with SPAs?",
+      "How do you test a Single Page Application?",
+      "What tools can help in developing SPAs?"
+    ],
+    "relatedQuestions": [
+      "What is client-side rendering?",
+      "How does routing work in web applications?",
+      "What are the advantages of using AJAX?",
+      "What is the role of JavaScript in web development?",
+      "How do you optimize a Single Page Application?",
+      "What is the difference between SPAs and MPAs?",
+      "How do SPAs improve user engagement?",
+      "What are common libraries used in SPAs?",
+      "What is state management in SPAs?",
+      "How do you secure a Single Page Application?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Neglecting SEO considerations for SPAs.",
+        "description": "SPAs can be difficult for search engines to index without proper handling."
+      },
+      {
+        "mistake": "Overloading the initial load with too much JavaScript.",
+        "description": "This can lead to slow initial loading times, affecting user experience."
+      },
+      {
+        "mistake": "Ignoring accessibility features.",
+        "description": "SPAs must be designed with accessibility in mind to cater to all users."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q7": {
+    "primaryQuestion": "What are templates in Angular?",
+    "alternativeQuestions": [
+      "Can you explain Angular templates?",
+      "What is the purpose of templates in Angular?",
+      "How do Angular templates work?",
+      "What are the different types of templates in Angular?",
+      "What is an inline template in Angular?",
+      "What is a linked template in Angular?",
+      "How do you create a template in Angular?",
+      "What is the role of templates in Angular components?",
+      "Can you describe the structure of an Angular template?",
+      "What is the difference between inline and linked templates in Angular?",
+      "How does Angular render templates?",
+      "What are the benefits of using templates in Angular?",
+      "What is the syntax for Angular templates?",
+      "How do templates enhance Angular applications?",
+      "What is the templateUrl in Angular?",
+      "How do you reference a template in an Angular component?",
+      "What features do Angular templates provide?",
+      "What is the relationship between components and templates in Angular?",
+      "How do you bind data in Angular templates?",
+      "What are template expressions in Angular?"
+    ],
+    "answerDescriptions": [
+      "Templates define the view for Angular components.",
+      "They can be inline or linked to external HTML files.",
+      "Angular templates enhance HTML with additional capabilities.",
+      "Templates are evaluated by Angular to render the UI."
+    ],
+    "answer": {
+      "summary": "Templates in Angular are HTML-like structures that define how to display components.",
+      "detailed": "Templates are a way to define the user interface in Angular applications, allowing for dynamic rendering of HTML based on component data.\n\n| Method or Keyword | When to use                     | One-line code syntax example  |\n|-------------------|---------------------------------|-------------------------------|\n| template          | Use for inline HTML templates    | @Component({ template: '<h1>Hello</h1>' }) |\n| templateUrl       | Use for linked HTML templates    | @Component({ templateUrl: './app.component.html' }) |\n\n- Inline templates are defined directly in the component.\n- Linked templates are stored in separate HTML files.\n- Templates can include Angular directives and bindings.\n\n```typescript\n@Component({\n  selector: 'app-example',\n  template: '<h1>{{ title }}</h1>'\n})\nexport class ExampleComponent {\n  title = 'Hello World';\n}\n```",
+      "whenToUse": "Use templates when you need to define the UI for Angular components.",
+      "realWorldContext": "In an Angular application, templates are used to create dynamic views that respond to user interactions and data changes."
+    },
+    "category": "Programming",
+    "subcategory": "Angular",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "Templates",
+      "Components",
+      "HTML",
+      "UI"
+    ],
+    "conceptTriggers": [
+      "Data binding",
+      "Directives",
+      "Component architecture",
+      "Dynamic rendering",
+      "User interface"
+    ],
+    "naturalFollowups": [
+      "How do you bind data in Angular templates?",
+      "What are Angular directives?",
+      "Can you explain data binding in Angular?",
+      "What is the difference between components and templates?",
+      "How do you handle events in Angular templates?",
+      "What are structural directives in Angular?",
+      "How do you use ngFor in a template?",
+      "What is interpolation in Angular?",
+      "How do you pass data to a template?",
+      "What are template reference variables?"
+    ],
+    "relatedQuestions": [
+      "What is data binding in Angular?",
+      "How do you create a component in Angular?",
+      "What are Angular directives?",
+      "What is the difference between a component and a directive?",
+      "How do you use ngIf in Angular?",
+      "What is the purpose of the Angular CLI?",
+      "How do you manage state in Angular?",
+      "What is dependency injection in Angular?",
+      "How do you create services in Angular?",
+      "What are lifecycle hooks in Angular?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing inline templates with linked templates.",
+        "explanation": "Inline templates are defined in the component, while linked templates are in separate files."
+      },
+      {
+        "mistake": "Not using Angular directives properly in templates.",
+        "explanation": "Directives enhance templates but must be used correctly to function."
+      },
+      {
+        "mistake": "Failing to bind data correctly in templates.",
+        "explanation": "Data binding must be set up properly to reflect changes in the UI."
+      }
+    ],
+    "confidence": "High",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q8": {
+    "primaryQuestion": "What are directives in Angular?",
+    "alternativeQuestions": [
+      "Can you explain what directives are in Angular?",
+      "What is the role of directives in Angular applications?",
+      "How do directives work in Angular?",
+      "What are the types of directives in Angular?",
+      "Why would you use directives in Angular?",
+      "What is the purpose of directives in Angular?",
+      "How do you create a directive in Angular?",
+      "What are the benefits of using directives in Angular?",
+      "Can you give examples of directives in Angular?",
+      "What is the difference between a directive and a component in Angular?"
+    ],
+    "answerDescriptions": [
+      "Directives are classes that add behavior to Angular components.",
+      "They can be reused across multiple components to avoid code duplication.",
+      "Directives can manipulate the DOM or change the appearance of elements.",
+      "They are defined using the Directive decorator in Angular."
+    ],
+    "answer": {
+      "summary": "Directives in Angular are classes that enhance the behavior of components.",
+      "detailed": "A directive is a class in Angular that is declared with a Directive decorator. It allows you to attach specific behavior to elements in your Angular applications.\n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|------------------------------|\n| Directive         | To create reusable components with shared behavior | @Directive({ selector: '[appMyDirective]' }) |\n\n- Use directives to avoid code duplication.\n- They can be structural (changing layout) or attribute-based (changing appearance).\n\n```typescript\nimport { Directive, ElementRef, Renderer2 } from '@angular/core';\n\n@Directive({ selector: '[appHighlight]' })\nexport class HighlightDirective {\n  constructor(el: ElementRef, renderer: Renderer2) {\n    renderer.setStyle(el.nativeElement, 'backgroundColor', 'yellow');\n  }\n}\n```",
+      "whenToUse": "Use directives when you want to apply the same behavior or functionality to multiple components without repeating code.",
+      "realWorldContext": "For example, if you have multiple components that need to highlight elements on hover, you can create a directive to handle this behavior instead of implementing it in each component."
+    },
+    "category": "Angular",
+    "subcategory": "Directives",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "Directives",
+      "Components",
+      "Web Development",
+      "Frontend"
+    ],
+    "conceptTriggers": [
+      "Component Reusability",
+      "DOM Manipulation",
+      "Behavioral Enhancement",
+      "Code Duplication",
+      "Structural Directives"
+    ],
+    "naturalFollowups": [
+      "What are structural directives?",
+      "How do you create a custom directive?",
+      "What is the difference between a directive and a component?",
+      "Can directives be used with services?",
+      "What are attribute directives?"
+    ],
+    "relatedQuestions": [
+      "What are components in Angular?",
+      "How do you create a component in Angular?",
+      "What is a service in Angular?",
+      "What is dependency injection in Angular?",
+      "How do you manage state in Angular?",
+      "What are pipes in Angular?",
+      "What is the Angular lifecycle?",
+      "How do you handle events in Angular?",
+      "What is Angular routing?",
+      "What are modules in Angular?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not understanding the difference between directives and components.",
+        "explanation": "Directives enhance existing elements, while components are standalone entities."
+      },
+      {
+        "mistake": "Forgetting to declare the directive in the module.",
+        "explanation": "Directives need to be declared in the NgModule to be used."
+      },
+      {
+        "mistake": "Using the wrong selector type.",
+        "explanation": "Ensure the selector matches the intended use (element, attribute, etc.)."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "angular-q9": {
+    "primaryQuestion": "Explain Components, Modules and Services in Angular",
+    "alternativeQuestions": [
+      "What are Components, Modules, and Services in Angular?",
+      "Can you describe the role of Components, Modules, and Services in Angular?",
+      "How do Components, Modules, and Services work together in Angular?",
+      "What is the significance of Components, Modules, and Services in Angular?",
+      "Explain the relationship between Components, Modules, and Services in Angular.",
+      "What are the differences between Components, Modules, and Services in Angular?",
+      "How do you define Components, Modules, and Services in Angular?",
+      "What are the key features of Components, Modules, and Services in Angular?",
+      "Can you provide examples of Components, Modules, and Services in Angular?",
+      "How do Components, Modules, and Services contribute to Angular applications?"
+    ],
+    "answerDescriptions": [
+      "Components are the building blocks of Angular applications.",
+      "Modules organize related components and services.",
+      "Services provide reusable business logic across components.",
+      "Components, Modules, and Services work together to create dynamic applications."
+    ],
+    "answer": {
+      "summary": "Components manage the UI, Modules group them, and Services provide shared functionality.",
+      "detailed": "1. Components are the fundamental UI building blocks in Angular applications. They encapsulate the template, styles, and logic. \n\n| Method or Keyword | When to use | One-line code syntax example |\n|-------------------|-------------|-----------------------------|\n| @Component        | To define a component | @Component({ selector: 'app-example', templateUrl: './example.component.html' }) |\n| @NgModule         | To define a module | @NgModule({ declarations: [ExampleComponent], imports: [CommonModule] }) |\n| Injectable        | To define a service | @Injectable({ providedIn: 'root' }) |\n\n- Remember: Components are for UI, Modules for organization, Services for logic.\n- Use @Component to create a new component, @NgModule to group components, and @Injectable for services.\n\n```typescript\nimport { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  templateUrl: './example.component.html',\n  styleUrls: ['./example.component.css']\n})\nexport class ExampleComponent {\n  // Component logic here\n}\n```",
+      "whenToUse": "Use Components for UI elements, Modules for organizing code, and Services for shared functionality.",
+      "realWorldContext": "In a shopping application, components could represent product listings, modules could group related features like cart and checkout, and services could handle API calls."
+    },
+    "category": "Programming",
+    "subcategory": "Angular",
+    "difficulty": "Intermediate",
+    "tags": [
+      "Angular",
+      "Components",
+      "Modules",
+      "Services",
+      "Web Development",
+      "Frontend",
+      "JavaScript",
+      "TypeScript",
+      "UI",
+      "Architecture"
+    ],
+    "conceptTriggers": [
+      "Dependency Injection",
+      "Single Responsibility Principle",
+      "Modular Architecture",
+      "Component Lifecycle",
+      "Service Reusability",
+      "Template Binding",
+      "Routing",
+      "State Management",
+      "Event Handling",
+      "Data Flow"
+    ],
+    "naturalFollowups": [
+      "What is Dependency Injection in Angular?",
+      "How do you create a service in Angular?",
+      "What are Angular lifecycle hooks?",
+      "How do you share data between components?",
+      "What is the purpose of NgModule?",
+      "How do you use services in components?",
+      "What is the difference between a component and a directive?",
+      "How do you handle events in Angular?",
+      "What are pipes in Angular?",
+      "How do you implement routing in Angular?"
+    ],
+    "relatedQuestions": [
+      "What is the Angular component lifecycle?",
+      "How do you create a module in Angular?",
+      "What are the best practices for Angular services?",
+      "How do you pass data to a component in Angular?",
+      "What is the purpose of the Angular router?",
+      "How do you test Angular components?",
+      "What are the differences between Angular and React?",
+      "How do you manage state in Angular applications?",
+      "What is lazy loading in Angular?",
+      "How do you handle forms in Angular?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using @Injectable for services",
+        "explanation": "For services to be injected properly, they must be decorated with @Injectable."
+      },
+      {
+        "mistake": "Creating too many components",
+        "explanation": "Overly granular components can lead to unnecessary complexity."
+      },
+      {
+        "mistake": "Ignoring module organization",
+        "explanation": "Failing to group related components and services can make the application harder to maintain."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  }
+}

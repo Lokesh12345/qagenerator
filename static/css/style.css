@@ -1,0 +1,255 @@
+/* Custom styles for Q&A Generator */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    border: none;
+}
+
+.live-feed {
+    height: 500px;
+    overflow-y: auto;
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 1.4;
+}
+
+.live-feed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.live-feed::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+.live-feed::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.live-feed::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+.log-entry {
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+.log-entry.info {
+    color: #00ff00;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.log-entry.warning {
+    color: #ffaa00;
+    background-color: rgba(255, 170, 0, 0.1);
+}
+
+.log-entry.error {
+    color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+.log-entry.success {
+    color: #00ffaa;
+    background-color: rgba(0, 255, 170, 0.1);
+}
+
+.log-entry.processing {
+    color: #00aaff;
+    background-color: rgba(0, 170, 255, 0.1);
+}
+
+.timestamp {
+    color: #888;
+    font-size: 10px;
+}
+
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.badge {
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+.form-range {
+    height: 6px;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #667eea;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.form-range::-moz-range-thumb {
+    background: #667eea;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-top: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.question-preview {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Animation for new entries */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.log-entry.new {
+    animation: slideIn 0.3s ease;
+}
+
+/* Status indicators */
+.status-pending {
+    background-color: #6c757d !important;
+}
+
+.status-scraping {
+    background-color: #fd7e14 !important;
+}
+
+.status-processing {
+    background-color: #0d6efd !important;
+}
+
+.status-completed {
+    background-color: #198754 !important;
+}
+
+.status-error {
+    background-color: #dc3545 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .live-feed {
+        height: 300px;
+        font-size: 10px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 6px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #00ff00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Code blocks in modal */
+.modal-body pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.modal-body code {
+    background-color: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Connection status */
+.connection-status {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1050;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.connection-status.connected {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.connection-status.disconnected {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
