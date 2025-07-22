@@ -1,0 +1,31 @@
+{
+  "name": "GeeksforGeeks",
+  "patterns": ["geeksforgeeks.org"],
+  "selectors": {
+    "questions": {
+      "primary": "h2.questions",
+      "secondary": "strong",
+      "filters": ["contains(text(), '?')", "contains(text(), 'Q')"]
+    },
+    "answers": {
+      "primary": ".answer-content",
+      "secondary": "h2 + p",
+      "code_blocks": "pre.lang-*",
+      "list_items": "ul li, ol li"
+    }
+  },
+  "extraction": {
+    "clean_html": true,
+    "preserve_code": true,
+    "max_answer_length": 5000,
+    "combine_multiple_paragraphs": true,
+    "remove_ads": true
+  },
+  "qa_patterns": [
+    {
+      "question_marker": "strong",
+      "answer_follows": "parent_next_sibling",
+      "answer_elements": ["p", "div", "ul", "ol", "pre"]
+    }
+  ]
+}

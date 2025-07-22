@@ -294,10 +294,29 @@ def download_json():
     """Download master JSON data"""
     topic = request.args.get('topic', 'angular')
     master_filename = f"qa_master_{topic}.json"
-    master_filepath = os.path.join('data', master_filename)
     
+    # Get current provider to determine correct folder
+    provider = current_ai_client.provider if current_ai_client else 'ollama'
+    provider_folder = os.path.join('data', provider)
+    master_filepath = os.path.join(provider_folder, master_filename)
+    
+    # If not found in current provider folder, try other providers
     if not os.path.exists(master_filepath):
-        return jsonify({'error': 'No master file found'}), 404
+        for fallback_provider in ['ollama', 'chatgpt', 'openai', 'claude']:
+            if fallback_provider != provider:
+                fallback_path = os.path.join('data', fallback_provider, master_filename)
+                if os.path.exists(fallback_path):
+                    master_filepath = fallback_path
+                    provider = fallback_provider
+                    break
+        else:
+            # Still not found, try legacy location
+            legacy_path = os.path.join('data', master_filename)
+            if os.path.exists(legacy_path):
+                master_filepath = legacy_path
+                provider = 'legacy'
+            else:
+                return jsonify({'error': f'No master file found for topic "{topic}". Try processing some questions first.'}), 404
     
     try:
         with open(master_filepath, 'r') as f:
@@ -307,6 +326,7 @@ def download_json():
             'message': 'Master file loaded successfully',
             'filename': master_filename,
             'filepath': master_filepath,
+            'provider': provider,
             'total_entries': len(master_data),
             'data': master_data  # Include the actual data for download
         })
@@ -315,32 +335,64 @@ def download_json():
 
 @app.route('/api/master-stats')
 def master_stats():
-    """Get statistics about master files"""
+    """Get statistics about master files across all providers"""
     stats = {}
     data_dir = 'data'
     
     try:
-        for filename in os.listdir(data_dir):
-            if filename.startswith('qa_master_') and filename.endswith('.json'):
-                filepath = os.path.join(data_dir, filename)
-                topic = filename.replace('qa_master_', '').replace('.json', '')
-                
-                try:
-                    with open(filepath, 'r') as f:
-                        data = json.load(f)
-                    
-                    stats[topic] = {
-                        'filename': filename,
-                        'total_entries': len(data),
-                        'file_size': os.path.getsize(filepath),
-                        'last_modified': datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat()
-                    }
-                except Exception as e:
-                    logger.error(f"Error reading {filename}: {e}")
+        # Check provider-specific folders
+        for provider in ['ollama', 'chatgpt', 'openai', 'claude']:
+            provider_dir = os.path.join(data_dir, provider)
+            if os.path.exists(provider_dir):
+                for filename in os.listdir(provider_dir):
+                    if filename.startswith('qa_master_') and filename.endswith('.json'):
+                        filepath = os.path.join(provider_dir, filename)
+                        topic = filename.replace('qa_master_', '').replace('.json', '')
+                        
+                        try:
+                            with open(filepath, 'r') as f:
+                                data = json.load(f)
+                            
+                            key = f"{topic}_{provider}"
+                            stats[key] = {
+                                'filename': filename,
+                                'topic': topic,
+                                'provider': provider,
+                                'total_entries': len(data),
+                                'file_size': os.path.getsize(filepath),
+                                'last_modified': datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat()
+                            }
+                        except Exception as e:
+                            logger.error(f"Error reading {filepath}: {e}")
+        
+        # Also check legacy location
+        if os.path.exists(data_dir):
+            for filename in os.listdir(data_dir):
+                if filename.startswith('qa_master_') and filename.endswith('.json'):
+                    filepath = os.path.join(data_dir, filename)
+                    if os.path.isfile(filepath):  # Make sure it's not a directory
+                        topic = filename.replace('qa_master_', '').replace('.json', '')
+                        
+                        try:
+                            with open(filepath, 'r') as f:
+                                data = json.load(f)
+                            
+                            key = f"{topic}_legacy"
+                            stats[key] = {
+                                'filename': filename,
+                                'topic': topic,
+                                'provider': 'legacy',
+                                'total_entries': len(data),
+                                'file_size': os.path.getsize(filepath),
+                                'last_modified': datetime.fromtimestamp(os.path.getmtime(filepath)).isoformat()
+                            }
+                        except Exception as e:
+                            logger.error(f"Error reading {filepath}: {e}")
         
         return jsonify({
             'stats': stats,
-            'total_files': len(stats)
+            'total_files': len(stats),
+            'current_provider': current_ai_client.provider if current_ai_client else 'ollama'
         })
     
     except Exception as e:
@@ -554,6 +606,35 @@ def preview_questions():
         logger.error(f"Error previewing questions: {e}")
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/scrape-with-answers', methods=['POST'])
+def scrape_with_answers():
+    """Scrape questions and answers from a URL"""
+    try:
+        data = request.json
+        url = data.get('url', '')
+        limit = data.get('limit', 10)
+        include_answers = data.get('include_answers', False)
+        
+        if not url:
+            return jsonify({'error': 'URL is required'}), 400
+        
+        logger.info(f"Scraping with answers - URL: {url}, Include answers: {include_answers}")
+        
+        # Use enhanced scraping
+        questions = scraper.scrape_with_answers(url, limit, include_answers)
+        
+        logger.info(f"Scraped {len(questions)} questions, {sum(1 for q in questions if q.get('has_answer', False))} with answers")
+        
+        return jsonify({
+            'questions': questions,
+            'total': len(questions),
+            'with_answers': sum(1 for q in questions if q.get('has_answer', False))
+        })
+        
+    except Exception as e:
+        logger.error(f"Error scraping with answers: {e}")
+        return jsonify({'error': str(e)}), 500
+
 def remove_duplicates(questions):
     """Remove duplicate questions based on similarity"""
     unique_questions = []
@@ -731,9 +812,14 @@ def run_bulk_processing_job(job):
         
         # Save to accumulated file
         if job.processed_data:
-            # Use a single master file for all Q&A data
+            # Use provider-specific folders
+            provider = current_ai_client.provider if current_ai_client else 'unknown'
+            provider_folder = os.path.join('data', provider)
+            os.makedirs(provider_folder, exist_ok=True)
+            
+            # Use a single master file for all Q&A data per provider
             master_filename = f"qa_master_{job.topic}.json"
-            master_filepath = os.path.join('data', master_filename)
+            master_filepath = os.path.join(provider_folder, master_filename)
             
             # Load existing data if file exists
             existing_data = {}
@@ -884,9 +970,14 @@ def run_processing_job(job):
         
         # Save to accumulated file
         if job.processed_data:
-            # Use a single master file for all Q&A data
+            # Use provider-specific folders
+            provider = current_ai_client.provider if current_ai_client else 'unknown'
+            provider_folder = os.path.join('data', provider)
+            os.makedirs(provider_folder, exist_ok=True)
+            
+            # Use a single master file for all Q&A data per provider
             master_filename = f"qa_master_{job.topic}.json"
-            master_filepath = os.path.join('data', master_filename)
+            master_filepath = os.path.join(provider_folder, master_filename)
             
             # Load existing data if file exists
             existing_data = {}

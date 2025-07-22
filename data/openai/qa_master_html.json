@@ -1,0 +1,97 @@
+{
+  "html-q1": {
+    "primaryQuestion": "Can we display a web page inside a web page or Is nesting of webpages possible?",
+    "alternativeQuestions": [
+      "Is it possible to embed a webpage within another webpage?",
+      "Can I use an iframe to show a webpage inside another?",
+      "How can I nest a webpage within another HTML document?",
+      "What is the method to display one webpage inside another?",
+      "Can I include a web page in another web page?",
+      "Is there a way to show a web page within a web page?",
+      "How do I use iframes to embed a webpage?",
+      "Can HTML support nested web pages?",
+      "What tag is used to display a webpage inside another?",
+      "Can I load an external webpage in my HTML page?"
+    ],
+    "answerDescriptions": [
+      "HTML allows embedding of web pages using iframes.",
+      "The iframe tag is used for this purpose.",
+      "Nesting web pages can enhance user experience.",
+      "Ensure the embedded page allows iframe usage."
+    ],
+    "answer": {
+      "summary": "Yes, you can display a web page inside another using the iframe tag.",
+      "detailed": "The iframe tag allows you to embed another HTML document within your current page.",
+      "whenToUse": "Use iframes when you want to include content from another source without redirecting.",
+      "realWorldContext": "Commonly used in applications like embedding Google Maps or videos from YouTube."
+    },
+    "category": "Web Development",
+    "subcategory": "HTML",
+    "difficulty": "Easy",
+    "tags": [
+      "iframe",
+      "HTML",
+      "web embedding",
+      "nested pages",
+      "web development",
+      "frontend",
+      "user interface",
+      "content integration",
+      "HTML tags",
+      "web design"
+    ],
+    "conceptTriggers": [
+      "embedding content",
+      "web page structure",
+      "HTML elements",
+      "user experience",
+      "external resources",
+      "iframes",
+      "cross-origin content",
+      "responsive design",
+      "web applications",
+      "dynamic content"
+    ],
+    "naturalFollowups": [
+      "What are the limitations of using iframes?",
+      "How do I ensure my iframe is responsive?",
+      "Can I style an iframe?",
+      "What security concerns are there with iframes?",
+      "How do I communicate between iframes?",
+      "Can I load a webpage that requires authentication in an iframe?",
+      "What are the alternatives to iframes?",
+      "How do I handle iframe loading errors?",
+      "Can I use iframes for SEO?",
+      "What attributes can I use with the iframe tag?"
+    ],
+    "relatedQuestions": [
+      "What is the purpose of the iframe tag?",
+      "How do I create a responsive iframe?",
+      "What are the security risks of using iframes?",
+      "How can I embed a video using HTML?",
+      "What is the sandbox attribute in iframes?",
+      "How do I style an iframe with CSS?",
+      "Can I use JavaScript to manipulate iframes?",
+      "What is cross-origin resource sharing (CORS)?",
+      "How do I embed Google Maps in my webpage?",
+      "What is the difference between iframe and object tag?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not checking if the embedded page allows iframe usage.",
+        "explanation": "Some websites have restrictions that prevent them from being embedded."
+      },
+      {
+        "mistake": "Forgetting to set the width and height of the iframe.",
+        "explanation": "This can lead to display issues on the webpage."
+      },
+      {
+        "mistake": "Neglecting to consider mobile responsiveness.",
+        "explanation": "Iframes can break layout on smaller screens if not handled properly."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  }
+}

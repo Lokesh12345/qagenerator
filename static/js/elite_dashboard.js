@@ -35,7 +35,7 @@ class EliteDashboard {
         // Form submission
         document.getElementById('scrapingForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            this.previewSelectedQuestions();
+            this.showPreviewModal();
         });
 
         // Range slider
@@ -79,6 +79,15 @@ class EliteDashboard {
             this.selectAllQuestions(false);
         });
 
+        // Answer expand/collapse buttons
+        document.getElementById('expandAllBtn').addEventListener('click', () => {
+            this.expandAllAnswers();
+        });
+
+        document.getElementById('collapseAllBtn').addEventListener('click', () => {
+            this.collapseAllAnswers();
+        });
+
         // Processing buttons
         document.getElementById('processSelectedBtn').addEventListener('click', () => {
             this.processSelectedQuestions();
@@ -100,6 +109,7 @@ class EliteDashboard {
         document.getElementById('refreshCacheStats').addEventListener('click', () => {
             this.refreshCacheStats();
         });
+        
     }
 
     bindSocketEvents() {
@@ -341,19 +351,44 @@ class EliteDashboard {
 
         questions.forEach((q, index) => {
             const item = document.createElement('div');
-            item.className = 'flex items-start space-x-2 p-2 hover:bg-gray-50 rounded-md transition-colors border border-transparent hover:border-primary-200';
+            item.className = 'mb-3 border border-gray-200 rounded-lg overflow-hidden';
             item.innerHTML = `
-                <input type="checkbox" class="w-3 h-3 text-primary-500 border-gray-300 rounded mt-0.5 question-checkbox" id="q_${index}" checked data-index="${index}">
-                <div class="flex-1 min-w-0">
-                    <label class="text-xs font-medium text-gray-800 cursor-pointer block leading-relaxed" for="q_${index}">
-                        ${q.question}
-                    </label>
-                    <div class="text-xs text-gray-500 mt-1 flex items-center space-x-3">
-                        <span><i class="fas fa-globe w-3 text-primary-400"></i> ${q.source}</span>
-                        ${q.url ? `<span><i class="fas fa-link w-3 text-green-400"></i> URL Available</span>` : ''}
-                        ${q.answer ? `<span><i class="fas fa-check w-3 text-blue-400"></i> Answer Found</span>` : ''}
+                <div class="p-3 bg-gray-50 flex items-start space-x-3">
+                    <input type="checkbox" class="w-3 h-3 text-primary-500 border-gray-300 rounded mt-1 question-checkbox" id="q_${index}" checked data-index="${index}">
+                    <div class="flex-1 min-w-0">
+                        <label class="text-xs font-medium text-gray-800 cursor-pointer block leading-relaxed" for="q_${index}">
+                            ${this.escapeHtml(q.question)}
+                        </label>
+                        <div class="text-xs text-gray-500 mt-1 flex items-center space-x-3">
+                            <span><i class="fas fa-globe w-3 text-primary-400"></i> ${q.source}</span>
+                            ${q.url ? `<span><i class="fas fa-link w-3 text-green-400"></i> URL Available</span>` : ''}
+                            ${q.has_answer ? `<span><i class="fas fa-check w-3 text-blue-400"></i> Answer Found</span>` : ''}
+                        </div>
                     </div>
+                    ${q.has_answer && q.answer !== "No answer found" ? `
+                        <button class="text-gray-400 hover:text-gray-600 text-sm" onclick="window.dashboard.toggleAnswer(${index})">
+                            <i class="fas fa-chevron-down answer-toggle" data-index="${index}"></i>
+                        </button>
+                    ` : ''}
                 </div>
+                ${q.has_answer && q.answer !== "No answer found" ? `
+                    <div class="answer-section hidden p-3 bg-white border-t border-gray-200" id="answer-${index}">
+                        <div class="text-xs text-gray-600 mb-2">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Scraped answer (editable for processing):
+                        </div>
+                        <textarea class="w-full p-2 text-sm border border-gray-200 rounded-md answer-textarea" 
+                                  data-index="${index}" 
+                                  rows="4"
+                                  placeholder="Enter or edit answer...">${this.escapeHtml(q.answer || '')}</textarea>
+                        <div class="mt-2 flex items-center">
+                            <input type="checkbox" id="use-answer-${index}" ${q.has_answer ? 'checked' : ''}>
+                            <label for="use-answer-${index}" class="ml-2 text-xs text-gray-600">
+                                Use this answer for processing
+                            </label>
+                        </div>
+                    </div>
+                ` : ''}
             `;
             container.appendChild(item);
             
@@ -651,7 +686,7 @@ class EliteDashboard {
                 a.click();
                 URL.revokeObjectURL(url);
                 
-                this.log(`Downloaded: ${data.filename} (${data.total_entries} entries)`, 'success');
+                this.log(`Downloaded: ${data.filename} (${data.total_entries} entries) from ${data.provider}`, 'success');
             } else {
                 // If the specified topic doesn't work, try fallback topics
                 if (inputTopic && topic !== 'selected') {
@@ -813,6 +848,161 @@ class EliteDashboard {
             console.error('Error saving AI provider:', error);
             this.log('Error saving AI provider', 'error');
         }
+    }
+    
+    async showPreviewModal() {
+        const container = document.getElementById('questionList');
+        const placeholder = document.getElementById('questionListPlaceholder');
+        
+        // Hide placeholder and show loading
+        if (placeholder) {
+            placeholder.style.display = 'none';
+        }
+        
+        container.innerHTML = `
+            <div class="text-center py-8 text-gray-400">
+                <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+                <p class="text-sm">Loading questions...</p>
+            </div>
+        `;
+        
+        try {
+            // Get current AI provider
+            const provider = document.getElementById('aiProvider').value;
+            const isOllama = provider === 'ollama';
+            
+            // Fetch questions with answers if using Ollama
+            const questions = await this.fetchQuestionsWithAnswers(isOllama);
+            
+            if (questions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-400">
+                        <i class="fas fa-inbox text-2xl mb-2"></i>
+                        <p class="text-sm">No questions found. Please check your URL or sources.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Store questions and display them in the main interface
+            this.questions = questions;
+            this.displayQuestions(questions);
+            
+        } catch (error) {
+            console.error('Error loading questions:', error);
+            container.innerHTML = `
+                <div class="text-center py-8 text-red-400">
+                    <i class="fas fa-exclamation-circle text-2xl mb-2"></i>
+                    <p class="text-sm">Error loading questions: ${error.message}</p>
+                </div>
+            `;
+        }
+    }
+    
+    async fetchQuestionsWithAnswers(includeAnswers = false) {
+        // Get URL or use predefined sources
+        const url = document.getElementById('websiteUrl').value.trim();
+        
+        if (url) {
+            // Fetch from custom URL
+            const response = await fetch('/api/scrape-with-answers', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    url: url,
+                    limit: parseInt(document.getElementById('limitPerSource').value) || 10,
+                    include_answers: includeAnswers
+                })
+            });
+            
+            const data = await response.json();
+            return data.questions || [];
+        } else {
+            // If no URL provided, return sample questions for demo
+            if (!this.fetchedQuestions || this.fetchedQuestions.length === 0) {
+                // Return sample questions for testing/demo purposes
+                return [
+                    {
+                        id: 'sample-1',
+                        question: 'What is Angular and what are its key features?',
+                        answer: 'Angular is a platform and framework for building single-page client applications using HTML and TypeScript.',
+                        source: 'Sample',
+                        has_answer: true
+                    },
+                    {
+                        id: 'sample-2', 
+                        question: 'Explain the difference between Component and Directive in Angular.',
+                        answer: 'Components control a patch of screen called a view, while directives are used to change the appearance or behavior of DOM elements.',
+                        source: 'Sample',
+                        has_answer: true
+                    },
+                    {
+                        id: 'sample-3',
+                        question: 'What is dependency injection in Angular?',
+                        answer: 'Dependency injection is a design pattern where dependencies are provided to a component rather than the component creating them.',
+                        source: 'Sample', 
+                        has_answer: true
+                    }
+                ];
+            }
+            
+            // Return existing questions with answer field added
+            return this.fetchedQuestions.map(q => ({
+                ...q,
+                answer: q.answer || "No answer found",
+                has_answer: q.has_answer || false
+            }));
+        }
+    }
+    
+    
+    selectAllQuestions(select = true) {
+        document.querySelectorAll('.question-checkbox').forEach(cb => {
+            cb.checked = select;
+        });
+        this.updateSelectionCount();
+    }
+    
+    toggleAnswer(index) {
+        const answerDiv = document.getElementById(`answer-${index}`);
+        const toggleIcon = document.querySelector(`.answer-toggle[data-index="${index}"]`);
+        
+        if (answerDiv.classList.contains('hidden')) {
+            answerDiv.classList.remove('hidden');
+            toggleIcon.classList.remove('fa-chevron-down');
+            toggleIcon.classList.add('fa-chevron-up');
+        } else {
+            answerDiv.classList.add('hidden');
+            toggleIcon.classList.remove('fa-chevron-up');
+            toggleIcon.classList.add('fa-chevron-down');
+        }
+    }
+    
+    expandAllAnswers() {
+        document.querySelectorAll('.answer-section').forEach(div => {
+            div.classList.remove('hidden');
+        });
+        document.querySelectorAll('.answer-toggle').forEach(icon => {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        });
+    }
+    
+    collapseAllAnswers() {
+        document.querySelectorAll('.answer-section').forEach(div => {
+            div.classList.add('hidden');
+        });
+        document.querySelectorAll('.answer-toggle').forEach(icon => {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        });
+    }
+    
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 }
 

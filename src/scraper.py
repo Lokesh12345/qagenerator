@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from typing import List, Dict, Tuple, Optional
 import logging
+import json
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -18,6 +20,22 @@ class InterviewScraper:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
+        self.configs = self._load_configs()
+        
+    def _load_configs(self) -> Dict:
+        """Load site-specific scraping configurations"""
+        configs = {}
+        config_dir = os.path.join(os.path.dirname(__file__), 'scraper_configs')
+        
+        if os.path.exists(config_dir):
+            for filename in os.listdir(config_dir):
+                if filename.endswith('.json'):
+                    with open(os.path.join(config_dir, filename), 'r') as f:
+                        config = json.load(f)
+                        for pattern in config.get('patterns', []):
+                            configs[pattern] = config
+        
+        return configs
         
     def scrape_interviewbit_angular(self, limit: int = 50) -> List[Dict]:
         """Scrape Angular questions from InterviewBit"""
@@ -630,3 +648,181 @@ class InterviewScraper:
         
         logger.info(f"Total scraped: {len(all_qa_pairs)} Q&A pairs")
         return all_qa_pairs
+    
+    def _extract_answer_interviewbit(self, question_elem, soup) -> Optional[str]:
+        """Extract answer for InterviewBit based on their HTML structure"""
+        answer_parts = []
+        
+        # Look for the next siblings after the question
+        current = question_elem
+        siblings_checked = 0
+        max_siblings = 10  # Limit to prevent infinite loops
+        
+        while siblings_checked < max_siblings:
+            current = current.find_next_sibling()
+            if not current:
+                break
+                
+            siblings_checked += 1
+            
+            # Stop if we hit another question
+            if current.name in ['h2', 'h3'] or (current.name == 'section' and 'ibpage-article-header' in current.get('class', [])):
+                break
+            
+            # Extract text from relevant elements
+            if current.name in ['p', 'div', 'ul', 'ol', 'pre', 'article']:
+                text = current.get_text(strip=True)
+                if text and len(text) > 20:  # Skip very short texts
+                    answer_parts.append(text)
+                    
+                # Check for code blocks
+                code_blocks = current.find_all(['pre', 'code'])
+                for code in code_blocks:
+                    code_text = code.get_text(strip=True)
+                    if code_text and code_text not in answer_parts:
+                        answer_parts.append(f"```\n{code_text}\n```")
+            
+            # Stop if we've collected enough content
+            if len('\n'.join(answer_parts)) > 2000:
+                break
+        
+        return '\n\n'.join(answer_parts) if answer_parts else None
+    
+    def scrape_with_answers(self, url: str, limit: int = 50, include_answers: bool = True) -> List[Dict]:
+        """Enhanced scraping that includes answer extraction"""
+        try:
+            response = self.session.get(url, timeout=10)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            qa_pairs = []
+            
+            # Determine which site we're scraping
+            if 'interviewbit.com' in url:
+                qa_pairs = self._scrape_interviewbit_with_answers(soup, url, limit, include_answers)
+            elif 'geeksforgeeks.org' in url:
+                qa_pairs = self._scrape_geeksforgeeks_with_answers(soup, url, limit, include_answers)
+            elif 'javatpoint.com' in url:
+                qa_pairs = self._scrape_javatpoint_with_answers(soup, url, limit, include_answers)
+            else:
+                # Fallback to question-only scraping
+                qa_pairs = self._scrape_default_with_answers(soup, url, limit, include_answers)
+            
+            return qa_pairs
+            
+        except Exception as e:
+            logger.error(f"Error scraping {url}: {e}")
+            return []
+    
+    def _scrape_interviewbit_with_answers(self, soup, url: str, limit: int, include_answers: bool) -> List[Dict]:
+        """Scrape InterviewBit with optional answer extraction"""
+        qa_pairs = []
+        
+        # Method 1: Look for sections with h3 questions
+        sections = soup.find_all('section', class_='ibpage-article-header')
+        
+        for i, section in enumerate(sections):
+            if len(qa_pairs) >= limit:
+                break
+                
+            try:
+                # Extract question from h3
+                question_elem = section.find('h3')
+                if not question_elem:
+                    continue
+                    
+                question_text = question_elem.get_text(strip=True)
+                
+                # Extract answer if requested
+                answer = None
+                if include_answers:
+                    answer = self._extract_answer_interviewbit(question_elem, soup)
+                
+                qa_pairs.append({
+                    'id': f'ib-{i+1}',
+                    'question': question_text,
+                    'answer': answer or "No answer found",
+                    'source': url,
+                    'has_answer': answer is not None
+                })
+                
+            except Exception as e:
+                logger.debug(f"Error extracting Q&A from section: {e}")
+                continue
+        
+        # Method 2: Look for all h3 tags that might be questions
+        if len(qa_pairs) < limit:
+            h3_tags = soup.find_all('h3')
+            
+            for i, h3 in enumerate(h3_tags):
+                if len(qa_pairs) >= limit:
+                    break
+                    
+                question_text = h3.get_text(strip=True)
+                
+                # Check if it's likely a question
+                if not any(keyword in question_text.lower() for keyword in ['?', 'what', 'how', 'why', 'when', 'which', 'explain']):
+                    continue
+                
+                # Skip if already added
+                if any(qa['question'] == question_text for qa in qa_pairs):
+                    continue
+                
+                # Extract answer if requested
+                answer = None
+                if include_answers:
+                    answer = self._extract_answer_interviewbit(h3, soup)
+                
+                qa_pairs.append({
+                    'id': f'ib-h3-{len(qa_pairs)+1}',
+                    'question': question_text,
+                    'answer': answer or "No answer found",
+                    'source': url,
+                    'has_answer': answer is not None
+                })
+        
+        return qa_pairs
+    
+    def _scrape_geeksforgeeks_with_answers(self, soup, url: str, limit: int, include_answers: bool) -> List[Dict]:
+        """Scrape GeeksforGeeks with optional answer extraction"""
+        qa_pairs = []
+        
+        # Implementation would go here - similar pattern to InterviewBit
+        # For now, fallback to existing question-only scraping
+        return self._scrape_default_with_answers(soup, url, limit, include_answers)
+    
+    def _scrape_javatpoint_with_answers(self, soup, url: str, limit: int, include_answers: bool) -> List[Dict]:
+        """Scrape JavaTpoint with optional answer extraction"""
+        qa_pairs = []
+        
+        # Implementation would go here - similar pattern to InterviewBit
+        # For now, fallback to existing question-only scraping
+        return self._scrape_default_with_answers(soup, url, limit, include_answers)
+    
+    def _scrape_default_with_answers(self, soup, url: str, limit: int, include_answers: bool) -> List[Dict]:
+        """Default scraping with basic answer extraction"""
+        qa_pairs = []
+        
+        # Look for common question patterns
+        potential_questions = soup.find_all(['h1', 'h2', 'h3', 'strong', 'b'])
+        
+        for i, elem in enumerate(potential_questions):
+            if len(qa_pairs) >= limit:
+                break
+                
+            text = elem.get_text(strip=True)
+            
+            # Check if it looks like a question
+            if ('?' in text or 
+                any(kw in text.lower() for kw in ['what', 'how', 'why', 'when', 'explain', 'describe']) or
+                re.match(r'^\d+[\.\)]\s+', text)):
+                
+                qa_pairs.append({
+                    'id': f'q{len(qa_pairs)+1}',
+                    'question': text,
+                    'answer': "No answer found",
+                    'source': url,
+                    'has_answer': False
+                })
+        
+        return qa_pairs

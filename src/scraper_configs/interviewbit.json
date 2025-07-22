@@ -1,0 +1,31 @@
+{
+  "name": "InterviewBit",
+  "patterns": ["interviewbit.com"],
+  "selectors": {
+    "questions": {
+      "primary": "h3",
+      "secondary": ".ibpage-article-header",
+      "filters": ["contains(text(), '?')", "contains(text(), 'Q')"]
+    },
+    "answers": {
+      "primary": "h3 + p",
+      "secondary": ".ibpage-article-header + div",
+      "code_blocks": "pre, code",
+      "list_items": "ul li, ol li"
+    }
+  },
+  "extraction": {
+    "clean_html": true,
+    "preserve_code": true,
+    "max_answer_length": 5000,
+    "combine_multiple_paragraphs": true,
+    "remove_ads": true
+  },
+  "qa_patterns": [
+    {
+      "question_marker": "h3",
+      "answer_follows": "immediate_sibling",
+      "answer_elements": ["p", "div", "ul", "ol", "pre"]
+    }
+  ]
+}

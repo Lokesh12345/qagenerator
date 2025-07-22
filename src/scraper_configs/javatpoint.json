@@ -1,0 +1,31 @@
+{
+  "name": "JavaTpoint",
+  "patterns": ["javatpoint.com"],
+  "selectors": {
+    "questions": {
+      "primary": "h2.h3",
+      "secondary": "h3",
+      "filters": ["contains(text(), '?')", "contains(text(), 'Q')"]
+    },
+    "answers": {
+      "primary": ".codeblock",
+      "secondary": "h2 + p",
+      "code_blocks": ".codeblock",
+      "list_items": "ul li, ol li"
+    }
+  },
+  "extraction": {
+    "clean_html": true,
+    "preserve_code": true,
+    "max_answer_length": 5000,
+    "combine_multiple_paragraphs": true,
+    "remove_ads": true
+  },
+  "qa_patterns": [
+    {
+      "question_marker": "h2, h3",
+      "answer_follows": "immediate_siblings_until_next_question",
+      "answer_elements": ["p", "div", "ul", "ol", "pre", ".codeblock"]
+    }
+  ]
+}
