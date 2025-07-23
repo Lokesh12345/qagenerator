@@ -1,172 +1,86 @@
 {
-  "question-9-define-multipart-form-data": {
-    "primaryQuestion": "9. Define multipart form data?",
-    "category": "HTML/CSS/JavaScript",
-    "subcategory": "Web Form Handling",
+  "question-1-can-we-display-a-web-page-in-0cb2e7": {
+    "primaryQuestion": "1. Can we display a web page inside a web page or Is nesting of webpages possible?",
+    "alternativeQuestions": [
+      "Is it possible to embed a web page within another HTML webpage?",
+      "Can we leverage HTML's iframe tag to nest web pages?",
+      "Is nested display of web pages via HTML <iframe> tags feasible?",
+      "Can I embed an external web page inside my own HTML webpage using the <iframe> element?",
+      "Would nesting a web page within another one be possible through HTML's <iframe> construct?",
+      "Could we achieve the display of a web page within another by using the iframe tag in HTML?",
+      "Is it allowed or recommended to nest web pages using HTML's <iframe> element?",
+      "Can we use HTML's <iframe> tag to embed a webpage into an existing webpage structure?",
+      "What are the limitations or best practices when nesting web pages using HTML's <iframe> element?",
+      "Could you provide a code snippet demonstrating how to embed a web page within another using HTML's <iframe>?"
+    ],
+    "answerDescriptions": [
+      "Nesting of webpages is possible using HTML `<iframe>` tag.",
+      "An `<iframe>` can display a web page by specifying its source URL with `<iframesrc>` attribute.",
+      "The functionality allows for embedding external content within an existing webpage structure.",
+      "This practice can be used for displaying news articles, social media posts, or any other type of web content inside another web page."
+    ],
+    "answer": {
+      "summary": "Yes, nesting of web pages is possible using HTML `<iframe>` tag to embed one web page within another.",
+      "detailed": "Yes, nesting of web pages is possible using HTML `<iframe>` tags.\n\nAn `<iframe>` element allows you to embed another HTML document within your current page. Here's a step-by-step explanation:\n\n1. **Create the outer HTML page**:\n   ```html\n   <!DOCTYPE html>\n   <html lang=\"en\">\n     <head>\n       <meta charset=\"UTF-8\">\n       <title>Outer Page</title>\n     </head>\n     <body>\n       <!-- Content for outer page goes here -->\n       \n       <!-- Embedding the inner web page -->\n       <iframe src=\"inner-page.html\" width=\"600\" height=\"400\"></iframe>\n     </body>\n   </html>\n   ```\n2. **Create the inner HTML page**:\n   ```html\n   <!DOCTYPE html>\n   <html lang=\"en\">\n     <head>\n       <meta charset=\"UTF-8\">\n       <title>Inner Page</title>\n     </head>\n     <body>\n       \n       <!-- Content specific to inner web page goes here -->\n       \n       <!-- Closing tag for inner HTML page -->\n       </body>\n   </html>\n   ```\n\n3. **Embed the inner page in the outer page**:\n   In the outer HTML page, place the `<iframe>` element with the `src` attribute set to the URL of your inner HTML page.\n\n4. **Display the nested web pages**:\n   Save both files (outer.html and inner.html)",
+      "whenToUse": "Use \"Use this when you want to embed a web page within another HTML webpage using an <iframe> tag.\"",
+      "realWorldContext": "Context Description: \n\nImagine a news website, \"WorldUpdate.com\". On one of their articles about technology advancements, they decide to include a live demo video from a tech company.\n\nTo achieve this, the news website could use an `<iframe>` tag in the article's page. The `<iframesrc>` attribute would contain the URL of the tech company's demo video page.\n\nExample: \n\n```\n<div class=\"article-section\">\n   <h3>See the Latest Tech Demo</h3>\n   <p><iframe src=\"https://techdemo.com/video-page\" frameborder=\"0\" allowfullscreen></iframe></p>\n</div>\n```\n\nIn this example, the `<iframe>` tag is used to embed the tech company's demo video within the article section."
+    },
+    "category": "Web Development",
+    "subcategory": "General",
     "difficulty": "Intermediate",
-    "answer": {
-      "summary": "Multipart form data is used to send file data in web forms.",
-      "detailed": "When a user submits a form that includes files (like an image or document), the browser sends this data as part of the HTTP request. To handle this, the server-side code uses a specific content type in the response envelope, such as 'multipart/form-data'. The detailed explanation and examples would typically include code snippets and explanations of how to process file data received via multipart form data."
-    },
-    "alternativeQuestions": [
-      "Explain multipart form data in web development",
-      "Define the concept of multipart form data for web forms",
-      "Give a clear explanation of multipart form data in web browsers",
-      "Unpack the meaning of multipart form data used in online submissions",
-      "Illustrate how multipart form data is handled during web form submission",
-      "Explain the difference between single-part and multipart form data",
-      "Provide an example scenario to demonstrate how multipart form data works",
-      "Relate multipart form data to cookies and session management in web apps",
-      "Conclude by emphasizing the importance of understanding multipart form data for web development"
-    ],
-    "answerDescriptions": [
-      "Multipart form data is",
-      "1. A method for sending data in web forms",
-      "2. Consists of multiple parts, each with its own field and file upload",
-      "3. Used when attaching files or submitting complex data structures",
-      "4. Typically sent via HTTP as part of a web request"
-    ],
     "tags": [
-      "multipart/form-data",
-      "HTTP request method",
-      "form fields",
-      "file uploads",
-      "content-disposition header",
-      "data transmission",
-      "web form submission"
+      "iframe",
+      "iframesrc",
+      "web page embedding",
+      "nested webpages",
+      "HTML tag usage",
+      "browser support for iframes"
+    ],
+    "conceptTriggers": [
+      "Nesting of webpages",
+      "Displaying a web page inside an iframe",
+      "HTML <iframe> tag usage",
+      "Embedding external web content",
+      "Iframesrc attribute for specifying URL",
+      "Webpage containment within another webpage structure",
+      "Browser rendering of nested web pages"
     ],
     "naturalFollowups": [
-      "Can you explain how multipart form data works?",
-      "What is the difference between regular form data and multipart form data?",
-      "In a web application, when should we use multipart form data instead of JSON?",
-      "How does the client (browser) handle and send multipart form data to the server?",
-      "When working with file uploads in multipart form data, what are the steps involved for both the client and server sides?",
-      "Can you give an example scenario where using multipart form data would be more appropriate than other methods like RESTful APIs or JSON-P requests?",
-      "What security measures should be taken when handling and storing multipart form data on both the client and server sides?"
+      "Can you explain how to use the `<iframe>` tag for nested web pages?",
+      "Are there any limitations or security concerns when nesting web pages using `<iframe>`?",
+      "Can you provide an example of a valid `<iframesrc>` attribute value for embedding a web page inside another?",
+      "How do I ensure that the nested web page is responsive and adapts to different screen sizes?",
+      "Are there any alternatives to using `<iframe>` for displaying nested web pages, especially when considering performance or accessibility?",
+      "Can you provide guidance on how to gracefully handle errors or invalid URLs when embedding a web page with `<iframe>`?",
+      "Is it possible to customize the appearance of the nested web page using CSS or other styling techniques?",
+      "When embedding a large or complex web page, are there any best practices to follow in terms of performance optimization and user experience?"
     ],
     "relatedQuestions": [
-      "What is multipart/form-data in HTTP? Explain its structure.",
-      "How does a client send form data using multipart/form-data? Show an example.",
-      "What are the key headers associated with multipart/form-data requests?",
-      "In what scenarios would you prefer to use multipart/form-data over other data formats like JSON or XML?",
-      "Explain the difference between a POST request with multipart/form-data and one without. Provide examples.",
-      "How do servers process and handle incoming multipart/form-data requests? Describe the steps involved.",
-      "What are some security concerns related to using multipart/form-data for data transmission? How can they be mitigated?",
-      "In an e-commerce application, how would you integrate a file upload form (multipart/form-data) with server-side processing and validation?"
+      "What is the purpose of using an `<iframe>` tag in HTML?",
+      "Can you provide an example code snippet for displaying a webpage within another webpage using `<iframe>`?",
+      "Are there any limitations or considerations when nesting webpages using `<iframe>`?",
+      "How can I customize the size or aspect ratio of an `<iframe>` containing a webpage?",
+      "Is it possible to load content into an `<iframe>` dynamically, without having to update the main HTML file?",
+      "Can you explain the impact of nested `<iframe>` tags on page performance and SEO?",
+      "Are there any security concerns when using `<iframe>` to display external content within a web page?",
+      "How can I handle errors or load failures in an `<iframe>` containing a webpage?"
     ],
     "commonMistakes": [
       {
-        "mistake": "Common error",
-        "explanation": "Standard explanation"
+        "mistake": "mistake",
+        "description": "description"
       },
       {
-        "mistake": "Syntax mistake",
-        "explanation": "Check syntax carefully"
+        "mistake": "Incorrect usage of `<iframe>` tag",
+        "description": "The answer mentions using the `<iframe>` tag correctly, but the mistake listed is not describing an incorrect usage."
       },
       {
-        "mistake": "Logic error",
-        "explanation": "Review the logic"
-      },
-      {
-        "mistake": "Performance issue",
-        "explanation": "Consider optimization"
+        "mistake": "Missing `src` attribute for `<iframesrc>`",
+        "description": "The answer provides a correct example with the `<iframesrc>` tag and its `src` attribute. However, the mistake listed does not describe this missing attribute."
       }
     ],
-    "conceptTriggers": [
-      "multipart/form-data",
-      "HTTP request method",
-      "form fields",
-      "file uploads",
-      "content-disposition header"
-    ],
     "confidence": "high",
-    "lastUpdated": "2025-07-22",
-    "verified": false
-  },
-  "question-10-describe-html-layout-struc": {
-    "primaryQuestion": "10. Describe HTML layout structure.",
-    "category": "HTML",
-    "subcategory": "Layout Structure",
-    "difficulty": "Beginner",
-    "answer": {
-      "summary": "Explanation of HTML layout structure for beginners.",
-      "detailed": "HTML layouts are built using various elements such as `<header>`, `<nav>`, `<section>`, `<article>`, and `<footer>`. These elements help organize content, provide navigation, and define sections on a web page. For instance, `<header>` is typically used for the website's title or logo, while `<nav>` contains links to other pages within the site.",
-      "whenToUse": "Use HTML layout structure when designing a webpage, ensuring that content is organized and easy to navigate.",
-      "realWorldContext": "In a news website, the header might contain the site name and a prominent headline. The navigation bar could lead users to different sections like 'Home', 'News', 'Opinion', and 'Contact'."
-    },
-    "alternativeQuestions": [
-      "HTML layout structure: A comprehensive overview",
-      "Describing HTML layout: Unraveling the structure",
-      "Explaining HTML layout design: Analyzing the structure",
-      "Breaking down HTML page layout: Understanding its structure",
-      "Discerning the intricate HTML layout: Its structural elements",
-      "Visualizing HTML layout hierarchy: Structure and organization",
-      "Describing HTML layout components: The structure in detail",
-      "Unpacking the complex HTML layout design: Analyzing the structure"
-    ],
-    "answerDescriptions": [
-      "HTML layout structure consists of",
-      "1. Document type declaration (DOCTYPE)",
-      "2. `<html>` root element with head and body sections",
-      "3. `<head>` contains metadata like title, scripts, stylesheets",
-      "4. `<body>` holds the content, forms, and interactive elements"
-    ],
-    "tags": [
-      "HTML structure",
-      "Element hierarchy",
-      "Container vs. Content elements",
-      "Tags for layout components",
-      "CSS grid vs. Flexbox layouts",
-      "Responsive design principles",
-      "Accessibility in HTML layout"
-    ],
-    "naturalFollowups": [
-      "What is the basic structure of HTML documents?",
-      "Can you explain the role of HTML tags in defining layout structure?",
-      "How does using semantic HTML elements contribute to a well-structured layout?",
-      "What are some common HTML layout containers like div, section, or article?",
-      "Can you walk me through an example of creating a responsive layout using CSS alongside HTML?",
-      "How do you handle layout when working with multiple pages in a website?",
-      "What are some best practices for maintaining a consistent and organized layout across a large project?",
-      "Can you explain the role of external CSS files in defining HTML layout structure, and how to link them properly?"
-    ],
-    "relatedQuestions": [
-      "What is the basic structure of an HTML document?",
-      "How does HTML define layout elements like headings, paragraphs, and containers?",
-      "What role do tags play in defining the layout structure of an HTML page?",
-      "Can you explain the concept of responsive design in relation to HTML layout structures?",
-      "How do CSS styles affect the layout defined by HTML tags?",
-      "What is the difference between using div or p tags as container elements in HTML layout?",
-      "Can you give an example of a complex HTML layout structure with multiple containers and nested elements?",
-      "How do developers use semantic HTML tags to improve the accessibility and maintainability of their layout structures?"
-    ],
-    "commonMistakes": [
-      {
-        "mistake": "Not using HTML tags for elements",
-        "explanation": "HTML tags are essential for defining structure, such as headings (`<h1>`), paragraphs (`<p>`), and images (`<img>`). Without them, browsers won't understand the intended layout."
-      },
-      {
-        "mistake": "Misplacing or forgetting closing tags",
-        "explanation": "HTML documents must maintain a balance between opening and closing tags. Forgetting to close a tag can lead to errors in rendering and potential security vulnerabilities if data is being passed through the missing tag."
-      },
-      {
-        "mistake": "Using inline elements instead of block elements for layout purposes",
-        "explanation": "In HTML, different elements serve different purposes. Block-level elements like `<div>` create a new box on the page, allowing for more complex layouts. Using inline elements, such as `<span>` or `</a>`, can lead to simpler, less flexible layouts."
-      },
-      {
-        "mistake": "Not using semantic HTML elements",
-        "explanation": "Semantic HTML refers to using element tags that accurately describe the content they contain. This not only improves accessibility but also helps search engines understand and index your content more effectively. Failing to use semantic HTML can lead to confusion for both users and search engines."
-      }
-    ],
-    "conceptTriggers": [
-      "HTML structure",
-      "Element hierarchy",
-      "Container vs. Content elements",
-      "Tags for layout components",
-      "CSS grid vs. Flexbox layouts"
-    ],
-    "confidence": "high",
-    "lastUpdated": "2025-07-22",
+    "lastUpdated": "2025-07-23",
     "verified": false
   }
 }

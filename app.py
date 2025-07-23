@@ -1108,8 +1108,8 @@ if __name__ == '__main__':
     
     # Try to initialize with available provider - prioritize Ollama first
     try:
-        current_ai_client = AIClient(provider='ollama', model='phi3:mini')
-        logger.info("✅ Initialized with Ollama (phi3:mini)")
+        current_ai_client = AIClient(provider='ollama', model='qwen:7b')
+        logger.info("✅ Initialized with Ollama (qwen:7b)")
     except Exception as e:
         logger.warning(f"Ollama initialization failed: {e}")
         # Fallback to API providers
