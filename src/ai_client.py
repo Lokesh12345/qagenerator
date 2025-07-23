@@ -88,7 +88,7 @@ REQUIRED JSON FIELDS:
 For programming questions, include code examples and technical details.
 Return only valid JSON, no commentary."""
     
-    def format_question_to_json(self, question: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
+    def format_question_to_json(self, question: str, qa_id: str = None, topic: str = None) -> Optional[Dict[str, Any]]:
         """Convert question to structured JSON, generating answer automatically"""
         
         try:
@@ -100,21 +100,23 @@ Return only valid JSON, no commentary."""
                 return cached_result
             
             # Create prompt for question-only processing
-            full_prompt = f"""{self.prompt_template}
+            topic_context = f"\n\nTOPIC CONTEXT: This question is about {topic.upper()}. Generate answers specifically related to {topic} technology/framework." if topic else ""
+            
+            full_prompt = f"""{self.prompt_template}{topic_context}
 
 Question: {question}
 
-Generate a comprehensive answer and convert into the required JSON format. Create a detailed, interview-ready response."""
+Generate a comprehensive answer and convert into the required JSON format. Create a detailed, interview-ready response specific to {topic if topic else 'the topic'}."""
 
             # Call the appropriate AI service
             if self.provider == "openai":
-                result = self._call_openai(full_prompt, qa_id)
+                result = self._call_openai(full_prompt, qa_id, topic)
             elif self.provider == "claude":
-                result = self._call_claude(full_prompt, qa_id)
+                result = self._call_claude(full_prompt, qa_id, topic)
             elif self.provider == "ollama":
                 # For Ollama, when no answer is provided, pass empty string
                 streaming_callback = getattr(self, '_streaming_callback', None)
-                result = self._call_ollama(question, "", qa_id, streaming_callback)
+                result = self._call_ollama(question, "", qa_id, streaming_callback, topic)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -132,7 +134,7 @@ Generate a comprehensive answer and convert into the required JSON format. Creat
             logger.error(f"Error in AI processing: {e}")
             return None
 
-    def format_qa_to_json(self, question: str, answer: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
+    def format_qa_to_json(self, question: str, answer: str, qa_id: str = None, topic: str = None) -> Optional[Dict[str, Any]]:
         """Convert Q&A to structured JSON using AI"""
         
         try:
@@ -144,23 +146,25 @@ Generate a comprehensive answer and convert into the required JSON format. Creat
                 return cached_result
             
             # Create the full prompt
-            full_prompt = f"""{self.prompt_template}
+            topic_context = f"\n\nTOPIC CONTEXT: This Q&A is about {topic.upper()}. Ensure all generated content (tags, related questions, etc.) is specifically related to {topic} technology/framework." if topic else ""
+            
+            full_prompt = f"""{self.prompt_template}{topic_context}
 
 Question: {question}
 Answer: {answer}
 ID: {qa_id or self._generate_id(question)}
 
-Convert this into the required JSON format."""
+Convert this into the required JSON format with {topic if topic else 'topic'}-specific content."""
 
             # Call the appropriate AI service
             if self.provider == "openai":
-                result = self._call_openai(full_prompt, qa_id)
+                result = self._call_openai(full_prompt, qa_id, topic)
             elif self.provider == "claude":
-                result = self._call_claude(full_prompt, qa_id)
+                result = self._call_claude(full_prompt, qa_id, topic)
             elif self.provider == "ollama":
                 # Check if streaming callback is available (passed from Flask app)
                 streaming_callback = getattr(self, '_streaming_callback', None)
-                result = self._call_ollama(question, answer, qa_id, streaming_callback)
+                result = self._call_ollama(question, answer, qa_id, streaming_callback, topic)
             else:
                 logger.error(f"Unsupported provider: {self.provider}")
                 return None
@@ -178,7 +182,7 @@ Convert this into the required JSON format."""
             logger.error(f"Error in AI processing: {e}")
             return None
     
-    def _call_openai(self, prompt: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
+    def _call_openai(self, prompt: str, qa_id: str = None, topic: str = None) -> Optional[Dict[str, Any]]:
         """Call OpenAI API"""
         if not self.openai_key:
             logger.error("OpenAI API key not available")
@@ -195,7 +199,7 @@ Convert this into the required JSON format."""
                 'messages': [
                     {
                         'role': 'system',
-                        'content': 'You are an expert at creating structured interview preparation data. Return only valid JSON.'
+                        'content': f'You are an expert at creating structured interview preparation data{f" specifically for {topic.upper()}" if topic else ""}. Return only valid JSON.'
                     },
                     {
                         'role': 'user',
@@ -225,7 +229,7 @@ Convert this into the required JSON format."""
             logger.error(f"OpenAI call failed: {e}")
             return None
     
-    def _call_claude(self, prompt: str, qa_id: str = None) -> Optional[Dict[str, Any]]:
+    def _call_claude(self, prompt: str, qa_id: str = None, topic: str = None) -> Optional[Dict[str, Any]]:
         """Call Claude API"""
         if not self.claude_key:
             logger.error("Claude API key not available")
@@ -304,7 +308,7 @@ Convert this into the required JSON format."""
         """Generate ID from question"""
         return question[:30].lower().replace(' ', '-').replace('?', '').replace(',', '').replace('.', '')
     
-    def _call_ollama(self, question: str, answer: str, qa_id: str = None, streaming_callback=None) -> Optional[Dict[str, Any]]:
+    def _call_ollama(self, question: str, answer: str, qa_id: str = None, streaming_callback=None, topic: str = None) -> Optional[Dict[str, Any]]:
         """Call Ollama API with optional streaming"""
         try:
             # Use streaming if callback is provided

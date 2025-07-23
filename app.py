@@ -763,14 +763,16 @@ def run_bulk_processing_job(job):
                         processed_item = current_ai_client.format_qa_to_json(
                             qa_item['question'],
                             qa_item['answer'],
-                            qa_item['id']
+                            qa_item['id'],
+                            job.topic
                         )
                     else:
                         logger.info("Using question-only processing, AI will generate answer")
                         # No answer available, AI will generate one
                         processed_item = current_ai_client.format_question_to_json(
                             qa_item['question'],
-                            qa_item['id']
+                            qa_item['id'],
+                            job.topic
                         )
                 except Exception as ai_error:
                     logger.error(f"AI processing error: {ai_error}")
@@ -938,7 +940,8 @@ def run_processing_job(job):
                     processed_item = current_ai_client.format_qa_to_json(
                         qa_item['question'],
                         qa_item['answer'],
-                        qa_item['id']
+                        qa_item['id'],
+                        job.topic
                     )
                 except Exception as ai_error:
                     logger.error(f"AI processing error: {ai_error}")
