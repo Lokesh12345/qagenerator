@@ -1,0 +1,3468 @@
+{
+  "question-1-difference-react-native-reactjs": {
+    "primaryQuestion": "How different is React Native from ReactJS?",
+    "alternativeQuestions": [
+      "What are the key differences between React Native and ReactJS?",
+      "How does React Native differ from ReactJS?",
+      "Can you compare React Native and ReactJS?",
+      "What distinguishes React Native from ReactJS?",
+      "What are the main differences between ReactJS and React Native?",
+      "How is React Native different from ReactJS?",
+      "What sets React Native apart from ReactJS?",
+      "In what ways do React Native and ReactJS differ?",
+      "What are the distinctions between React Native and ReactJS?",
+      "How do React Native and ReactJS compare?",
+      "What are the differences between ReactJS and React Native?",
+      "How does the functionality of React Native differ from ReactJS?",
+      "Can you explain the differences between ReactJS and React Native?",
+      "What are the unique features of React Native compared to ReactJS?",
+      "How do the development processes differ between React Native and ReactJS?",
+      "What are the contrasting aspects of React Native and ReactJS?",
+      "How does the architecture of React Native differ from ReactJS?",
+      "What are the technical differences between React Native and ReactJS?",
+      "How do React Native and ReactJS differ in terms of performance?",
+      "What are the core differences between React Native and ReactJS?"
+    ],
+    "answerDescriptions": [
+      "React Native is used for mobile app development.",
+      "ReactJS is primarily for web applications.",
+      "React Native uses native components.",
+      "ReactJS uses HTML for rendering.",
+      "React Native provides a rich mobile UI."
+    ],
+    "answer": {
+      "summary": "React Native and ReactJS are both frameworks developed by Facebook but serve different purposes. React Native is used for building mobile applications, while ReactJS is used for web applications.",
+      "detailed": "React Native is a framework for building native mobile apps using JavaScript and React. | **Method/Keyword** | **When to Use** | **Code Syntax Example** |\n|---|---|---|\n| React Native | Building mobile apps | `import { Text, View } from 'react-native';` |\n| ReactJS | Building web apps | `import React from 'react';` |\n| Native Components | For mobile-specific UI | `<Text>Hello World</Text>` |\n| JSX | For web and mobile UI | `<div>Hello World</div>` |\n| Bridge | For native module communication | `NativeModules.MyModule` |\n- Remember that React Native uses native components.\n- ReactJS is ideal for web applications.\n- Use the bridge for native module communication in React Native.\n- React Native provides a rich mobile UI experience.\n```javascript\nimport React from 'react';\nimport { Text, View } from 'react-native';\nconst App = () => (\n  <View>\n    <Text>Hello World</Text>\n  </View>\n);\nexport default App;\n```",
+      "whenToUse": "Use React Native for mobile applications and ReactJS for web applications.",
+      "realWorldContext": "A company might use React Native to develop a mobile app for both iOS and Android platforms, while using ReactJS for their web application."
+    },
+    "category": "React Native",
+    "subcategory": "Framework Comparison",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "reactjs",
+      "mobile-development",
+      "web-development",
+      "javascript",
+      "framework",
+      "native-components",
+      "cross-platform",
+      "ui-design",
+      "performance",
+      "architecture",
+      "development-process"
+    ],
+    "conceptTriggers": [
+      "mobile-vs-web",
+      "native-components",
+      "cross-platform",
+      "ui-comparison",
+      "framework-differences"
+    ],
+    "naturalFollowups": [
+      "What are the advantages of using React Native?",
+      "How does React Native handle state management?",
+      "What are the limitations of React Native?",
+      "How does React Native integrate with native modules?",
+      "What are the best practices for optimizing React Native performance?",
+      "How does React Native handle animations?",
+      "What are the common challenges faced in React Native development?",
+      "How does React Native manage updates and versioning?",
+      "What are the security considerations in React Native?",
+      "How does React Native differ from other mobile frameworks?",
+      "What are the debugging tools available for React Native?",
+      "How does React Native handle navigation?",
+      "What are the testing strategies for React Native applications?",
+      "How does React Native support accessibility?",
+      "What are the differences in styling between React Native and ReactJS?"
+    ],
+    "relatedQuestions": [
+      "What is React Native?",
+      "How does React Native work?",
+      "What are the benefits of using React Native?",
+      "How does React Native differ from Flutter?",
+      "What are the components of React Native?",
+      "How does React Native handle data fetching?",
+      "What is the architecture of a React Native app?",
+      "How does React Native handle lifecycle methods?",
+      "What are the differences between React Native and Swift?",
+      "How do you set up a React Native development environment?",
+      "What are the performance considerations in React Native?",
+      "How does React Native handle asynchronous operations?",
+      "What are the differences between React Native and Xamarin?",
+      "How does React Native handle styling?",
+      "What are the differences between React Native and Kotlin?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming React Native and ReactJS are interchangeable.",
+        "explanation": "React Native is for mobile app development, while ReactJS is for web applications."
+      },
+      {
+        "mistake": "Not considering platform-specific code in React Native.",
+        "explanation": "React Native requires handling platform differences for iOS and Android."
+      },
+      {
+        "mistake": "Ignoring performance optimizations in React Native.",
+        "explanation": "React Native apps can suffer from performance issues if not optimized properly."
+      },
+      {
+        "mistake": "Using web-specific libraries in React Native.",
+        "explanation": "Some libraries are not compatible with React Native and can cause issues."
+      },
+      {
+        "mistake": "Neglecting the use of native modules in React Native.",
+        "explanation": "Native modules are essential for accessing platform-specific features."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-2-integrate-react-native-android": {
+    "primaryQuestion": "List down key points to integrate React Native in an existing Android mobile application.",
+    "alternativeQuestions": [
+      "How do you add React Native to an Android app?",
+      "What are the steps to integrate React Native with Android?",
+      "How can React Native be embedded into an Android project?",
+      "What is the process for incorporating React Native into an Android app?",
+      "Explain how to integrate React Native with an existing Android application.",
+      "What are the integration steps for React Native in Android?",
+      "How do you merge React Native into an Android app?",
+      "What steps are involved in adding React Native to an Android project?",
+      "How can you integrate React Native into an existing Android app?",
+      "Describe the process of integrating React Native with Android.",
+      "What are the key steps to add React Native to an Android app?",
+      "How do you incorporate React Native into an Android application?",
+      "What is the method to integrate React Native into Android?",
+      "How to embed React Native into an Android app?",
+      "What are the procedures for integrating React Native with Android?",
+      "Explain the integration process of React Native in Android.",
+      "What is the approach to integrate React Native with an Android app?",
+      "How to add React Native functionality to an Android app?",
+      "What are the steps to merge React Native into an Android project?",
+      "How can React Native be integrated into an Android application?"
+    ],
+    "answerDescriptions": [
+      "Understand the existing Android architecture.",
+      "Set up the React Native environment.",
+      "Create a React Native module.",
+      "Link the React Native module with Android.",
+      "Test the integration thoroughly."
+    ],
+    "answer": {
+      "summary": "Integrating React Native into an existing Android app involves setting up the environment, creating a module, and linking it with Android.",
+      "detailed": "React Native can be integrated into an existing Android app to leverage its cross-platform capabilities.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|---|---|---|\n| `create-react-native-module` | To create a new React Native module | `npx create-react-native-module MyModule` |\n| `react-native link` | To link native dependencies | `react-native link` |\n| `MainApplication.java` | To register the module | `new MyModulePackage()` |\n\n- Ensure the React Native environment is correctly set up.\n- Use the `create-react-native-module` tool for module creation.\n- Link dependencies using `react-native link`.\n\n```java\n// In MainApplication.java\n@Override\nprotected List<ReactPackage> getPackages() {\n  return Arrays.<ReactPackage>asList(\n      new MainReactPackage(),\n      new MyModulePackage()\n  );\n}\n```",
+      "whenToUse": "Use when you want to add React Native components to an existing Android app for cross-platform functionality.",
+      "realWorldContext": "A company with an existing Android app wants to add a new feature using React Native to also support iOS in the future."
+    },
+    "category": "React Native",
+    "subcategory": "Integration",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "android",
+      "integration",
+      "cross-platform",
+      "mobile-development",
+      "native-modules",
+      "react",
+      "setup",
+      "environment",
+      "linking",
+      "module-creation",
+      "testing"
+    ],
+    "conceptTriggers": [
+      "react-native-setup",
+      "android-integration",
+      "module-linking",
+      "native-modules",
+      "environment-configuration"
+    ],
+    "naturalFollowups": [
+      "How do you integrate React Native with iOS?",
+      "What are the challenges of integrating React Native with Android?",
+      "How do you handle native modules in React Native?",
+      "What tools are needed for React Native integration?",
+      "How do you test a React Native integration?",
+      "What are the best practices for React Native integration?",
+      "How do you manage dependencies in React Native?",
+      "What is the role of MainApplication.java in React Native?",
+      "How do you update a React Native module?",
+      "What are the common errors during React Native integration?",
+      "How do you debug React Native integration issues?",
+      "What is the impact of React Native on app performance?",
+      "How do you optimize React Native integration?",
+      "What are the security considerations for React Native integration?",
+      "How do you maintain a React Native integrated app?"
+    ],
+    "relatedQuestions": [
+      "How to set up a React Native development environment?",
+      "What are the differences between React Native and native Android development?",
+      "How do you handle state management in React Native?",
+      "What are the benefits of using React Native for mobile apps?",
+      "How do you manage navigation in React Native?",
+      "What are the limitations of React Native?",
+      "How do you handle animations in React Native?",
+      "What is the role of Metro bundler in React Native?",
+      "How do you integrate third-party libraries in React Native?",
+      "What are the common performance issues in React Native?",
+      "How do you handle asynchronous operations in React Native?",
+      "What are the testing strategies for React Native apps?",
+      "How do you handle styling in React Native?",
+      "What is the architecture of a React Native app?",
+      "How do you deploy a React Native app to the Play Store?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not setting up the environment correctly.",
+        "explanation": "Ensure all dependencies and tools are installed before starting the integration."
+      },
+      {
+        "mistake": "Forgetting to link native modules.",
+        "explanation": "Use `react-native link` to ensure all native modules are correctly linked."
+      },
+      {
+        "mistake": "Ignoring compatibility issues.",
+        "explanation": "Check for compatibility between React Native and existing Android components."
+      },
+      {
+        "mistake": "Not testing the integration thoroughly.",
+        "explanation": "Run comprehensive tests to ensure the React Native module works as expected."
+      },
+      {
+        "mistake": "Overlooking performance optimizations.",
+        "explanation": "Optimize the React Native module to prevent performance bottlenecks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-3-describe-networking-in-react-native": {
+    "primaryQuestion": "Describing Networking in React Native and how to make AJAX network calls in React Native?",
+    "alternativeQuestions": [
+      "How do you perform network requests in React Native?",
+      "What are the methods for making AJAX calls in React Native?",
+      "Explain networking in React Native.",
+      "How to handle HTTP requests in React Native?",
+      "What libraries are used for networking in React Native?",
+      "How to use Fetch API in React Native?",
+      "What is the role of Axios in React Native?",
+      "How do you manage network responses in React Native?",
+      "What are the best practices for networking in React Native?",
+      "How to handle asynchronous operations in React Native?",
+      "What is the difference between Fetch and Axios in React Native?",
+      "How to implement REST API calls in React Native?",
+      "How do you handle network errors in React Native?",
+      "What are the common pitfalls in React Native networking?",
+      "How to optimize network performance in React Native?",
+      "What is the use of Promises in React Native networking?",
+      "How to manage state with network requests in React Native?",
+      "Explain the use of async/await in React Native networking.",
+      "How to test network requests in React Native?",
+      "What are the security considerations for networking in React Native?"
+    ],
+    "answerDescriptions": [
+      "React Native uses JavaScript for networking.",
+      "Fetch API is commonly used for network requests.",
+      "Axios is an alternative library for AJAX calls.",
+      "Networking is essential for data-driven apps.",
+      "Error handling is crucial in network operations."
+    ],
+    "answer": {
+      "summary": "React Native supports networking through JavaScript, primarily using the Fetch API or libraries like Axios. These tools allow for making HTTP requests to interact with web services.",
+      "detailed": "Networking in React Native involves making HTTP requests to fetch or send data to a server. | Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| Fetch API | Simple network requests | `fetch(url).then(response => response.json())` |\n| Axios | Advanced features like interceptors | `axios.get(url).then(response => response.data)` |\n| XMLHttpRequest | Legacy support | `const xhr = new XMLHttpRequest(); xhr.open('GET', url); xhr.send();` |\n- Always handle network errors gracefully.\n- Use async/await for cleaner asynchronous code.\n- Consider using libraries for additional features.\n```javascript\nasync function fetchData(url) {\n  try {\n    let response = await fetch(url);\n    let data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error fetching data:', error);\n  }\n}\n```",
+      "whenToUse": "Use networking in React Native when your app needs to communicate with a server to fetch or send data. Common scenarios include data fetching, form submissions, and real-time updates.",
+      "realWorldContext": "A weather app fetching current weather data from an online API to display to users."
+    },
+    "category": "React Native",
+    "subcategory": "Networking",
+    "difficulty": "intermediate",
+    "tags": [
+      "networking",
+      "AJAX",
+      "Fetch API",
+      "Axios",
+      "HTTP requests",
+      "asynchronous",
+      "promises",
+      "async/await",
+      "error handling",
+      "REST API",
+      "performance",
+      "security"
+    ],
+    "conceptTriggers": [
+      "Fetch API",
+      "Axios",
+      "HTTP methods",
+      "asynchronous operations",
+      "error handling"
+    ],
+    "naturalFollowups": [
+      "What are the differences between Fetch and Axios?",
+      "How do you handle network errors in React Native?",
+      "What are the best practices for optimizing network performance?",
+      "How to implement caching in React Native networking?",
+      "What are the security considerations for network requests?",
+      "How to test network requests in a React Native app?",
+      "What is the role of Promises in React Native networking?",
+      "How to manage state with network requests?",
+      "Explain the use of async/await in React Native networking.",
+      "How to handle JSON data in network responses?",
+      "What are the common pitfalls in React Native networking?",
+      "How to implement WebSockets in React Native?",
+      "How to manage authentication in network requests?",
+      "What libraries can enhance networking in React Native?",
+      "How to handle large data sets in network responses?"
+    ],
+    "relatedQuestions": [
+      "How to implement REST API calls in React Native?",
+      "What is the difference between Fetch and Axios in React Native?",
+      "How to manage network responses in React Native?",
+      "What are the common pitfalls in React Native networking?",
+      "How to optimize network performance in React Native?",
+      "What is the use of Promises in React Native networking?",
+      "How to manage state with network requests in React Native?",
+      "Explain the use of async/await in React Native networking.",
+      "How to test network requests in React Native?",
+      "What are the security considerations for networking in React Native?",
+      "How to handle asynchronous operations in React Native?",
+      "What is the role of Axios in React Native?",
+      "How to use Fetch API in React Native?",
+      "What libraries are used for networking in React Native?",
+      "How to handle HTTP requests in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not handling network errors.",
+        "explanation": "Failing to catch errors in network requests can lead to unhandled exceptions and a poor user experience."
+      },
+      {
+        "mistake": "Ignoring asynchronous nature of network calls.",
+        "explanation": "Network requests are asynchronous; failing to handle this correctly can lead to unexpected behavior."
+      },
+      {
+        "mistake": "Using XMLHttpRequest unnecessarily.",
+        "explanation": "While XMLHttpRequest is available, modern alternatives like Fetch API or Axios are preferred for their simplicity and additional features."
+      },
+      {
+        "mistake": "Not using async/await with Fetch API.",
+        "explanation": "Using async/await with Fetch API leads to cleaner and more readable code compared to chaining promises."
+      },
+      {
+        "mistake": "Overlooking security aspects of network requests.",
+        "explanation": "Failing to secure network requests can expose sensitive data and make the app vulnerable to attacks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-4-what-is-props-drilling-and-how-can-we-avoid-it": {
+    "primaryQuestion": "What is Props Drilling and how can we avoid it?",
+    "alternativeQuestions": [
+      "Explain props drilling in React Native.",
+      "How does props drilling affect component hierarchy in React Native?",
+      "What are the drawbacks of props drilling?",
+      "How can you mitigate props drilling in a React Native app?",
+      "What is an alternative to props drilling in React Native?",
+      "Why is props drilling considered a problem?",
+      "How does props drilling impact state management?",
+      "What strategies can be used to avoid props drilling?",
+      "Can you describe the concept of props drilling?",
+      "What are the solutions to props drilling in React Native?",
+      "How do you handle deeply nested props in React Native?",
+      "What is the impact of props drilling on performance?",
+      "How can context API help with props drilling?",
+      "What are the best practices to reduce props drilling?",
+      "How does props drilling relate to component reusability?",
+      "What is the role of state management libraries in avoiding props drilling?",
+      "How can you refactor a component tree to avoid props drilling?",
+      "What is the relationship between props drilling and component coupling?",
+      "How does props drilling affect code maintainability?",
+      "What are the signs that props drilling is becoming a problem?"
+    ],
+    "answerDescriptions": [
+      "Props drilling is passing data through multiple layers of components.",
+      "It can lead to tightly coupled components.",
+      "Avoid it by using Context API or state management libraries.",
+      "Props drilling can make code harder to maintain.",
+      "It is a common issue in React Native applications."
+    ],
+    "answer": {
+      "summary": "Props drilling involves passing data through many layers of components, which can lead to tightly coupled code. It can be avoided using Context API or state management libraries.",
+      "detailed": "Props drilling is the process of passing data from a parent component to a deeply nested child component through intermediary components. | **Method/Keyword** | **When to Use** | **Code Syntax Example** |\n|---|---|---|\n| Context API | When you need to share data across many levels without passing props manually at every level. | `const MyContext = React.createContext();` |\n| Redux | For managing global state in large applications. | `import { createStore } from 'redux';` |\n| Prop drilling | When you have a simple component hierarchy and minimal data passing. | `function Parent() { return <Child prop={value} />; }` |\n- Use Context API for global data sharing.\n- Consider Redux for complex state management.\n- Avoid passing props through many layers unnecessarily.\n```javascript\nconst MyContext = React.createContext();\nfunction App() {\n  return (\n    <MyContext.Provider value={/* some value */}>\n      <DeeplyNestedComponent />\n    </MyContext.Provider>\n  );\n}\n```",
+      "whenToUse": "Use when you notice excessive prop passing through multiple component layers.",
+      "realWorldContext": "In a React Native app, props drilling can make it difficult to manage state across a complex component tree, leading to maintenance challenges."
+    },
+    "category": "React Native",
+    "subcategory": "State Management",
+    "difficulty": "intermediate",
+    "tags": [
+      "props drilling",
+      "context api",
+      "redux",
+      "state management",
+      "component hierarchy",
+      "performance",
+      "react native",
+      "code maintainability",
+      "component coupling",
+      "best practices"
+    ],
+    "conceptTriggers": [
+      "context api",
+      "redux",
+      "state management",
+      "component hierarchy",
+      "performance"
+    ],
+    "naturalFollowups": [
+      "What is the Context API in React Native?",
+      "How does Redux help in state management?",
+      "What are the alternatives to Redux?",
+      "How can you optimize component rendering?",
+      "What is the difference between props and state?",
+      "How do you manage global state in React Native?",
+      "What are the best practices for component design?",
+      "How can you improve code maintainability?",
+      "What is the impact of component reusability?",
+      "How do you handle complex state logic?",
+      "What are the benefits of using Context API?",
+      "How does props drilling affect performance?",
+      "What is the role of hooks in state management?",
+      "How do you refactor a component tree?",
+      "What are the signs of inefficient state management?"
+    ],
+    "relatedQuestions": [
+      "What is the Context API in React Native?",
+      "How does Redux help in state management?",
+      "What are the alternatives to Redux?",
+      "How can you optimize component rendering?",
+      "What is the difference between props and state?",
+      "How do you manage global state in React Native?",
+      "What are the best practices for component design?",
+      "How can you improve code maintainability?",
+      "What is the impact of component reusability?",
+      "How do you handle complex state logic?",
+      "What are the benefits of using Context API?",
+      "How does props drilling affect performance?",
+      "What is the role of hooks in state management?",
+      "How do you refactor a component tree?",
+      "What are the signs of inefficient state management?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Passing props through too many layers.",
+        "explanation": "This can lead to tightly coupled components and make the codebase difficult to maintain."
+      },
+      {
+        "mistake": "Not using Context API or Redux when needed.",
+        "explanation": "These tools can simplify state management and reduce the need for props drilling."
+      },
+      {
+        "mistake": "Ignoring performance impacts.",
+        "explanation": "Excessive props drilling can degrade performance by causing unnecessary re-renders."
+      },
+      {
+        "mistake": "Overusing props drilling for simple data.",
+        "explanation": "For simple data, consider using local component state instead."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-5-debug-react-native-applications": {
+    "primaryQuestion": "How to debug React Native Applications and name the tools used for it?",
+    "alternativeQuestions": [
+      "What are the methods to debug React Native apps?",
+      "Can you list tools for debugging React Native?",
+      "How do you troubleshoot issues in React Native?",
+      "What debugging tools are available for React Native?",
+      "How can you debug a React Native application?",
+      "Which tools are used for debugging in React Native?",
+      "What are the best practices for debugging React Native?",
+      "How do you identify bugs in React Native apps?",
+      "What are common debugging techniques in React Native?",
+      "How to use React Native Debugger?",
+      "What is the process to debug React Native applications?",
+      "Which debugging tools are essential for React Native?",
+      "How do you handle errors in React Native development?",
+      "What are the steps to debug a React Native app?",
+      "How can you improve debugging efficiency in React Native?",
+      "What are the debugging options available in React Native?",
+      "How to use Chrome DevTools with React Native?",
+      "What is the role of Flipper in React Native debugging?",
+      "How to set up a debugging environment for React Native?",
+      "What are the challenges in debugging React Native apps?"
+    ],
+    "answerDescriptions": [
+      "Debugging is crucial for maintaining app quality.",
+      "React Native offers several tools for debugging.",
+      "Chrome DevTools can be used for debugging React Native.",
+      "Flipper is a popular tool for React Native debugging.",
+      "Effective debugging improves app performance."
+    ],
+    "answer": {
+      "summary": "Debugging React Native applications involves using various tools to identify and fix issues. Common tools include Chrome DevTools, React Native Debugger, and Flipper.",
+      "detailed": "Debugging in React Native involves identifying and resolving issues in the application. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|---------------------|\n| Chrome DevTools | For inspecting network requests and console logs | `console.log('Debugging with Chrome DevTools');` |\n| React Native Debugger | For advanced debugging features | `import { Debugger } from 'react-native-debugger';` |\n| Flipper | For a comprehensive debugging experience | `import Flipper from 'react-native-flipper';` |\n\n- Use Chrome DevTools for quick inspection.\n- React Native Debugger offers Redux DevTools integration.\n- Flipper provides a plugin-based architecture.\n\n```javascript\nconsole.log('Debugging React Native');\nimport { Debugger } from 'react-native-debugger';\nimport Flipper from 'react-native-flipper';\n```",
+      "whenToUse": "Use these tools when you encounter bugs or performance issues in your React Native app.",
+      "realWorldContext": "A developer uses Flipper to monitor network requests and inspect layout issues in a React Native app."
+    },
+    "category": "React Native",
+    "subcategory": "Debugging",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "debugging",
+      "chrome-devtools",
+      "flipper",
+      "react-native-debugger",
+      "troubleshooting",
+      "performance",
+      "error-handling",
+      "development-tools",
+      "bug-fixing",
+      "app-inspection"
+    ],
+    "conceptTriggers": [
+      "debugging",
+      "tools",
+      "performance",
+      "errors",
+      "inspection"
+    ],
+    "naturalFollowups": [
+      "What are the best practices for using Flipper?",
+      "How to set up React Native Debugger?",
+      "What are common performance issues in React Native?",
+      "How to use Chrome DevTools effectively?",
+      "What are the limitations of React Native Debugger?",
+      "How to integrate Flipper with React Native?",
+      "What are alternative tools to Flipper?",
+      "How to debug network requests in React Native?",
+      "What are common errors in React Native apps?",
+      "How to improve debugging skills in React Native?",
+      "What is the role of logging in debugging?",
+      "How to debug Redux in React Native?",
+      "What are the differences between Flipper and React Native Debugger?",
+      "How to handle asynchronous errors in React Native?",
+      "What are the steps to profile a React Native app?"
+    ],
+    "relatedQuestions": [
+      "What are the best practices for React Native development?",
+      "How to optimize React Native app performance?",
+      "What are common React Native errors and how to fix them?",
+      "How to use Redux with React Native?",
+      "What are the differences between React Native and native development?",
+      "How to handle state management in React Native?",
+      "What are the benefits of using TypeScript with React Native?",
+      "How to implement navigation in React Native?",
+      "What are the security considerations for React Native apps?",
+      "How to test React Native applications?",
+      "What are the challenges of React Native development?",
+      "How to manage dependencies in React Native?",
+      "What are the differences between React Native and Flutter?",
+      "How to use third-party libraries in React Native?",
+      "What are the steps to deploy a React Native app?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Ignoring console warnings.",
+        "explanation": "Console warnings can provide valuable insights into potential issues in the app."
+      },
+      {
+        "mistake": "Not using a debugger.",
+        "explanation": "Relying solely on console logs can make debugging inefficient and time-consuming."
+      },
+      {
+        "mistake": "Overlooking network request inspection.",
+        "explanation": "Network issues can often be the root cause of bugs and should be inspected thoroughly."
+      },
+      {
+        "mistake": "Neglecting performance profiling.",
+        "explanation": "Performance issues can degrade user experience and should be addressed during debugging."
+      },
+      {
+        "mistake": "Failing to test on multiple devices.",
+        "explanation": "Different devices can exhibit different issues, making it crucial to test across various platforms."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-6-describe-timers-in-react-native-application": {
+    "primaryQuestion": "Describe Timers in React Native Application?",
+    "alternativeQuestions": [
+      "What are timers in React Native?",
+      "How do you implement timers in a React Native app?",
+      "Explain the use of setTimeout in React Native.",
+      "How does setInterval work in React Native?",
+      "What is the purpose of clearTimeout in React Native?",
+      "How can you manage timers in a React Native component?",
+      "What are the differences between setTimeout and setInterval in React Native?",
+      "How do you stop a timer in React Native?",
+      "What are common use cases for timers in React Native?",
+      "How do timers affect performance in React Native?",
+      "What are the lifecycle considerations for timers in React Native?",
+      "Can you use timers in functional components in React Native?",
+      "How do you handle timer cleanup in React Native?",
+      "What are the limitations of timers in React Native?",
+      "How do you implement a countdown timer in React Native?",
+      "What is the role of timers in animations in React Native?",
+      "How do timers interact with the React Native bridge?",
+      "What are the best practices for using timers in React Native?",
+      "How do you test timers in React Native applications?",
+      "What are the alternatives to timers in React Native?"
+    ],
+    "answerDescriptions": [
+      "Timers are used to schedule code execution in the future.",
+      "React Native provides setTimeout, setInterval, and clearTimeout.",
+      "Timers can be used for animations, polling, or delayed actions.",
+      "Proper cleanup of timers is crucial to prevent memory leaks.",
+      "Timers are part of the JavaScript runtime in React Native."
+    ],
+    "answer": {
+      "summary": "Timers in React Native are used to schedule code execution after a set period. They are essential for tasks like animations and polling.",
+      "detailed": "Timers in React Native allow you to execute code at a future point in time. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| setTimeout     | Execute code once after a delay | `setTimeout(() => { /* code */ }, 1000);` |\n| setInterval    | Execute code repeatedly at intervals | `setInterval(() => { /* code */ }, 1000);` |\n| clearTimeout   | Cancel a timeout set with setTimeout | `clearTimeout(timeoutId);` |\n\n- Always clear timers in component cleanup.\n- Consider using useEffect for managing timers in functional components.\n- Be mindful of performance implications with frequent intervals.\n\n```javascript\nconst timerId = setTimeout(() => {\n  console.log('This will run after 1 second');\n}, 1000);\n\nclearTimeout(timerId); // To cancel the timeout\n```",
+      "whenToUse": "Use timers for delayed actions, animations, or periodic polling in React Native applications.",
+      "realWorldContext": "Timers are often used in React Native to create countdowns or to periodically fetch data from an API."
+    },
+    "category": "React Native",
+    "subcategory": "Timers",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "timers",
+      "setTimeout",
+      "setInterval",
+      "clearTimeout",
+      "performance",
+      "lifecycle",
+      "useEffect",
+      "memory-management",
+      "animations",
+      "polling",
+      "cleanup"
+    ],
+    "conceptTriggers": [
+      "setTimeout",
+      "setInterval",
+      "clearTimeout",
+      "useEffect",
+      "performance"
+    ],
+    "naturalFollowups": [
+      "How do you handle asynchronous operations in React Native?",
+      "What are the differences between timers in React and React Native?",
+      "How do you manage state with timers in React Native?",
+      "What are the best practices for optimizing performance with timers?",
+      "How do you implement a stopwatch in React Native?",
+      "What are the challenges of using timers in mobile applications?",
+      "How do you ensure timers are cleaned up properly?",
+      "What are the alternatives to using timers for periodic tasks?",
+      "How do you test components that use timers?",
+      "What are the implications of timers on battery life?",
+      "How do you synchronize timers with component lifecycle?",
+      "What are the differences between timers and requestAnimationFrame?",
+      "How do you implement debouncing with timers?",
+      "What are the security considerations with timers?",
+      "How do timers interact with the React Native bridge?"
+    ],
+    "relatedQuestions": [
+      "How do you manage asynchronous operations in React Native?",
+      "What is the role of useEffect in managing timers?",
+      "How do you handle component lifecycle with timers?",
+      "What are the differences between setTimeout and setInterval?",
+      "How do you implement a countdown timer in React Native?",
+      "What are the best practices for using timers in React Native?",
+      "How do you test components that use timers?",
+      "What are the performance considerations with timers?",
+      "How do you ensure proper cleanup of timers?",
+      "What are the alternatives to timers in React Native?",
+      "How do you implement animations with timers?",
+      "What are the limitations of timers in React Native?",
+      "How do you handle timers in functional components?",
+      "What are the common pitfalls with timers?",
+      "How do you optimize timer usage for better performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not clearing timers on component unmount.",
+        "explanation": "Failing to clear timers can lead to memory leaks and unexpected behavior."
+      },
+      {
+        "mistake": "Using setInterval for tasks that should only run once.",
+        "explanation": "setInterval runs repeatedly; use setTimeout for single execution."
+      },
+      {
+        "mistake": "Ignoring performance implications of frequent intervals.",
+        "explanation": "Frequent intervals can degrade app performance and affect battery life."
+      },
+      {
+        "mistake": "Not handling timer IDs correctly.",
+        "explanation": "Incorrect handling of timer IDs can prevent proper cleanup."
+      },
+      {
+        "mistake": "Using timers for tasks better suited to other APIs.",
+        "explanation": "Consider alternatives like requestAnimationFrame for smoother animations."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-7-what-is-redux-in-react-native": {
+    "primaryQuestion": "What is Redux in React Native and give important components of Redux used in React Native app?",
+    "alternativeQuestions": [
+      "Explain Redux in the context of React Native.",
+      "What are the key components of Redux in a React Native app?",
+      "How does Redux work in React Native?",
+      "Describe the role of Redux in React Native applications.",
+      "What is the purpose of Redux in React Native?",
+      "List the main parts of Redux used in React Native.",
+      "How is state management handled using Redux in React Native?",
+      "What are the essential Redux components in React Native?",
+      "How do you implement Redux in a React Native project?",
+      "What makes Redux suitable for React Native apps?",
+      "What are the core elements of Redux in React Native?",
+      "How does Redux improve state management in React Native?",
+      "What is the function of Redux in a React Native environment?",
+      "Explain the use of Redux in managing state in React Native.",
+      "What are the benefits of using Redux in React Native?",
+      "How does Redux integrate with React Native components?",
+      "What are the Redux components crucial for React Native?"
+    ],
+    "answerDescriptions": [
+      "Redux is a predictable state container for JavaScript apps.",
+      "It helps manage the state of an application in a single store.",
+      "Redux is commonly used with React Native for state management.",
+      "Key components include actions, reducers, and the store.",
+      "Redux enables consistent behavior across different environments."
+    ],
+    "answer": {
+      "summary": "Redux is a state management library used in React Native to manage application state in a predictable way. It centralizes the state in a single store, making it easier to manage and debug.",
+      "detailed": "Redux is a predictable state container for JavaScript apps, often used with React Native for managing application state.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| Store          | To hold the entire state of the app | `const store = createStore(reducer);` |\n| Action         | To describe changes in the state | `{ type: 'INCREMENT' }` |\n| Reducer        | To specify how the state changes | `function counter(state = 0, action) { switch (action.type) { case 'INCREMENT': return state + 1; default: return state; } }` |\n\n- Use Redux when you need predictable state management.\n- Centralize your application's state to make debugging easier.\n- Utilize middleware for handling asynchronous actions.\n\n```javascript\nimport { createStore } from 'redux';\nconst store = createStore(reducer);\nstore.dispatch({ type: 'INCREMENT' });\n```",
+      "whenToUse": "Use Redux in React Native when you need to manage complex state across your application. It's beneficial for apps with dynamic data that needs to be shared across components.",
+      "realWorldContext": "In a React Native e-commerce app, Redux can be used to manage the state of the shopping cart, ensuring that the cart's contents are consistent across different screens."
+    },
+    "category": "React Native",
+    "subcategory": "State Management",
+    "difficulty": "intermediate",
+    "tags": [
+      "redux",
+      "state-management",
+      "react-native",
+      "javascript",
+      "actions",
+      "reducers",
+      "store",
+      "middleware",
+      "thunk",
+      "saga",
+      "flux",
+      "data-flow"
+    ],
+    "conceptTriggers": [
+      "state",
+      "actions",
+      "reducers",
+      "store",
+      "middleware"
+    ],
+    "naturalFollowups": [
+      "How do you set up Redux in a React Native project?",
+      "What are the advantages of using Redux over Context API in React Native?",
+      "How does Redux handle asynchronous actions in React Native?",
+      "What is the role of middleware in Redux for React Native?",
+      "How do you connect Redux to React Native components?",
+      "What are some common patterns for using Redux in React Native?",
+      "How do you debug Redux state changes in React Native?",
+      "What is the difference between Redux and MobX in React Native?",
+      "How do you optimize Redux performance in a React Native app?",
+      "What are the best practices for structuring Redux code in React Native?",
+      "How do you handle side effects in Redux for React Native?",
+      "What tools can be used to visualize Redux state in React Native?",
+      "How does Redux integrate with React Navigation in React Native?",
+      "What are the limitations of using Redux in React Native?",
+      "How do you test Redux reducers in a React Native application?"
+    ],
+    "relatedQuestions": [
+      "What is the Context API in React Native and how does it compare to Redux?",
+      "How do you manage global state in React Native?",
+      "What are the differences between Redux and MobX?",
+      "How do you implement middleware in Redux for React Native?",
+      "What are the benefits of using Redux Thunk in React Native?",
+      "How does Redux Saga differ from Redux Thunk in React Native?",
+      "What are the common pitfalls when using Redux in React Native?",
+      "How do you handle complex state logic in Redux for React Native?",
+      "What is the role of selectors in Redux for React Native?",
+      "How do you persist Redux state in a React Native app?",
+      "What are the best practices for using Redux with React Native?",
+      "How do you structure a Redux store in a large React Native application?",
+      "What are the alternatives to Redux for state management in React Native?",
+      "How do you handle form state with Redux in React Native?",
+      "What is the role of the Provider component in Redux for React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not normalizing the state shape.",
+        "explanation": "Failing to normalize the state can lead to complex and inefficient state management."
+      },
+      {
+        "mistake": "Mutating state directly in reducers.",
+        "explanation": "Reducers should return a new state object instead of mutating the existing state."
+      },
+      {
+        "mistake": "Using Redux for local component state.",
+        "explanation": "Redux is best suited for global state management, not for local component state."
+      },
+      {
+        "mistake": "Not using middleware for asynchronous actions.",
+        "explanation": "Middleware like Redux Thunk or Redux Saga should be used to handle asynchronous logic."
+      },
+      {
+        "mistake": "Overusing Redux for simple state management.",
+        "explanation": "For simple state management, Context API or local state might be more appropriate."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-8-what-is-state-and-how-is-it-used-in-react-native": {
+    "primaryQuestion": "What is State and how is it used in React Native?",
+    "alternativeQuestions": [
+      "How does state management work in React Native?",
+      "Explain the concept of state in React Native.",
+      "What role does state play in React Native applications?",
+      "How do you update state in React Native?",
+      "What is the difference between state and props in React Native?",
+      "How is state initialized in a React Native component?",
+      "What are the best practices for managing state in React Native?",
+      "Can you give an example of using state in React Native?",
+      "How does state affect rendering in React Native?",
+      "What happens when state changes in a React Native component?",
+      "How do you pass state between components in React Native?",
+      "What tools are available for state management in React Native?",
+      "How does state influence component lifecycle in React Native?",
+      "What are common pitfalls when using state in React Native?",
+      "How do you debug state-related issues in React Native?",
+      "What is the use of useState hook in React Native?",
+      "How do you handle complex state in React Native?",
+      "What is the role of setState in React Native?",
+      "How does state management differ between React and React Native?",
+      "How do you optimize state updates in React Native?"
+    ],
+    "answerDescriptions": [
+      "State is a built-in object in React components.",
+      "It holds dynamic data that influences component rendering.",
+      "State changes trigger re-renders in React Native.",
+      "State is local to the component and cannot be accessed by others.",
+      "State is managed using hooks or class component methods."
+    ],
+    "answer": {
+      "summary": "State in React Native is an object that holds data that may change over time. It is crucial for managing dynamic content and interactions.",
+      "detailed": "State is a built-in object that stores dynamic data in a component. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| useState | For functional components | `const [count, setCount] = useState(0);` |\n| setState | For class components | `this.setState({ count: 1 });` |\n| useReducer | For complex state logic | `const [state, dispatch] = useReducer(reducer, initialState);` |\n\n- Always initialize state with a default value.\n- Use setState or dispatch to update state.\n- Avoid directly mutating state.\n\n```javascript\nimport React, { useState } from 'react';\n\nconst Counter = () => {\n  const [count, setCount] = useState(0);\n\n  return (\n    <button onPress={() => setCount(count + 1)}>\n      {count}\n    </button>\n  );\n};\n```",
+      "whenToUse": "Use state to manage data that changes over time and affects rendering. Ideal for interactive components.",
+      "realWorldContext": "In a React Native app, state can be used to track user input in a form or the current score in a game."
+    },
+    "category": "React Native",
+    "subcategory": "State Management",
+    "difficulty": "intermediate",
+    "tags": [
+      "state",
+      "props",
+      "hooks",
+      "setState",
+      "useState",
+      "useReducer",
+      "component",
+      "lifecycle",
+      "rendering",
+      "performance",
+      "debugging",
+      "best practices"
+    ],
+    "conceptTriggers": [
+      "state",
+      "props",
+      "hooks",
+      "rendering",
+      "component lifecycle"
+    ],
+    "naturalFollowups": [
+      "What are props and how are they different from state?",
+      "How do you manage global state in React Native?",
+      "Can you explain the lifecycle of a React Native component?",
+      "What are the benefits of using hooks in React Native?",
+      "How do you optimize performance in React Native applications?",
+      "What is the Context API and how is it used?",
+      "How does Redux integrate with React Native?",
+      "What are the common state management libraries for React Native?",
+      "How do you handle asynchronous state updates?",
+      "What is the role of reducers in state management?",
+      "How do you test components with state in React Native?",
+      "What is the difference between local and global state?",
+      "How do you handle side effects in state management?",
+      "What are the limitations of useState?",
+      "How do you manage state in large applications?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between state and props?",
+      "How do you use the useState hook in React Native?",
+      "What are the common patterns for state management?",
+      "How does the Context API work in React Native?",
+      "What are the advantages of using Redux?",
+      "How do you handle state in functional components?",
+      "What is the role of reducers in React Native?",
+      "How do you manage side effects in state updates?",
+      "What are the best practices for state initialization?",
+      "How do you debug state changes in React Native?",
+      "What are the challenges of managing state in React Native?",
+      "How does state affect component lifecycle methods?",
+      "What is the use of useReducer hook?",
+      "How do you handle complex state logic?",
+      "What is the impact of state on rendering performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Directly mutating the state object.",
+        "explanation": "State should be updated using setState or hooks to ensure proper re-rendering."
+      },
+      {
+        "mistake": "Not initializing state with a default value.",
+        "explanation": "State should always have an initial value to avoid undefined errors."
+      },
+      {
+        "mistake": "Using state for static data.",
+        "explanation": "State should only be used for data that changes over time."
+      },
+      {
+        "mistake": "Overusing state in components.",
+        "explanation": "Excessive state can lead to complex and hard-to-maintain components."
+      },
+      {
+        "mistake": "Ignoring asynchronous nature of state updates.",
+        "explanation": "State updates may not happen immediately, leading to unexpected behavior if not handled properly."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-9-how-is-user-input-handled-in-react-native": {
+    "primaryQuestion": "How is user input handled in React Native?",
+    "alternativeQuestions": [
+      "What are the methods to handle user input in React Native?",
+      "How do you capture user input in a React Native application?",
+      "What components are used for user input in React Native?",
+      "How can user input be validated in React Native?",
+      "What is the role of state in handling user input in React Native?",
+      "How does React Native handle text input?",
+      "What are the best practices for handling user input in React Native?",
+      "How do you manage form inputs in React Native?",
+      "What libraries can assist with user input in React Native?",
+      "How do you handle keyboard events in React Native?",
+      "How is input data processed in React Native?",
+      "What are the common challenges with user input in React Native?",
+      "How do you implement controlled components for input in React Native?",
+      "What are uncontrolled components in React Native?",
+      "How do you handle focus events for input in React Native?",
+      "What is the difference between controlled and uncontrolled inputs in React Native?",
+      "How do you manage input state in React Native?",
+      "How do you handle input validation in React Native?",
+      "What are the common input components in React Native?",
+      "How do you handle input changes in React Native?"
+    ],
+    "answerDescriptions": [
+      "User input in React Native is commonly managed using state.",
+      "Controlled components are often used to handle input data.",
+      "TextInput is a core component for capturing text input.",
+      "Event handlers are used to respond to user input events.",
+      "Validation can be implemented using custom functions or libraries."
+    ],
+    "answer": {
+      "summary": "User input in React Native is managed using components like TextInput and state management techniques.",
+      "detailed": "User input in React Native is primarily managed using controlled components and state. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n|---|---|---|\n| TextInput | For capturing text input | `<TextInput value={text} onChangeText={setText} />` |\n| onChangeText | To handle input change events | `onChangeText={text => setText(text)}` |\n| useState | To manage input state | `const [text, setText] = useState('');` |\n\n- Use controlled components to keep input data in sync with state.\n- Always validate input data to ensure data integrity.\n- Utilize libraries like Formik for complex form handling.\n\n```javascript\nimport React, { useState } from 'react';\nimport { TextInput, View } from 'react-native';\n\nconst InputExample = () => {\n  const [text, setText] = useState('');\n\n  return (\n    <View>\n      <TextInput\n        value={text}\n        onChangeText={setText}\n        placeholder=\"Enter text\"\n      />\n    </View>\n  );\n};\n```",
+      "whenToUse": "Use when capturing and managing user input in React Native applications.",
+      "realWorldContext": "In a React Native app, TextInput is used to capture user comments in a feedback form."
+    },
+    "category": "React Native",
+    "subcategory": "User Input",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "user-input",
+      "state-management",
+      "controlled-components",
+      "textinput",
+      "event-handling",
+      "input-validation",
+      "form-handling",
+      "keyboard-events",
+      "input-state"
+    ],
+    "conceptTriggers": [
+      "state management",
+      "controlled components",
+      "event handling",
+      "input validation",
+      "form libraries"
+    ],
+    "naturalFollowups": [
+      "What are controlled components in React Native?",
+      "How do you manage state for user input in React Native?",
+      "What libraries are available for form handling in React Native?",
+      "How do you validate user input in React Native?",
+      "What is the role of TextInput in React Native?",
+      "How do you handle keyboard events in React Native?",
+      "What are the differences between controlled and uncontrolled inputs?",
+      "How do you implement input validation in React Native?",
+      "What are best practices for managing user input?",
+      "How do you handle focus events for inputs?",
+      "How can you optimize input handling for performance?",
+      "What are common pitfalls when handling user input?",
+      "How do you handle input changes efficiently?",
+      "What is the importance of state in input handling?",
+      "How do you manage complex forms in React Native?"
+    ],
+    "relatedQuestions": [
+      "What are controlled components in React Native?",
+      "How do you manage state in React Native?",
+      "What is the role of TextInput in React Native?",
+      "How do you handle form submissions in React Native?",
+      "What libraries assist with form handling?",
+      "How do you validate forms in React Native?",
+      "What are uncontrolled components?",
+      "How do you handle keyboard input in React Native?",
+      "What is the difference between controlled and uncontrolled inputs?",
+      "How do you manage focus and blur events?",
+      "What are best practices for form handling?",
+      "How do you optimize input performance?",
+      "What are common mistakes in input handling?",
+      "How do you implement input validation?",
+      "What is the importance of state in input management?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using controlled components for input.",
+        "explanation": "This can lead to input values being out of sync with the component state."
+      },
+      {
+        "mistake": "Ignoring input validation.",
+        "explanation": "Failing to validate input can result in incorrect or harmful data being processed."
+      },
+      {
+        "mistake": "Overusing state updates on every keystroke.",
+        "explanation": "This can lead to performance issues due to excessive re-renders."
+      },
+      {
+        "mistake": "Not handling keyboard events properly.",
+        "explanation": "This can lead to a poor user experience, especially on mobile devices."
+      },
+      {
+        "mistake": "Neglecting to manage focus and blur events.",
+        "explanation": "Properly managing these events is crucial for accessibility and user experience."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-10-default-props-react-native": {
+    "primaryQuestion": "Are default props available in React Native and if yes for what are they used and how are they used?",
+    "alternativeQuestions": [
+      "How do you use default props in React Native?",
+      "What are default props in React Native?",
+      "Can you set default props in React Native components?",
+      "Why use default props in React Native?",
+      "Explain the concept of default props in React Native.",
+      "How to define default props in a React Native component?",
+      "What is the purpose of default props in React Native?",
+      "How do default props work in React Native?",
+      "Is it possible to set default props in functional components in React Native?",
+      "What are the benefits of using default props in React Native?",
+      "How can default props improve React Native component behavior?",
+      "What syntax is used for default props in React Native?",
+      "How do you handle default props in class components in React Native?",
+      "Can default props be overridden in React Native?",
+      "What happens if a prop is not passed in React Native?",
+      "How to set default values for props in React Native?"
+    ],
+    "answerDescriptions": [
+      "Default props provide fallback values for undefined props.",
+      "They are used to ensure components have all necessary data.",
+      "Default props can be set for both class and functional components.",
+      "They help in reducing code redundancy.",
+      "Default props improve component robustness."
+    ],
+    "answer": {
+      "summary": "Default props in React Native are used to set default values for props that are not provided. They ensure that components have all necessary data even if some props are missing.",
+      "detailed": "Default props in React Native allow you to define default values for props that are not explicitly set. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| `defaultProps` | Use in class components | `MyComponent.defaultProps = { propName: 'defaultValue' };` |\n| Default parameter | Use in functional components | `function MyComponent({ propName = 'defaultValue' }) { ... }` |\n\n- Use `defaultProps` for class components to ensure props have default values.\n- In functional components, use default parameter values for props.\n- Default props help in maintaining component functionality without requiring all props.\n\n```javascript\nclass MyComponent extends React.Component {\n  render() {\n    return <Text>{this.props.propName}</Text>;\n  }\n}\nMyComponent.defaultProps = {\n  propName: 'defaultValue'\n};\n```",
+      "whenToUse": "Use default props when you want to ensure a component has default values for props that might not be provided.",
+      "realWorldContext": "In a React Native app, a button component might use default props to ensure a default label is displayed if none is provided."
+    },
+    "category": "React Native",
+    "subcategory": "Props and State",
+    "difficulty": "beginner",
+    "tags": [
+      "react-native",
+      "default-props",
+      "components",
+      "props",
+      "class-components",
+      "functional-components",
+      "javascript",
+      "development",
+      "mobile-apps",
+      "ui",
+      "best-practices"
+    ],
+    "conceptTriggers": [
+      "props",
+      "state",
+      "component-lifecycle",
+      "functional-components",
+      "class-components"
+    ],
+    "naturalFollowups": [
+      "How do you handle state in React Native?",
+      "What are prop types in React Native?",
+      "How do you manage component lifecycle in React Native?",
+      "What are the differences between class and functional components in React Native?",
+      "How do you pass props in React Native?",
+      "Can you override default props in React Native?",
+      "What is the role of prop types in React Native?",
+      "How do you validate props in React Native?",
+      "What are the advantages of using default props?",
+      "How do default props affect component performance?",
+      "What are the limitations of default props in React Native?",
+      "How do you handle optional props in React Native?",
+      "What is the difference between default props and state?",
+      "How do you update default props in React Native?",
+      "What are the best practices for using default props?"
+    ],
+    "relatedQuestions": [
+      "What are prop types in React Native?",
+      "How do you use state in React Native?",
+      "What is the difference between props and state in React Native?",
+      "How do you pass data between components in React Native?",
+      "What are the lifecycle methods in React Native?",
+      "How do you handle events in React Native?",
+      "What is the role of context in React Native?",
+      "How do you optimize performance in React Native?",
+      "What are higher-order components in React Native?",
+      "How do you use hooks in React Native?",
+      "What is the difference between controlled and uncontrolled components?",
+      "How do you manage global state in React Native?",
+      "What are the differences between React and React Native?",
+      "How do you handle asynchronous operations in React Native?",
+      "What are the best practices for component design in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not setting default props for optional props.",
+        "explanation": "This can lead to undefined values and unexpected behavior in components."
+      },
+      {
+        "mistake": "Using default props in functional components incorrectly.",
+        "explanation": "Functional components should use default parameter values instead of `defaultProps`."
+      },
+      {
+        "mistake": "Overwriting default props unintentionally.",
+        "explanation": "Ensure that default props are only overridden when necessary to avoid unexpected changes."
+      },
+      {
+        "mistake": "Assuming default props will prevent all errors.",
+        "explanation": "Default props provide fallback values but do not replace the need for proper prop validation."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-11-threads-in-react-native": {
+    "primaryQuestion": "What are threads in general and explain different threads in React Native with use of each?",
+    "alternativeQuestions": [
+      "How do threads work in React Native?",
+      "Can you explain threading in React Native?",
+      "What is the role of threads in React Native?",
+      "Describe the different types of threads in React Native.",
+      "How does React Native manage threads?",
+      "What are the main threads used in React Native?",
+      "Explain the concept of threading in React Native.",
+      "What are the different threads in React Native and their purposes?",
+      "How are threads utilized in React Native?",
+      "What is the threading model in React Native?",
+      "Can you describe the threading architecture in React Native?",
+      "What are UI and JS threads in React Native?",
+      "How does React Native handle multi-threading?",
+      "What is the significance of threads in React Native?",
+      "How do different threads interact in React Native?",
+      "What are the key threads in React Native development?",
+      "How does React Native use threads for performance?",
+      "What threads are involved in React Native rendering?"
+    ],
+    "answerDescriptions": [
+      "Threads are sequences of programmed instructions.",
+      "React Native uses multiple threads for performance.",
+      "UI thread handles rendering and user interactions.",
+      "JS thread executes JavaScript code.",
+      "Native modules run on separate threads."
+    ],
+    "answer": {
+      "summary": "Threads in React Native are used to manage different tasks concurrently. They help in optimizing performance by separating concerns.",
+      "detailed": "Threads are sequences of programmed instructions that can be managed independently by a scheduler. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| UI Thread | For rendering and user interactions | `runOnUiThread(new Runnable() {...})` |\n| JS Thread | For executing JavaScript code | `setTimeout(() => {...}, 1000)` |\n| Native Modules | For operations requiring native code | `NativeModules.ExampleModule.method()` |\n\n- Use UI thread for rendering tasks.\n- JS thread should handle logic and state updates.\n- Offload heavy tasks to native modules.\n\n```javascript\n// Example of using setTimeout in JS thread\nsetTimeout(() => {\n  console.log('Executed after delay');\n}, 1000);\n```",
+      "whenToUse": "Use threads to manage tasks concurrently and improve app performance.",
+      "realWorldContext": "In a React Native app, the UI thread handles rendering while the JS thread processes business logic, ensuring smooth user interactions."
+    },
+    "category": "React Native",
+    "subcategory": "Performance",
+    "difficulty": "intermediate",
+    "tags": [
+      "threads",
+      "performance",
+      "UI thread",
+      "JS thread",
+      "native modules",
+      "concurrency",
+      "optimization",
+      "rendering",
+      "multi-threading",
+      "react-native",
+      "asynchronous",
+      "architecture"
+    ],
+    "conceptTriggers": [
+      "UI thread",
+      "JS thread",
+      "native modules",
+      "performance optimization",
+      "concurrency management"
+    ],
+    "naturalFollowups": [
+      "How can you optimize thread usage in React Native?",
+      "What are the limitations of threading in React Native?",
+      "How do you debug thread-related issues in React Native?",
+      "What is the impact of threads on React Native app performance?",
+      "Can you explain the threading model of React Native in detail?",
+      "How does React Native handle asynchronous tasks?",
+      "What tools can be used to monitor thread performance in React Native?",
+      "How do threads affect the user experience in React Native apps?",
+      "What are the best practices for managing threads in React Native?",
+      "How do you ensure thread safety in React Native?",
+      "What are common pitfalls when dealing with threads in React Native?",
+      "How does threading in React Native differ from other frameworks?",
+      "What is the role of the React Native bridge in threading?",
+      "How do you handle heavy computations in React Native?",
+      "What are the advantages of using threads in React Native?"
+    ],
+    "relatedQuestions": [
+      "What is the React Native bridge and how does it work?",
+      "How does React Native handle asynchronous operations?",
+      "What are native modules in React Native?",
+      "How can you improve React Native app performance?",
+      "What is the role of the UI thread in React Native?",
+      "How does React Native manage memory?",
+      "What are the differences between React Native and native apps?",
+      "How do you handle animations in React Native?",
+      "What is the architecture of a React Native app?",
+      "How does React Native interact with native code?",
+      "What are the best practices for React Native development?",
+      "How do you debug performance issues in React Native?",
+      "What is the role of Redux in React Native?",
+      "How do you handle network requests in React Native?",
+      "What are the challenges of using React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Blocking the UI thread with heavy computations.",
+        "explanation": "This can lead to unresponsive interfaces and poor user experience."
+      },
+      {
+        "mistake": "Not offloading tasks to native modules.",
+        "explanation": "Failing to use native modules for intensive tasks can degrade performance."
+      },
+      {
+        "mistake": "Ignoring thread safety.",
+        "explanation": "Concurrency issues can arise if thread safety is not maintained."
+      },
+      {
+        "mistake": "Mismanaging asynchronous tasks.",
+        "explanation": "Improper handling of async tasks can lead to race conditions."
+      },
+      {
+        "mistake": "Overusing the JS thread for UI updates.",
+        "explanation": "This can cause delays in rendering and affect app responsiveness."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-12-describe-advantages-of-using-react-native": {
+    "primaryQuestion": "Describe advantages of using React Native?",
+    "alternativeQuestions": [
+      "What are the benefits of React Native?",
+      "Why choose React Native for mobile development?",
+      "List the advantages of using React Native.",
+      "How does React Native benefit app development?",
+      "What makes React Native a good choice for developers?",
+      "Why is React Native popular among developers?",
+      "What are the key advantages of React Native?",
+      "How does React Native improve development efficiency?",
+      "What are the strengths of React Native?",
+      "Why is React Native preferred for cross-platform apps?",
+      "What benefits does React Native offer over native development?",
+      "How does React Native enhance user experience?",
+      "Why is React Native considered efficient?",
+      "What are the top reasons to use React Native?",
+      "How does React Native simplify mobile development?",
+      "What makes React Native advantageous for startups?",
+      "Why is React Native a cost-effective solution?",
+      "What are the performance benefits of React Native?",
+      "How does React Native support rapid development?",
+      "What are the scalability advantages of React Native?"
+    ],
+    "answerDescriptions": [
+      "React Native allows for cross-platform development.",
+      "It uses a single codebase for both iOS and Android.",
+      "React Native provides a native-like user experience.",
+      "It has a strong community and extensive libraries.",
+      "React Native enables faster development cycles."
+    ],
+    "answer": {
+      "summary": "React Native offers a cross-platform solution with a single codebase, enhancing development efficiency and user experience.",
+      "detailed": "React Native is a framework for building native apps using React. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| `View` | For layout components | `<View></View>` |\n| `Text` | For displaying text | `<Text>Hello World</Text>` |\n| `StyleSheet` | For styling components | `StyleSheet.create({})` |\n\n- Use React Native to save time with a single codebase.\n- Leverage a large ecosystem of libraries and tools.\n- Ensure a native-like performance and appearance.\n\n```javascript\nimport React from 'react';\nimport { View, Text, StyleSheet } from 'react-native';\n\nconst App = () => (\n  <View style={styles.container}>\n    <Text>Welcome to React Native!</Text>\n  </View>\n);\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    justifyContent: 'center',\n    alignItems: 'center'\n  }\n});\n\nexport default App;\n```",
+      "whenToUse": "Use React Native for developing cross-platform mobile applications efficiently.",
+      "realWorldContext": "React Native is used by companies like Facebook, Instagram, and Airbnb for their mobile apps."
+    },
+    "category": "React Native",
+    "subcategory": "Advantages",
+    "difficulty": "intermediate",
+    "tags": [
+      "cross-platform",
+      "mobile development",
+      "efficiency",
+      "user experience",
+      "community support",
+      "libraries",
+      "performance",
+      "cost-effective",
+      "scalability",
+      "codebase",
+      "native-like",
+      "development speed"
+    ],
+    "conceptTriggers": [
+      "cross-platform",
+      "single codebase",
+      "native performance",
+      "community support",
+      "development speed"
+    ],
+    "naturalFollowups": [
+      "What are the limitations of React Native?",
+      "How does React Native compare to Flutter?",
+      "Can React Native be used for web development?",
+      "What are the best practices for React Native?",
+      "How to optimize performance in React Native?",
+      "What are common challenges in React Native development?",
+      "How does React Native handle updates?",
+      "What are the security considerations in React Native?",
+      "How to integrate native modules in React Native?",
+      "What are the testing strategies for React Native apps?",
+      "How does React Native handle animations?",
+      "What are the deployment options for React Native?",
+      "How to manage state in React Native applications?",
+      "What are the debugging tools available for React Native?",
+      "How does React Native support accessibility features?"
+    ],
+    "relatedQuestions": [
+      "What is the architecture of React Native?",
+      "How does React Native differ from React?",
+      "What are the core components of React Native?",
+      "How to set up a React Native development environment?",
+      "What are the styling options in React Native?",
+      "How does React Native handle navigation?",
+      "What are the data management options in React Native?",
+      "How to implement push notifications in React Native?",
+      "What are the differences between React Native and native development?",
+      "How to use third-party libraries in React Native?",
+      "What are the testing frameworks for React Native?",
+      "How to handle device-specific features in React Native?",
+      "What are the deployment challenges in React Native?",
+      "How to manage dependencies in React Native projects?",
+      "What are the popular UI libraries for React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Ignoring platform-specific design guidelines.",
+        "explanation": "React Native allows for cross-platform development, but it's important to adhere to each platform's design standards to ensure a native look and feel."
+      },
+      {
+        "mistake": "Overusing third-party libraries.",
+        "explanation": "While React Native has a rich ecosystem, relying too heavily on third-party libraries can lead to bloated apps and maintenance challenges."
+      },
+      {
+        "mistake": "Neglecting performance optimization.",
+        "explanation": "React Native apps can suffer from performance issues if not optimized properly, especially with complex animations and large data sets."
+      },
+      {
+        "mistake": "Not testing on real devices.",
+        "explanation": "Emulators and simulators are useful, but testing on real devices is crucial to catch platform-specific bugs and performance issues."
+      },
+      {
+        "mistake": "Ignoring updates and community feedback.",
+        "explanation": "React Native is constantly evolving, and staying updated with the latest releases and community feedback is essential for maintaining a robust application."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-13-what-is-flexbox": {
+    "primaryQuestion": "What is Flexbox and describe any elaborate on its most used properties?",
+    "alternativeQuestions": [
+      "Explain Flexbox in React Native.",
+      "How does Flexbox work in React Native?",
+      "What are the key properties of Flexbox in React Native?",
+      "Describe the Flexbox layout model.",
+      "How do you use Flexbox for layout in React Native?",
+      "What are some common Flexbox properties in React Native?",
+      "How does Flexbox improve layout design in React Native?",
+      "What is the role of Flexbox in React Native styling?",
+      "How can Flexbox be used to align items in React Native?",
+      "What are the advantages of using Flexbox in React Native?",
+      "Explain the use of Flexbox properties in React Native.",
+      "What are the differences between Flexbox in CSS and React Native?",
+      "How do you implement Flexbox in a React Native project?",
+      "What are the common mistakes when using Flexbox in React Native?",
+      "How does Flexbox handle layout direction in React Native?",
+      "What is the default behavior of Flexbox in React Native?",
+      "How does Flexbox affect component positioning in React Native?",
+      "What are the flex properties in React Native?",
+      "How do you center items using Flexbox in React Native?",
+      "What is the significance of Flexbox in React Native layouts?"
+    ],
+    "answerDescriptions": [
+      "Flexbox is a layout model used in React Native.",
+      "It helps in aligning and distributing space among items.",
+      "Flexbox properties include flexDirection, justifyContent, and alignItems.",
+      "It provides a consistent layout on different screen sizes.",
+      "Flexbox is essential for responsive design in React Native."
+    ],
+    "answer": {
+      "summary": "Flexbox is a layout model used in React Native for arranging components in a flexible and efficient way. It is crucial for creating responsive designs.",
+      "detailed": "Flexbox is a CSS layout model that allows for the arrangement of elements in a container to be flexible and responsive.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| flexDirection | To set the direction of the flex items | `flexDirection: 'row'` |\n| justifyContent | To align items along the main axis | `justifyContent: 'center'` |\n| alignItems | To align items along the cross axis | `alignItems: 'stretch'` |\n\n- Remember to set `flexDirection` to define the main axis.\n- Use `justifyContent` to distribute space along the main axis.\n- `alignItems` is used for alignment along the cross axis.\n\n```javascript\n<View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'stretch' }}>\n  <Text>Item 1</Text>\n  <Text>Item 2</Text>\n</View>\n```",
+      "whenToUse": "Use Flexbox when you need a responsive layout that adapts to different screen sizes in React Native.",
+      "realWorldContext": "Flexbox is used in React Native to create a navigation bar that adjusts its items based on the screen orientation."
+    },
+    "category": "React Native",
+    "subcategory": "Layout",
+    "difficulty": "intermediate",
+    "tags": [
+      "flexbox",
+      "layout",
+      "styling",
+      "responsive-design",
+      "alignment",
+      "react-native",
+      "ui-design",
+      "component-arrangement",
+      "flex-direction",
+      "justify-content",
+      "align-items",
+      "cross-axis"
+    ],
+    "conceptTriggers": [
+      "flex-direction",
+      "justify-content",
+      "align-items",
+      "responsive-layout",
+      "component-alignment"
+    ],
+    "naturalFollowups": [
+      "How does Flexbox differ from Grid layout?",
+      "What are the limitations of Flexbox in React Native?",
+      "Can Flexbox be combined with other layout models?",
+      "How do you debug Flexbox layouts in React Native?",
+      "What are some best practices for using Flexbox?",
+      "How does Flexbox handle overflow in React Native?",
+      "What are the performance considerations with Flexbox?",
+      "How do you animate Flexbox properties in React Native?",
+      "What are some common Flexbox patterns in React Native?",
+      "How do you handle nested Flexbox layouts?",
+      "What is the impact of Flexbox on accessibility?",
+      "How do you test Flexbox layouts in React Native?",
+      "What are some advanced Flexbox techniques?",
+      "How does Flexbox interact with other React Native components?",
+      "What are the differences in Flexbox implementation across platforms?"
+    ],
+    "relatedQuestions": [
+      "What is the role of Flexbox in React Native?",
+      "How do you implement Flexbox in a React Native project?",
+      "What are the common mistakes when using Flexbox in React Native?",
+      "How does Flexbox handle layout direction in React Native?",
+      "What is the default behavior of Flexbox in React Native?",
+      "How does Flexbox affect component positioning in React Native?",
+      "What are the flex properties in React Native?",
+      "How do you center items using Flexbox in React Native?",
+      "What is the significance of Flexbox in React Native layouts?",
+      "Explain Flexbox in React Native.",
+      "How does Flexbox work in React Native?",
+      "What are the key properties of Flexbox in React Native?",
+      "Describe the Flexbox layout model.",
+      "How do you use Flexbox for layout in React Native?",
+      "What are some common Flexbox properties in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not setting flexDirection properly.",
+        "explanation": "The default flexDirection is 'column', which may not be intended for horizontal layouts."
+      },
+      {
+        "mistake": "Misusing justifyContent and alignItems.",
+        "explanation": "These properties are often confused; justifyContent is for the main axis, while alignItems is for the cross axis."
+      },
+      {
+        "mistake": "Overusing flex property.",
+        "explanation": "Excessive use of flex can lead to unpredictable layouts, especially in nested flex containers."
+      },
+      {
+        "mistake": "Ignoring platform differences.",
+        "explanation": "Flexbox behavior can slightly vary between iOS and Android, affecting layout consistency."
+      },
+      {
+        "mistake": "Neglecting to test on different screen sizes.",
+        "explanation": "Flexbox layouts may appear differently on various screen sizes if not tested thoroughly."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-1-core-components-react-native": {
+    "primaryQuestion": "Name core components in React Native and their web analogies.",
+    "alternativeQuestions": [
+      "What are the essential components in React Native?",
+      "List the core components of React Native.",
+      "How do React Native components compare to web components?",
+      "What are the basic building blocks of React Native?",
+      "Identify the primary components used in React Native.",
+      "What are the fundamental components in React Native?",
+      "Name the key components in React Native and their web counterparts.",
+      "What are the main components in React Native?",
+      "How do you compare React Native components to HTML elements?",
+      "What are the core building blocks of React Native apps?",
+      "List the primary components of React Native and their web equivalents.",
+      "What are the essential building blocks in React Native?",
+      "Describe the main components used in React Native development.",
+      "What are the foundational components in React Native?",
+      "Identify the core components of React Native and their web analogies.",
+      "What are the basic components in React Native?"
+    ],
+    "answerDescriptions": [
+      "React Native uses components similar to HTML elements.",
+      "Core components include View, Text, and Image.",
+      "Each component has a web analogy, like View to div.",
+      "Components are the building blocks of React Native apps.",
+      "Understanding components is crucial for React Native development."
+    ],
+    "answer": {
+      "summary": "React Native core components are analogous to HTML elements, providing the building blocks for mobile apps.",
+      "detailed": "React Native components are the basic building blocks of a React Native application, similar to HTML elements in web development. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| View | To create a container for other components | `<View></View>` |\n| Text | To display text | `<Text>Hello World</Text>` |\n| Image | To display images | `<Image source={require('./image.png')} />` |\n\n- Remember that each component has a specific purpose.\n- Use View for layout, Text for displaying text, and Image for images.\n- Components can be nested to create complex UIs.\n\n```javascript\nimport React from 'react';\nimport { View, Text, Image } from 'react-native';\n\nconst App = () => (\n  <View>\n    <Text>Hello World</Text>\n    <Image source={require('./image.png')} />\n  </View>\n);\nexport default App;\n```",
+      "whenToUse": "Use core components when building the UI of a React Native application.",
+      "realWorldContext": "Developers use View, Text, and Image components to create mobile app interfaces similar to how div, p, and img are used in web development."
+    },
+    "category": "React Native",
+    "subcategory": "Components",
+    "difficulty": "beginner",
+    "tags": [
+      "react-native",
+      "components",
+      "mobile-development",
+      "ui-design",
+      "javascript",
+      "cross-platform",
+      "native-apps",
+      "frontend",
+      "mobile-ui",
+      "react"
+    ],
+    "conceptTriggers": [
+      "component-based",
+      "cross-platform",
+      "native-elements",
+      "ui-building",
+      "mobile-development"
+    ],
+    "naturalFollowups": [
+      "How do you style components in React Native?",
+      "What is the difference between React Native and React?",
+      "How do you handle state in React Native?",
+      "What are the lifecycle methods in React Native?",
+      "How do you manage navigation in React Native?",
+      "What are the performance considerations in React Native?",
+      "How do you handle user input in React Native?",
+      "What are the differences between React Native and native development?",
+      "How do you debug React Native applications?",
+      "What are the best practices for structuring a React Native app?",
+      "How do you use third-party libraries in React Native?",
+      "What are the common challenges in React Native development?",
+      "How do you optimize images in React Native?",
+      "What is the role of Redux in React Native?",
+      "How do you test React Native applications?"
+    ],
+    "relatedQuestions": [
+      "What is the role of props in React Native?",
+      "How do you handle events in React Native?",
+      "What are the differences between View and ScrollView?",
+      "How do you implement animations in React Native?",
+      "What is the purpose of the FlatList component?",
+      "How do you manage state in React Native?",
+      "What are the differences between functional and class components?",
+      "How do you use hooks in React Native?",
+      "What is the role of Context API in React Native?",
+      "How do you handle asynchronous operations in React Native?",
+      "What are the differences between React Native and Flutter?",
+      "How do you implement navigation in React Native?",
+      "What is the purpose of the StyleSheet component?",
+      "How do you handle network requests in React Native?",
+      "What are the best practices for performance optimization in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing View with div.",
+        "explanation": "While View is similar to div, it is specifically designed for mobile layouts and may have different properties."
+      },
+      {
+        "mistake": "Using Text component for non-text elements.",
+        "explanation": "Text should only be used for displaying text content, not for layout or other elements."
+      },
+      {
+        "mistake": "Ignoring platform-specific differences.",
+        "explanation": "React Native components may behave differently on iOS and Android, requiring platform-specific adjustments."
+      },
+      {
+        "mistake": "Overusing nested components.",
+        "explanation": "Excessive nesting can lead to performance issues and should be avoided when possible."
+      },
+      {
+        "mistake": "Not optimizing images.",
+        "explanation": "Failing to optimize images can lead to increased load times and poor performance in React Native apps."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-2-explain-async-storage-react-native": {
+    "primaryQuestion": "Explain Async Storage in React Native and also define when to use it and when to not?",
+    "alternativeQuestions": [
+      "What is Async Storage in React Native?",
+      "How does Async Storage work in React Native?",
+      "Can you explain the purpose of Async Storage in React Native?",
+      "When should you use Async Storage in React Native?",
+      "What are the limitations of Async Storage in React Native?",
+      "Describe the use cases for Async Storage in React Native.",
+      "How do you implement Async Storage in a React Native app?",
+      "What are the pros and cons of using Async Storage in React Native?",
+      "How does Async Storage compare to other storage solutions in React Native?",
+      "What are the best practices for using Async Storage in React Native?",
+      "How do you handle errors with Async Storage in React Native?",
+      "What are common pitfalls when using Async Storage in React Native?",
+      "How do you clear Async Storage in React Native?",
+      "What data types can be stored in Async Storage in React Native?",
+      "How does Async Storage persist data in React Native?",
+      "What are the security considerations for Async Storage in React Native?",
+      "How do you test Async Storage functionality in React Native?",
+      "What are the performance implications of using Async Storage in React Native?",
+      "How do you migrate data when using Async Storage in React Native?",
+      "What alternatives exist to Async Storage in React Native?"
+    ],
+    "answerDescriptions": [
+      "Async Storage is a simple, unencrypted, asynchronous, persistent, key-value storage system.",
+      "It is used for storing small amounts of data in React Native applications.",
+      "Async Storage is similar to the local storage in web development.",
+      "It is not suitable for storing sensitive data due to lack of encryption.",
+      "Use it for caching data or storing user preferences."
+    ],
+    "answer": {
+      "summary": "Async Storage is used for storing key-value pairs in React Native apps. It is suitable for non-sensitive data storage.",
+      "detailed": "Async Storage is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| `setItem` | To store a value | `await AsyncStorage.setItem('key', 'value');` |\n| `getItem` | To retrieve a value | `const value = await AsyncStorage.getItem('key');` |\n| `removeItem` | To remove a value | `await AsyncStorage.removeItem('key');` |\n\n- Use Async Storage for caching or storing user preferences.\n- Avoid using it for sensitive data due to lack of encryption.\n- Remember to handle promises correctly to avoid memory leaks.\n\n```javascript\nimport AsyncStorage from '@react-native-async-storage/async-storage';\n\nconst storeData = async (key, value) => {\n  try {\n    await AsyncStorage.setItem(key, value);\n  } catch (e) {\n    // saving error\n  }\n};\n```",
+      "whenToUse": "Use Async Storage for non-sensitive data that needs to persist between app sessions. Avoid for large data sets or sensitive information.",
+      "realWorldContext": "Async Storage can be used to store user preferences like theme settings or language choices in a React Native app."
+    },
+    "category": "React Native",
+    "subcategory": "Data Storage",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "async-storage",
+      "data-persistence",
+      "key-value-storage",
+      "mobile-development",
+      "state-management",
+      "app-performance",
+      "error-handling",
+      "data-security",
+      "best-practices",
+      "storage-limitations",
+      "app-architecture"
+    ],
+    "conceptTriggers": [
+      "data-persistence",
+      "state-management",
+      "mobile-storage",
+      "react-native-architecture",
+      "error-handling"
+    ],
+    "naturalFollowups": [
+      "What are the limitations of Async Storage?",
+      "How do you handle large data sets in React Native?",
+      "What are the security concerns with Async Storage?",
+      "How does Async Storage compare to SQLite in React Native?",
+      "What are the best practices for using Async Storage?",
+      "How do you test Async Storage in a React Native app?",
+      "What alternatives to Async Storage exist in React Native?",
+      "How do you manage state with Async Storage?",
+      "What are common errors when using Async Storage?",
+      "How do you clear Async Storage data?",
+      "What are the performance implications of using Async Storage?",
+      "How do you encrypt data in Async Storage?",
+      "How do you migrate data stored in Async Storage?",
+      "What are the use cases for Async Storage?",
+      "How does Async Storage handle data consistency?"
+    ],
+    "relatedQuestions": [
+      "How do you implement Redux in React Native?",
+      "What is the difference between Redux and Context API?",
+      "How do you handle offline data in React Native?",
+      "What are the best practices for state management in React Native?",
+      "How do you use SQLite in React Native?",
+      "What are the differences between Async Storage and Secure Store?",
+      "How do you manage app state with MobX in React Native?",
+      "What are the security best practices for React Native apps?",
+      "How do you optimize performance in React Native?",
+      "What are the common pitfalls in React Native development?",
+      "How do you handle network requests in React Native?",
+      "What are the advantages of using TypeScript with React Native?",
+      "How do you implement navigation in React Native?",
+      "What are the differences between React Native and Flutter?",
+      "How do you integrate native modules in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not handling promises correctly.",
+        "explanation": "Failing to use async/await or .then() can lead to unhandled promise rejections."
+      },
+      {
+        "mistake": "Storing sensitive data.",
+        "explanation": "Async Storage is not encrypted, making it unsuitable for sensitive information."
+      },
+      {
+        "mistake": "Ignoring storage limits.",
+        "explanation": "Async Storage is not designed for large data sets, which can lead to performance issues."
+      },
+      {
+        "mistake": "Not clearing unused data.",
+        "explanation": "Failing to remove obsolete data can lead to unnecessary storage consumption."
+      },
+      {
+        "mistake": "Assuming data consistency.",
+        "explanation": "Async Storage does not guarantee data consistency across app sessions."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-4-how-to-use-routing-with-react-navigation-in-react-native": {
+    "primaryQuestion": "How to use routing with React Navigation in React Native?",
+    "alternativeQuestions": [
+      "How do you implement routing in React Native?",
+      "What is the process for setting up navigation in React Native?",
+      "How can you configure React Navigation in a React Native app?",
+      "Explain the steps to use React Navigation in React Native.",
+      "How do you manage routes in a React Native application?",
+      "What are the best practices for using React Navigation in React Native?",
+      "How do you handle navigation in a React Native project?",
+      "What are the key components of React Navigation in React Native?",
+      "How do you set up a stack navigator in React Native?",
+      "What is the role of a navigator in React Native?",
+      "How do you pass parameters between screens in React Navigation?",
+      "What are the different types of navigators in React Native?",
+      "How do you implement deep linking with React Navigation?",
+      "How can you customize the header in React Navigation?",
+      "What is the difference between stack and tab navigation in React Native?",
+      "How do you handle navigation state in React Native?",
+      "What are the common issues with React Navigation and how to solve them?",
+      "How do you integrate React Navigation with Redux in React Native?",
+      "How do you implement authentication flow with React Navigation?"
+    ],
+    "answerDescriptions": [
+      "React Navigation is a popular library for routing in React Native.",
+      "It provides navigators like Stack, Tab, and Drawer.",
+      "React Navigation is customizable and supports deep linking.",
+      "It allows passing parameters between screens easily.",
+      "React Navigation integrates well with Redux for state management."
+    ],
+    "answer": {
+      "summary": "React Navigation is a library used for routing and navigation in React Native applications. It offers various navigators to manage the app's screens.",
+      "detailed": "React Navigation is a library that enables routing and navigation in React Native apps.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|---|---|---|\n| Stack Navigator | For navigating between screens in a stack | `createStackNavigator()` |\n| Tab Navigator | For tab-based navigation | `createBottomTabNavigator()` |\n| Drawer Navigator | For drawer-based navigation | `createDrawerNavigator()` |\n\n- Use Stack Navigator for sequential screen flows.\n- Tab Navigator is ideal for top-level navigation.\n- Drawer Navigator is useful for hidden menu navigation.\n\n```javascript\nimport { createStackNavigator } from '@react-navigation/stack';\nconst Stack = createStackNavigator();\nfunction MyStack() {\n  return (\n    <Stack.Navigator>\n      <Stack.Screen name=\"Home\" component={HomeScreen} />\n      <Stack.Screen name=\"Details\" component={DetailsScreen} />\n    </Stack.Navigator>\n  );\n}\n```",
+      "whenToUse": "Use React Navigation when you need to manage screen transitions and routing in a React Native app.",
+      "realWorldContext": "In a shopping app, use React Navigation to switch between the product list and product details screens."
+    },
+    "category": "React Native",
+    "subcategory": "Routing",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-navigation",
+      "routing",
+      "navigation",
+      "stack-navigator",
+      "tab-navigator",
+      "drawer-navigator",
+      "deep-linking",
+      "redux-integration",
+      "screen-management",
+      "parameter-passing",
+      "customization",
+      "authentication-flow"
+    ],
+    "conceptTriggers": [
+      "navigation",
+      "routing",
+      "screen-transition",
+      "deep-linking",
+      "state-management"
+    ],
+    "naturalFollowups": [
+      "How do you handle deep linking in React Native?",
+      "What are the differences between React Navigation and React Router?",
+      "How can you optimize navigation performance in React Native?",
+      "What is the role of context in React Navigation?",
+      "How do you implement authentication flows with React Navigation?",
+      "How do you handle navigation state persistence?",
+      "What are the security considerations for React Navigation?",
+      "How do you test navigation flows in React Native?",
+      "How do you handle back button behavior in React Navigation?",
+      "How do you integrate animations with React Navigation?",
+      "What are the limitations of React Navigation?",
+      "How do you handle nested navigators in React Native?",
+      "How do you manage navigation in a large React Native app?",
+      "How do you implement custom transitions in React Navigation?",
+      "How do you debug navigation issues in React Native?"
+    ],
+    "relatedQuestions": [
+      "What are the alternatives to React Navigation?",
+      "How do you implement a drawer menu in React Native?",
+      "How do you handle navigation lifecycle events?",
+      "What is the difference between stack and tab navigation?",
+      "How do you pass data between screens in React Native?",
+      "How do you implement conditional navigation?",
+      "How do you handle navigation in a Redux-based app?",
+      "How do you manage focus and blur events in navigation?",
+      "How do you implement a bottom tab navigator?",
+      "How do you customize the navigation header?",
+      "How do you handle navigation errors?",
+      "How do you implement a splash screen with navigation?",
+      "How do you integrate third-party libraries with React Navigation?",
+      "How do you handle screen orientation changes in navigation?",
+      "How do you implement a modal stack in React Navigation?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not wrapping the app with NavigationContainer.",
+        "explanation": "NavigationContainer is required to manage the navigation tree and state."
+      },
+      {
+        "mistake": "Forgetting to pass navigation props to screens.",
+        "explanation": "Screens need navigation props to perform navigation actions."
+      },
+      {
+        "mistake": "Misconfiguring initialRouteName in navigators.",
+        "explanation": "Setting the wrong initialRouteName can lead to unexpected default screens."
+      },
+      {
+        "mistake": "Ignoring deep linking setup.",
+        "explanation": "Deep linking allows external URLs to open specific screens in the app."
+      },
+      {
+        "mistake": "Not handling back button behavior on Android.",
+        "explanation": "Custom handling is often required to manage back navigation correctly on Android devices."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-5-explain-flatlist-components": {
+    "primaryQuestion": "Explain FlatList components, what are its key features along with a code sample?",
+    "alternativeQuestions": [
+      "What is a FlatList in React Native?",
+      "How do you use FlatList in React Native?",
+      "What are the benefits of using FlatList?",
+      "Can you provide a code example of FlatList?",
+      "What are the key features of FlatList?",
+      "How does FlatList improve performance?",
+      "What is the difference between FlatList and ScrollView?",
+      "How do you optimize FlatList performance?",
+      "What are common use cases for FlatList?",
+      "How do you handle large lists in React Native?",
+      "What props are essential for FlatList?",
+      "How does FlatList handle data rendering?",
+      "What are the limitations of FlatList?",
+      "How can you customize FlatList items?",
+      "What is the purpose of the keyExtractor in FlatList?",
+      "How do you implement pull-to-refresh in FlatList?",
+      "What is the role of the renderItem prop in FlatList?",
+      "How does FlatList manage memory?",
+      "What are the differences between FlatList and SectionList?",
+      "How do you handle pagination in FlatList?"
+    ],
+    "answerDescriptions": [
+      "FlatList is a performant interface for rendering lists.",
+      "It only renders items that are currently visible on the screen.",
+      "Supports horizontal and vertical scrolling.",
+      "Provides a simple API for list rendering.",
+      "Includes features like pull-to-refresh and infinite scrolling."
+    ],
+    "answer": {
+      "summary": "FlatList is a core component in React Native for efficiently rendering large lists. It optimizes performance by only rendering visible items.",
+      "detailed": "FlatList is a React Native component for rendering large lists efficiently. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| FlatList | To render a large list of data efficiently | `<FlatList data={data} renderItem={renderItem} keyExtractor={keyExtractor} />` |\n| keyExtractor | To provide a unique key for each item | `keyExtractor={(item) => item.id}` |\n| renderItem | To define how each item is rendered | `renderItem={({ item }) => <Text>{item.title}</Text>}` |\n\n- Use FlatList for rendering lists with many items.\n- Always provide a keyExtractor for better performance.\n- Customize item rendering using the renderItem prop.\n\n```javascript\nimport React from 'react';\nimport { FlatList, Text, View } from 'react-native';\n\nconst MyList = () => {\n  const data = [{ id: '1', title: 'Item 1' }, { id: '2', title: 'Item 2' }];\n  const renderItem = ({ item }) => <Text>{item.title}</Text>;\n\n  return (\n    <FlatList\n      data={data}\n      renderItem={renderItem}\n      keyExtractor={item => item.id}\n    />\n  );\n};\n\nexport default MyList;\n```",
+      "whenToUse": "Use FlatList when you need to render a large list of data efficiently in React Native.",
+      "realWorldContext": "FlatList is ideal for displaying a list of products in an e-commerce app where performance is crucial."
+    },
+    "category": "React Native",
+    "subcategory": "Components",
+    "difficulty": "intermediate",
+    "tags": [
+      "performance",
+      "list",
+      "rendering",
+      "optimization",
+      "react-native",
+      "components",
+      "data",
+      "scrolling",
+      "props",
+      "keyExtractor",
+      "renderItem",
+      "memory"
+    ],
+    "conceptTriggers": [
+      "performance optimization",
+      "list rendering",
+      "key extraction",
+      "item customization",
+      "scroll handling"
+    ],
+    "naturalFollowups": [
+      "What is SectionList and how does it differ from FlatList?",
+      "How do you implement pagination in FlatList?",
+      "What are the best practices for optimizing FlatList?",
+      "How do you handle pull-to-refresh in FlatList?",
+      "Can FlatList handle complex data structures?",
+      "How do you implement infinite scrolling with FlatList?",
+      "What are the limitations of FlatList in React Native?",
+      "How can you customize the appearance of FlatList items?",
+      "What is the role of the keyExtractor prop in FlatList?",
+      "How does FlatList manage memory and performance?",
+      "What are the common mistakes when using FlatList?",
+      "How do you handle item separators in FlatList?",
+      "What is the importance of the renderItem prop in FlatList?",
+      "How does FlatList differ from ScrollView?",
+      "What are the essential props for configuring FlatList?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between FlatList and ScrollView?",
+      "How do you optimize FlatList for large datasets?",
+      "What are the key features of SectionList?",
+      "How do you implement a sticky header with FlatList?",
+      "What are the performance considerations for FlatList?",
+      "How do you handle dynamic content in FlatList?",
+      "What is the purpose of the onEndReached prop in FlatList?",
+      "How do you implement pull-to-refresh in a FlatList?",
+      "What are the differences between FlatList and VirtualizedList?",
+      "How do you manage state in a FlatList?",
+      "What are the best practices for using FlatList in React Native?",
+      "How do you handle item reordering in FlatList?",
+      "What is the role of the ListFooterComponent in FlatList?",
+      "How does FlatList handle orientation changes?",
+      "What are the common pitfalls when using FlatList?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not providing a keyExtractor.",
+        "explanation": "Without a keyExtractor, FlatList cannot efficiently track item changes, leading to performance issues."
+      },
+      {
+        "mistake": "Rendering complex items without optimization.",
+        "explanation": "Complex items can slow down rendering; use PureComponent or memoization to optimize."
+      },
+      {
+        "mistake": "Overusing inline functions in renderItem.",
+        "explanation": "Inline functions cause re-renders; define functions outside of render methods to improve performance."
+      },
+      {
+        "mistake": "Ignoring the initialNumToRender prop.",
+        "explanation": "Setting initialNumToRender too low can cause loading delays; adjust based on list size and device performance."
+      },
+      {
+        "mistake": "Not handling onEndReached properly.",
+        "explanation": "Failing to implement onEndReached can lead to incomplete data loading in infinite scroll scenarios."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-6-touchable-components-react-native": {
+    "primaryQuestion": "What are Touchable components in React Native and which one to use when?",
+    "alternativeQuestions": [
+      "Explain Touchable components in React Native.",
+      "How do Touchable components work in React Native?",
+      "What is the purpose of Touchable components in React Native?",
+      "When should you use TouchableHighlight in React Native?",
+      "What is the difference between TouchableOpacity and TouchableWithoutFeedback?",
+      "How do you implement touch feedback in React Native?",
+      "What are the use cases for TouchableNativeFeedback?",
+      "Why use Touchable components in React Native?",
+      "What are the benefits of using Touchable components?",
+      "How do you choose the right Touchable component?",
+      "What are the different types of Touchable components in React Native?",
+      "How does TouchableOpacity differ from TouchableHighlight?",
+      "What is the role of TouchableWithoutFeedback?",
+      "When is it appropriate to use TouchableNativeFeedback?",
+      "Can you explain the touch system in React Native?",
+      "What are the performance considerations for Touchable components?",
+      "How do you handle touch events in React Native?",
+      "What are the accessibility features of Touchable components?",
+      "How do you customize touch feedback in React Native?",
+      "What are the limitations of Touchable components?"
+    ],
+    "answerDescriptions": [
+      "Touchable components handle touch interactions in React Native.",
+      "They provide feedback to the user when a touch is detected.",
+      "Different types include TouchableOpacity, TouchableHighlight, etc.",
+      "Each type has specific use cases and visual feedback styles.",
+      "Choosing the right component depends on the desired user experience."
+    ],
+    "answer": {
+      "summary": "Touchable components in React Native are used to capture touch interactions and provide feedback. They include various types like TouchableOpacity and TouchableHighlight, each suited for different scenarios.",
+      "detailed": "Touchable components in React Native are used to handle touch interactions and provide feedback to users.\n\n| Method/Keyword          | When to Use                                  | Code Syntax Example               |\n|-------------------------|----------------------------------------------|-----------------------------------|\n| TouchableOpacity        | When you want a fade effect on touch         | `<TouchableOpacity onPress={...}>`|\n| TouchableHighlight      | When you need a highlight effect on touch    | `<TouchableHighlight onPress={...}>`|\n| TouchableWithoutFeedback| When no visual feedback is desired           | `<TouchableWithoutFeedback onPress={...}>`|\n\n- Use TouchableOpacity for a subtle fade effect.\n- Choose TouchableHighlight for a more pronounced visual feedback.\n- Opt for TouchableWithoutFeedback when no visual feedback is needed.\n\n```javascript\nimport { TouchableOpacity } from 'react-native';\n\n<TouchableOpacity onPress={() => alert('Pressed!')}>\n  <Text>Press Me</Text>\n</TouchableOpacity>\n```",
+      "whenToUse": "Use Touchable components when you need to capture touch interactions and provide feedback in your app.",
+      "realWorldContext": "In a shopping app, use TouchableOpacity for buttons that add items to the cart, providing a smooth fade effect on press."
+    },
+    "category": "React Native",
+    "subcategory": "Components",
+    "difficulty": "intermediate",
+    "tags": [
+      "touchable",
+      "components",
+      "interactions",
+      "feedback",
+      "user-experience",
+      "mobile-development",
+      "react-native",
+      "ui-components",
+      "performance",
+      "accessibility",
+      "event-handling",
+      "design-patterns"
+    ],
+    "conceptTriggers": [
+      "touch-interaction",
+      "feedback-mechanism",
+      "ui-components",
+      "user-experience",
+      "event-handling"
+    ],
+    "naturalFollowups": [
+      "What are the performance implications of using Touchable components?",
+      "How do you handle multiple touch events in React Native?",
+      "What are the best practices for using Touchable components?",
+      "How do you ensure accessibility with Touchable components?",
+      "Can you customize the feedback of Touchable components?",
+      "What are the alternatives to Touchable components?",
+      "How do you debug touch events in React Native?",
+      "What are the limitations of Touchable components?",
+      "How do you optimize touch interactions for performance?",
+      "What are the differences between Touchable components and buttons?",
+      "How do you implement complex gestures in React Native?",
+      "What are the security considerations for touch events?",
+      "How do you test touch interactions in React Native?",
+      "What are the common issues with Touchable components?",
+      "How do you handle touch events in a cross-platform manner?"
+    ],
+    "relatedQuestions": [
+      "How do you implement gestures in React Native?",
+      "What are the differences between Touchable components and buttons?",
+      "How do you handle touch events in React Native?",
+      "What are the best practices for touch feedback in React Native?",
+      "How do you customize Touchable components?",
+      "What are the accessibility features of React Native components?",
+      "How do you optimize React Native apps for performance?",
+      "What are the common pitfalls when using Touchable components?",
+      "How do you implement animations with touch events?",
+      "What are the alternatives to Touchable components?",
+      "How do you handle long press events in React Native?",
+      "What are the design patterns for touch interactions?",
+      "How do you ensure consistency in touch feedback?",
+      "What are the security considerations for touch events?",
+      "How do you test touch interactions in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using TouchableWithoutFeedback when visual feedback is needed.",
+        "explanation": "TouchableWithoutFeedback does not provide any visual feedback, which can lead to a poor user experience if feedback is expected."
+      },
+      {
+        "mistake": "Not considering accessibility when using Touchable components.",
+        "explanation": "Failing to implement accessibility features can make the app unusable for users with disabilities."
+      },
+      {
+        "mistake": "Overusing Touchable components leading to performance issues.",
+        "explanation": "Excessive use of touchable components can lead to performance bottlenecks, especially on low-end devices."
+      },
+      {
+        "mistake": "Ignoring platform-specific behavior of Touchable components.",
+        "explanation": "Touchable components may behave differently on iOS and Android, leading to inconsistent user experiences."
+      },
+      {
+        "mistake": "Not handling touch events properly in nested components.",
+        "explanation": "Improper handling of touch events can lead to unexpected behaviors when components are nested."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-7-different-code-ios-android": {
+    "primaryQuestion": "How can you write different code for iOS and Android in the same code base? Is there any module available for this?",
+    "alternativeQuestions": [
+      "How do you handle platform-specific code in React Native?",
+      "What is the method to write separate code for iOS and Android in React Native?",
+      "Can you use platform-specific modules in React Native?",
+      "How to implement platform-specific logic in a React Native app?",
+      "What are the ways to differentiate code for iOS and Android in React Native?",
+      "How can React Native support different code for iOS and Android?",
+      "Is there a React Native module for platform-specific code?",
+      "How do you manage iOS and Android differences in React Native?",
+      "What techniques exist for platform-specific coding in React Native?",
+      "How can you conditionally render components for iOS and Android in React Native?",
+      "What is the approach to handle platform-specific styles in React Native?",
+      "How to use platform-specific APIs in React Native?",
+      "What is the best practice for writing platform-specific code in React Native?",
+      "How do you separate iOS and Android code in a React Native project?",
+      "Is it possible to write platform-specific components in React Native?",
+      "How to manage platform-specific dependencies in React Native?",
+      "What are the tools for platform-specific development in React Native?",
+      "How can you use platform-specific libraries in React Native?",
+      "What are the methods to handle platform differences in React Native?"
+    ],
+    "answerDescriptions": [
+      "React Native provides platform-specific file extensions.",
+      "Use Platform module to check the OS at runtime.",
+      "Conditional rendering can differentiate components.",
+      "Platform-specific styles can be applied using StyleSheet.",
+      "Libraries like react-native-device-info can help."
+    ],
+    "answer": {
+      "summary": "React Native allows writing platform-specific code using file extensions and the Platform module. This enables developers to handle iOS and Android differences efficiently.",
+      "detailed": "React Native supports platform-specific code by allowing different file extensions and using the Platform module. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n|---|---|---|\n| `.ios.js` / `.android.js` | When you need separate implementations | `Component.ios.js`, `Component.android.js` |\n| `Platform.OS` | To conditionally render based on platform | `if (Platform.OS === 'ios') { ... }` |\n| `Platform.select` | To choose values based on platform | `Platform.select({ ios: 'value1', android: 'value2' })` |\n\n- Use `.ios.js` and `.android.js` extensions for platform-specific files.\n- Utilize `Platform.OS` to check the operating system.\n- `Platform.select` helps in choosing platform-specific values.\n\n```javascript\nimport { Platform } from 'react-native';\nconst styles = Platform.select({\n  ios: { fontSize: 20 },\n  android: { fontSize: 18 }\n});\n```",
+      "whenToUse": "Use platform-specific code when there are differences in functionality or UI between iOS and Android.",
+      "realWorldContext": "A React Native app may need different navigation styles for iOS and Android, which can be implemented using platform-specific files."
+    },
+    "category": "React Native",
+    "subcategory": "Platform-Specific Code",
+    "difficulty": "intermediate",
+    "tags": [
+      "React Native",
+      "Platform",
+      "iOS",
+      "Android",
+      "Conditional Rendering",
+      "Platform Module",
+      "File Extensions",
+      "Cross-Platform",
+      "Mobile Development",
+      "JavaScript",
+      "React",
+      "UI"
+    ],
+    "conceptTriggers": [
+      "Platform.OS",
+      "Platform.select",
+      "File Extensions",
+      "Conditional Rendering",
+      "Cross-Platform"
+    ],
+    "naturalFollowups": [
+      "What are the limitations of using platform-specific code in React Native?",
+      "How can you test platform-specific code in React Native?",
+      "What are the best practices for maintaining platform-specific code?",
+      "How does React Native handle platform-specific styling?",
+      "Can you use platform-specific libraries in React Native?",
+      "How to debug platform-specific issues in React Native?",
+      "What tools help manage platform-specific code in React Native?",
+      "How to optimize performance for platform-specific code?",
+      "What are the challenges of platform-specific development in React Native?",
+      "How do you ensure consistency across platforms in React Native?",
+      "What are the common pitfalls of platform-specific coding?",
+      "How to handle platform-specific animations in React Native?",
+      "What is the role of the Platform module in React Native?",
+      "How can you share code between iOS and Android in React Native?",
+      "What are the alternatives to platform-specific coding in React Native?"
+    ],
+    "relatedQuestions": [
+      "How does React Native handle cross-platform development?",
+      "What are the differences between React Native and native development?",
+      "How to implement responsive design in React Native?",
+      "What are the best practices for styling in React Native?",
+      "How to manage state in a React Native application?",
+      "What are the common performance issues in React Native?",
+      "How to integrate native modules in React Native?",
+      "What are the security considerations in React Native?",
+      "How to handle navigation in React Native?",
+      "What are the differences between React and React Native?",
+      "How to use third-party libraries in React Native?",
+      "What is the role of Expo in React Native development?",
+      "How to handle data fetching in React Native?",
+      "What are the debugging tools available for React Native?",
+      "How to optimize React Native apps for performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using platform-specific file extensions.",
+        "explanation": "Failing to use `.ios.js` and `.android.js` can lead to code that doesn't work as expected on different platforms."
+      },
+      {
+        "mistake": "Ignoring platform-specific UI guidelines.",
+        "explanation": "Not adhering to iOS and Android design guidelines can result in a poor user experience."
+      },
+      {
+        "mistake": "Overusing platform checks in code.",
+        "explanation": "Excessive use of `Platform.OS` can make the codebase difficult to maintain and understand."
+      },
+      {
+        "mistake": "Neglecting to test on both platforms.",
+        "explanation": "Only testing on one platform can lead to bugs and issues on the other platform."
+      },
+      {
+        "mistake": "Using platform-specific code unnecessarily.",
+        "explanation": "Writing separate code for iOS and Android when not needed can increase complexity and maintenance effort."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-8-what-is-listview-in-react-native": {
+    "primaryQuestion": "What is ListView and describe its use in React Native?",
+    "alternativeQuestions": [
+      "How does ListView work in React Native?",
+      "Explain the purpose of ListView in React Native.",
+      "What are the features of ListView in React Native?",
+      "Why use ListView in React Native applications?",
+      "What is the function of ListView in React Native?",
+      "How to implement ListView in React Native?",
+      "What are the benefits of using ListView in React Native?",
+      "Describe the ListView component in React Native.",
+      "How does ListView differ from FlatList in React Native?",
+      "What are the limitations of ListView in React Native?",
+      "When should you use ListView in React Native?",
+      "What is the alternative to ListView in React Native?",
+      "How to optimize ListView performance in React Native?",
+      "What are the common issues with ListView in React Native?",
+      "How to handle large data sets with ListView in React Native?",
+      "What are the styling options for ListView in React Native?",
+      "How to update ListView data in React Native?",
+      "What are the props available for ListView in React Native?",
+      "How to handle ListView events in React Native?",
+      "What is the future of ListView in React Native?"
+    ],
+    "answerDescriptions": [
+      "ListView is a component for displaying a scrollable list of data.",
+      "It is used for rendering large lists efficiently in React Native.",
+      "ListView has been largely replaced by FlatList and SectionList.",
+      "It provides a way to handle large data sets with minimal performance impact.",
+      "ListView is not recommended for new projects due to deprecation."
+    ],
+    "answer": {
+      "summary": "ListView is a deprecated component in React Native for rendering lists. It is replaced by FlatList and SectionList.",
+      "detailed": "ListView is a component used to display a scrollable list of data items in React Native applications. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| ListView | For older projects or legacy code | `<ListView dataSource={dataSource} renderRow={renderRow} />` |\n| FlatList | For new projects with flat data | `<FlatList data={data} renderItem={renderItem} />` |\n| SectionList | For new projects with sectioned data | `<SectionList sections={sections} renderItem={renderItem} />` |\n\n- Prefer FlatList or SectionList for new projects.\n- ListView is less efficient for large data sets.\n- Consider migration to FlatList for better performance.\n\n```javascript\n<ListView\n  dataSource={this.state.dataSource}\n  renderRow={(rowData) => <Text>{rowData}</Text>}\n/>\n```",
+      "whenToUse": "Use ListView only in legacy React Native projects. For new projects, prefer FlatList or SectionList.",
+      "realWorldContext": "In older React Native applications, ListView was used to render lists of items, such as a list of contacts or messages."
+    },
+    "category": "React Native",
+    "subcategory": "Components",
+    "difficulty": "intermediate",
+    "tags": [
+      "ListView",
+      "FlatList",
+      "SectionList",
+      "React Native",
+      "Components",
+      "Performance",
+      "Legacy Code",
+      "Data Rendering",
+      "UI",
+      "Optimization",
+      "Deprecation",
+      "Migration"
+    ],
+    "conceptTriggers": [
+      "ListView",
+      "FlatList",
+      "SectionList",
+      "DataSource",
+      "RenderRow"
+    ],
+    "naturalFollowups": [
+      "What are the differences between ListView and FlatList?",
+      "How to migrate from ListView to FlatList?",
+      "What are the performance considerations for ListView?",
+      "How to handle large data sets in React Native?",
+      "What are the best practices for using FlatList?",
+      "How to optimize list rendering in React Native?",
+      "What are the common pitfalls when using ListView?",
+      "How to implement infinite scrolling with ListView?",
+      "What are the alternatives to ListView in React Native?",
+      "How to handle updates in ListView data?",
+      "What are the styling techniques for ListView?",
+      "How to manage ListView state in React Native?",
+      "What are the common errors with ListView in React Native?",
+      "How to improve ListView performance in React Native?",
+      "What is the future of list components in React Native?"
+    ],
+    "relatedQuestions": [
+      "How to use FlatList in React Native?",
+      "What is SectionList and how is it used?",
+      "How to optimize FlatList performance?",
+      "What are the differences between FlatList and SectionList?",
+      "How to handle list item clicks in React Native?",
+      "What are the best practices for list rendering in React Native?",
+      "How to implement pull-to-refresh in FlatList?",
+      "What are the common issues with FlatList in React Native?",
+      "How to manage list data in React Native?",
+      "What are the styling options for FlatList?",
+      "How to handle large lists in React Native?",
+      "What are the props available for FlatList?",
+      "How to implement pagination in FlatList?",
+      "What are the performance tips for SectionList?",
+      "How to handle list item animations in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using ListView in new projects.",
+        "explanation": "ListView is deprecated and should not be used in new React Native projects. Use FlatList or SectionList instead."
+      },
+      {
+        "mistake": "Not optimizing ListView for large data sets.",
+        "explanation": "ListView can become slow with large data sets. Consider using FlatList for better performance."
+      },
+      {
+        "mistake": "Ignoring ListView deprecation warnings.",
+        "explanation": "Continuing to use ListView despite deprecation warnings can lead to maintenance issues in the future."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-9-what-is-a-bridge-in-react-native": {
+    "primaryQuestion": "What is a bridge and why is it used in React Native? Explain for both Android and iOS.",
+    "alternativeQuestions": [
+      "How does the React Native bridge work?",
+      "Explain the purpose of the bridge in React Native.",
+      "What role does the bridge play in React Native architecture?",
+      "Why is the bridge important in React Native?",
+      "How does React Native communicate with native modules?",
+      "What is the function of the bridge in React Native?",
+      "Describe the bridge mechanism in React Native.",
+      "How does the bridge facilitate communication in React Native?",
+      "What is the significance of the bridge in React Native?",
+      "How does the bridge operate on Android and iOS in React Native?",
+      "What are the components of the React Native bridge?",
+      "How does the bridge affect performance in React Native?",
+      "What is the bridge API in React Native?",
+      "How does the bridge handle asynchronous communication in React Native?",
+      "What are the limitations of the React Native bridge?",
+      "How does the bridge enable cross-platform functionality in React Native?",
+      "What is the architecture of the React Native bridge?",
+      "How does the bridge manage data flow in React Native?",
+      "What is the bridge's role in rendering in React Native?",
+      "How does the bridge support native module integration in React Native?"
+    ],
+    "answerDescriptions": [
+      "The bridge connects JavaScript and native code in React Native.",
+      "It allows for communication between JavaScript and native modules.",
+      "The bridge is essential for cross-platform functionality.",
+      "It operates asynchronously to maintain performance.",
+      "The bridge enables React Native to leverage native APIs."
+    ],
+    "answer": {
+      "summary": "The bridge in React Native facilitates communication between JavaScript and native code on both Android and iOS platforms.",
+      "detailed": "In React Native, the bridge is a mechanism that allows JavaScript code to communicate with native code. | **Method/Keyword** | **When to Use** | **Code Syntax Example** | | ---------------- | ---------------- | --------------------- | | NativeModules | Access native modules | `import { NativeModules } from 'react-native';` | | Callbacks | Handle async operations | `NativeModules.ModuleName.methodName(callback);` | | Promises | Manage async results | `NativeModules.ModuleName.methodName().then(...);` | | EventEmitters | Listen for native events | `const eventEmitter = new NativeEventEmitter(...);` | | UIManager | Direct UI manipulation | `UIManager.dispatchViewManagerCommand(...);` | - Use the bridge to access platform-specific features. - Remember that the bridge is asynchronous, which can affect performance. - Optimize bridge usage to minimize performance overhead. ```javascript import { NativeModules } from 'react-native'; const { MyNativeModule } = NativeModules; MyNativeModule.someMethod(); ```",
+      "whenToUse": "Use the bridge when you need to access native functionality not available in JavaScript.",
+      "realWorldContext": "A developer uses the bridge to integrate a custom native module for advanced image processing in a React Native app."
+    },
+    "category": "React Native",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "bridge",
+      "communication",
+      "native-modules",
+      "asynchronous",
+      "cross-platform",
+      "performance",
+      "native-apis",
+      "event-handling",
+      "ui-management",
+      "integration",
+      "architecture",
+      "react-native"
+    ],
+    "conceptTriggers": [
+      "native-modules",
+      "async-communication",
+      "cross-platform",
+      "performance-optimization",
+      "event-handling"
+    ],
+    "naturalFollowups": [
+      "How do you optimize bridge performance in React Native?",
+      "What are the alternatives to using the bridge in React Native?",
+      "How does the bridge handle data serialization in React Native?",
+      "What are the security considerations for using the bridge in React Native?",
+      "How can you debug issues related to the bridge in React Native?",
+      "What are the common performance pitfalls with the bridge in React Native?",
+      "How does the bridge affect app startup time in React Native?",
+      "What are the best practices for using the bridge in React Native?",
+      "How does the bridge support third-party library integration in React Native?",
+      "What are the differences in bridge implementation between Android and iOS?",
+      "How does the bridge handle large data transfers in React Native?",
+      "What tools can help monitor bridge performance in React Native?",
+      "How does the bridge manage thread communication in React Native?",
+      "What are the limitations of the React Native bridge?",
+      "How does the bridge interact with the React Native runtime?"
+    ],
+    "relatedQuestions": [
+      "How do you create a native module in React Native?",
+      "What is the role of NativeModules in React Native?",
+      "How do you handle asynchronous operations in React Native?",
+      "What are the differences between callbacks and promises in React Native?",
+      "How do you use EventEmitters in React Native?",
+      "What is the UIManager in React Native?",
+      "How do you integrate third-party native libraries in React Native?",
+      "What are the best practices for optimizing React Native performance?",
+      "How does React Native handle cross-platform compatibility?",
+      "What are the common challenges with React Native architecture?",
+      "How do you debug native code in React Native?",
+      "What is the role of the JavaScript thread in React Native?",
+      "How do you manage state across native and JavaScript in React Native?",
+      "What are the security implications of using native modules in React Native?",
+      "How do you test native modules in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Overusing the bridge for frequent updates.",
+        "explanation": "This can lead to performance bottlenecks due to the asynchronous nature of the bridge."
+      },
+      {
+        "mistake": "Not handling errors in bridge communication.",
+        "explanation": "Failing to manage errors can cause crashes or unexpected behavior in the app."
+      },
+      {
+        "mistake": "Ignoring platform-specific differences.",
+        "explanation": "The bridge implementation can vary between Android and iOS, leading to platform-specific bugs."
+      },
+      {
+        "mistake": "Using synchronous methods over the bridge.",
+        "explanation": "Synchronous methods can block the JavaScript thread, affecting app responsiveness."
+      },
+      {
+        "mistake": "Failing to clean up EventEmitters.",
+        "explanation": "Not removing listeners can lead to memory leaks and degraded performance."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-10-react-native-code-processing": {
+    "primaryQuestion": "How is the entire React Native code processed to show the final output on a mobile screen?",
+    "alternativeQuestions": [
+      "Explain the React Native code execution process.",
+      "How does React Native render components on a device?",
+      "What steps are involved in React Native code rendering?",
+      "Describe the React Native rendering pipeline.",
+      "How does React Native translate JavaScript to native code?",
+      "What is the process of React Native code execution?",
+      "How does React Native bridge work?",
+      "Explain the React Native rendering mechanism.",
+      "What happens from React Native code to UI?",
+      "How is JavaScript processed in React Native?",
+      "What is the role of the React Native bridge?",
+      "How does React Native handle UI updates?",
+      "What is the lifecycle of React Native rendering?",
+      "How does React Native convert code to native components?",
+      "What are the stages of React Native code execution?",
+      "Explain the React Native rendering flow.",
+      "How does React Native manage code execution?",
+      "What is the React Native code execution lifecycle?",
+      "How does React Native interact with native modules?",
+      "Describe the process of rendering in React Native."
+    ],
+    "answerDescriptions": [
+      "React Native uses a JavaScript bridge to communicate with native modules.",
+      "The JavaScript code is bundled and executed by a JavaScript engine.",
+      "React Native translates JavaScript components into native views.",
+      "The bridge facilitates asynchronous communication between JavaScript and native code.",
+      "UI updates are managed through a virtual DOM and reconciliation process."
+    ],
+    "answer": {
+      "summary": "React Native processes JavaScript code through a bridge to render native components on mobile devices. It uses a JavaScript engine to execute the code and translates it into native views.",
+      "detailed": "React Native is a framework that allows developers to write mobile applications using JavaScript and React. It processes code through a bridge to render native components.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| JavaScript Bridge | To communicate between JavaScript and native code | `const bridge = new NativeModules.Bridge();` |\n| Virtual DOM | For efficient UI updates | `ReactDOM.render(<App />, rootElement);` |\n| Native Modules | To access platform-specific features | `import { NativeModules } from 'react-native';`\n\n- Use the bridge for asynchronous communication.\n- Optimize performance by minimizing bridge calls.\n- Use native modules for platform-specific functionality.\n\n```javascript\nimport { NativeModules } from 'react-native';\nconst { MyNativeModule } = NativeModules;\nMyNativeModule.doSomething();\n```",
+      "whenToUse": "Use React Native when developing cross-platform mobile applications with a single codebase.",
+      "realWorldContext": "A company uses React Native to build both iOS and Android apps, reducing development time and maintaining a consistent user experience across platforms."
+    },
+    "category": "React Native",
+    "subcategory": "Rendering",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "javascript",
+      "mobile-development",
+      "native-modules",
+      "cross-platform",
+      "ui-rendering",
+      "bridge",
+      "virtual-dom",
+      "performance",
+      "code-execution",
+      "asynchronous",
+      "native-components"
+    ],
+    "conceptTriggers": [
+      "JavaScript bridge",
+      "native modules",
+      "virtual DOM",
+      "UI rendering",
+      "cross-platform"
+    ],
+    "naturalFollowups": [
+      "What is the role of the React Native packager?",
+      "How does React Native handle animations?",
+      "What are the best practices for optimizing React Native performance?",
+      "How does React Native differ from native development?",
+      "What are the limitations of React Native?",
+      "How does React Native handle state management?",
+      "What is the role of Expo in React Native development?",
+      "How do you debug React Native applications?",
+      "What are the security considerations in React Native?",
+      "How does React Native handle navigation?",
+      "What are the common challenges in React Native development?",
+      "How does React Native manage dependencies?",
+      "What is the future of React Native?",
+      "How does React Native handle data fetching?",
+      "What are the differences between React Native and Flutter?"
+    ],
+    "relatedQuestions": [
+      "How does React Native handle asynchronous tasks?",
+      "What are React Native hooks and how are they used?",
+      "How do you manage state in React Native?",
+      "What is the role of Redux in React Native?",
+      "How does React Native handle styling?",
+      "What are the differences between React Native and React?",
+      "How do you implement navigation in React Native?",
+      "What are the common performance issues in React Native?",
+      "How does React Native handle network requests?",
+      "What are the advantages of using React Native?",
+      "How does React Native integrate with native code?",
+      "What is the role of Metro bundler in React Native?",
+      "How does React Native handle lifecycle methods?",
+      "What are the differences between React Native and native development?",
+      "How do you test React Native applications?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Ignoring the bridge's asynchronous nature.",
+        "explanation": "The bridge operates asynchronously, which can lead to unexpected behavior if not properly handled."
+      },
+      {
+        "mistake": "Overusing the bridge for frequent UI updates.",
+        "explanation": "Frequent bridge calls can degrade performance; use the virtual DOM for efficient updates."
+      },
+      {
+        "mistake": "Neglecting platform-specific optimizations.",
+        "explanation": "React Native allows for platform-specific code, which should be used to optimize performance."
+      },
+      {
+        "mistake": "Not using native modules for complex tasks.",
+        "explanation": "Native modules can handle complex tasks more efficiently than JavaScript alone."
+      },
+      {
+        "mistake": "Failing to manage state efficiently.",
+        "explanation": "Inefficient state management can lead to unnecessary re-renders and performance issues."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-1-react-native-smooth-animations": {
+    "primaryQuestion": "How to make your React Native app feel smooth on animations?",
+    "alternativeQuestions": [
+      "What techniques improve animation smoothness in React Native?",
+      "How can you optimize animations in React Native?",
+      "What are best practices for smooth animations in React Native?",
+      "How do you enhance animation performance in React Native?",
+      "What methods ensure smooth animations in React Native apps?",
+      "How to reduce animation lag in React Native?",
+      "What are common ways to achieve smooth animations in React Native?",
+      "How can you make animations more fluid in React Native?",
+      "What strategies improve animation fluidity in React Native?",
+      "How to optimize React Native animations for better performance?",
+      "What are effective techniques for smooth animations in React Native?",
+      "How do you handle animation performance issues in React Native?",
+      "What practices help in achieving smooth animations in React Native?",
+      "How to ensure animations run smoothly in React Native?",
+      "What are the key factors for smooth animations in React Native?",
+      "How to improve animation transitions in React Native?",
+      "What tools help in creating smooth animations in React Native?",
+      "How can you enhance the user experience with smooth animations in React Native?",
+      "What are the performance tips for animations in React Native?",
+      "How to achieve seamless animations in React Native?"
+    ],
+    "answerDescriptions": [
+      "Use the Animated API for complex animations.",
+      "Leverage native driver for better performance.",
+      "Optimize component rendering to reduce lag.",
+      "Use shouldComponentUpdate to prevent unnecessary renders.",
+      "Profile animations to identify bottlenecks."
+    ],
+    "answer": {
+      "summary": "To make animations smooth in React Native, use the Animated API and optimize rendering. Leverage native drivers for performance.",
+      "detailed": "Animations in React Native can be optimized for smoothness by using the Animated API and leveraging native drivers. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| Animated.timing | For timing-based animations | `Animated.timing(value, config).start()` |\n| useNativeDriver | For offloading animations to native | `{ useNativeDriver: true }` |\n| shouldComponentUpdate | To prevent unnecessary renders | `shouldComponentUpdate(nextProps, nextState)` |\n\n- Use native drivers to offload animations to the native thread.\n- Profile animations to identify and fix performance bottlenecks.\n- Avoid unnecessary component renders by using lifecycle methods.\n\n```javascript\nAnimated.timing(this.state.opacity, {\n  toValue: 1,\n  duration: 500,\n  useNativeDriver: true\n}).start();\n```",
+      "whenToUse": "Use these techniques when animations are lagging or not smooth in your React Native app.",
+      "realWorldContext": "Implementing these techniques can make a React Native app's animations feel as smooth as native apps, enhancing user experience."
+    },
+    "category": "React Native",
+    "subcategory": "Performance",
+    "difficulty": "intermediate",
+    "tags": [
+      "React Native",
+      "Animations",
+      "Performance",
+      "Optimization",
+      "Animated API",
+      "Native Driver",
+      "Rendering",
+      "Profiling",
+      "Lifecycle Methods",
+      "User Experience",
+      "Smoothness",
+      "Lag Reduction"
+    ],
+    "conceptTriggers": [
+      "Animated API",
+      "useNativeDriver",
+      "shouldComponentUpdate",
+      "Profiling",
+      "Rendering Optimization"
+    ],
+    "naturalFollowups": [
+      "What is the Animated API in React Native?",
+      "How does useNativeDriver improve animation performance?",
+      "What are common pitfalls in React Native animations?",
+      "How to profile animations in React Native?",
+      "What are the differences between Animated and LayoutAnimation?",
+      "How to handle complex animations in React Native?",
+      "What are the best practices for animation performance?",
+      "How to use the Reanimated library in React Native?",
+      "What tools can help with animation debugging?",
+      "How to create custom animations in React Native?",
+      "What are the limitations of React Native animations?",
+      "How to handle animation interruptions gracefully?",
+      "What are the differences between React Native and native animations?",
+      "How to animate lists efficiently in React Native?",
+      "What are the benefits of using native drivers for animations?"
+    ],
+    "relatedQuestions": [
+      "How to optimize React Native app performance?",
+      "What is the difference between Animated and LayoutAnimation?",
+      "How to use the Reanimated library?",
+      "What are best practices for React Native performance?",
+      "How to handle gestures in React Native?",
+      "What is the role of the native driver in animations?",
+      "How to debug performance issues in React Native?",
+      "What are the differences between React Native and native animations?",
+      "How to implement complex animations in React Native?",
+      "How to ensure smooth transitions in React Native?",
+      "What are common animation libraries for React Native?",
+      "How to use the InteractionManager in React Native?",
+      "What are the challenges of animating in React Native?",
+      "How to create responsive animations in React Native?",
+      "What are the benefits of using the Animated API?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using the native driver for animations.",
+        "explanation": "This can lead to animations running on the JavaScript thread, causing performance issues."
+      },
+      {
+        "mistake": "Over-rendering components during animations.",
+        "explanation": "Unnecessary renders can cause lag and reduce animation smoothness."
+      },
+      {
+        "mistake": "Ignoring performance profiling.",
+        "explanation": "Without profiling, it's difficult to identify and fix performance bottlenecks in animations."
+      },
+      {
+        "mistake": "Using complex animations without optimization.",
+        "explanation": "Complex animations require careful optimization to run smoothly."
+      },
+      {
+        "mistake": "Not handling animation interruptions.",
+        "explanation": "Failing to handle interruptions can lead to a poor user experience."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-2-explain-setnativeprops": {
+    "primaryQuestion": "Explain setNativeProps. Does it create performance issues and how is it used?",
+    "alternativeQuestions": [
+      "What is setNativeProps in React Native?",
+      "How does setNativeProps work in React Native?",
+      "Can setNativeProps affect performance in React Native?",
+      "When should you use setNativeProps in React Native?",
+      "What are the performance implications of using setNativeProps?",
+      "How to optimize performance when using setNativeProps?",
+      "What are the alternatives to setNativeProps in React Native?",
+      "Why would you use setNativeProps in a React Native project?",
+      "What are the common use cases for setNativeProps?",
+      "How does setNativeProps differ from setState?",
+      "What are the pros and cons of using setNativeProps?",
+      "How do you implement setNativeProps in React Native?",
+      "What are the limitations of setNativeProps in React Native?",
+      "How does setNativeProps interact with the React Native bridge?",
+      "What is the syntax for using setNativeProps?",
+      "Can setNativeProps be used with functional components?",
+      "What are the best practices for using setNativeProps?",
+      "How does setNativeProps impact the render cycle?",
+      "What is the difference between setNativeProps and direct manipulation?",
+      "How does setNativeProps handle animations in React Native?"
+    ],
+    "answerDescriptions": [
+      "setNativeProps is a method to update native views directly.",
+      "It bypasses the React Native bridge for performance gains.",
+      "Used for minor updates without re-rendering the component.",
+      "Can lead to performance issues if overused or misused.",
+      "Best for scenarios where frequent updates are needed."
+    ],
+    "answer": {
+      "summary": "setNativeProps allows direct manipulation of native views in React Native, bypassing the React Native bridge. It should be used cautiously to avoid performance issues.",
+      "detailed": "setNativeProps is a method in React Native for directly updating native view properties without going through the React Native bridge.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| setNativeProps | For minor updates to native views | `this._ref.setNativeProps({ style: { opacity: 0.5 } });` |\n\n- Use for performance optimization in high-frequency updates.\n- Avoid overuse to prevent bypassing React's reconciliation.\n- Ensure component references are correctly set.\n\n```javascript\nclass MyComponent extends React.Component {\n  componentDidMount() {\n    this._ref.setNativeProps({ style: { opacity: 0.5 } });\n  }\n  render() {\n    return <View ref={ref => (this._ref = ref)} />;\n  }\n}\n```",
+      "whenToUse": "Use setNativeProps for minor updates to native views that require frequent changes without re-rendering.",
+      "realWorldContext": "In a React Native app, setNativeProps can be used to adjust the opacity of a button during an animation without triggering a full component re-render."
+    },
+    "category": "React Native",
+    "subcategory": "Performance Optimization",
+    "difficulty": "intermediate",
+    "tags": [
+      "react_native",
+      "performance",
+      "native_views",
+      "optimization",
+      "direct_manipulation",
+      "setNativeProps",
+      "rendering",
+      "bridge",
+      "component",
+      "updates",
+      "animation",
+      "state_management"
+    ],
+    "conceptTriggers": [
+      "direct manipulation",
+      "native views",
+      "performance optimization",
+      "react native bridge",
+      "component rendering"
+    ],
+    "naturalFollowups": [
+      "What are the risks of using setNativeProps too frequently?",
+      "How does setNativeProps compare to using refs?",
+      "Can setNativeProps be used with all native components?",
+      "What are the alternatives to setNativeProps for updating views?",
+      "How does setNativeProps affect the React lifecycle?",
+      "What are the best practices for using setNativeProps?",
+      "How to debug issues caused by setNativeProps?",
+      "What are the limitations of setNativeProps?",
+      "How does setNativeProps interact with animations?",
+      "Can setNativeProps be used with functional components?",
+      "What are the common mistakes when using setNativeProps?",
+      "How does setNativeProps impact performance?",
+      "What are the scenarios where setNativeProps is most beneficial?",
+      "How to ensure setNativeProps is used efficiently?",
+      "What are the pros and cons of using setNativeProps?"
+    ],
+    "relatedQuestions": [
+      "What is the React Native bridge and how does it work?",
+      "How can you optimize performance in React Native?",
+      "What are the differences between setState and setNativeProps?",
+      "How do you handle animations in React Native?",
+      "What are refs in React Native and how are they used?",
+      "How does direct manipulation work in React Native?",
+      "What are the best practices for managing state in React Native?",
+      "How do you debug performance issues in React Native?",
+      "What are the common performance pitfalls in React Native?",
+      "How does the React Native rendering process work?",
+      "What are the alternatives to setNativeProps?",
+      "How to handle frequent updates in React Native?",
+      "What is the impact of setNativeProps on the UI thread?",
+      "How does setNativeProps differ from using CSS in web development?",
+      "What are the use cases for direct manipulation in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Overusing setNativeProps for frequent updates.",
+        "explanation": "This can lead to performance issues as it bypasses React's reconciliation process."
+      },
+      {
+        "mistake": "Not setting refs correctly before using setNativeProps.",
+        "explanation": "If refs are not correctly set, setNativeProps will not have a target to update."
+      },
+      {
+        "mistake": "Using setNativeProps for complex updates.",
+        "explanation": "Complex updates should go through the React state to maintain consistency and predictability."
+      },
+      {
+        "mistake": "Ignoring the React lifecycle when using setNativeProps.",
+        "explanation": "Improper use can lead to unexpected behavior if not aligned with the component lifecycle."
+      },
+      {
+        "mistake": "Assuming setNativeProps works with all components.",
+        "explanation": "Not all components expose native properties that can be directly manipulated."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-05",
+    "verified": false
+  },
+  "question-3-network-security-ssl-pinning": {
+    "primaryQuestion": "What is Network Security and SSL Pinning?",
+    "alternativeQuestions": [
+      "How does SSL Pinning enhance network security in React Native?",
+      "Explain the concept of SSL Pinning in mobile apps.",
+      "What are the benefits of SSL Pinning in React Native?",
+      "How is network security implemented in React Native?",
+      "What role does SSL Pinning play in securing React Native apps?",
+      "Can you describe SSL Pinning in the context of React Native?",
+      "Why is network security important in React Native applications?",
+      "What are common network security practices in React Native?",
+      "How does SSL Pinning work in React Native?",
+      "What are the challenges of implementing SSL Pinning in React Native?",
+      "How can SSL Pinning prevent man-in-the-middle attacks in React Native?",
+      "What is the process of SSL Pinning in React Native?",
+      "How does SSL Pinning improve data security in React Native?",
+      "What are the limitations of SSL Pinning in React Native?",
+      "How do you implement SSL Pinning in a React Native project?",
+      "What is the importance of SSL Pinning in mobile app security?",
+      "How does SSL Pinning differ from standard SSL in React Native?",
+      "What are the steps to ensure network security in React Native?",
+      "How does SSL Pinning protect user data in React Native?",
+      "What are best practices for network security in React Native?"
+    ],
+    "answerDescriptions": [
+      "Network security protects data during transmission.",
+      "SSL Pinning ensures the app communicates with the correct server.",
+      "It prevents man-in-the-middle attacks in mobile apps.",
+      "React Native supports SSL Pinning for enhanced security.",
+      "Proper implementation is crucial for app data protection."
+    ],
+    "answer": {
+      "summary": "Network security in React Native involves protecting data during transmission, with SSL Pinning being a key technique. It ensures secure communication between the app and server.",
+      "detailed": "Network security refers to the measures taken to protect data during transmission over a network.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| SSL Pinning | To ensure secure server communication | `import { SSLPinning } from 'react-native-ssl-pinning';` |\n| HTTPS | For secure data transmission | `fetch('https://example.com/api')` |\n| Certificates | To verify server identity | `const cert = require('./cert.pem');` |\n\n- Always use HTTPS for API calls.\n- Validate server certificates to prevent spoofing.\n- Regularly update certificates to maintain security.\n\n```javascript\nimport { SSLPinning } from 'react-native-ssl-pinning';\nSSLPinning.enable({\n  server: 'https://example.com',\n  certificates: ['cert.pem']\n});\n```",
+      "whenToUse": "Use SSL Pinning when you need to ensure secure communication between your React Native app and the server. It's crucial for apps handling sensitive data.",
+      "realWorldContext": "A banking app using React Native implements SSL Pinning to secure transactions and protect user data from interception."
+    },
+    "category": "React Native",
+    "subcategory": "Security",
+    "difficulty": "advanced",
+    "tags": [
+      "network-security",
+      "ssl-pinning",
+      "react-native",
+      "mobile-security",
+      "data-protection",
+      "secure-communication",
+      "app-security",
+      "man-in-the-middle",
+      "certificate-validation",
+      "https",
+      "encryption",
+      "server-authentication"
+    ],
+    "conceptTriggers": [
+      "network-security",
+      "ssl-pinning",
+      "react-native",
+      "secure-communication",
+      "certificate-validation"
+    ],
+    "naturalFollowups": [
+      "What are other security measures in React Native?",
+      "How to handle data encryption in React Native?",
+      "What is the role of HTTPS in React Native?",
+      "How to manage API keys securely in React Native?",
+      "What are common vulnerabilities in React Native apps?",
+      "How to implement two-factor authentication in React Native?",
+      "What are the best practices for secure coding in React Native?",
+      "How to protect user data in React Native?",
+      "What is the importance of regular security audits in React Native?",
+      "How to handle sensitive information in React Native?",
+      "What are the challenges of maintaining security in React Native?",
+      "How to use third-party libraries securely in React Native?",
+      "What is the impact of security breaches in React Native apps?",
+      "How to ensure compliance with security standards in React Native?",
+      "What are the tools for testing security in React Native?"
+    ],
+    "relatedQuestions": [
+      "How to implement SSL Pinning in Android?",
+      "What is the difference between SSL and TLS?",
+      "How does HTTPS work in mobile applications?",
+      "What are common security threats in mobile apps?",
+      "How to secure API calls in React Native?",
+      "What is the role of encryption in mobile security?",
+      "How to manage certificates in React Native?",
+      "What is the process of certificate pinning?",
+      "How to prevent data breaches in mobile apps?",
+      "What are the best practices for mobile app security?",
+      "How to implement OAuth in React Native?",
+      "What is the importance of secure storage in React Native?",
+      "How to use biometric authentication in React Native?",
+      "What are the differences between client-side and server-side security?",
+      "How to monitor security in React Native apps?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using SSL Pinning for sensitive data.",
+        "explanation": "Failing to implement SSL Pinning can expose data to man-in-the-middle attacks."
+      },
+      {
+        "mistake": "Using outdated certificates.",
+        "explanation": "Expired or outdated certificates can lead to security vulnerabilities."
+      },
+      {
+        "mistake": "Ignoring certificate validation errors.",
+        "explanation": "Bypassing certificate errors can compromise the security of the app."
+      },
+      {
+        "mistake": "Hardcoding sensitive information.",
+        "explanation": "Storing sensitive data in the code increases the risk of exposure."
+      },
+      {
+        "mistake": "Not updating security libraries.",
+        "explanation": "Outdated libraries may contain vulnerabilities that can be exploited."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-4-storing-sensitive-data-react-native": {
+    "primaryQuestion": "Is there any out-of-the-box way to store sensitive data in React Native? If yes, which and if not, how can this be achieved?",
+    "alternativeQuestions": [
+      "How do you securely store sensitive information in React Native?",
+      "What are the best practices for handling sensitive data in React Native?",
+      "Can React Native handle sensitive data storage natively?",
+      "What libraries are recommended for secure data storage in React Native?",
+      "How to encrypt sensitive data in a React Native app?",
+      "Is there a built-in method for secure storage in React Native?",
+      "What are the options for secure data storage in React Native?",
+      "How to protect user data in a React Native application?",
+      "What are the security considerations for data storage in React Native?",
+      "How can sensitive data be stored safely in React Native?",
+      "What are the best libraries for secure storage in React Native?",
+      "Does React Native offer secure storage solutions?",
+      "How to manage sensitive information in React Native?",
+      "What are the common methods for securing data in React Native?",
+      "How to ensure data security in a React Native app?",
+      "What are the recommended practices for storing sensitive data in React Native?",
+      "Is there a secure way to store tokens in React Native?",
+      "How to implement secure storage in a React Native project?",
+      "What are the challenges of storing sensitive data in React Native?",
+      "How to use secure storage libraries in React Native?"
+    ],
+    "answerDescriptions": [
+      "React Native does not provide built-in secure storage.",
+      "Use third-party libraries like 'react-native-keychain' for secure storage.",
+      "Sensitive data should be encrypted before storage.",
+      "Consider using platform-specific secure storage solutions.",
+      "Always follow best practices for data security."
+    ],
+    "answer": {
+      "summary": "React Native does not offer built-in secure storage solutions. Developers should use third-party libraries to handle sensitive data securely.",
+      "detailed": "React Native lacks native support for secure data storage. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| react-native-keychain | For storing sensitive information like passwords | `import Keychain from 'react-native-keychain';` |\n| AsyncStorage with encryption | When you need simple storage with added security | `import AsyncStorage from '@react-native-async-storage/async-storage';` |\n| SecureStore (Expo) | If using Expo for secure storage | `import * as SecureStore from 'expo-secure-store';` |\n\n- Always encrypt data before storing.\n- Use platform-specific secure storage for sensitive data.\n- Regularly update libraries for security patches.\n\n```javascript\nimport Keychain from 'react-native-keychain';\nawait Keychain.setGenericPassword('username', 'password');\nconst credentials = await Keychain.getGenericPassword();\n```",
+      "whenToUse": "Use secure storage libraries when handling sensitive data such as tokens, passwords, or personal information.",
+      "realWorldContext": "A banking app using React Native would use 'react-native-keychain' to securely store user credentials."
+    },
+    "category": "React Native",
+    "subcategory": "Security",
+    "difficulty": "intermediate",
+    "tags": [
+      "react-native",
+      "security",
+      "data-storage",
+      "encryption",
+      "keychain",
+      "secure-store",
+      "best-practices",
+      "third-party-libraries",
+      "sensitive-data",
+      "async-storage",
+      "expo",
+      "mobile-security"
+    ],
+    "conceptTriggers": [
+      "secure storage",
+      "encryption",
+      "third-party libraries",
+      "data protection",
+      "best practices"
+    ],
+    "naturalFollowups": [
+      "What is 'react-native-keychain'?",
+      "How does AsyncStorage work in React Native?",
+      "What are the limitations of AsyncStorage?",
+      "How to implement encryption in React Native?",
+      "What are the security features of Expo SecureStore?",
+      "How to manage user sessions securely in React Native?",
+      "What are common security vulnerabilities in React Native?",
+      "How to handle authentication securely in React Native?",
+      "What are the differences between 'react-native-keychain' and 'SecureStore'?",
+      "How to update secure storage libraries in React Native?",
+      "How to test the security of a React Native app?",
+      "What are the best practices for API security in React Native?",
+      "How to securely store JWT tokens in React Native?",
+      "What are the alternatives to 'react-native-keychain'?",
+      "How to ensure data integrity in React Native?"
+    ],
+    "relatedQuestions": [
+      "How does React Native handle data storage?",
+      "What are the differences between AsyncStorage and SecureStore?",
+      "How to implement biometric authentication in React Native?",
+      "What are the best practices for user authentication in React Native?",
+      "How to secure API calls in React Native?",
+      "What are the common security issues in React Native apps?",
+      "How to implement OAuth in React Native?",
+      "What are the security features of React Native?",
+      "How to use 'react-native-keychain' for secure storage?",
+      "What are the alternatives to AsyncStorage in React Native?",
+      "How to encrypt data in React Native?",
+      "What are the best practices for data privacy in React Native?",
+      "How to handle sensitive data in a React Native app?",
+      "What are the security considerations for React Native?",
+      "How to implement secure communication in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Storing sensitive data in plain text.",
+        "explanation": "Sensitive data should always be encrypted before storage to prevent unauthorized access."
+      },
+      {
+        "mistake": "Using AsyncStorage for sensitive data without encryption.",
+        "explanation": "AsyncStorage is not secure for sensitive data unless combined with encryption."
+      },
+      {
+        "mistake": "Ignoring platform-specific secure storage options.",
+        "explanation": "Using platform-specific secure storage can enhance security by leveraging native capabilities."
+      },
+      {
+        "mistake": "Not keeping security libraries up to date.",
+        "explanation": "Outdated libraries can have vulnerabilities that compromise data security."
+      },
+      {
+        "mistake": "Hardcoding sensitive information in the app.",
+        "explanation": "Hardcoding sensitive data can lead to exposure if the app is decompiled."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-5-describe-memory-leak-issue-in-react-native": {
+    "primaryQuestion": "Describe memory leak issue in React Native, how can it be detected and resolved?",
+    "alternativeQuestions": [
+      "What is a memory leak in React Native?",
+      "How do memory leaks occur in React Native apps?",
+      "Explain the concept of memory leaks in React Native.",
+      "How can you identify memory leaks in React Native?",
+      "What tools can be used to detect memory leaks in React Native?",
+      "How do you fix memory leaks in React Native applications?",
+      "What are common causes of memory leaks in React Native?",
+      "Can you describe how memory leaks affect React Native performance?",
+      "What strategies are there to prevent memory leaks in React Native?",
+      "How does garbage collection relate to memory leaks in React Native?",
+      "What are the symptoms of a memory leak in a React Native app?",
+      "How can memory leaks impact user experience in React Native?",
+      "What best practices help avoid memory leaks in React Native?",
+      "How do you troubleshoot memory leaks in React Native?",
+      "What are the consequences of ignoring memory leaks in React Native?",
+      "How can you monitor memory usage in React Native?",
+      "What role does profiling play in detecting memory leaks in React Native?",
+      "How do memory leaks differ between React Native and web apps?",
+      "What are some tools for analyzing memory leaks in React Native?",
+      "How can lifecycle methods contribute to memory leaks in React Native?"
+    ],
+    "answerDescriptions": [
+      "Memory leaks occur when unused objects are not released.",
+      "They can lead to increased memory usage and app crashes.",
+      "Detecting leaks involves monitoring memory allocation over time.",
+      "Tools like Xcode Instruments and Android Profiler can help.",
+      "Resolving leaks requires identifying and fixing the root cause."
+    ],
+    "answer": {
+      "summary": "Memory leaks in React Native occur when the app retains objects that are no longer needed, leading to increased memory usage and potential crashes. Detecting and resolving these leaks is crucial for app performance.",
+      "detailed": "A memory leak in React Native is a situation where the app retains memory that is no longer needed, causing increased memory usage over time. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n| --- | --- | --- |\n| useEffect cleanup | To remove event listeners or subscriptions | `useEffect(() => { return () => cleanup(); }, []);` |\n| WeakMap | For storing data without preventing garbage collection | `const map = new WeakMap();` |\n| ComponentWillUnmount | To clean up resources in class components | `componentWillUnmount() { cleanup(); }` |\n\n- Regularly profile your app to monitor memory usage.\n- Use cleanup functions in useEffect to prevent leaks.\n- Avoid global variables that persist unnecessarily.\n\n```javascript\nuseEffect(() => {\n  const subscription = subscribeToEvent();\n  return () => {\n    subscription.unsubscribe();\n  };\n}, []);\n```",
+      "whenToUse": "Detect and resolve memory leaks when you notice increased memory usage or app crashes. Regular profiling is recommended.",
+      "realWorldContext": "In a React Native app with frequent navigation, memory leaks can occur if components are not properly unmounted, leading to performance degradation."
+    },
+    "category": "React Native",
+    "subcategory": "Performance Optimization",
+    "difficulty": "intermediate",
+    "tags": [
+      "memory management",
+      "performance",
+      "optimization",
+      "profiling",
+      "garbage collection",
+      "useEffect",
+      "component lifecycle",
+      "debugging",
+      "tools",
+      "best practices",
+      "troubleshooting"
+    ],
+    "conceptTriggers": [
+      "memory allocation",
+      "garbage collection",
+      "component lifecycle",
+      "profiling tools",
+      "performance degradation"
+    ],
+    "naturalFollowups": [
+      "How do you profile a React Native app?",
+      "What are the best practices for optimizing React Native performance?",
+      "How does garbage collection work in React Native?",
+      "What tools are available for React Native debugging?",
+      "How do you handle large data sets in React Native?",
+      "What are the common performance bottlenecks in React Native?",
+      "How can you improve the startup time of a React Native app?",
+      "What is the role of useEffect in managing resources?",
+      "How do you manage state efficiently in React Native?",
+      "What are some common pitfalls when using React Native?",
+      "How do you ensure smooth animations in React Native?",
+      "What is the impact of memory leaks on battery life?",
+      "How can you test for memory leaks in a React Native app?",
+      "What are the differences in memory management between React Native and native apps?",
+      "How do you handle asynchronous operations in React Native?"
+    ],
+    "relatedQuestions": [
+      "What are the common causes of memory leaks in React Native?",
+      "How do you use React Native's profiling tools?",
+      "What is the impact of memory leaks on app performance?",
+      "How can you prevent memory leaks in React Native?",
+      "What are the differences between memory leaks in React and React Native?",
+      "How do you manage resources in a React Native app?",
+      "What are the best practices for memory management in React Native?",
+      "How does the React Native bridge affect memory usage?",
+      "What are the signs of a memory leak in a React Native application?",
+      "How do you optimize memory usage in React Native?",
+      "What role does JavaScript play in memory leaks?",
+      "How do you use Xcode Instruments to detect memory leaks?",
+      "What are the challenges of memory management in React Native?",
+      "How can lifecycle methods help in managing memory?",
+      "What are the best tools for detecting memory leaks in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not cleaning up event listeners.",
+        "explanation": "Failing to remove event listeners can lead to memory leaks as they keep references to objects."
+      },
+      {
+        "mistake": "Using global variables excessively.",
+        "explanation": "Global variables can persist longer than necessary, preventing garbage collection."
+      },
+      {
+        "mistake": "Ignoring component unmounting.",
+        "explanation": "Not handling component unmounting properly can leave resources allocated unnecessarily."
+      },
+      {
+        "mistake": "Neglecting to profile memory usage.",
+        "explanation": "Without profiling, memory leaks can go unnoticed, leading to performance issues."
+      },
+      {
+        "mistake": "Misusing useEffect dependencies.",
+        "explanation": "Incorrect dependencies in useEffect can cause functions to persist longer than needed."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-6-steps-to-optimize-react-native-app": {
+    "primaryQuestion": "List down some of the steps to optimize the application.",
+    "alternativeQuestions": [
+      "How can you optimize a React Native app?",
+      "What are the best practices for React Native app optimization?",
+      "How do you improve performance in React Native applications?",
+      "What steps can be taken to enhance React Native app efficiency?",
+      "How to reduce load time in React Native apps?",
+      "What are common optimization techniques in React Native?",
+      "How can you make a React Native app run faster?",
+      "What are some performance tuning tips for React Native?",
+      "How to optimize rendering in React Native?",
+      "What are strategies for improving React Native app speed?",
+      "How to manage resources effectively in React Native?",
+      "What are some methods to optimize React Native app size?",
+      "How can you enhance the user experience in React Native apps?",
+      "What are the key areas to focus on for React Native optimization?",
+      "How to reduce memory usage in React Native applications?",
+      "What are some ways to optimize animations in React Native?",
+      "How to ensure smooth navigation in React Native apps?",
+      "What are some tips for optimizing React Native app startup time?",
+      "How to handle large data sets efficiently in React Native?",
+      "What are some techniques for optimizing network requests in React Native?"
+    ],
+    "answerDescriptions": [
+      "Use FlatList instead of ScrollView for large lists.",
+      "Optimize images by using appropriate formats and sizes.",
+      "Minimize re-renders with PureComponent or React.memo.",
+      "Use native modules for performance-critical tasks.",
+      "Profile and monitor performance using React Native Debugger."
+    ],
+    "answer": {
+      "summary": "Optimizing a React Native app involves various techniques to improve performance and user experience. Key areas include efficient rendering, resource management, and network optimization.",
+      "detailed": "Optimization in React Native involves improving performance and resource management.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| FlatList | For rendering large lists efficiently | `<FlatList data={data} renderItem={renderItem} />` |\n| React.memo | To prevent unnecessary re-renders | `export default React.memo(MyComponent);` |\n| useCallback | For memoizing functions | `const memoizedCallback = useCallback(() => {...}, [dependencies]);` |\n\n- Use FlatList instead of ScrollView for better performance with large data sets.\n- Optimize images by compressing and using appropriate formats.\n- Use React.memo to prevent unnecessary re-renders.\n- Profile performance using tools like React Native Debugger.\n\n```javascript\nimport React, { memo } from 'react';\nconst MyComponent = memo(() => {\n  return <View>...</View>;\n});\n```",
+      "whenToUse": "Use these optimization techniques during the development phase to ensure a smooth and efficient app performance.",
+      "realWorldContext": "A React Native e-commerce app improved its loading time by 30% by optimizing image sizes and using FlatList for product listings."
+    },
+    "category": "React Native",
+    "subcategory": "Performance Optimization",
+    "difficulty": "intermediate",
+    "tags": [
+      "performance",
+      "optimization",
+      "react-native",
+      "rendering",
+      "images",
+      "network",
+      "memory",
+      "debugging",
+      "profiling",
+      "native-modules",
+      "flatlist",
+      "memoization"
+    ],
+    "conceptTriggers": [
+      "FlatList",
+      "React.memo",
+      "useCallback",
+      "native modules",
+      "performance profiling"
+    ],
+    "naturalFollowups": [
+      "What are the common performance bottlenecks in React Native?",
+      "How to profile a React Native app?",
+      "What are the differences between FlatList and ScrollView?",
+      "How to use native modules in React Native?",
+      "What are the best practices for image optimization in React Native?",
+      "How to reduce app size in React Native?",
+      "What tools are available for debugging React Native apps?",
+      "How to manage state efficiently in React Native?",
+      "What are some tips for optimizing animations in React Native?",
+      "How to handle asynchronous operations in React Native?",
+      "What are the differences between React.memo and useMemo?",
+      "How to improve navigation performance in React Native?",
+      "What are some strategies for optimizing network requests?",
+      "How to ensure smooth user experience in React Native apps?",
+      "What are the benefits of using native modules?"
+    ],
+    "relatedQuestions": [
+      "How to improve React Native app startup time?",
+      "What are the differences between React.memo and PureComponent?",
+      "How to handle large data sets in React Native?",
+      "What are the best practices for state management in React Native?",
+      "How to optimize React Native animations?",
+      "What are the differences between useMemo and useCallback?",
+      "How to manage memory usage in React Native?",
+      "What are the benefits of using FlatList over ScrollView?",
+      "How to optimize navigation in React Native?",
+      "What are some common mistakes in React Native optimization?",
+      "How to use React Native Debugger effectively?",
+      "What are the advantages of using native modules?",
+      "How to optimize network requests in React Native?",
+      "What are the best practices for handling images in React Native?",
+      "How to ensure efficient rendering in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using ScrollView for large lists",
+        "explanation": "ScrollView renders all items at once, which can lead to performance issues with large data sets."
+      },
+      {
+        "mistake": "Not optimizing images",
+        "explanation": "Large image sizes can significantly slow down app performance and increase load times."
+      },
+      {
+        "mistake": "Ignoring re-renders",
+        "explanation": "Failing to use React.memo or PureComponent can lead to unnecessary re-renders, affecting performance."
+      },
+      {
+        "mistake": "Overusing state updates",
+        "explanation": "Frequent state updates can cause excessive re-renders and degrade performance."
+      },
+      {
+        "mistake": "Neglecting performance profiling",
+        "explanation": "Without profiling, developers may miss critical performance bottlenecks in their applications."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  },
+  "question-7-real-cause-performance-issues-react-native": {
+    "primaryQuestion": "What\u2019s the real cause behind performance issues in React Native?",
+    "alternativeQuestions": [
+      "Why does React Native sometimes perform poorly?",
+      "What are common performance bottlenecks in React Native?",
+      "How can performance issues arise in React Native apps?",
+      "What factors contribute to React Native performance problems?",
+      "What causes React Native apps to slow down?",
+      "Why might a React Native app have lag?",
+      "What are the main reasons for React Native performance degradation?",
+      "How do performance issues manifest in React Native?",
+      "What leads to inefficient performance in React Native?",
+      "What are the root causes of React Native slowness?",
+      "How can React Native performance be negatively impacted?",
+      "What issues can cause React Native apps to be sluggish?",
+      "What are typical causes of performance issues in React Native?",
+      "Why do React Native apps sometimes have performance issues?",
+      "What are the underlying causes of React Native performance issues?",
+      "What can lead to poor performance in React Native applications?",
+      "How can React Native performance issues be identified?"
+    ],
+    "answerDescriptions": [
+      "Inefficient JavaScript code can slow down React Native apps.",
+      "Excessive re-renders can degrade performance.",
+      "Large image files can cause memory issues.",
+      "Improper use of third-party libraries can lead to inefficiencies.",
+      "Not using FlatList for large data sets can cause lag."
+    ],
+    "answer": {
+      "summary": "Performance issues in React Native often stem from inefficient JavaScript execution and improper resource management.",
+      "detailed": "Performance issues in React Native are often due to inefficient JavaScript execution and resource management.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n| -------------- | ----------- | ------------------- |\n| `useMemo` | To memoize expensive calculations | `const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);` |\n| `useCallback` | To memoize functions | `const memoizedCallback = useCallback(() => { doSomething(a, b); }, [a, b]);` |\n| `FlatList` | For rendering large lists | `<FlatList data={data} renderItem={renderItem} keyExtractor={item => item.id} />` |\n\n- Avoid unnecessary re-renders by using React.memo.\n- Use the Profiler API to identify performance bottlenecks.\n- Optimize image loading with appropriate caching strategies.\n\n```javascript\nimport { FlatList } from 'react-native';\n\nconst MyComponent = () => {\n  return (\n    <FlatList\n      data={data}\n      renderItem={renderItem}\n      keyExtractor={item => item.id}\n    />\n  );\n};\n```",
+      "whenToUse": "Use this knowledge when diagnosing and optimizing React Native app performance.",
+      "realWorldContext": "A React Native app with sluggish navigation and slow list rendering can benefit from performance optimizations like using FlatList and memoization."
+    },
+    "category": "React Native",
+    "subcategory": "Performance",
+    "difficulty": "intermediate",
+    "tags": [
+      "performance",
+      "optimization",
+      "react-native",
+      "javascript",
+      "rendering",
+      "profiling",
+      "memoization",
+      "flatlist",
+      "useMemo",
+      "useCallback",
+      "react",
+      "mobile"
+    ],
+    "conceptTriggers": [
+      "re-renders",
+      "memoization",
+      "profiling",
+      "resource management",
+      "javascript execution"
+    ],
+    "naturalFollowups": [
+      "How can you optimize React Native performance?",
+      "What tools can help profile React Native apps?",
+      "How does React.memo help with performance?",
+      "What is the role of useMemo in React Native?",
+      "How can FlatList improve list rendering?",
+      "What are common mistakes in React Native optimization?",
+      "How does JavaScript execution affect React Native?",
+      "What is the impact of large images on React Native performance?",
+      "How can third-party libraries affect React Native performance?",
+      "What strategies exist for React Native performance tuning?",
+      "How can you reduce re-renders in React Native?",
+      "What is the Profiler API in React Native?",
+      "How can you manage resources efficiently in React Native?",
+      "What are best practices for React Native performance?",
+      "How does useCallback improve React Native performance?"
+    ],
+    "relatedQuestions": [
+      "What are best practices for optimizing React Native apps?",
+      "How do you use the Profiler in React Native?",
+      "What is the difference between useMemo and useCallback?",
+      "How can you prevent unnecessary re-renders in React Native?",
+      "What are the benefits of using FlatList in React Native?",
+      "How do you handle large images in React Native?",
+      "What are common pitfalls in React Native development?",
+      "How can you improve navigation performance in React Native?",
+      "What is the impact of JavaScript execution on React Native?",
+      "How can you optimize list rendering in React Native?",
+      "What are the challenges of React Native performance?",
+      "How do you identify performance bottlenecks in React Native?",
+      "What tools are available for React Native performance analysis?",
+      "How can you use React.memo effectively?",
+      "What are the effects of improper resource management in React Native?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Ignoring re-renders",
+        "explanation": "Failing to manage component re-renders can lead to performance issues."
+      },
+      {
+        "mistake": "Not using FlatList for large data sets",
+        "explanation": "Using ScrollView instead of FlatList can cause performance degradation with large lists."
+      },
+      {
+        "mistake": "Improper image handling",
+        "explanation": "Not optimizing image sizes and caching can lead to memory and performance issues."
+      },
+      {
+        "mistake": "Overusing third-party libraries",
+        "explanation": "Relying too heavily on third-party libraries can introduce inefficiencies."
+      },
+      {
+        "mistake": "Neglecting to profile",
+        "explanation": "Not using profiling tools can make it difficult to identify performance bottlenecks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2023-10-01",
+    "verified": false
+  }
+}
