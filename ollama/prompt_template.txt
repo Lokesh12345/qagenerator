@@ -43,5 +43,3 @@ Return ONE valid JSON object with a SINGLE top-level key (kebab-case ID like "qu
 3. Use double quotes everywhere. Escape internal quotes correctly.
 4. EXACT counts must be respected. If you can’t, regenerate until correct.
 5. Do not omit any required key.
-
-Now generate JSON for the question: "Describe HTML layout structure."
