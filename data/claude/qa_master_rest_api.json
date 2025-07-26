@@ -1,0 +1,997 @@
+{
+  "rest-api-1-restful-web-services": {
+    "primaryQuestion": "What do you understand by RESTful Web Services?",
+    "alternativeQuestions": [
+      "Can you explain the concept of RESTful Web Services?",
+      "What are the key characteristics of REST APIs?",
+      "How would you define REST architectural style?",
+      "What makes a web service RESTful?",
+      "What is the difference between REST and traditional web services?",
+      "How do RESTful services work?",
+      "What are the principles behind REST architecture?",
+      "Why are RESTful Web Services popular?",
+      "What is the architecture of RESTful Web Services?",
+      "How does REST differ from SOAP web services?",
+      "What are the components of a RESTful service?",
+      "Can you describe the REST architectural constraints?",
+      "What is the role of HTTP in RESTful services?",
+      "How do resources work in REST APIs?",
+      "What makes an API truly RESTful?"
+    ],
+    "answerDescriptions": [
+      "REST is an architectural style for distributed systems using HTTP protocol",
+      "Uses standard HTTP methods (GET, POST, PUT, DELETE) for CRUD operations",
+      "Resources are identified by URIs and represented in various formats (JSON, XML)",
+      "Stateless communication between client and server",
+      "Supports caching and layered system architecture"
+    ],
+    "answer": {
+      "summary": "RESTful Web Services are lightweight, maintainable, and scalable services that use HTTP protocols to communicate and manipulate web resources.",
+      "detailed": "RESTful Web Services (Representational State Transfer) is an architectural style for designing networked applications.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| GET | Retrieve resource | `GET /api/users/123` |\n| POST | Create resource | `POST /api/users {\"name\": \"John\"}` |\n| PUT | Update resource | `PUT /api/users/123 {\"name\": \"John\"}` |\n| DELETE | Remove resource | `DELETE /api/users/123` |\n\n* Use nouns for resource naming\n* Keep URLs resource-focused\n* Use proper HTTP status codes\n* Implement proper error handling\n* Follow HATEOAS principles\n\n```http\n# Example RESTful API endpoint\nGET /api/v1/users/123\nHost: api.example.com\nAccept: application/json\nAuthorization: Bearer token123\n```",
+      "whenToUse": "Use RESTful Web Services when building scalable, stateless APIs that need to support multiple clients and require standard HTTP-based operations on resources.",
+      "realWorldContext": "Social media APIs like Twitter use REST to allow developers to fetch tweets, post updates, and manage user profiles through standardized HTTP endpoints."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "beginner",
+    "tags": [
+      "rest",
+      "api",
+      "http",
+      "web-services",
+      "architecture",
+      "stateless",
+      "client-server",
+      "resources",
+      "endpoints",
+      "crud"
+    ],
+    "conceptTriggers": [
+      "HTTP Methods",
+      "Resource URI",
+      "Stateless Communication",
+      "Response Formats",
+      "API Endpoints"
+    ],
+    "naturalFollowups": [
+      "What are the main HTTP methods used in REST?",
+      "How do you handle authentication in REST APIs?",
+      "What is HATEOAS in REST?",
+      "How to version REST APIs?",
+      "What are the best practices for REST API design?",
+      "How to implement error handling in REST?",
+      "What is the difference between PUT and PATCH?",
+      "How to secure REST APIs?",
+      "What are idempotent operations in REST?",
+      "How to implement caching in REST APIs?"
+    ],
+    "relatedQuestions": [
+      "What is API versioning?",
+      "How to implement REST API authentication?",
+      "What are REST API status codes?",
+      "How to document REST APIs?",
+      "What is API rate limiting?",
+      "How to test REST APIs?",
+      "What is API middleware?",
+      "How to handle REST API errors?",
+      "What is content negotiation in REST?",
+      "How to optimize REST API performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using verbs instead of nouns in URI design",
+        "explanation": "REST APIs should use nouns to represent resources, not actions. Use HTTP methods to indicate actions."
+      },
+      {
+        "mistake": "Not using proper HTTP status codes",
+        "explanation": "Using only 200 for success and 500 for errors instead of appropriate status codes like 201, 404, or 403."
+      },
+      {
+        "mistake": "Making APIs stateful",
+        "explanation": "REST APIs should be stateless; each request should contain all information needed to process it."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-messaging-concepts": {
+    "primaryQuestion": "Define Messaging in terms of RESTful web services",
+    "alternativeQuestions": [
+      "What is the role of messaging in REST APIs?",
+      "How does message exchange work in RESTful services?",
+      "Explain the messaging pattern in REST architecture",
+      "What are the key components of REST API messaging?",
+      "How do REST APIs handle message formats?",
+      "What is the significance of message payloads in REST?",
+      "How does REST API messaging differ from SOAP messaging?",
+      "What are the standard message formats used in REST APIs?",
+      "Explain the request-response messaging cycle in REST",
+      "How does REST handle message serialization?",
+      "What is the importance of message headers in REST APIs?",
+      "How does REST implement asynchronous messaging?",
+      "What are the best practices for REST API message handling?",
+      "How does REST messaging support different data formats?",
+      "Explain the concept of message representation in REST"
+    ],
+    "answerDescriptions": [
+      "REST messaging involves exchanging data through HTTP requests and responses",
+      "Messages typically use JSON or XML formats for data representation",
+      "Headers contain metadata about the message and its processing instructions",
+      "Messaging follows a stateless request-response pattern",
+      "Supports both synchronous and asynchronous communication models"
+    ],
+    "answer": {
+      "summary": "REST messaging is the exchange of information between client and server through HTTP requests and responses, typically using standardized data formats like JSON or XML.",
+      "detailed": "REST messaging is a communication mechanism where clients and servers exchange data through HTTP messages using standardized formats. Messages in REST are self-contained units that include both the payload and metadata (headers). The communication follows a request-response pattern where clients send requests to specific URLs (endpoints) using HTTP methods (GET, POST, PUT, DELETE), and servers respond with appropriate status codes and data. Messages can be formatted in various representations like JSON, XML, or plain text, with JSON being the most common. The messaging system maintains statelessness, meaning each request contains all necessary information for processing.",
+      "whenToUse": "Use REST messaging when building distributed systems that require lightweight, scalable communication over HTTP, especially for web APIs that need to support multiple clients and data formats.",
+      "realWorldContext": "An e-commerce mobile app communicating with a backend server to fetch product details, update shopping carts, and process orders through REST API endpoints."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "REST",
+      "HTTP",
+      "API",
+      "messaging",
+      "client-server",
+      "request-response",
+      "stateless",
+      "JSON",
+      "XML",
+      "web-services"
+    ],
+    "conceptTriggers": [
+      "HTTP Methods",
+      "Message Formats",
+      "Headers",
+      "Status Codes",
+      "Request-Response Cycle"
+    ],
+    "naturalFollowups": [
+      "What are the common message formats in REST?",
+      "How to handle error messages in REST APIs?",
+      "What are the best practices for REST message validation?",
+      "How to implement message security in REST?",
+      "What is content negotiation in REST messaging?",
+      "How to handle large message payloads?",
+      "What are idempotent messages in REST?",
+      "How to implement message caching?",
+      "What is the role of message versioning?",
+      "How to handle message compression in REST APIs?"
+    ],
+    "relatedQuestions": [
+      "What are HTTP methods in REST?",
+      "How does content negotiation work?",
+      "What is the role of HTTP headers?",
+      "How to handle API versioning?",
+      "What are REST status codes?",
+      "How to implement error handling?",
+      "What is HATEOAS in REST?",
+      "How to secure REST messages?",
+      "What is idempotency in REST?",
+      "How to implement caching in REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Treating REST messaging like RPC calls",
+        "explanation": "REST messages should focus on resource state transfer rather than remote procedure calls"
+      },
+      {
+        "mistake": "Not using proper HTTP methods",
+        "explanation": "Using only GET and POST for all operations instead of appropriate HTTP methods like PUT, DELETE"
+      },
+      {
+        "mistake": "Ignoring message headers",
+        "explanation": "Headers are crucial for content negotiation, caching, and authentication but often overlooked"
+      },
+      {
+        "mistake": "Breaking statelessness",
+        "explanation": "Depending on server-side session state instead of making requests self-contained"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "rest-api-disadvantages-overview": {
+    "primaryQuestion": "What are the main disadvantages of RESTful web services?",
+    "alternativeQuestions": [
+      "What are the limitations of REST APIs?",
+      "What challenges do developers face when implementing REST APIs?",
+      "What are the drawbacks of choosing REST over other API architectures?",
+      "Why might REST not be the best choice for certain applications?",
+      "What are the common pain points when working with RESTful services?",
+      "What makes REST APIs potentially problematic in some scenarios?",
+      "What are the scalability issues with REST architecture?",
+      "How do REST APIs fall short in modern web development?",
+      "What security concerns exist with RESTful web services?",
+      "Why do some developers prefer GraphQL over REST?",
+      "What are the performance limitations of REST APIs?",
+      "How does REST handle complex data relationships poorly?",
+      "What are the versioning challenges in REST APIs?",
+      "What state management issues exist in REST architecture?",
+      "Why is REST considered inefficient for mobile applications?"
+    ],
+    "answerDescriptions": [
+      "Lacks built-in state management capabilities requiring additional overhead",
+      "Can result in over-fetching or under-fetching of data",
+      "No standard schema definition format like GraphQL",
+      "Version management can be complex and inconsistent",
+      "Multiple round trips often needed for related data retrieval"
+    ],
+    "answer": {
+      "summary": "RESTful web services have several key disadvantages including lack of built-in state management, potential performance issues with multiple endpoints, and challenges with data over-fetching.",
+      "detailed": "RESTful web services, while widely adopted, come with significant limitations that developers should consider. REST APIs often require multiple round-trips to fetch related data, lack built-in state management, and can be inefficient with mobile applications due to over-fetching. They don't provide a standardized way to define data schemas, making documentation and maintenance more challenging. Version management often becomes complex, requiring careful planning and potentially leading to API sprawl. Additionally, REST's strict client-server separation can make real-time updates more difficult compared to alternatives like WebSocket or GraphQL.",
+      "whenToUse": "Consider alternatives to REST when building real-time applications, dealing with complex nested data relationships, or when network efficiency is crucial for mobile applications.",
+      "realWorldContext": "A mobile social media app might suffer from REST's limitations when fetching a user's profile, posts, and comments, requiring multiple API calls that consume more bandwidth and battery life."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "rest-api",
+      "web-services",
+      "api-design",
+      "architecture",
+      "performance",
+      "scalability",
+      "versioning",
+      "state-management",
+      "client-server",
+      "http"
+    ],
+    "conceptTriggers": [
+      "state management",
+      "data fetching",
+      "api versioning",
+      "performance optimization",
+      "architectural constraints"
+    ],
+    "naturalFollowups": [
+      "How can REST API versioning be handled effectively?",
+      "What alternatives exist to REST APIs?",
+      "How can we optimize REST API performance?",
+      "When should we use GraphQL instead of REST?",
+      "How to handle state management in REST APIs?",
+      "What are best practices for REST API security?",
+      "How to minimize over-fetching in REST APIs?",
+      "What are strategies for REST API caching?",
+      "How to handle real-time updates with REST?",
+      "What are solutions for REST API documentation?"
+    ],
+    "relatedQuestions": [
+      "What are REST API best practices?",
+      "How does REST compare to GraphQL?",
+      "What is the Richardson Maturity Model?",
+      "How to implement authentication in REST APIs?",
+      "What are RESTful API design principles?",
+      "How to handle error responses in REST APIs?",
+      "What is HATEOAS in REST architecture?",
+      "How to maintain backward compatibility in REST APIs?",
+      "What are common REST API security vulnerabilities?",
+      "How to implement rate limiting in REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Ignoring API versioning from the start",
+        "explanation": "Many developers don't plan for versioning until it's too late, leading to breaking changes and difficult maintenance."
+      },
+      {
+        "mistake": "Creating endpoints for every specific data need",
+        "explanation": "This leads to API sprawl and maintenance difficulties instead of designing resourceful endpoints."
+      },
+      {
+        "mistake": "Not implementing proper error handling",
+        "explanation": "Returning generic error messages instead of meaningful error responses with appropriate HTTP status codes."
+      },
+      {
+        "mistake": "Exposing database structure directly through API",
+        "explanation": "This creates tight coupling between client and server, making future changes difficult."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-http-methods": {
+    "primaryQuestion": "What are the main HTTP methods used in REST APIs?",
+    "alternativeQuestions": [
+      "Can you explain the different HTTP verbs in REST?",
+      "What are the CRUD operations in HTTP methods?",
+      "How do REST APIs use different HTTP methods?",
+      "What's the difference between GET, POST, PUT, and DELETE in REST?",
+      "Which HTTP methods are considered idempotent?",
+      "How do you choose the right HTTP method for your REST API?",
+      "What are safe HTTP methods in REST APIs?",
+      "When should I use PUT vs PATCH in a REST API?",
+      "What HTTP methods are commonly used for CRUD operations?",
+      "How do HTTP methods relate to resource manipulation in REST?",
+      "What's the purpose of OPTIONS method in REST APIs?",
+      "Are all HTTP methods required in a RESTful API?",
+      "How do HTTP methods affect API security?",
+      "What are the best practices for HTTP method selection?",
+      "Can you explain idempotency in HTTP methods?"
+    ],
+    "answerDescriptions": [
+      "GET retrieves resources and is safe/idempotent",
+      "POST creates new resources and is not idempotent",
+      "PUT updates/replaces resources and is idempotent",
+      "DELETE removes resources and is idempotent",
+      "PATCH performs partial updates and is not idempotent"
+    ],
+    "answer": {
+      "summary": "HTTP methods are standardized request types that define the desired action to be performed on resources in a REST API.",
+      "detailed": "HTTP Methods define the type of operation to be performed on a resource in REST APIs.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|---------------|------------|-------------------|\n| GET | Retrieve resource | `GET /api/users/123` |\n| POST | Create resource | `POST /api/users` |\n| PUT | Update/Replace resource | `PUT /api/users/123` |\n| DELETE | Remove resource | `DELETE /api/users/123` |\n| PATCH | Partial update | `PATCH /api/users/123` |\n\n* GET is safe and shouldn't modify resources\n* PUT and DELETE are idempotent - multiple identical requests have same effect\n* POST can create different results with identical requests\n* PATCH is used for partial modifications\n\n```http\n# Example REST API requests\nGET /api/users/123 HTTP/1.1\nHost: api.example.com\n\nPOST /api/users HTTP/1.1\nHost: api.example.com\nContent-Type: application/json\n\n{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\"\n}\n```",
+      "whenToUse": "Use HTTP methods when designing RESTful APIs to standardize the way clients interact with server resources and perform CRUD operations.",
+      "realWorldContext": "An e-commerce API uses GET to fetch product details, POST to create orders, PUT to update inventory, and DELETE to remove items from cart."
+    },
+    "category": "REST API",
+    "subcategory": "HTTP Protocol",
+    "difficulty": "beginner",
+    "tags": [
+      "http-methods",
+      "rest",
+      "api-design",
+      "crud",
+      "http-protocol",
+      "web-services",
+      "client-server",
+      "idempotency",
+      "api-security",
+      "resource-manipulation"
+    ],
+    "conceptTriggers": [
+      "resource manipulation",
+      "state transfer",
+      "request methods",
+      "idempotency",
+      "safe operations"
+    ],
+    "naturalFollowups": [
+      "What is idempotency in REST APIs?",
+      "How to handle errors in REST APIs?",
+      "What are REST API status codes?",
+      "How to secure REST API endpoints?",
+      "What is content negotiation in REST?",
+      "How to version REST APIs?",
+      "What are REST API best practices?",
+      "How to implement HATEOAS?",
+      "What is the difference between PUT and PATCH?",
+      "How to handle authentication in REST APIs?"
+    ],
+    "relatedQuestions": [
+      "What is REST architecture?",
+      "How to design RESTful endpoints?",
+      "What are REST API status codes?",
+      "How to handle API versioning?",
+      "What is content negotiation?",
+      "How to implement authentication?",
+      "What are API security best practices?",
+      "How to document REST APIs?",
+      "What is HATEOAS?",
+      "How to handle API rate limiting?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using GET requests to modify data",
+        "explanation": "GET should be used only for reading data, not for modifications as it's meant to be safe and idempotent"
+      },
+      {
+        "mistake": "Using POST for idempotent operations",
+        "explanation": "POST is not idempotent and should not be used when the same request needs to produce the same result"
+      },
+      {
+        "mistake": "Confusing PUT and PATCH",
+        "explanation": "PUT is for complete resource updates, while PATCH is for partial modifications"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "ib-5-http-status-codes": {
+    "primaryQuestion": "What are HTTP Status codes?",
+    "alternativeQuestions": [
+      "Can you explain the different HTTP response status codes?",
+      "What do different HTTP status code ranges mean?",
+      "How do HTTP status codes indicate API response states?",
+      "What are the most common REST API status codes?",
+      "How do I interpret HTTP response codes in REST APIs?",
+      "What's the difference between 4xx and 5xx status codes?",
+      "Which HTTP status codes should I use in my REST API?",
+      "How do I handle HTTP status codes in API responses?",
+      "What are success vs error HTTP status codes?",
+      "Why are HTTP status codes important in REST APIs?",
+      "What does each HTTP status code category represent?",
+      "How do I choose the right HTTP status code for my API?",
+      "What are the standard HTTP response codes?",
+      "When should I use 200 vs 201 status codes?",
+      "How do REST APIs use status codes for error handling?"
+    ],
+    "answerDescriptions": [
+      "HTTP status codes are three-digit numbers returned by servers to indicate request outcome",
+      "Codes are grouped in ranges: 1xx (info), 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error)",
+      "Common codes include 200 (OK), 201 (Created), 400 (Bad Request), 404 (Not Found), and 500 (Server Error)",
+      "Status codes help clients understand if requests succeeded or failed and why",
+      "They are standardized across all HTTP communications and REST APIs"
+    ],
+    "answer": {
+      "summary": "HTTP status codes are standardized response codes returned by servers to indicate the status of HTTP requests, grouped into different categories for information, success, redirection, client errors, and server errors.",
+      "detailed": "HTTP status codes are three-digit numerical codes that servers send to clients to communicate the result of their requests.\n\n| Status Range | When to Use | Code Examples |\n|--------------|-------------|---------------|\n| 1xx Informational | For interim responses | 100 Continue, 101 Switching Protocols |\n| 2xx Success | When request succeeded | 200 OK, 201 Created, 204 No Content |\n| 3xx Redirection | When resource moved | 301 Moved Permanently, 304 Not Modified |\n| 4xx Client Error | When client made mistake | 400 Bad Request, 404 Not Found |\n| 5xx Server Error | When server failed | 500 Internal Error, 503 Service Unavailable |\n\n- Always use specific codes over generic ones\n- 200 is not always the best success code\n- Consider using 201 for resource creation\n- 404 means resource not found, 400 means bad syntax\n- 500 indicates server-side issues\n\n```http\n# Success Response\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n# Created Response\nHTTP/1.1 201 Created\nLocation: /api/users/123\n\n# Error Response\nHTTP/1.1 400 Bad Request\nContent-Type: application/json\n{\"error\": \"Invalid input format\"}\n```",
+      "whenToUse": "Use HTTP status codes in all API responses to properly communicate the outcome of client requests and maintain RESTful best practices.",
+      "realWorldContext": "E-commerce API returns 404 when a product isn't found, 201 when a new order is created, and 400 when invalid payment details are submitted."
+    },
+    "category": "REST_API",
+    "subcategory": "HTTP Protocol",
+    "difficulty": "intermediate",
+    "tags": [
+      "http",
+      "status-codes",
+      "rest",
+      "api-design",
+      "error-handling",
+      "http-protocol",
+      "web-services",
+      "response-codes",
+      "api-standards",
+      "rest-architecture"
+    ],
+    "conceptTriggers": [
+      "HTTP Protocol",
+      "Response Status",
+      "Error Handling",
+      "API Design",
+      "Client-Server Communication"
+    ],
+    "naturalFollowups": [
+      "How do I implement custom error responses?",
+      "What's the difference between PUT and PATCH methods?",
+      "How should I handle authentication errors?",
+      "When should I use 204 No Content?",
+      "How do I handle rate limiting responses?",
+      "What's the best practice for validation errors?",
+      "How do I implement proper error handling?",
+      "Should I use 200 or 204 for successful deletion?",
+      "How do I handle bulk operation responses?",
+      "What status code should I use for validation errors?",
+      "How do I handle partial success scenarios?",
+      "When should I use 409 Conflict?"
+    ],
+    "relatedQuestions": [
+      "What are RESTful API best practices?",
+      "How do I implement proper API versioning?",
+      "What is API authentication and authorization?",
+      "How do I handle API rate limiting?",
+      "What are idempotent HTTP methods?",
+      "How do I implement HATEOAS in REST APIs?",
+      "What is API documentation best practice?",
+      "How do I secure REST APIs?",
+      "What are HTTP request methods?",
+      "How do I implement API caching?",
+      "What is Content Negotiation in REST?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using 200 OK for all successful responses",
+        "explanation": "Different success scenarios should use specific codes like 201 for creation or 204 for successful deletion without content"
+      },
+      {
+        "mistake": "Returning 404 for all error scenarios",
+        "explanation": "404 should only be used when a resource is not found, not for other types of errors like validation failures (400) or unauthorized access (401)"
+      },
+      {
+        "mistake": "Using 500 for client-side errors",
+        "explanation": "500-level errors should only be used for server-side issues, while client-side errors should use 400-level status codes"
+      },
+      {
+        "mistake": "Not including error details in 4xx responses",
+        "explanation": "Client error responses should include detailed information about what went wrong and how to fix it"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-jax-rs-fundamentals": {
+    "primaryQuestion": "What do you understand by JAX-RS?",
+    "alternativeQuestions": [
+      "Can you explain what JAX-RS is and its purpose?",
+      "What is the role of JAX-RS in RESTful web services?",
+      "How does JAX-RS simplify REST API development in Java?",
+      "What are the key features of JAX-RS?",
+      "Why should I use JAX-RS for building REST APIs?",
+      "What is the relationship between JAX-RS and Jersey?",
+      "How does JAX-RS compare to other REST frameworks?",
+      "What are the main annotations used in JAX-RS?",
+      "Can you describe the JAX-RS architecture?",
+      "What version of JAX-RS should I use for modern REST APIs?",
+      "How does JAX-RS handle HTTP methods?",
+      "What is the difference between JAX-RS and JAX-WS?",
+      "How do you implement REST endpoints using JAX-RS?",
+      "What are the benefits of using JAX-RS over raw servlets?",
+      "How does JAX-RS support content negotiation?"
+    ],
+    "answerDescriptions": [
+      "Java API for RESTful Web Services (JAX-RS) is a specification for building REST APIs in Java",
+      "Provides annotations to map HTTP requests to Java methods",
+      "Supports automatic content negotiation and response marshalling",
+      "Includes built-in support for XML, JSON, and custom media types",
+      "Offers declarative way to handle HTTP methods and status codes"
+    ],
+    "answer": {
+      "summary": "JAX-RS is a Java API specification that provides support for creating RESTful web services using Java.",
+      "detailed": "JAX-RS (Java API for RESTful Web Services) is a specification for building REST APIs using Java annotations and standard interfaces.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| @Path | Define resource URI | `@Path(\"/users\")` |\n| @GET | Handle HTTP GET requests | `@GET @Path(\"/{id}\")` |\n| @POST | Handle HTTP POST requests | `@POST @Consumes(\"application/json\")` |\n| @Produces | Specify response type | `@Produces(\"application/json\")` |\n| @PathParam | Extract path parameters | `@PathParam(\"id\") Long userId` |\n\n* Use @ApplicationPath to define base URI for all resources\n* Always specify media types for request/response\n* Consider using @BeanParam for complex parameter grouping\n* Implement exception mappers for proper error handling\n\n```java\n@Path(\"/users\")\npublic class UserResource {\n    @GET\n    @Path(\"/{id}\")\n    @Produces(MediaType.APPLICATION_JSON)\n    public Response getUser(@PathParam(\"id\") Long id) {\n        User user = userService.findById(id);\n        return Response.ok(user).build();\n    }\n}\n```",
+      "whenToUse": "Use JAX-RS when building Java-based RESTful services, especially in enterprise applications where standard compliance and type safety are important.",
+      "realWorldContext": "Major enterprise applications like banking systems use JAX-RS to expose secure RESTful APIs for mobile apps and third-party integrations."
+    },
+    "category": "REST_API",
+    "subcategory": "Java Implementation",
+    "difficulty": "intermediate",
+    "tags": [
+      "JAX-RS",
+      "REST",
+      "Java",
+      "Web Services",
+      "API Development",
+      "Jersey",
+      "RESTEasy",
+      "HTTP Methods",
+      "Annotations",
+      "Enterprise Java"
+    ],
+    "conceptTriggers": [
+      "REST Architecture",
+      "Java Annotations",
+      "HTTP Protocol",
+      "Content Negotiation",
+      "Resource Mapping"
+    ],
+    "naturalFollowups": [
+      "How do I implement authentication in JAX-RS?",
+      "What are the best practices for JAX-RS exception handling?",
+      "How do I handle file uploads with JAX-RS?",
+      "Can you explain JAX-RS filters and interceptors?",
+      "How does JAX-RS handle asynchronous operations?",
+      "What is the role of Context in JAX-RS?",
+      "How do I implement HATEOAS with JAX-RS?",
+      "What are the differences between JAX-RS 1.0 and 2.0?",
+      "How do I test JAX-RS applications?",
+      "What is the relationship between JAX-RS and Spring?"
+    ],
+    "relatedQuestions": [
+      "What is REST architecture?",
+      "How do you implement security in REST APIs?",
+      "What are the HTTP methods used in REST?",
+      "How does content negotiation work in REST?",
+      "What is the difference between SOAP and REST?",
+      "How do you version REST APIs?",
+      "What are the best practices for REST API design?",
+      "How do you handle errors in REST APIs?",
+      "What is HATEOAS in REST?",
+      "How do you document REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not using proper HTTP methods",
+        "explanation": "Using POST for everything instead of appropriate GET, PUT, DELETE methods"
+      },
+      {
+        "mistake": "Incorrect content-type handling",
+        "explanation": "Not properly specifying @Consumes and @Produces annotations for content negotiation"
+      },
+      {
+        "mistake": "Poor exception handling",
+        "explanation": "Not implementing proper ExceptionMapper for converting exceptions to HTTP responses"
+      },
+      {
+        "mistake": "Ignoring REST principles",
+        "explanation": "Creating non-RESTful endpoints that don't follow resource-oriented architecture"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-7-statelessness-concept": {
+    "primaryQuestion": "What is the concept of statelessness in REST?",
+    "alternativeQuestions": [
+      "How does statelessness work in RESTful APIs?",
+      "Why is REST considered stateless?",
+      "What makes a REST API stateless?",
+      "Can you explain the stateless nature of REST?",
+      "How does statelessness affect REST API design?",
+      "What are the benefits of stateless communication in REST?",
+      "Why is maintaining state not recommended in REST?",
+      "How do REST APIs handle session management without state?",
+      "What's the difference between stateful and stateless in REST?",
+      "How does statelessness contribute to REST scalability?",
+      "Why should each REST request contain all necessary information?",
+      "What are the implications of statelessness in REST architecture?",
+      "How do you implement authentication in stateless REST APIs?",
+      "What role does statelessness play in RESTful web services?",
+      "How does statelessness affect REST API performance?"
+    ],
+    "answerDescriptions": [
+      "Each request must contain all information needed for processing",
+      "Server doesn't store client session information between requests",
+      "Every request is independent and unrelated to previous requests",
+      "Improves scalability and reliability of the API",
+      "Enables better load balancing and fault tolerance"
+    ],
+    "answer": {
+      "summary": "Statelessness means each REST API request must contain all necessary information for processing, with no dependency on stored session data.",
+      "detailed": "Statelessness is a fundamental REST constraint where the server retains no client session information between requests. Each request from client to server must contain all information needed to understand and process the request.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|--------------------|\n| Authentication Token | For maintaining user identity without sessions | `Authorization: Bearer <token>` |\n| Request Parameters | To send complete context | `GET /api/users?page=1&limit=10` |\n| Request Headers | For metadata and authentication | `Content-Type: application/json` |\n\n* Always include authentication information in each request\n* Use tokens instead of session cookies\n* Include all required parameters in the request\n* Design endpoints to be independent of previous requests\n* Cache responses when possible for better performance\n\n```http\n# Stateless Request Example\nGET /api/orders/123 HTTP/1.1\nHost: api.example.com\nAuthorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\nContent-Type: application/json\n```",
+      "whenToUse": "Use statelessness when building scalable, distributed systems where multiple servers need to handle requests independently without sharing session state.",
+      "realWorldContext": "E-commerce API where each product purchase request contains complete user authentication and cart information, allowing any server in the cluster to process the order."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture Principles",
+    "difficulty": "intermediate",
+    "tags": [
+      "statelessness",
+      "rest-architecture",
+      "api-design",
+      "scalability",
+      "authentication",
+      "distributed-systems",
+      "http",
+      "web-services",
+      "rest-principles",
+      "api-best-practices"
+    ],
+    "conceptTriggers": [
+      "session management",
+      "request independence",
+      "server scalability",
+      "authentication tokens",
+      "distributed computing"
+    ],
+    "naturalFollowups": [
+      "How do you handle user authentication in stateless REST APIs?",
+      "What are the best practices for token-based authentication?",
+      "How does caching work with stateless APIs?",
+      "What are the drawbacks of statelessness?",
+      "How do you maintain user context without sessions?",
+      "What's the role of JWT in stateless APIs?",
+      "How does statelessness affect API performance?",
+      "What are alternatives to session-based authentication?",
+      "How do you handle long-running transactions in stateless APIs?",
+      "What are the security implications of statelessness?"
+    ],
+    "relatedQuestions": [
+      "What is REST architectural style?",
+      "How do REST APIs handle authentication?",
+      "What are the six constraints of REST?",
+      "How do you implement caching in REST APIs?",
+      "What is idempotency in REST?",
+      "How do you version REST APIs?",
+      "What are the best practices for REST API design?",
+      "How do you handle errors in REST APIs?",
+      "What is HATEOAS in REST?",
+      "How do you secure REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Storing session information on the server",
+        "explanation": "This violates statelessness and creates scalability issues"
+      },
+      {
+        "mistake": "Using cookies for maintaining state",
+        "explanation": "Cookies create server-side state dependencies and should be avoided in favor of tokens"
+      },
+      {
+        "mistake": "Not including complete context in requests",
+        "explanation": "Each request must contain all necessary information for processing"
+      },
+      {
+        "mistake": "Assuming request order or sequence",
+        "explanation": "Requests should be independent and not rely on previous requests"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-features-overview": {
+    "primaryQuestion": "What are the key features of RESTful Web Services?",
+    "alternativeQuestions": [
+      "What characteristics define a true RESTful service?",
+      "What are the main principles of REST architecture?",
+      "How can you identify if a web service is truly RESTful?",
+      "What makes REST different from other web service architectures?",
+      "What are the fundamental constraints of REST architecture?",
+      "Can you explain the core features of REST API design?",
+      "What architectural principles should REST APIs follow?",
+      "How does REST implement the client-server architecture?",
+      "What are the essential components of RESTful services?",
+      "What guidelines define RESTful web service implementation?",
+      "How does statelessness work in REST architecture?",
+      "What makes an API RESTful compliant?",
+      "What are the mandatory features for REST API design?",
+      "How does REST handle resource representation?",
+      "What are the building blocks of REST architecture?"
+    ],
+    "answerDescriptions": [
+      "Implements client-server architecture with clear separation of concerns",
+      "Maintains statelessness in all client-server interactions",
+      "Supports caching mechanisms for improved performance",
+      "Uses uniform interface with standard HTTP methods",
+      "Follows resource-based routing and naming conventions"
+    ],
+    "answer": {
+      "summary": "RESTful Web Services are characterized by statelessness, client-server architecture, cacheability, uniform interface, and resource-based routing.",
+      "detailed": "REST (Representational State Transfer) is an architectural style for distributed systems. \n\n| Method/Feature | When to Use | Implementation Example |\n|----------------|------------|---------------------|\n| Statelessness | For scalable services | Each request contains all needed information |\n| Uniform Interface | For standardized communication | GET /api/users/{id} |\n| Cacheability | For performance optimization | Cache-Control: max-age=3600 |\n\n- Use nouns for resources, not verbs\n- Implement proper HTTP status codes\n- Version your APIs appropriately\n- Follow HATEOAS principles\n\n```http\nGET /api/users/123 HTTP/1.1\nHost: api.example.com\nAccept: application/json\nAuthorization: Bearer token123\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\n  \"id\": 123,\n  \"name\": \"John Doe\",\n  \"_links\": {\n    \"self\": { \"href\": \"/api/users/123\" },\n    \"orders\": { \"href\": \"/api/users/123/orders\" }\n  }\n}\n```",
+      "whenToUse": "Use RESTful Web Services when building scalable, distributed systems that need to support multiple clients and require clear separation of concerns.",
+      "realWorldContext": "Major platforms like Twitter and GitHub expose their functionality through RESTful APIs, allowing third-party applications to interact with their services."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "REST",
+      "API Design",
+      "Web Services",
+      "HTTP",
+      "Architecture",
+      "Stateless",
+      "HATEOAS",
+      "Client-Server",
+      "Caching",
+      "Resource-Oriented"
+    ],
+    "conceptTriggers": [
+      "Statelessness",
+      "Resource Orientation",
+      "HTTP Methods",
+      "URI Design",
+      "Response Formats"
+    ],
+    "naturalFollowups": [
+      "How do you implement HATEOAS in REST?",
+      "What are the best practices for REST API versioning?",
+      "How does caching work in REST APIs?",
+      "What are the common HTTP status codes in REST?",
+      "How do you handle authentication in REST APIs?",
+      "What is the difference between PUT and PATCH?",
+      "How do you implement pagination in REST?",
+      "What are idempotent operations in REST?",
+      "How do you handle error responses in REST?",
+      "What is content negotiation in REST APIs?"
+    ],
+    "relatedQuestions": [
+      "What is the Richardson Maturity Model?",
+      "How do you secure REST APIs?",
+      "What is the difference between REST and SOAP?",
+      "How do you document REST APIs?",
+      "What are the best practices for REST API design?",
+      "How do you handle transactions in REST?",
+      "What is API Gateway in REST architecture?",
+      "How do you test REST APIs?",
+      "What is the role of HTTP methods in REST?",
+      "How do you implement rate limiting in REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using verbs instead of nouns in URI design",
+        "explanation": "REST APIs should use nouns to represent resources, not actions. Use HTTP methods to indicate actions."
+      },
+      {
+        "mistake": "Not implementing proper HTTP status codes",
+        "explanation": "Using only 200 for success and 500 for errors instead of appropriate status codes like 201, 404, 403, etc."
+      },
+      {
+        "mistake": "Breaking statelessness by using sessions",
+        "explanation": "Each request should contain all information needed to process it, avoiding server-side sessions."
+      },
+      {
+        "mistake": "Ignoring content negotiation",
+        "explanation": "Not supporting different content types or not properly handling Accept headers in requests."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "rest-api-9-uri-definition": {
+    "primaryQuestion": "What is URI (Uniform Resource Identifier) in REST APIs?",
+    "alternativeQuestions": [
+      "Can you explain the concept of URI in REST?",
+      "What's the purpose of URI in RESTful web services?",
+      "How are URIs used in REST API design?",
+      "What is the difference between URI and URL in REST?",
+      "Why are URIs important in REST architecture?",
+      "How should I structure URIs in a RESTful API?",
+      "What makes a good URI design in REST?",
+      "Can you describe the components of a REST API URI?",
+      "What are the best practices for URI naming in REST?",
+      "How do URIs relate to resources in REST?",
+      "What's the relationship between URIs and endpoints in REST?",
+      "How do you handle URI versioning in REST APIs?",
+      "What are URI templates in REST?",
+      "How do query parameters work in REST URIs?",
+      "What's the role of URI hierarchy in REST design?"
+    ],
+    "answerDescriptions": [
+      "Unique identifier for resources in REST APIs",
+      "Follows a hierarchical structure with clear naming conventions",
+      "Can include path parameters and query strings",
+      "Must be consistent and predictable across the API",
+      "Represents the location and identity of API resources"
+    ],
+    "answer": {
+      "summary": "URI (Uniform Resource Identifier) is a string that uniquely identifies and locates resources in a REST API, following specific naming conventions and hierarchical structure.",
+      "detailed": "A URI is a standardized way to identify and locate resources in a REST API architecture. It consists of various components including scheme, authority, path, query parameters, and fragments. URIs should be descriptive, consistent, and follow REST conventions such as using nouns for resources, hierarchical organization, and proper handling of relationships. Good URI design promotes API discoverability and usability while maintaining a clear resource hierarchy and relationships between different API endpoints.",
+      "whenToUse": "Use URIs whenever you need to identify, locate, or reference resources in your REST API. They are essential for all API endpoint definitions and resource addressing.",
+      "realWorldContext": "In an e-commerce API, a URI like '/api/v1/customers/123/orders' represents all orders for customer ID 123, following REST resource hierarchy principles."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "beginner",
+    "tags": [
+      "REST",
+      "URI",
+      "API Design",
+      "Resources",
+      "Endpoints",
+      "HTTP",
+      "REST Architecture",
+      "API Development",
+      "Web Services",
+      "RESTful Design"
+    ],
+    "conceptTriggers": [
+      "Resource Identification",
+      "URL Structure",
+      "API Endpoints",
+      "Resource Hierarchy",
+      "URI Templates"
+    ],
+    "naturalFollowups": [
+      "What's the difference between URI and URL?",
+      "How should I version my API URIs?",
+      "What are URI templates?",
+      "How do I handle nested resources in URIs?",
+      "What are best practices for URI naming?",
+      "How do I represent relationships in URIs?",
+      "Should URIs be plural or singular?",
+      "How do I handle complex queries in URIs?",
+      "What's the maximum length for a URI?",
+      "How do I handle special characters in URIs?"
+    ],
+    "relatedQuestions": [
+      "What are REST resources?",
+      "How do you implement API versioning?",
+      "What are the components of a REST request?",
+      "How do you handle CRUD operations in REST?",
+      "What is content negotiation in REST?",
+      "How do you implement pagination in REST APIs?",
+      "What are idempotent operations?",
+      "How do you handle authentication in REST?",
+      "What is HATEOAS in REST?",
+      "How do you handle error responses in REST?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using verbs instead of nouns in URIs",
+        "explanation": "URIs should use nouns to represent resources, not actions. Use HTTP methods for actions instead."
+      },
+      {
+        "mistake": "Including file extensions in URIs",
+        "explanation": "Use content negotiation headers instead of file extensions to specify response formats."
+      },
+      {
+        "mistake": "Creating unnecessarily deep URI hierarchies",
+        "explanation": "Keep URI hierarchy simple and logical, avoiding more than 2-3 levels of nesting."
+      },
+      {
+        "mistake": "Using spaces or unsafe characters in URIs",
+        "explanation": "Always properly encode URI components and use hyphens or underscores instead of spaces."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "ib-10-rest-resource-definition": {
+    "primaryQuestion": "What is a REST Resource?",
+    "alternativeQuestions": [
+      "How do you define a resource in REST architecture?",
+      "What constitutes a REST resource and how is it identified?",
+      "Can you explain the concept of resources in RESTful APIs?",
+      "What are the characteristics of a REST resource?",
+      "How are resources represented in REST APIs?",
+      "What's the relationship between URIs and REST resources?",
+      "How do you model data as REST resources?",
+      "What makes something a valid REST resource?",
+      "How should REST resources be named and structured?",
+      "What's the difference between a resource and its representation in REST?",
+      "How do REST resources relate to CRUD operations?",
+      "What types of resources can exist in a REST API?",
+      "How do you version REST resources?",
+      "What is resource granularity in REST APIs?",
+      "How do you handle nested resources in REST?"
+    ],
+    "answerDescriptions": [
+      "A resource is any information that can be named and accessed via a unique identifier",
+      "Resources are abstract entities that can have multiple representations",
+      "Each resource must be uniquely addressable through URIs",
+      "Resources can be singular (document) or collections of other resources",
+      "Resources should be stateless and support standard HTTP methods"
+    ],
+    "answer": {
+      "summary": "A REST resource is any information or entity that can be identified, named, and manipulated through a unique URI in a RESTful system.",
+      "detailed": "A REST resource is an abstract entity representing any information that can be named and accessed via the web.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| Single Resource | For individual entities | `GET /api/users/123` |\n| Collection Resource | For groups of entities | `GET /api/users` |\n| Sub-resource | For nested relationships | `GET /api/users/123/orders` |\n\n- Resources should be nouns, not verbs\n- Use plural forms for collection resources\n- Keep resource naming consistent and hierarchical\n- Consider resource granularity carefully\n\n```http\n# Example Resource URIs\nGET /api/products/123           # Single product resource\nGET /api/products              # Collection resource\nPOST /api/products             # Create new product\nGET /api/products/123/reviews  # Nested resource\n```",
+      "whenToUse": "Use resources when designing RESTful APIs to model your domain entities and their relationships. Resources form the foundation of REST architectural style.",
+      "realWorldContext": "An e-commerce API might model products, orders, and customers as resources, with URIs like /api/products, /api/orders, and /api/customers representing different business entities."
+    },
+    "category": "REST_API",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "REST",
+      "API Design",
+      "Resources",
+      "URI",
+      "HTTP",
+      "RESTful",
+      "Web Services",
+      "API Architecture",
+      "Resource Modeling",
+      "REST Principles"
+    ],
+    "conceptTriggers": [
+      "URI Design",
+      "Resource Identification",
+      "State Representation",
+      "Resource Naming",
+      "HTTP Methods"
+    ],
+    "naturalFollowups": [
+      "How do you handle resource relationships in REST?",
+      "What are the best practices for naming REST resources?",
+      "How do you version REST resources?",
+      "What's the difference between resource-oriented and action-oriented APIs?",
+      "How do you handle bulk operations on REST resources?",
+      "What are composite resources in REST?",
+      "How do you implement resource pagination?",
+      "What's the role of HATEOAS in resource discovery?",
+      "How do you handle resource caching?",
+      "How do you secure access to REST resources?"
+    ],
+    "relatedQuestions": [
+      "What are the main HTTP methods used in REST?",
+      "How do you implement HATEOAS in REST APIs?",
+      "What is content negotiation in REST?",
+      "How do you handle API versioning?",
+      "What are idempotent operations in REST?",
+      "How do you implement authentication for REST APIs?",
+      "What is the Richardson Maturity Model?",
+      "How do you handle errors in REST APIs?",
+      "What are the best practices for REST API documentation?",
+      "How do you implement caching in REST APIs?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using verbs instead of nouns for resource names",
+        "explanation": "Resources should be named using nouns (e.g., /api/orders) rather than verbs (e.g., /api/getOrders)"
+      },
+      {
+        "mistake": "Creating resources that are too fine-grained",
+        "explanation": "Over-granular resources can lead to chatty APIs and poor performance"
+      },
+      {
+        "mistake": "Ignoring resource relationships",
+        "explanation": "Not properly modeling relationships between resources can lead to poor API design and usability"
+      },
+      {
+        "mistake": "Using inconsistent naming conventions",
+        "explanation": "Mixing singular and plural forms or inconsistent casing can make APIs harder to understand and use"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  }
+}

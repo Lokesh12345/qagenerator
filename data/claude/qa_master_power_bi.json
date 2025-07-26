@@ -1,0 +1,2468 @@
+{
+  "power-bi-1-define-effective-solution": {
+    "primaryQuestion": "How would you define Power BI as an effective solution?",
+    "alternativeQuestions": [
+      "What makes Power BI an effective business intelligence tool?",
+      "Can you explain the key benefits of using Power BI?",
+      "Why should organizations choose Power BI for their analytics needs?",
+      "What are the main advantages of implementing Power BI?",
+      "How does Power BI serve as a comprehensive BI solution?",
+      "What distinguishes Power BI from other analytics platforms?",
+      "In what ways does Power BI enhance business decision-making?",
+      "How does Power BI transform raw data into actionable insights?",
+      "What core features make Power BI an effective data visualization tool?",
+      "How does Power BI support enterprise-level analytics?",
+      "What role does Power BI play in modern business intelligence?",
+      "How does Power BI facilitate data-driven decision making?",
+      "What makes Power BI stand out in the BI marketplace?",
+      "How does Power BI address common business reporting challenges?",
+      "Why is Power BI considered a leading BI platform?"
+    ],
+    "answerDescriptions": [
+      "Comprehensive data visualization and analytics platform by Microsoft",
+      "Enables real-time data monitoring and interactive dashboards",
+      "Supports multiple data sources and seamless data integration",
+      "Offers both self-service and enterprise BI capabilities",
+      "Provides AI-powered insights and natural language querying"
+    ],
+    "answer": {
+      "summary": "Power BI is Microsoft's comprehensive business intelligence platform that transforms data into interactive insights through robust visualization, analysis, and sharing capabilities.",
+      "detailed": "Power BI is a business analytics solution that enables organizations to visualize their data and share insights across the enterprise. It combines self-service analytics with enterprise business intelligence, offering a unified platform for data preparation, visual discovery, interactive dashboards, and collaborative sharing. The platform integrates seamlessly with other Microsoft products and supports numerous data sources, making it a versatile solution for organizations of all sizes. Its strength lies in its ability to democratize data analysis through user-friendly interfaces while maintaining enterprise-grade security and governance.",
+      "whenToUse": "Use Power BI when you need to create interactive data visualizations, share insights across organizations, monitor business metrics in real-time, or build embedded analytics solutions.",
+      "realWorldContext": "A retail chain uses Power BI to track sales performance across stores, analyze customer behavior patterns, and make inventory decisions based on real-time data visualizations and automated reports."
+    },
+    "category": "Business Intelligence",
+    "subcategory": "Analytics Platforms",
+    "difficulty": "beginner",
+    "tags": [
+      "data visualization",
+      "business intelligence",
+      "analytics",
+      "reporting",
+      "dashboards",
+      "Microsoft",
+      "data analysis",
+      "self-service BI",
+      "enterprise BI",
+      "data modeling"
+    ],
+    "conceptTriggers": [
+      "data visualization",
+      "business analytics",
+      "reporting solutions",
+      "dashboard creation",
+      "data transformation"
+    ],
+    "naturalFollowups": [
+      "How do I create my first Power BI dashboard?",
+      "What data sources can Power BI connect to?",
+      "How does Power BI handle data refresh?",
+      "What's the difference between Power BI Desktop and Service?",
+      "How do I share Power BI reports with my team?",
+      "What are Power BI custom visuals?",
+      "How does Power BI implement security?",
+      "What is DAX in Power BI?",
+      "How do I schedule report updates in Power BI?",
+      "What are Power BI workspaces?",
+      "How do I create calculated columns in Power BI?",
+      "What's the cost structure for Power BI?"
+    ],
+    "relatedQuestions": [
+      "What is DAX programming in Power BI?",
+      "How do you create relationships in Power BI?",
+      "What are the different Power BI licensing options?",
+      "How do you implement row-level security in Power BI?",
+      "What is Power Query in Power BI?",
+      "How do you optimize Power BI report performance?",
+      "What are Power BI dataflows?",
+      "How do you create calculated measures in Power BI?",
+      "What is the Power BI service architecture?",
+      "How do you embed Power BI reports in applications?",
+      "What are Power BI paginated reports?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Treating Power BI as just a visualization tool",
+        "explanation": "Many users underutilize Power BI by focusing only on visualizations, ignoring its powerful data modeling and analysis capabilities."
+      },
+      {
+        "mistake": "Neglecting proper data modeling",
+        "explanation": "Users often jump straight to creating reports without establishing a proper data model, leading to performance issues and limited analysis capabilities."
+      },
+      {
+        "mistake": "Overlooking data refresh settings",
+        "explanation": "Organizations frequently forget to configure appropriate data refresh schedules, resulting in outdated reports and incorrect insights."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-data-source-types": {
+    "primaryQuestion": "What data sources can Power BI connect to?",
+    "alternativeQuestions": [
+      "Which data sources are supported by Power BI?",
+      "What types of databases can I connect to in Power BI?",
+      "How many different data sources does Power BI support?",
+      "Can Power BI connect to both cloud and on-premise data sources?",
+      "What file formats can Power BI import?",
+      "Is it possible to connect Power BI to SQL Server?",
+      "Does Power BI support Excel files as data source?",
+      "Can I connect Power BI to REST APIs?",
+      "What are the most common data sources used in Power BI?",
+      "Does Power BI support NoSQL databases?",
+      "Can Power BI connect to SharePoint lists?",
+      "Is it possible to use CSV files in Power BI?",
+      "Does Power BI support connection to Azure databases?",
+      "Can I connect Power BI to SAP systems?",
+      "What web services can Power BI integrate with?"
+    ],
+    "answerDescriptions": [
+      "Supports databases including SQL Server, Oracle, and MySQL",
+      "Connects to flat files like Excel, CSV, and XML",
+      "Integrates with cloud services including Azure and Amazon Redshift",
+      "Works with web services and REST APIs",
+      "Compatible with Big Data sources like Hadoop and Spark"
+    ],
+    "answer": {
+      "summary": "Power BI can connect to a wide range of data sources including databases, flat files, cloud services, and web APIs.",
+      "detailed": "Power BI offers comprehensive data connectivity options through various connectors. It supports traditional databases (SQL Server, Oracle, MySQL), flat files (Excel, CSV, XML), cloud services (Azure, AWS), web services (REST APIs), Big Data platforms (Hadoop), and business applications (SAP, Salesforce). The connection types are categorized into File-based, Database, Azure, Online Services, and Other sources. Each connector is optimized for its specific data source, providing features like native query support, data preview, and advanced filtering options.",
+      "whenToUse": "Use different data source connectors when you need to combine data from multiple origins or when building comprehensive business intelligence solutions that require diverse data inputs.",
+      "realWorldContext": "A retail company uses Power BI to connect simultaneously to their SQL Server for transaction data, Salesforce for customer information, and Excel files for inventory management."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Connectivity",
+    "difficulty": "intermediate",
+    "tags": [
+      "data sources",
+      "connectivity",
+      "databases",
+      "integration",
+      "ETL",
+      "data import",
+      "cloud services",
+      "web services",
+      "file formats",
+      "connectors"
+    ],
+    "conceptTriggers": [
+      "data integration",
+      "connection strings",
+      "authentication methods",
+      "data refresh",
+      "gateway configuration"
+    ],
+    "naturalFollowups": [
+      "How do I set up a database connection in Power BI?",
+      "What is Power BI Gateway?",
+      "How often can data sources be refreshed?",
+      "What are the limitations of different data sources?",
+      "How do I handle authentication for different sources?",
+      "Can I combine multiple data sources?",
+      "What's the difference between Import and DirectQuery?",
+      "How do I troubleshoot connection issues?",
+      "What are best practices for data source management?",
+      "How secure are Power BI data connections?"
+    ],
+    "relatedQuestions": [
+      "How does Power BI handle data refresh?",
+      "What is Power Query in Power BI?",
+      "How to optimize data source performance?",
+      "What are Power BI data source limitations?",
+      "How to implement row-level security?",
+      "What is DirectQuery mode?",
+      "How to use parameters in data sources?",
+      "What is composite model in Power BI?",
+      "How to manage data source credentials?",
+      "What are gateway configuration best practices?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using Import mode for large datasets",
+        "explanation": "Can lead to performance issues and memory constraints; DirectQuery might be more appropriate"
+      },
+      {
+        "mistake": "Not considering data refresh limitations",
+        "explanation": "Different license types have different refresh frequencies; plan accordingly"
+      },
+      {
+        "mistake": "Incorrect gateway configuration",
+        "explanation": "May cause connection issues with on-premise data sources"
+      },
+      {
+        "mistake": "Not optimizing data source queries",
+        "explanation": "Can result in slow performance and unnecessary data loading"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-data-formats-overview": {
+    "primaryQuestion": "What are the available data formats supported in Power BI?",
+    "alternativeQuestions": [
+      "Which file formats can Power BI import?",
+      "What types of data sources does Power BI support?",
+      "Can you list the compatible data formats for Power BI?",
+      "What are the accepted file formats in Power BI?",
+      "Which data format types work with Power BI?",
+      "How many different formats can Power BI handle?",
+      "What file types can I connect to in Power BI?",
+      "Which data formats are compatible with Power BI Desktop?",
+      "What are the supported import formats in Power BI?",
+      "Can you explain Power BI's format compatibility?",
+      "Which file extensions work with Power BI?",
+      "What data formats can I use in Power BI reports?",
+      "How versatile is Power BI in terms of data formats?",
+      "What are the standard data formats for Power BI?",
+      "Which data types can Power BI process?"
+    ],
+    "answerDescriptions": [
+      "Power BI supports structured data formats like CSV, Excel, and SQL databases",
+      "Semi-structured formats including JSON and XML are supported",
+      "Web data can be imported through Web URLs and HTML tables",
+      "Various cloud service formats like Azure, Salesforce, and Google Analytics",
+      "Support for R and Python data frames through scripts"
+    ],
+    "answer": {
+      "summary": "Power BI supports a wide range of data formats including flat files, databases, cloud services, and programming language outputs.",
+      "detailed": "Power BI accepts multiple data formats categorized into several groups: Flat Files (CSV, Excel, Text, XML, JSON), Databases (SQL Server, Oracle, MySQL, PostgreSQL), Cloud Services (Azure, Dynamics 365, Salesforce), Online Services (SharePoint, Google Analytics), and Other Sources (R scripts, Python scripts, Web feeds). Each format type has specific connectors and import methods within Power BI, with some requiring additional authentication or gateway setup for enterprise scenarios.",
+      "whenToUse": "Use different formats based on your data source type and business requirements. For example, use CSV for simple tabular data, databases for large datasets, and API connections for real-time data.",
+      "realWorldContext": "A retail company uses CSV files for daily sales data, SQL databases for inventory management, and Salesforce connector for customer relationship data, all combined in a single Power BI dashboard."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Import",
+    "difficulty": "beginner",
+    "tags": [
+      "data formats",
+      "import",
+      "connectors",
+      "data sources",
+      "file types",
+      "integration",
+      "ETL",
+      "data connection",
+      "power query",
+      "get data"
+    ],
+    "conceptTriggers": [
+      "data import",
+      "file format",
+      "data source",
+      "connectivity",
+      "data transformation"
+    ],
+    "naturalFollowups": [
+      "How do I connect to a SQL database in Power BI?",
+      "What's the difference between importing and DirectQuery?",
+      "How can I refresh data from different sources?",
+      "Are there any file size limitations?",
+      "How do I handle JSON data in Power BI?",
+      "What's the best format for large datasets?",
+      "How do I connect to web services?",
+      "Can I combine different data formats?",
+      "How do I schedule data refresh for different sources?",
+      "What are the performance implications of different formats?"
+    ],
+    "relatedQuestions": [
+      "How do I transform data in Power Query?",
+      "What is Power BI Gateway?",
+      "How do I create a data model in Power BI?",
+      "What are the best practices for data importing?",
+      "How do I handle data refresh in Power BI?",
+      "What is DirectQuery mode?",
+      "How do I combine multiple data sources?",
+      "What are data source parameters?",
+      "How do I handle data type conversions?",
+      "What are the security implications of different data sources?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Importing large tables directly without filtering",
+        "explanation": "This can lead to performance issues and unnecessary memory usage. Use query folding and filters during import."
+      },
+      {
+        "mistake": "Using wrong data source connection type",
+        "explanation": "Choosing Import when DirectQuery would be more appropriate for large, frequently updated datasets."
+      },
+      {
+        "mistake": "Ignoring data privacy levels",
+        "explanation": "Not setting appropriate privacy levels can cause refresh failures and security issues."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-available-views": {
+    "primaryQuestion": "What are the different views available in Power BI Desktop?",
+    "alternativeQuestions": [
+      "Can you explain the main views in Power BI Desktop?",
+      "What are the three main perspectives in Power BI Desktop?",
+      "How do Report, Data, and Model views differ in Power BI?",
+      "Which view should I use for different tasks in Power BI Desktop?",
+      "What is the purpose of each view in Power BI Desktop?",
+      "How do I switch between different views in Power BI?",
+      "What can I do in the Report view of Power BI?",
+      "What is the Data view used for in Power BI?",
+      "How does the Model view help in Power BI development?",
+      "What are the main features of each Power BI Desktop view?",
+      "When should I use Report vs Data view in Power BI?",
+      "What's the difference between Model and Data view?",
+      "How do Power BI's different views complement each other?",
+      "Which Power BI view is best for creating visualizations?",
+      "What are the navigation options between Power BI views?"
+    ],
+    "answerDescriptions": [
+      "Report View: Create and modify visualizations and reports",
+      "Data View: Examine, explore, and understand data in table format",
+      "Model View: Establish relationships between tables and manage data model",
+      "Each view offers specific functionality for different development phases",
+      "Views can be accessed via navigation buttons at left side of Power BI Desktop"
+    ],
+    "answer": {
+      "summary": "Power BI Desktop offers three main views: Report View, Data View, and Model View, each serving distinct purposes in the BI development process.",
+      "detailed": "Power BI Desktop provides three complementary views that support different aspects of business intelligence development. The Report View is where users create and customize visualizations, format reports, and build interactive dashboards. The Data View displays the raw data in a familiar table format, allowing users to inspect data, create calculated columns, and verify data transformations. The Model View enables users to establish and manage relationships between tables, create hierarchies, and optimize the data model's performance. Each view is accessible through navigation buttons on the left side of Power BI Desktop, and users can switch between views depending on their current task requirements.",
+      "whenToUse": "Use different views based on your task: Report View for visualization creation, Data View for data inspection and validation, and Model View for relationship management and data modeling.",
+      "realWorldContext": "When creating a sales analysis dashboard, you might use Model View to connect sales and customer tables, Data View to verify calculations, and Report View to create the final interactive visualizations."
+    },
+    "category": "Power BI",
+    "subcategory": "Interface",
+    "difficulty": "beginner",
+    "tags": [
+      "power bi desktop",
+      "report view",
+      "data view",
+      "model view",
+      "visualization",
+      "data modeling",
+      "interface",
+      "navigation",
+      "workspace",
+      "development environment"
+    ],
+    "conceptTriggers": [
+      "visualization creation",
+      "data inspection",
+      "relationship management",
+      "interface navigation",
+      "workspace organization"
+    ],
+    "naturalFollowups": [
+      "How do I create relationships in Model View?",
+      "What types of visualizations can I create in Report View?",
+      "How do I create calculated columns in Data View?",
+      "Can I create measures in all views?",
+      "How do I optimize my data model?",
+      "What are the best practices for organizing reports?",
+      "How do I manage multiple tables in Data View?",
+      "What are the keyboard shortcuts for switching views?",
+      "Can I have multiple Report Views open simultaneously?",
+      "How do I customize the view layout?"
+    ],
+    "relatedQuestions": [
+      "How do I create relationships between tables?",
+      "What are the best practices for data modeling?",
+      "How do I create calculated columns?",
+      "What are DAX measures?",
+      "How do I create interactive visualizations?",
+      "What is the difference between calculated columns and measures?",
+      "How do I optimize Power BI performance?",
+      "What are hierarchies in Power BI?",
+      "How do I import data into Power BI?",
+      "What are the different visualization types available?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using Report View for data modeling tasks",
+        "explanation": "Data modeling should be done in Model View where relationships and hierarchies can be properly managed"
+      },
+      {
+        "mistake": "Not utilizing Data View for data validation",
+        "explanation": "Data View is essential for verifying data accuracy and understanding the underlying dataset structure"
+      },
+      {
+        "mistake": "Creating calculated columns in Report View instead of Data View",
+        "explanation": "Calculated columns should be created in Data View for better performance and maintenance"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-data-storage-locations": {
+    "primaryQuestion": "Where is the data stored in Power BI?",
+    "alternativeQuestions": [
+      "What are the different storage locations in Power BI?",
+      "How does Power BI store its data?",
+      "What storage mechanisms does Power BI use?",
+      "Can you explain Power BI's data storage architecture?",
+      "Where does Power BI keep its data model?",
+      "How is data persisted in Power BI?",
+      "What's the storage structure in Power BI Desktop vs Service?",
+      "Does Power BI store data locally or in the cloud?",
+      "What file formats does Power BI use for storage?",
+      "How does Power BI handle data storage in different modes?",
+      "Where are Power BI reports physically stored?",
+      "What's the difference between imported and DirectQuery storage?",
+      "How does Premium capacity affect Power BI storage?",
+      "Where are Power BI dataflows stored?",
+      "What are Power BI's storage limitations?"
+    ],
+    "answerDescriptions": [
+      "Data can be stored locally in .pbix files for Power BI Desktop",
+      "Cloud storage in Azure for Power BI Service deployments",
+      "Temporary cache storage for DirectQuery and Live Connection modes",
+      "Premium capacity dedicated storage for larger datasets",
+      "Dataflows storage in Azure Data Lake Storage Gen2"
+    ],
+    "answer": {
+      "summary": "Power BI stores data in multiple locations depending on the deployment type, including local .pbix files, cloud storage in Azure, and Premium capacity dedicated storage.",
+      "detailed": "Power BI employs a multi-tiered storage architecture that varies based on the service type and deployment model. In Power BI Desktop, data is stored locally in .pbix files which contain the data model, reports, and visualizations. When published to Power BI Service, the data moves to Microsoft's Azure cloud storage, where it's encrypted and distributed across multiple data centers for redundancy. Premium capacity users get dedicated storage resources with higher limits, while shared capacity users share storage pools. DirectQuery and Live Connection modes don't store the actual data but maintain a cache for performance. Dataflows are stored in Azure Data Lake Storage Gen2, providing an enterprise-grade storage layer for bigger data volumes.",
+      "whenToUse": "Understanding Power BI storage locations is crucial when planning data architecture, considering security requirements, and managing storage limitations across different deployment scenarios.",
+      "realWorldContext": "A financial institution using Power BI stores sensitive customer reports locally in Desktop during development, then publishes to a Premium capacity in Power BI Service for secure, scalable distribution to thousands of users."
+    },
+    "category": "Power BI",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "storage",
+      "cloud",
+      "azure",
+      "pbix",
+      "premium-capacity",
+      "dataflows",
+      "data-model",
+      "security",
+      "architecture",
+      "deployment"
+    ],
+    "conceptTriggers": [
+      "data storage",
+      "cloud deployment",
+      "security requirements",
+      "capacity planning",
+      "data architecture"
+    ],
+    "naturalFollowups": [
+      "What are the storage limits in Power BI?",
+      "How do I optimize Power BI storage usage?",
+      "What's the difference between Premium and Shared capacity storage?",
+      "How secure is data stored in Power BI?",
+      "Can I change where Power BI stores its data?",
+      "How does DirectQuery affect storage?",
+      "What's the maximum file size for Power BI Desktop?",
+      "How do dataflows store data differently?",
+      "What happens to storage when publishing to Service?",
+      "How does row-level security affect storage?"
+    ],
+    "relatedQuestions": [
+      "What is Power BI Premium capacity?",
+      "How does DirectQuery work in Power BI?",
+      "What are Power BI dataflows?",
+      "How to implement row-level security?",
+      "What's the difference between imported and DirectQuery data?",
+      "How to optimize Power BI report performance?",
+      "What are the benefits of Premium capacity?",
+      "How to handle large datasets in Power BI?",
+      "What is incremental refresh in Power BI?",
+      "How to manage Power BI workspace storage?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming all data is stored locally",
+        "explanation": "Many users don't realize that data storage location changes when publishing to Power BI Service"
+      },
+      {
+        "mistake": "Ignoring storage limits",
+        "explanation": "Not considering storage limitations can lead to performance issues and failed refreshes"
+      },
+      {
+        "mistake": "Misunderstanding DirectQuery storage",
+        "explanation": "Thinking DirectQuery stores no data, when it actually maintains a cache"
+      },
+      {
+        "mistake": "Overlooking Premium benefits",
+        "explanation": "Not utilizing Premium capacity's dedicated storage when dealing with large datasets"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-desktop-overview": {
+    "primaryQuestion": "What is Power BI Desktop and what are its core functionalities?",
+    "alternativeQuestions": [
+      "Can you explain the main features of Power BI Desktop?",
+      "How does Power BI Desktop differ from Power BI Service?",
+      "What are the key components of Power BI Desktop?",
+      "Why should I use Power BI Desktop for data analysis?",
+      "What makes Power BI Desktop essential for business intelligence?",
+      "How do I get started with Power BI Desktop?",
+      "What can I create using Power BI Desktop?",
+      "Is Power BI Desktop free to use?",
+      "What are the system requirements for Power BI Desktop?",
+      "How does Power BI Desktop handle data connections?",
+      "What types of visualizations can I create in Power BI Desktop?",
+      "Can Power BI Desktop work offline?",
+      "How does data modeling work in Power BI Desktop?",
+      "What's the relationship between DAX and Power BI Desktop?",
+      "How do I publish reports from Power BI Desktop?"
+    ],
+    "answerDescriptions": [
+      "Free Windows application for creating interactive data reports and visualizations",
+      "Includes data connection, transformation, modeling, and visualization capabilities",
+      "Supports both local and cloud-based data sources with real-time connectivity",
+      "Features DAX (Data Analysis Expressions) for advanced calculations",
+      "Enables direct publishing to Power BI Service for sharing and collaboration"
+    ],
+    "answer": {
+      "summary": "Power BI Desktop is a free application for Windows that enables users to connect, transform, visualize, and analyze data from various sources to create interactive reports and dashboards.",
+      "detailed": "Power BI Desktop is Microsoft's primary tool for business intelligence report creation and data analysis. It combines three main components: Query Editor for data transformation, Data Model for relationship management, and Report View for visualization creation. Users can connect to multiple data sources, transform data using Power Query, create relationships, add calculated columns and measures using DAX, and design interactive visualizations that can be published to the Power BI Service for sharing across organizations.",
+      "whenToUse": "Use Power BI Desktop when you need to create professional data reports, perform complex data transformations, build data models, or create custom visualizations for business intelligence purposes.",
+      "realWorldContext": "A sales manager uses Power BI Desktop to combine data from CRM, Excel sheets, and SQL databases to create an interactive sales performance dashboard with drill-down capabilities and predictive analytics."
+    },
+    "category": "Power BI",
+    "subcategory": "Tools and Components",
+    "difficulty": "beginner",
+    "tags": [
+      "power bi desktop",
+      "business intelligence",
+      "data visualization",
+      "reporting",
+      "data modeling",
+      "dax",
+      "power query",
+      "data analysis",
+      "microsoft bi",
+      "data transformation"
+    ],
+    "conceptTriggers": [
+      "data connection",
+      "report creation",
+      "data modeling",
+      "visualization design",
+      "publishing workflow"
+    ],
+    "naturalFollowups": [
+      "How do I connect to different data sources in Power BI Desktop?",
+      "What is DAX and how is it used in Power BI Desktop?",
+      "How do I create relationships between tables in Power BI Desktop?",
+      "What types of visualizations are available in Power BI Desktop?",
+      "How do I publish my report to Power BI Service?",
+      "What is Power Query Editor in Power BI Desktop?",
+      "How do I refresh data in Power BI Desktop?",
+      "What are calculated columns and measures?",
+      "How do I create custom visualizations?",
+      "What are the best practices for Power BI Desktop report design?"
+    ],
+    "relatedQuestions": [
+      "What is Power BI Service and how does it differ from Desktop?",
+      "How do I optimize Power BI Desktop performance?",
+      "What are Power BI Desktop's data source limitations?",
+      "How do I schedule automatic data refresh in Power BI?",
+      "What are the different Power BI Desktop licensing options?",
+      "How do I share Power BI Desktop reports?",
+      "What are Power BI Desktop's security features?",
+      "How do I create calculated tables in Power BI Desktop?",
+      "What are Power BI Desktop themes?",
+      "How do I use parameters in Power BI Desktop?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Creating reports without proper data modeling",
+        "explanation": "Users often jump straight to visualization without establishing proper data relationships and hierarchies, leading to incorrect analysis and poor performance."
+      },
+      {
+        "mistake": "Ignoring data refresh implications",
+        "explanation": "Not considering how data refresh will work after publishing can lead to stale reports and connectivity issues in production."
+      },
+      {
+        "mistake": "Overcomplicating visualizations",
+        "explanation": "Adding too many visuals or complex interactions can make reports difficult to understand and slow to load."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-connectivity-modes": {
+    "primaryQuestion": "What are the different connectivity modes in Power BI?",
+    "alternativeQuestions": [
+      "How do data connections work in Power BI?",
+      "What's the difference between Import and DirectQuery in Power BI?",
+      "Can you explain Power BI's data connection methods?",
+      "What are the pros and cons of different Power BI connection modes?",
+      "How to choose between Import and DirectQuery in Power BI?",
+      "What is Live Connection mode in Power BI?",
+      "When should I use DirectQuery vs Import mode?",
+      "What are the performance implications of different Power BI connectivity modes?",
+      "How does Composite mode work in Power BI?",
+      "What's the difference between Live Connection and DirectQuery?",
+      "How does Power BI handle real-time data connections?",
+      "What are the memory limitations for different connection modes?",
+      "How to optimize Power BI connectivity for large datasets?",
+      "What is dual storage mode in Power BI?",
+      "When should I use Composite models in Power BI?"
+    ],
+    "answerDescriptions": [
+      "Import mode stores data in Power BI's highly compressed, columnar format",
+      "DirectQuery sends native queries to the source database in real-time",
+      "Live Connection connects directly to SQL Server Analysis Services",
+      "Composite mode combines Import and DirectQuery for optimal performance",
+      "Dual storage mode allows switching between Import and DirectQuery per table"
+    ],
+    "answer": {
+      "summary": "Power BI offers Import, DirectQuery, Live Connection, and Composite modes for connecting to data sources, each with specific use cases and trade-offs.",
+      "detailed": "Power BI connectivity modes determine how data is stored and queried in reports. Import mode stores a compressed copy of the data in Power BI's memory, offering the best performance but with data freshness limitations. DirectQuery maintains no local copy, instead querying the source directly, ideal for real-time data needs but with slower performance. Live Connection is specifically for connecting to SQL Server Analysis Services models, while Composite mode combines Import and DirectQuery capabilities for optimal balance. Each mode has specific memory, performance, and refresh implications that affect how reports function and scale.",
+      "whenToUse": "Use Import mode for smaller datasets requiring fast performance, DirectQuery for real-time data needs, Live Connection for SSAS models, and Composite mode for mixed scenarios requiring both performance and real-time data.",
+      "realWorldContext": "A retail dashboard using Import mode for historical sales data, but DirectQuery for current-day transactions to maintain real-time inventory tracking."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Connectivity",
+    "difficulty": "intermediate",
+    "tags": [
+      "data connectivity",
+      "import mode",
+      "directquery",
+      "live connection",
+      "composite models",
+      "data refresh",
+      "performance optimization",
+      "data modeling",
+      "ssas",
+      "real-time data"
+    ],
+    "conceptTriggers": [
+      "data refresh requirements",
+      "performance needs",
+      "data source type",
+      "memory constraints",
+      "real-time reporting needs"
+    ],
+    "naturalFollowups": [
+      "How often can data refresh in Import mode?",
+      "What are the row limits for DirectQuery?",
+      "How to optimize DirectQuery performance?",
+      "Can you mix different connectivity modes?",
+      "What are the memory limitations for Import mode?",
+      "How to set up a Live Connection?",
+      "What data sources support DirectQuery?",
+      "How to monitor query performance in DirectQuery?",
+      "When should I use Composite models?",
+      "How to handle large datasets in Power BI?",
+      "What are the security implications of each mode?",
+      "How to implement row-level security with different modes?"
+    ],
+    "relatedQuestions": [
+      "How to optimize Power BI report performance?",
+      "What are the best practices for data modeling in Power BI?",
+      "How to handle large datasets in Power BI?",
+      "What are Power BI gateway requirements?",
+      "How to implement incremental refresh in Power BI?",
+      "What are the limitations of DirectQuery?",
+      "How to set up row-level security?",
+      "What is the difference between personal and enterprise gateways?",
+      "How to monitor Power BI report performance?",
+      "What are the best practices for composite models?",
+      "How to optimize DAX queries in DirectQuery mode?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using Import mode for very large datasets",
+        "explanation": "Can lead to performance issues and refresh failures due to memory limitations"
+      },
+      {
+        "mistake": "Choosing DirectQuery without considering performance impact",
+        "explanation": "Can result in slow report response times due to real-time query execution"
+      },
+      {
+        "mistake": "Not implementing proper indexing in DirectQuery sources",
+        "explanation": "Leads to poor query performance and unnecessary database load"
+      },
+      {
+        "mistake": "Mixing too many connection modes in a single model",
+        "explanation": "Can create complexity and maintenance challenges without clear benefits"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-data-refresh-options": {
+    "primaryQuestion": "What are the various data refresh options available in Power BI?",
+    "alternativeQuestions": [
+      "How can I schedule data refreshes in Power BI?",
+      "What are the different ways to update data in Power BI?",
+      "Can you explain Power BI's data refresh mechanisms?",
+      "What refresh options does Power BI support for different data sources?",
+      "How frequently can I refresh my Power BI datasets?",
+      "What's the difference between manual and scheduled refresh in Power BI?",
+      "How do I set up automatic data refresh in Power BI?",
+      "What are Power BI's refresh limitations for different licenses?",
+      "How does incremental refresh work in Power BI?",
+      "What is DirectQuery refresh in Power BI?",
+      "How can I optimize my Power BI refresh schedule?",
+      "What are the best practices for Power BI data refreshing?",
+      "How do I troubleshoot Power BI refresh failures?",
+      "What is real-time data refresh in Power BI?",
+      "How does Power BI handle refresh for on-premises data sources?"
+    ],
+    "answerDescriptions": [
+      "Manual refresh allows immediate data updates through the Power BI service or desktop",
+      "Scheduled refresh enables automated updates at specified intervals",
+      "DirectQuery provides real-time data access without importing",
+      "Incremental refresh allows updating only the most recent data",
+      "Live Connection maintains constant connection to Analysis Services models"
+    ],
+    "answer": {
+      "summary": "Power BI offers multiple refresh options including manual refresh, scheduled refresh, DirectQuery, incremental refresh, and live connections to accommodate different data update needs.",
+      "detailed": "Data refresh in Power BI refers to the process of updating datasets with the latest information from data sources. Power BI provides several refresh methods: Manual refresh allows users to update data on-demand, Scheduled refresh enables automatic updates up to 48 times per day (Premium) or 8 times (Pro), DirectQuery maintains live connections to data sources, Incremental refresh updates only recent data reducing refresh time, and Live Connection provides real-time access to Analysis Services models. Each method has specific use cases and limitations based on the data source type, license level, and performance requirements.",
+      "whenToUse": "Use appropriate refresh options based on data freshness requirements, data source type, and Power BI license limitations. Consider scheduled refresh for regular updates, DirectQuery for real-time needs, and incremental refresh for large datasets.",
+      "realWorldContext": "A retail company uses scheduled refresh every 4 hours for sales data, DirectQuery for inventory levels, and incremental refresh for historical transaction data to optimize performance and maintain data currency."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Refresh",
+    "difficulty": "intermediate",
+    "tags": [
+      "data refresh",
+      "scheduled refresh",
+      "DirectQuery",
+      "incremental refresh",
+      "live connection",
+      "data gateway",
+      "dataset management",
+      "performance optimization",
+      "data sources"
+    ],
+    "conceptTriggers": [
+      "data freshness",
+      "automation",
+      "scheduling",
+      "performance",
+      "connectivity"
+    ],
+    "naturalFollowups": [
+      "How do I set up a gateway for on-premises data sources?",
+      "What are the refresh limits for different Power BI licenses?",
+      "How can I monitor refresh history?",
+      "What causes refresh failures?",
+      "How do I implement incremental refresh?",
+      "Can I refresh multiple datasets simultaneously?",
+      "What's the impact of refresh on performance?",
+      "How do I optimize refresh duration?",
+      "What security considerations apply to data refresh?",
+      "How does refresh work with composite models?",
+      "What are the best practices for gateway configuration?",
+      "How do I handle refresh notifications?"
+    ],
+    "relatedQuestions": [
+      "How do I configure the Power BI gateway?",
+      "What is the difference between import and DirectQuery mode?",
+      "How do I optimize Power BI report performance?",
+      "What are Power BI dataset best practices?",
+      "How do I schedule refresh for multiple data sources?",
+      "What is a composite model in Power BI?",
+      "How do I monitor dataset health?",
+      "What are Power BI Premium features?",
+      "How do I implement row-level security?",
+      "What is the Power BI refresh timeout limit?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Configuring too frequent refreshes",
+        "explanation": "Over-scheduling refreshes can impact performance and may hit license limits unnecessarily"
+      },
+      {
+        "mistake": "Not monitoring refresh history",
+        "explanation": "Failing to check refresh status can lead to stale data going unnoticed"
+      },
+      {
+        "mistake": "Incorrect gateway configuration",
+        "explanation": "Improper gateway setup can cause refresh failures for on-premises data sources"
+      },
+      {
+        "mistake": "Not considering data source limitations",
+        "explanation": "Some data sources have specific refresh requirements or limitations that must be accounted for"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-9-major-components": {
+    "primaryQuestion": "What are the major components of Power BI?",
+    "alternativeQuestions": [
+      "Can you list the main elements of the Power BI ecosystem?",
+      "What are the key building blocks of Power BI?",
+      "Which components make up the Power BI suite?",
+      "How is Power BI structured in terms of its main components?",
+      "What are the essential parts of Power BI architecture?",
+      "Explain the different tools included in Power BI",
+      "What are the fundamental elements of Power BI?",
+      "How does Power BI organize its various components?",
+      "What are the core services and applications in Power BI?",
+      "Break down the main parts of Power BI platform",
+      "What comprises the Power BI technology stack?",
+      "Which tools and services are included in Power BI?",
+      "Describe the primary components of Power BI suite",
+      "What are the major modules in Power BI?",
+      "List the main applications and services in Power BI"
+    ],
+    "answerDescriptions": [
+      "Power BI Desktop is the primary authoring tool for creating reports and data models",
+      "Power BI Service is the cloud-based platform for sharing and collaborating",
+      "Power BI Mobile apps enable access to reports on mobile devices",
+      "Power BI Report Server allows on-premises report hosting",
+      "Power BI Dataflows facilitate data preparation and reuse"
+    ],
+    "answer": {
+      "summary": "Power BI consists of three main components: Power BI Desktop for creation, Power BI Service for sharing, and Power BI Mobile for on-the-go access.",
+      "detailed": "Power BI is a comprehensive business intelligence suite that comprises several interconnected components. The primary components include Power BI Desktop (a Windows application for creating reports and data models), Power BI Service (a cloud-based SaaS service for publishing and sharing content), Power BI Mobile (apps for accessing reports on mobile devices), Power BI Report Server (for on-premises reporting), and Power BI Dataflows (for data preparation and reuse). These components work together to provide a complete BI solution from data connection and transformation to visualization and sharing.",
+      "whenToUse": "Use Power BI when you need to create interactive data visualizations, share business insights across an organization, or build automated reporting solutions.",
+      "realWorldContext": "A retail company uses Power BI Desktop to create sales reports, publishes them to Power BI Service for department access, and executives monitor KPIs through Power BI Mobile."
+    },
+    "category": "Power BI",
+    "subcategory": "Architecture",
+    "difficulty": "beginner",
+    "tags": [
+      "power bi components",
+      "business intelligence",
+      "data visualization",
+      "reporting",
+      "power bi desktop",
+      "power bi service",
+      "power bi mobile",
+      "dataflows",
+      "report server",
+      "bi architecture"
+    ],
+    "conceptTriggers": [
+      "data visualization needs",
+      "report sharing requirements",
+      "mobile access necessity",
+      "on-premises deployment",
+      "data preparation workflows"
+    ],
+    "naturalFollowups": [
+      "How do I install Power BI Desktop?",
+      "What's the difference between Free and Pro Power BI Service?",
+      "How do I publish reports to Power BI Service?",
+      "Can I use Power BI Report Server without Premium?",
+      "How do Power BI Dataflows work?",
+      "What are the system requirements for Power BI Desktop?",
+      "How do I share reports with external users?",
+      "What's the difference between Reports and Dashboards?",
+      "How do I set up Power BI Mobile?",
+      "What are Power BI Apps?",
+      "How do I connect to different data sources?",
+      "What are the licensing options for Power BI?"
+    ],
+    "relatedQuestions": [
+      "What is Power BI Premium?",
+      "How do I create my first Power BI report?",
+      "What are Power BI workspaces?",
+      "How does Power BI Gateway work?",
+      "What are Power BI custom visuals?",
+      "How do I schedule report refreshes?",
+      "What is Power BI embedding?",
+      "How do I manage Power BI security?",
+      "What are Power BI templates?",
+      "How do I create calculated columns?",
+      "What are Power BI dashboard tiles?",
+      "How do I share Power BI reports?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing Power BI Pro with Premium",
+        "explanation": "Users often mix up Pro (per-user licensing) with Premium (capacity-based licensing) features and capabilities."
+      },
+      {
+        "mistake": "Assuming all components are free",
+        "explanation": "While Power BI Desktop is free, many features in Power BI Service require a Pro or Premium license."
+      },
+      {
+        "mistake": "Overlooking Power BI Report Server requirements",
+        "explanation": "Users don't realize that Power BI Report Server requires either SQL Server Enterprise with SA or Power BI Premium."
+      },
+      {
+        "mistake": "Ignoring mobile optimization",
+        "explanation": "Many users create reports without considering mobile viewing, leading to poor user experience on Power BI Mobile."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-10-dashboard-overview": {
+    "primaryQuestion": "What is a Power BI dashboard and how does it differ from reports?",
+    "alternativeQuestions": [
+      "Can you explain the concept of dashboards in Power BI?",
+      "What are the main features of a Power BI dashboard?",
+      "How do I create and use dashboards in Power BI?",
+      "What's the purpose of Power BI dashboards?",
+      "What is the difference between a Power BI dashboard and a report?",
+      "How do I pin visualizations to a Power BI dashboard?",
+      "What are the limitations of Power BI dashboards?",
+      "Can you share Power BI dashboards with others?",
+      "How do I customize a Power BI dashboard?",
+      "What makes a Power BI dashboard effective?",
+      "How often do Power BI dashboards refresh?",
+      "What types of visualizations can I add to a dashboard?",
+      "How do I organize tiles on a Power BI dashboard?",
+      "What security features are available for Power BI dashboards?",
+      "How do I monitor dashboard performance in Power BI?"
+    ],
+    "answerDescriptions": [
+      "A single-page canvas that displays key metrics and insights through visualizations",
+      "Contains pinned tiles from various reports and datasets",
+      "Provides real-time monitoring and at-a-glance business status",
+      "Supports interactive features like drill-through and filtering",
+      "Enables sharing and collaboration across organization"
+    ],
+    "answer": {
+      "summary": "A Power BI dashboard is a single-page interface that displays curated visualizations and metrics from one or multiple reports and datasets.",
+      "detailed": "A Power BI dashboard serves as a high-level overview of your organization's metrics and KPIs. It's a collection of tiles pinned from various reports, each displaying key visualizations, metrics, or snippets of reports that provide quick insights into your data. Dashboards are interactive, allowing users to click on tiles to explore underlying reports, and can be customized with different layouts, sizes, and arrangements. Unlike reports, dashboards provide a consolidated view of different data sources and can be shared across the organization to maintain a single source of truth.",
+      "whenToUse": "Use dashboards when you need to monitor critical business metrics at a glance, share insights across teams, or create a centralized view of different data sources.",
+      "realWorldContext": "A sales director uses a Power BI dashboard to monitor daily sales performance, regional trends, and team metrics all in one view, enabling quick decision-making and performance tracking."
+    },
+    "category": "Power BI",
+    "subcategory": "Visualization",
+    "difficulty": "beginner",
+    "tags": [
+      "dashboard",
+      "visualization",
+      "reporting",
+      "business intelligence",
+      "data analysis",
+      "metrics",
+      "KPI",
+      "monitoring",
+      "analytics",
+      "business metrics"
+    ],
+    "conceptTriggers": [
+      "data visualization",
+      "metrics monitoring",
+      "report pinning",
+      "tile management",
+      "dashboard sharing"
+    ],
+    "naturalFollowups": [
+      "How do I create a new dashboard?",
+      "How can I pin items to a dashboard?",
+      "What's the best way to organize dashboard tiles?",
+      "How do I share a dashboard with colleagues?",
+      "Can I export a dashboard to PDF?",
+      "How do I set up real-time dashboard updates?",
+      "What are dashboard tiles?",
+      "How do I add custom visuals to a dashboard?",
+      "Can I embed a dashboard in SharePoint?",
+      "How do I set up mobile view for dashboards?"
+    ],
+    "relatedQuestions": [
+      "What is a Power BI report?",
+      "How do I create custom visualizations?",
+      "What are Power BI workspaces?",
+      "How does Power BI refresh work?",
+      "What is a Power BI dataset?",
+      "How do I implement row-level security?",
+      "What are Power BI apps?",
+      "How do I publish to Power BI service?",
+      "What is Power BI Premium?",
+      "How do I create calculated measures?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing dashboards with reports",
+        "explanation": "Dashboards are single-page overviews while reports can be multi-page and more detailed"
+      },
+      {
+        "mistake": "Overcrowding dashboards",
+        "explanation": "Adding too many tiles makes dashboards difficult to read and understand"
+      },
+      {
+        "mistake": "Ignoring mobile layout",
+        "explanation": "Not optimizing dashboard layout for mobile viewing limits accessibility"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-building-blocks": {
+    "primaryQuestion": "What are the core building blocks of Power BI?",
+    "alternativeQuestions": [
+      "What are the main components that make up Power BI?",
+      "Can you explain the fundamental elements of Power BI?",
+      "What are the essential parts of a Power BI solution?",
+      "How is Power BI structured in terms of its basic components?",
+      "What are the key architectural components of Power BI?",
+      "Which elements form the foundation of Power BI analytics?",
+      "What are the primary building blocks used in Power BI development?",
+      "How does Power BI organize its main components?",
+      "What are the basic structural elements of Power BI reports?",
+      "Can you list the major components of Power BI architecture?",
+      "What constitutes a complete Power BI solution?",
+      "What are the fundamental pieces of Power BI development?",
+      "How is a Power BI project typically structured?",
+      "What components do you need to create a Power BI solution?",
+      "Which elements are essential for Power BI reporting?"
+    ],
+    "answerDescriptions": [
+      "Power BI Desktop is the primary authoring tool for creating reports and data models",
+      "Power BI Service is the cloud-based platform for sharing and collaborating",
+      "Data sources and connections form the foundation for data acquisition",
+      "DAX (Data Analysis Expressions) is the formula language for calculations",
+      "Visualizations and reports are the presentation layer for data insights"
+    ],
+    "answer": {
+      "summary": "Power BI consists of five main building blocks: Power BI Desktop, Power BI Service, Data Sources, DAX, and Visualizations.",
+      "detailed": "Power BI's architecture is built on interconnected components that work together to deliver business intelligence solutions. The foundation starts with various data sources that connect to Power BI Desktop, where data modeling and transformation occur. The Power BI Service (cloud) enables sharing and collaboration, while DAX provides the analytical capabilities. These components are brought together through interactive visualizations and dashboards that end users can consume and interact with. The mobile apps extend this functionality to various devices, while dataflows and datasets provide reusable data assets across the organization.",
+      "whenToUse": "Use this understanding of Power BI building blocks when planning BI projects, architecting solutions, or determining which components are needed for specific business requirements.",
+      "realWorldContext": "A retail company uses Power BI Desktop to connect to their sales database, transforms data using Power Query, creates calculations with DAX, builds interactive reports, and shares them via Power BI Service to store managers."
+    },
+    "category": "Power BI",
+    "subcategory": "Architecture",
+    "difficulty": "beginner",
+    "tags": [
+      "power-bi-desktop",
+      "power-bi-service",
+      "data-modeling",
+      "dax",
+      "visualizations",
+      "architecture",
+      "data-sources",
+      "reporting",
+      "business-intelligence",
+      "analytics"
+    ],
+    "conceptTriggers": [
+      "data visualization needs",
+      "business reporting requirements",
+      "data analysis projects",
+      "bi solution architecture",
+      "enterprise analytics planning"
+    ],
+    "naturalFollowups": [
+      "How do I install Power BI Desktop?",
+      "What's the difference between Power BI Desktop and Service?",
+      "How do I connect to different data sources in Power BI?",
+      "What types of visualizations are available in Power BI?",
+      "How do I write DAX formulas in Power BI?",
+      "What are Power BI dataflows?",
+      "How do I share reports in Power BI Service?",
+      "What are Power BI workspaces?",
+      "How do I schedule report refreshes in Power BI?",
+      "What licensing is required for Power BI?",
+      "How do I create calculated columns in Power BI?",
+      "What's the difference between measures and calculated columns?"
+    ],
+    "relatedQuestions": [
+      "How do I create my first Power BI report?",
+      "What are the best practices for Power BI development?",
+      "How do I optimize Power BI performance?",
+      "What's the difference between imported and DirectQuery data?",
+      "How do I implement row-level security in Power BI?",
+      "What are Power BI templates?",
+      "How do I create and use parameters in Power BI?",
+      "What are the different Power BI licensing options?",
+      "How do I embed Power BI reports in other applications?",
+      "What are Power BI paginated reports?",
+      "How do I create drill-through reports in Power BI?",
+      "What are the best practices for DAX formulas?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing Power BI Desktop and Power BI Service roles",
+        "explanation": "Users often don't understand that Desktop is for creation and Service is for sharing and consumption."
+      },
+      {
+        "mistake": "Importing data when DirectQuery would be more appropriate",
+        "explanation": "Not considering data volume and refresh requirements when choosing connection methods."
+      },
+      {
+        "mistake": "Neglecting proper data modeling",
+        "explanation": "Jumping straight to visualization without establishing proper data relationships and hierarchies."
+      },
+      {
+        "mistake": "Underutilizing DAX capabilities",
+        "explanation": "Relying too heavily on basic calculations instead of leveraging DAX's advanced analytical functions."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-content-packs-overview": {
+    "primaryQuestion": "What are content packs in Power BI?",
+    "alternativeQuestions": [
+      "How do content packs work in Power BI?",
+      "What is the purpose of Power BI content packs?",
+      "Can you explain Power BI content pack functionality?",
+      "What are the benefits of using content packs in Power BI?",
+      "How do I create and share content packs in Power BI?",
+      "What's the difference between organizational and service content packs?",
+      "How do I deploy content packs in Power BI?",
+      "Are content packs still supported in Power BI?",
+      "What are the alternatives to content packs in Power BI?",
+      "How do I manage content pack permissions in Power BI?",
+      "What types of content can be included in a Power BI content pack?",
+      "Can I modify a Power BI content pack after deployment?",
+      "How do content packs help with Power BI distribution?",
+      "What are the limitations of Power BI content packs?",
+      "How do I update a Power BI content pack?"
+    ],
+    "answerDescriptions": [
+      "Pre-built collections of dashboards, reports, and datasets for specific services or scenarios",
+      "Enable standardized distribution of Power BI content across organizations",
+      "Provide quick start templates for common business scenarios and applications",
+      "Allow centralized management and updates of shared Power BI content",
+      "Facilitate consistent reporting and analytics across teams"
+    ],
+    "answer": {
+      "summary": "Content packs are pre-configured solutions in Power BI that bundle dashboards, reports, datasets, and data connections for specific services or business needs.",
+      "detailed": "Content packs are curated packages of Power BI assets that combine related dashboards, reports, datasets, and data connections into a single distributable unit. They serve two main purposes: service content packs provide pre-built solutions for popular services like Salesforce or Google Analytics, while organizational content packs enable businesses to create and distribute standardized reporting solutions internally. Content packs simplify deployment, ensure consistency, and reduce the time needed to set up Power BI solutions across an organization.",
+      "whenToUse": "Use content packs when you need to distribute standardized Power BI solutions across your organization or when you want to quickly connect to and analyze data from popular services.",
+      "realWorldContext": "A marketing team creates a content pack containing campaign performance dashboards and reports, which can be easily shared with regional marketing teams for consistent campaign tracking."
+    },
+    "category": "Power BI",
+    "subcategory": "Content Distribution",
+    "difficulty": "intermediate",
+    "tags": [
+      "content packs",
+      "distribution",
+      "sharing",
+      "templates",
+      "organizational content",
+      "service content",
+      "deployment",
+      "collaboration",
+      "dashboards",
+      "reports"
+    ],
+    "conceptTriggers": [
+      "content distribution",
+      "template creation",
+      "standardization",
+      "sharing permissions",
+      "version control"
+    ],
+    "naturalFollowups": [
+      "How do I create an organizational content pack?",
+      "What's the difference between content packs and apps?",
+      "How do I update a deployed content pack?",
+      "What permissions are needed for content pack creation?",
+      "Can I restrict access to specific content pack elements?",
+      "How do I manage content pack versions?",
+      "What happens when a content pack is modified?",
+      "How do I remove a content pack?",
+      "Can I customize a service content pack?",
+      "How do content packs handle data refresh?"
+    ],
+    "relatedQuestions": [
+      "What are Power BI apps?",
+      "How do I share dashboards in Power BI?",
+      "What is Power BI Premium?",
+      "How do I manage workspace access?",
+      "What are dataset permissions in Power BI?",
+      "How do I create report templates?",
+      "What is Power BI deployment pipeline?",
+      "How do I manage Power BI governance?",
+      "What are Power BI workspaces?",
+      "How do I implement row-level security?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing content packs with Power BI apps",
+        "explanation": "Content packs are being deprecated in favor of Power BI apps, which offer better lifecycle management and updating capabilities."
+      },
+      {
+        "mistake": "Not planning content pack updates",
+        "explanation": "Changes to original content don't automatically update in distributed content packs, requiring careful version management."
+      },
+      {
+        "mistake": "Overlooking permission requirements",
+        "explanation": "Users need appropriate permissions both to access the content pack and its underlying data sources."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-versions-and-editions": {
+    "primaryQuestion": "What are the various Power BI versions and editions available?",
+    "alternativeQuestions": [
+      "What different versions of Power BI does Microsoft offer?",
+      "How do Power BI Desktop and Power BI Service differ?",
+      "What are the licensing options available for Power BI?",
+      "Can you explain the different Power BI subscription tiers?",
+      "What's the difference between Power BI Pro and Premium?",
+      "How does Power BI Free compare to paid versions?",
+      "What features are available in different Power BI editions?",
+      "Which Power BI version should I choose for my organization?",
+      "What are the limitations of Power BI Desktop vs Service?",
+      "How do Power BI Report Server and Service compare?",
+      "What's included in Power BI Premium capacity?",
+      "What are the enterprise features of Power BI Premium?",
+      "How does Power BI Premium Per User differ from Premium capacity?",
+      "What licensing model should I choose for Power BI?",
+      "What are the cost differences between Power BI versions?"
+    ],
+    "answerDescriptions": [
+      "Power BI Desktop is a free Windows application for report creation and development",
+      "Power BI Service (Cloud) comes in Free, Pro, and Premium tiers with different capabilities",
+      "Power BI Report Server is for on-premises reporting with Premium licensing",
+      "Power BI Mobile apps are free companions for iOS and Android devices",
+      "Power BI Embedded is for integrating analytics into custom applications"
+    ],
+    "answer": {
+      "summary": "Power BI comes in multiple versions including Desktop, Service (Free/Pro/Premium), Report Server, Mobile, and Embedded, each serving different business needs and use cases.",
+      "detailed": "Microsoft Power BI is available in several editions designed to meet various organizational needs and deployment scenarios. The main versions include Power BI Desktop (free Windows application for report creation), Power BI Service (cloud-based platform with Free, Pro, and Premium tiers), Power BI Report Server (on-premises solution), Power BI Mobile (iOS/Android apps), and Power BI Embedded (for application integration). Each version offers different features, pricing models, and sharing capabilities, with Premium providing the highest level of functionality including dedicated capacity, larger data models, and advanced AI features.",
+      "whenToUse": "Choose between versions based on your organization's needs for data volume, sharing requirements, security policies, budget constraints, and whether you need cloud or on-premises deployment.",
+      "realWorldContext": "A large enterprise might use Power BI Premium for its marketing department to handle large datasets and share reports company-wide, while maintaining Power BI Pro licenses for finance team analysts who create departmental reports."
+    },
+    "category": "Power BI",
+    "subcategory": "Licensing and Versions",
+    "difficulty": "beginner",
+    "tags": [
+      "power-bi-desktop",
+      "power-bi-service",
+      "power-bi-premium",
+      "power-bi-pro",
+      "licensing",
+      "report-server",
+      "cloud-deployment",
+      "on-premises",
+      "mobile-bi",
+      "enterprise-bi"
+    ],
+    "conceptTriggers": [
+      "licensing options",
+      "deployment models",
+      "sharing capabilities",
+      "data capacity limits",
+      "cost considerations"
+    ],
+    "naturalFollowups": [
+      "How much does each Power BI version cost?",
+      "What are the data limits for each version?",
+      "Can I mix different Power BI licenses in my organization?",
+      "How do I upgrade from Free to Pro?",
+      "What features are exclusive to Premium?",
+      "Is Power BI Report Server included with SQL Server?",
+      "Can I use Power BI Desktop without Service?",
+      "How does row-level security work in different versions?",
+      "What are the sharing limitations in Power BI Free?",
+      "How do I set up Power BI Embedded?"
+    ],
+    "relatedQuestions": [
+      "How do I install Power BI Desktop?",
+      "What's the difference between shared and dedicated capacity?",
+      "How do I publish reports to Power BI Service?",
+      "What are Power BI workspace limitations?",
+      "How does Power BI Gateway work?",
+      "What is a Power BI Premium capacity node?",
+      "Can I use Power BI Report Server with Azure?",
+      "How do I set up row-level security?",
+      "What are Power BI apps?",
+      "How do I share reports across organizations?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming Power BI Desktop is the same as Power BI Free",
+        "explanation": "Power BI Desktop is a development tool, while Free is a Service tier with limited sharing capabilities."
+      },
+      {
+        "mistake": "Thinking Premium Per User is the same as Premium Capacity",
+        "explanation": "Premium Per User is a user-based license, while Premium Capacity provides dedicated resources for the entire organization."
+      },
+      {
+        "mistake": "Using Free version for business deployments",
+        "explanation": "Free version has severe limitations on sharing and collaboration, making it unsuitable for most business scenarios."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-dax-fundamentals": {
+    "primaryQuestion": "What is DAX (Data Analysis Expressions) in Power BI?",
+    "alternativeQuestions": [
+      "Can you explain the basics of DAX in Power BI?",
+      "What is the purpose of DAX language in Power BI?",
+      "How does DAX work in Power BI analytics?",
+      "Why do we need DAX in Power BI development?",
+      "What are the core concepts of DAX in Power BI?",
+      "How is DAX different from Excel formulas?",
+      "What can you do with DAX in Power BI?",
+      "Is DAX essential for Power BI development?",
+      "What are the main components of DAX language?",
+      "How do you write DAX expressions in Power BI?",
+      "What is the role of DAX in data modeling?",
+      "When should you use DAX in Power BI?",
+      "What are DAX calculations in Power BI?",
+      "How does DAX handle data relationships?",
+      "What are the benefits of using DAX in Power BI?"
+    ],
+    "answerDescriptions": [
+      "DAX is a formula language designed for data analysis in Power BI",
+      "Used for creating calculated columns, measures, and tables",
+      "Supports complex calculations and data modeling operations",
+      "Provides context-aware calculations with filter and row context",
+      "Enables time intelligence and relationship-based calculations"
+    ],
+    "answer": {
+      "summary": "DAX is Microsoft's Data Analysis Expressions language, specifically designed for data modeling and calculations in Power BI and other Microsoft BI tools.",
+      "detailed": "DAX (Data Analysis Expressions) is a formula language optimized for business intelligence calculations and data modeling. It includes a library of over 200 functions, operators, and constructs that enable users to create formulas and expressions in Power BI. DAX operates on tables and columns in your data model, allowing you to define custom calculations for Calculated Columns, Measures, and Calculated Tables. The language is context-aware, meaning calculations automatically adjust based on user interactions with reports, making it powerful for dynamic analytics.",
+      "whenToUse": "Use DAX when you need to create custom calculations, aggregate data, implement time intelligence, or perform complex analytical operations in Power BI that go beyond basic data transformations.",
+      "realWorldContext": "A retail company uses DAX to calculate year-over-year sales growth, running totals, and customer segmentation metrics across multiple store locations."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Modeling",
+    "difficulty": "intermediate",
+    "tags": [
+      "DAX",
+      "calculations",
+      "formulas",
+      "measures",
+      "calculated columns",
+      "data modeling",
+      "business intelligence",
+      "analytics",
+      "expressions",
+      "functions"
+    ],
+    "conceptTriggers": [
+      "calculated columns",
+      "measures",
+      "filter context",
+      "row context",
+      "time intelligence"
+    ],
+    "naturalFollowups": [
+      "What is the difference between calculated columns and measures?",
+      "How do you create a basic DAX measure?",
+      "What is filter context in DAX?",
+      "How do you implement time intelligence in DAX?",
+      "What are the most common DAX functions?",
+      "How do you handle relationships in DAX?",
+      "What is the CALCULATE function in DAX?",
+      "How do you debug DAX formulas?",
+      "What are DAX best practices?",
+      "How do you optimize DAX performance?"
+    ],
+    "relatedQuestions": [
+      "How do you create calculated tables in Power BI?",
+      "What are Power BI relationships?",
+      "How do you implement row-level security?",
+      "What is a star schema in Power BI?",
+      "How do you optimize Power BI performance?",
+      "What are Power BI best practices?",
+      "How do you handle date tables in Power BI?",
+      "What is the difference between Power Query and DAX?",
+      "How do you create dynamic measures?",
+      "What are DAX variables?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing calculated columns with measures",
+        "explanation": "Users often create calculated columns when measures would be more appropriate, leading to performance issues and inflated model size."
+      },
+      {
+        "mistake": "Ignoring filter context",
+        "explanation": "Not understanding how filter context affects calculations leads to incorrect results in DAX formulas."
+      },
+      {
+        "mistake": "Complex nested calculations",
+        "explanation": "Writing overly complex nested calculations instead of breaking them down into smaller, manageable steps using variables."
+      },
+      {
+        "mistake": "Incorrect time intelligence calculations",
+        "explanation": "Not properly setting up date tables or using inappropriate time intelligence functions for temporal analysis."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-15",
+    "verified": false
+  },
+  "power-bi-dax-function-purpose": {
+    "primaryQuestion": "What are the purpose and benefits of using DAX functions in Power BI?",
+    "alternativeQuestions": [
+      "Why should I learn DAX for Power BI development?",
+      "What makes DAX functions essential in Power BI analysis?",
+      "How do DAX functions enhance Power BI calculations?",
+      "What are the key advantages of using DAX in Power BI reports?",
+      "Can you explain the importance of DAX functions for Power BI modeling?",
+      "What problems do DAX functions solve in Power BI?",
+      "How does DAX improve data analysis in Power BI?",
+      "What capabilities do DAX functions add to Power BI?",
+      "Why is DAX considered crucial for Power BI development?",
+      "What role do DAX functions play in Power BI calculations?",
+      "How does DAX extend Power BI's analytical capabilities?",
+      "What makes DAX different from Excel formulas in Power BI?",
+      "Why is DAX the preferred language for Power BI calculations?",
+      "What business problems can DAX solve in Power BI?",
+      "How does DAX enhance data modeling in Power BI?"
+    ],
+    "answerDescriptions": [
+      "DAX enables creation of custom calculations and data analysis expressions",
+      "Provides time intelligence capabilities for temporal analysis",
+      "Allows complex filtering and row context manipulation",
+      "Supports creation of calculated columns and measures",
+      "Enables advanced relationship handling and data modeling"
+    ],
+    "answer": {
+      "summary": "DAX (Data Analysis Expressions) is a formula language designed for data modeling and calculation in Power BI, enabling complex calculations and data analysis.",
+      "detailed": "DAX is a specialized formula language that extends the capabilities of Power BI by providing advanced calculation and data modeling functionality. It includes a comprehensive set of functions for data analysis, time intelligence, filtering, and aggregations. The language operates on a columnar database structure, allowing for high-performance calculations across large datasets while maintaining relationships between tables. DAX's context transition and evaluation capabilities make it particularly powerful for business intelligence scenarios where complex calculations and data relationships need to be modeled accurately.",
+      "whenToUse": "Use DAX when you need to create calculated columns, measures, custom calculations, time-based analysis, or complex filtering in Power BI reports and data models.",
+      "realWorldContext": "A retail company uses DAX to calculate year-over-year sales growth, rolling averages, and customer segmentation metrics across multiple store locations."
+    },
+    "category": "Power BI",
+    "subcategory": "DAX Functions",
+    "difficulty": "intermediate",
+    "tags": [
+      "DAX",
+      "calculations",
+      "measures",
+      "formulas",
+      "data modeling",
+      "time intelligence",
+      "business intelligence",
+      "analytics",
+      "calculated columns",
+      "Power BI Desktop"
+    ],
+    "conceptTriggers": [
+      "calculated measures",
+      "time intelligence",
+      "filter context",
+      "row context",
+      "aggregations"
+    ],
+    "naturalFollowups": [
+      "What is the difference between calculated columns and measures in DAX?",
+      "How do I create time intelligence calculations in DAX?",
+      "What are context transitions in DAX?",
+      "How do I optimize DAX performance?",
+      "What are the most common DAX functions?",
+      "How does DAX handle relationships between tables?",
+      "What is filter context in DAX?",
+      "How do I create calculated tables using DAX?",
+      "What are best practices for writing DAX formulas?",
+      "How do I debug DAX expressions?"
+    ],
+    "relatedQuestions": [
+      "How do I create calculated columns in Power BI?",
+      "What are the differences between Power BI and Excel formulas?",
+      "How do I implement row-level security using DAX?",
+      "What are the best practices for DAX optimization?",
+      "How do I use CALCULATE function in DAX?",
+      "What is the purpose of FILTER function in DAX?",
+      "How do I create date tables using DAX?",
+      "What are iterator functions in DAX?",
+      "How do I handle blank values in DAX?",
+      "What is the difference between SUMX and SUM in DAX?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing calculated columns with measures",
+        "explanation": "Users often create calculated columns when measures would be more appropriate, impacting model performance and memory usage."
+      },
+      {
+        "mistake": "Incorrect context handling",
+        "explanation": "Not understanding filter and row context leads to incorrect calculations and unexpected results."
+      },
+      {
+        "mistake": "Inefficient DAX formulas",
+        "explanation": "Writing complex nested calculations instead of breaking them down into smaller, manageable measures."
+      },
+      {
+        "mistake": "Ignoring variable usage",
+        "explanation": "Not using variables in complex calculations, leading to repeated evaluations and poor performance."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-16-power-pivot-overview": {
+    "primaryQuestion": "What is Power Pivot and how does it enhance data modeling in Power BI?",
+    "alternativeQuestions": [
+      "Can you explain the role of Power Pivot in Power BI?",
+      "How does Power Pivot differ from regular pivot tables?",
+      "What are the main features of Power Pivot in Power BI?",
+      "Why should I use Power Pivot for data analysis in Power BI?",
+      "How does Power Pivot handle data relationships in Power BI?",
+      "What are the benefits of using Power Pivot for large datasets?",
+      "Can you describe the DAX capabilities in Power Pivot?",
+      "How does Power Pivot integrate with the Power BI data model?",
+      "What are the memory optimization features in Power Pivot?",
+      "How do you create calculated columns using Power Pivot?",
+      "What's the relationship between Power Pivot and xVelocity engine?",
+      "How does Power Pivot handle data compression?",
+      "What are the limitations of Power Pivot in Power BI?",
+      "How do you manage relationships in Power Pivot?",
+      "What's the difference between Power Pivot and Power Query?"
+    ],
+    "answerDescriptions": [
+      "In-memory data modeling engine that enables handling of large datasets",
+      "Supports creation of complex relationships between multiple data sources",
+      "Enables DAX formulas for advanced calculations and data analysis",
+      "Provides data compression and optimization for better performance",
+      "Offers self-service BI capabilities with familiar Excel-like interface"
+    ],
+    "answer": {
+      "summary": "Power Pivot is an in-memory data modeling engine that enables users to create complex data models, establish relationships, and perform advanced calculations using DAX in Power BI.",
+      "detailed": "Power Pivot is Microsoft's data modeling and analysis engine that forms the core of Power BI's analytical capabilities. It allows users to work with large datasets, create relationships between tables, and perform complex calculations using Data Analysis Expressions (DAX). The engine uses column-store technology and data compression to handle millions of rows efficiently, while providing features like calculated columns, measures, and KPIs. Power Pivot enables business users to create sophisticated data models without requiring advanced database knowledge, making it a cornerstone of self-service business intelligence.",
+      "whenToUse": "Use Power Pivot when you need to analyze large datasets, create relationships between multiple tables, perform complex calculations, or need to build a robust data model for reporting and analysis.",
+      "realWorldContext": "A retail company uses Power Pivot to combine sales data from multiple stores, inventory systems, and customer databases, creating a unified data model for sales analysis and forecasting."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Modeling",
+    "difficulty": "intermediate",
+    "tags": [
+      "power-pivot",
+      "data-modeling",
+      "dax",
+      "relationships",
+      "calculated-columns",
+      "measures",
+      "data-analysis",
+      "business-intelligence",
+      "data-compression",
+      "in-memory"
+    ],
+    "conceptTriggers": [
+      "data relationships",
+      "DAX formulas",
+      "calculated columns",
+      "data modeling",
+      "memory optimization"
+    ],
+    "naturalFollowups": [
+      "How do you create relationships in Power Pivot?",
+      "What are the best practices for Power Pivot data modeling?",
+      "How do you write DAX formulas in Power Pivot?",
+      "What's the maximum data size Power Pivot can handle?",
+      "How do you optimize Power Pivot performance?",
+      "Can you use Power Pivot with external data sources?",
+      "How do you create calculated columns in Power Pivot?",
+      "What are the common DAX functions used in Power Pivot?",
+      "How do you handle many-to-many relationships in Power Pivot?",
+      "What's the difference between calculated columns and measures?"
+    ],
+    "relatedQuestions": [
+      "What is DAX in Power BI?",
+      "How do you create calculated measures?",
+      "What are the best practices for data modeling?",
+      "How do you optimize Power BI performance?",
+      "What is Power Query vs Power Pivot?",
+      "How do you handle relationship cardinality?",
+      "What are calculated tables in Power BI?",
+      "How do you implement role-level security?",
+      "What are implicit and explicit measures?",
+      "How do you handle slowly changing dimensions?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Creating too many calculated columns instead of measures",
+        "explanation": "Calculated columns consume memory and increase file size, while measures are calculated on-the-fly and are more efficient."
+      },
+      {
+        "mistake": "Ignoring proper relationship cardinality",
+        "explanation": "Incorrect relationship settings can lead to wrong calculations and poor performance in the data model."
+      },
+      {
+        "mistake": "Not properly normalizing the data model",
+        "explanation": "Denormalized tables can lead to data redundancy and increased file size, impacting performance."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-query-transform-data": {
+    "primaryQuestion": "What is Power Query and how is it used in Power BI?",
+    "alternativeQuestions": [
+      "How does Power Query work in Power BI?",
+      "What are the main features of Power Query Editor in Power BI?",
+      "How do you use Power Query for data transformation in Power BI?",
+      "What is the role of Power Query in ETL processes?",
+      "Can you explain M language in Power Query?",
+      "How do you clean data using Power Query?",
+      "What are the benefits of using Power Query in Power BI?",
+      "How do you merge tables using Power Query?",
+      "What is Query Editor in Power BI?",
+      "How do you create custom columns in Power Query?",
+      "What are Power Query steps?",
+      "How do you refresh data in Power Query?",
+      "What's the difference between Power Query and DAX?",
+      "How do you filter data in Power Query?",
+      "When should you use Power Query vs DAX in Power BI?"
+    ],
+    "answerDescriptions": [
+      "ETL tool for data transformation and cleaning in Power BI",
+      "Uses M language for query formulation and data manipulation",
+      "Provides visual interface for data preparation steps",
+      "Supports multiple data source connections and combinations",
+      "Enables creation of repeatable data transformation workflows"
+    ],
+    "answer": {
+      "summary": "Power Query is Microsoft's data preparation and transformation engine integrated into Power BI for ETL operations.",
+      "detailed": "Power Query is a data transformation and preparation engine that enables users to discover, connect, combine, and refine data sources to meet their analysis needs. It provides a user-friendly interface for ETL (Extract, Transform, Load) operations, using the M formula language behind the scenes. Users can perform operations like filtering, combining tables, removing duplicates, and creating custom calculations through both visual interfaces and advanced formula editing. Each transformation step is recorded and can be modified, creating a repeatable process that automatically updates when data is refreshed.",
+      "whenToUse": "Use Power Query when you need to clean, reshape, or combine data from various sources before analysis in Power BI, especially for recurring data preparation tasks.",
+      "realWorldContext": "A financial analyst uses Power Query to combine monthly sales data from multiple regional Excel files, clean the data, and standardize currency formats before creating Power BI reports."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Preparation",
+    "difficulty": "intermediate",
+    "tags": [
+      "power query",
+      "etl",
+      "data transformation",
+      "m language",
+      "query editor",
+      "data cleaning",
+      "data preparation",
+      "data modeling",
+      "data sources",
+      "power bi desktop"
+    ],
+    "conceptTriggers": [
+      "data transformation",
+      "etl process",
+      "m formula language",
+      "query steps",
+      "data sources"
+    ],
+    "naturalFollowups": [
+      "How do I create custom columns in Power Query?",
+      "What are the most common Power Query transformations?",
+      "How do I merge multiple tables in Power Query?",
+      "What's the difference between Power Query and DAX?",
+      "How do I handle errors in Power Query?",
+      "Can I reuse Power Query steps across different files?",
+      "How do I optimize Power Query performance?",
+      "What are the best practices for Power Query?",
+      "How do I schedule Power Query refreshes?",
+      "What are the limitations of Power Query?"
+    ],
+    "relatedQuestions": [
+      "How do you connect to different data sources in Power BI?",
+      "What is data modeling in Power BI?",
+      "How do you create calculated columns?",
+      "What is the difference between Power Query and Power Pivot?",
+      "How do you handle data type changes in Power Query?",
+      "What are query dependencies in Power BI?",
+      "How do you implement incremental refresh?",
+      "What is query folding in Power Query?",
+      "How do you debug Power Query formulas?",
+      "What are parameter queries in Power BI?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using Power Query instead of DAX for calculations that should be done at the reporting layer",
+        "explanation": "Power Query should be used for data transformation, while DAX should be used for analytical calculations and measures."
+      },
+      {
+        "mistake": "Not using query folding when working with large datasets",
+        "explanation": "Query folding pushes transformations back to the source database, improving performance significantly."
+      },
+      {
+        "mistake": "Creating too many steps instead of combining transformations",
+        "explanation": "Too many separate steps can make queries harder to maintain and slower to execute."
+      },
+      {
+        "mistake": "Not documenting Power Query steps properly",
+        "explanation": "Lack of documentation makes it difficult for others to understand and maintain the queries."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-vs-tableau-comparison": {
+    "primaryQuestion": "What are the key differences between Power BI and Tableau?",
+    "alternativeQuestions": [
+      "How does Power BI compare to Tableau for business intelligence?",
+      "Which is better for data visualization: Power BI or Tableau?",
+      "What are the pros and cons of Power BI versus Tableau?",
+      "How do the pricing models differ between Power BI and Tableau?",
+      "What are the main feature differences between Power BI and Tableau?",
+      "Which tool is more suitable for enterprise analytics: Power BI or Tableau?",
+      "How do Power BI and Tableau compare in terms of ease of use?",
+      "What are the learning curves for Power BI versus Tableau?",
+      "How do data connectivity options differ between Power BI and Tableau?",
+      "Which visualization tool offers better integration with Microsoft products?",
+      "How do Power BI and Tableau compare in terms of mobile capabilities?",
+      "What are the deployment options for Power BI versus Tableau?",
+      "How do reporting capabilities differ between Power BI and Tableau?",
+      "Which tool offers better data modeling capabilities: Power BI or Tableau?",
+      "What are the collaboration features in Power BI compared to Tableau?"
+    ],
+    "answerDescriptions": [
+      "Power BI offers tighter Microsoft ecosystem integration and lower cost",
+      "Tableau provides more advanced visualization capabilities and flexibility",
+      "Power BI has better DAX formula language and Excel-like functionality",
+      "Tableau offers superior data blending and real-time analytics",
+      "Power BI provides better value for small to medium businesses"
+    ],
+    "answer": {
+      "summary": "Power BI and Tableau differ primarily in pricing, integration capabilities, and visualization flexibility, with Power BI offering better Microsoft integration and cost-effectiveness while Tableau provides more advanced customization options.",
+      "detailed": "Power BI and Tableau are leading business intelligence tools with distinct characteristics. Power BI excels in Microsoft ecosystem integration, offers more affordable pricing (especially with Office 365 subscriptions), and provides familiar Excel-like functionality with DAX formulas. It features robust data modeling capabilities and AI-powered analytics. Tableau, while more expensive, offers superior data visualization flexibility, better handling of large data sets, and more advanced customization options. It has stronger data blending capabilities and performs better with real-time analytics. Power BI is typically better suited for Microsoft-centric organizations and smaller businesses, while Tableau is often preferred by larger enterprises requiring more sophisticated visualizations and data handling capabilities.",
+      "whenToUse": "Choose Power BI when working in a Microsoft-centric environment, requiring cost-effective solutions, or needing quick deployment. Select Tableau when advanced visualization customization, sophisticated data blending, or enterprise-scale analytics are primary requirements.",
+      "realWorldContext": "A retail company might choose Power BI for its seamless integration with existing Microsoft systems and cost-effective department-wide deployment, while a large financial institution might opt for Tableau for its advanced custom visualizations and robust real-time data processing capabilities."
+    },
+    "category": "Power BI",
+    "subcategory": "Comparison",
+    "difficulty": "intermediate",
+    "tags": [
+      "business intelligence",
+      "data visualization",
+      "analytics",
+      "reporting",
+      "Microsoft",
+      "DAX",
+      "data modeling",
+      "enterprise analytics",
+      "dashboard creation",
+      "data analysis"
+    ],
+    "conceptTriggers": [
+      "visualization capabilities",
+      "pricing models",
+      "data connectivity",
+      "integration options",
+      "user interface"
+    ],
+    "naturalFollowups": [
+      "What is the pricing structure for Power BI?",
+      "How does Power BI handle real-time data?",
+      "Can Power BI connect to the same data sources as Tableau?",
+      "What are Power BI's mobile capabilities?",
+      "How does Power BI's DAX compare to Tableau's calculations?",
+      "What are the deployment options in Power BI?",
+      "How does Power BI handle large datasets?",
+      "What are Power BI's collaboration features?",
+      "How does Power BI integrate with other Microsoft products?",
+      "What are the licensing options for Power BI?"
+    ],
+    "relatedQuestions": [
+      "How do I create custom visualizations in Power BI?",
+      "What are the best practices for Power BI dashboard design?",
+      "How does Power BI handle data refresh scheduling?",
+      "What are Power BI gateways and when should I use them?",
+      "How do I optimize Power BI report performance?",
+      "What are the security features in Power BI?",
+      "How do I share Power BI reports with external users?",
+      "What are Power BI workspaces and how do they work?",
+      "How do I implement row-level security in Power BI?",
+      "What are the different Power BI license types?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming Power BI is always the cheaper option",
+        "explanation": "While Power BI generally has lower entry costs, total cost of ownership depends on specific requirements and number of users"
+      },
+      {
+        "mistake": "Overlooking data source limitations",
+        "explanation": "Power BI has some limitations on direct query data sources compared to Tableau, which might affect performance for certain use cases"
+      },
+      {
+        "mistake": "Ignoring learning curve differences",
+        "explanation": "Users familiar with Microsoft products may find Power BI easier to learn, while those with programming background might prefer Tableau's flexibility"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-10-get-data-sources": {
+    "primaryQuestion": "What is GetData in Power BI and how is it used?",
+    "alternativeQuestions": [
+      "How do you connect to data sources using GetData in Power BI?",
+      "What are the main features of Power BI's GetData functionality?",
+      "Can you explain the data import process using GetData in Power BI?",
+      "What data sources can I connect to using Power BI GetData?",
+      "How do I use Power BI's GetData to import multiple data sources?",
+      "What is the difference between GetData and Direct Query in Power BI?",
+      "How do I refresh data connections made through GetData in Power BI?",
+      "What are the limitations of GetData in Power BI?",
+      "How do you manage data source credentials in Power BI GetData?",
+      "What is the process of transforming data during GetData import?",
+      "Can you use parameters with GetData in Power BI?",
+      "How do you troubleshoot GetData connection issues in Power BI?",
+      "What are the best practices for using GetData in Power BI?",
+      "How do you schedule data refresh for GetData sources?",
+      "What security considerations should I know about GetData in Power BI?"
+    ],
+    "answerDescriptions": [
+      "GetData is Power BI's primary data connection interface for importing and connecting to various data sources",
+      "Supports connection to databases, files, cloud services, and other data sources through a unified interface",
+      "Allows for data transformation and cleaning during the import process using Power Query Editor",
+      "Enables both import and DirectQuery connection modes for different data sources",
+      "Provides options for scheduling data refresh and managing credentials for connected sources"
+    ],
+    "answer": {
+      "summary": "GetData is Power BI's built-in data connection feature that allows users to import and connect to various data sources while providing options for transformation and refresh.",
+      "detailed": "GetData is Power BI's comprehensive data connection interface that enables users to connect to, import, and transform data from various sources. It provides a unified experience for connecting to databases (SQL Server, Oracle, MySQL), files (Excel, CSV, XML), cloud services (Azure, SharePoint, Salesforce), and other data sources. The interface includes Power Query Editor for data transformation, supports both import and DirectQuery modes, and offers features for credential management and scheduled refreshes. Users can apply transformations, combine multiple data sources, and create data models while maintaining data lineage and refresh capabilities.",
+      "whenToUse": "Use GetData when you need to import data into Power BI from external sources, combine multiple data sources, or transform data before analysis. It's essential for initial data loading and ongoing data refresh processes.",
+      "realWorldContext": "A retail company uses GetData to connect to their SQL Server database for sales data, Excel files for inventory, and Salesforce for customer information, combining all sources into a unified dashboard for business analysis."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Connection",
+    "difficulty": "beginner",
+    "tags": [
+      "data import",
+      "power query",
+      "data sources",
+      "data connection",
+      "ETL",
+      "data transformation",
+      "direct query",
+      "data refresh",
+      "power bi desktop",
+      "data modeling"
+    ],
+    "conceptTriggers": [
+      "data source connection",
+      "import process",
+      "transformation steps",
+      "refresh scheduling",
+      "credentials management"
+    ],
+    "naturalFollowups": [
+      "How do I schedule automatic data refresh?",
+      "What's the difference between Import and DirectQuery?",
+      "How can I combine multiple data sources?",
+      "What are the supported data source types?",
+      "How do I handle data transformation in Power Query?",
+      "What are the best practices for data modeling?",
+      "How do I manage data source credentials?",
+      "What are the limitations of different data sources?",
+      "How can I optimize data refresh performance?",
+      "What security measures should I implement for data sources?"
+    ],
+    "relatedQuestions": [
+      "How does Power Query Editor work in Power BI?",
+      "What is DirectQuery in Power BI?",
+      "How do you create calculated columns in Power BI?",
+      "What are data modeling best practices in Power BI?",
+      "How do you implement row-level security?",
+      "What are Power BI gateway requirements?",
+      "How do you handle incremental refresh in Power BI?",
+      "What are the different types of data connections?",
+      "How do you optimize Power BI report performance?",
+      "What are Power BI dataflow capabilities?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not considering data refresh limitations",
+        "explanation": "Users often don't account for refresh frequency limitations in Power BI Service when setting up data connections."
+      },
+      {
+        "mistake": "Choosing wrong connection mode",
+        "explanation": "Selecting Import mode when DirectQuery would be more appropriate for large datasets or real-time requirements."
+      },
+      {
+        "mistake": "Ignoring data transformation impact",
+        "explanation": "Applying complex transformations without considering their impact on refresh performance and load times."
+      },
+      {
+        "mistake": "Poor credential management",
+        "explanation": "Not properly managing or securing data source credentials, leading to refresh failures and security risks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-28",
+    "verified": false
+  },
+  "power-bi-11-filters-overview": {
+    "primaryQuestion": "What are filters in Power BI?",
+    "alternativeQuestions": [
+      "How do filters work in Power BI reports?",
+      "What are the different types of filters available in Power BI?",
+      "How to implement filtering in Power BI dashboards?",
+      "Can you explain Power BI's filtering hierarchy?",
+      "What's the difference between page-level and report-level filters in Power BI?",
+      "How to create cross-filtering in Power BI?",
+      "What are visual-level filters in Power BI?",
+      "How to use slicers vs filters in Power BI?",
+      "What are relative date filters in Power BI?",
+      "How to apply multiple filters in Power BI?",
+      "What is filter context in Power BI?",
+      "How to create dynamic filters in Power BI?",
+      "What are drill-through filters in Power BI?",
+      "How to use advanced filtering options in Power BI?",
+      "What is the filter pane in Power BI?"
+    ],
+    "answerDescriptions": [
+      "Filters allow users to narrow down data displayed in Power BI reports",
+      "Multiple filter levels exist: visual, page, report, and drillthrough",
+      "Filters can be basic, advanced, relative date, or top N",
+      "Filter context affects DAX calculations and measure results",
+      "Filters can be locked, hidden, or made required in reports"
+    ],
+    "answer": {
+      "summary": "Filters in Power BI are tools that allow users to narrow down and focus on specific data points across different levels of a report.",
+      "detailed": "Filters are interactive controls in Power BI that enable users to limit the data shown in visualizations based on specific criteria. They operate at four distinct levels: visual level (affecting single visualizations), page level (affecting all visuals on a page), report level (affecting all pages), and drillthrough level (affecting drillthrough pages). The filter pane provides a unified interface for managing these filters, supporting basic filtering, advanced filtering, relative date filtering, and top N filtering options. Filters respect row-level security and can be configured to be hidden, locked, or required, providing flexibility in report design and user interaction.",
+      "whenToUse": "Use filters when you need to analyze specific subsets of data, create interactive reports, or implement dynamic data exploration capabilities in Power BI reports.",
+      "realWorldContext": "A sales manager uses report-level filters to focus on specific regions' performance, while page-level filters narrow down to particular product categories, and visual-level filters show top 10 customers."
+    },
+    "category": "Power BI",
+    "subcategory": "Data Analysis",
+    "difficulty": "intermediate",
+    "tags": [
+      "filters",
+      "data analysis",
+      "report design",
+      "visualization",
+      "DAX",
+      "data modeling",
+      "business intelligence",
+      "data exploration",
+      "interactive reports",
+      "slicers"
+    ],
+    "conceptTriggers": [
+      "filter context",
+      "data visualization",
+      "report interactivity",
+      "data slicing",
+      "filter hierarchy"
+    ],
+    "naturalFollowups": [
+      "How do you create cross-filtering relationships?",
+      "What is the difference between filters and slicers?",
+      "How do you implement cascading filters?",
+      "Can you explain filter context in DAX?",
+      "How to optimize filter performance?",
+      "What are bidirectional filters?",
+      "How to create dynamic filter conditions?",
+      "What are the best practices for filter design?",
+      "How to troubleshoot filter issues?",
+      "What are bookmark filters?"
+    ],
+    "relatedQuestions": [
+      "What are slicers in Power BI?",
+      "How to create calculated columns?",
+      "What is DAX filter context?",
+      "How to implement row-level security?",
+      "What are bookmarks in Power BI?",
+      "How to create drill-through pages?",
+      "What is the difference between calculated columns and measures?",
+      "How to optimize Power BI report performance?",
+      "What are hierarchies in Power BI?",
+      "How to create dynamic titles based on filters?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using too many filters on a single page",
+        "explanation": "Excessive filters can confuse users and impact performance. Focus on essential filters that add value to analysis."
+      },
+      {
+        "mistake": "Ignoring filter hierarchy implications",
+        "explanation": "Not understanding how different filter levels interact can lead to unexpected results in visualizations."
+      },
+      {
+        "mistake": "Not testing filter combinations",
+        "explanation": "Failing to test different filter combinations can result in reports that don't handle edge cases properly."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-user-types-and-roles": {
+    "primaryQuestion": "What are the various types of users who can use Power BI?",
+    "alternativeQuestions": [
+      "What are the different Power BI user roles and licenses?",
+      "How do Power BI user types differ from each other?",
+      "What licensing options are available for Power BI users?",
+      "Can you explain the different Power BI user categories?",
+      "What are the main Power BI user access levels?",
+      "How do Power BI Pro and Premium users differ?",
+      "What permissions do different Power BI users have?",
+      "Who can create reports in Power BI?",
+      "What are the collaboration options for different Power BI users?",
+      "How do Power BI Free vs Pro licenses compare?",
+      "What are the enterprise user roles in Power BI?",
+      "Which Power BI license should I choose for my team?",
+      "What are the limitations for different Power BI user types?",
+      "How do Power BI admin roles differ from regular users?",
+      "What are the sharing capabilities of different Power BI users?"
+    ],
+    "answerDescriptions": [
+      "Power BI Free users can access personal dashboards and basic features",
+      "Power BI Pro users have full sharing and collaboration capabilities",
+      "Power BI Premium Per User enables advanced features and dedicated resources",
+      "Power BI Admins manage tenant settings and user permissions",
+      "Power BI Report Server users can access on-premises reporting"
+    ],
+    "answer": {
+      "summary": "Power BI offers different user types including Free, Pro, Premium Per User, and Admin roles, each with distinct capabilities and access levels.",
+      "detailed": "Power BI user types are categorized based on licensing and roles, determining their access to features and content. Free users can create personal content and use basic features, Pro users get full collaboration capabilities and can share content across the organization, Premium Per User provides advanced features and dedicated computing resources, while Admins have tenant-level control. Each license type serves different organizational needs, from individual analysis to enterprise-wide deployment.",
+      "whenToUse": "Choose the appropriate user type based on sharing needs, budget constraints, and required features. Free for personal use, Pro for collaboration, Premium for advanced features.",
+      "realWorldContext": "A marketing team might use Pro licenses for sharing campaign reports, while executives use Premium for accessing sensitive financial dashboards with larger datasets."
+    },
+    "category": "Power BI",
+    "subcategory": "Licensing and Administration",
+    "difficulty": "beginner",
+    "tags": [
+      "power-bi-licensing",
+      "user-roles",
+      "administration",
+      "collaboration",
+      "security",
+      "permissions",
+      "enterprise",
+      "sharing",
+      "workspace-access",
+      "report-distribution"
+    ],
+    "conceptTriggers": [
+      "license management",
+      "user permissions",
+      "content sharing",
+      "workspace access",
+      "administrative control"
+    ],
+    "naturalFollowups": [
+      "How much does each Power BI license type cost?",
+      "What are the limitations of Power BI Free?",
+      "Can I upgrade from Free to Pro?",
+      "How do I assign Power BI admin roles?",
+      "What features are exclusive to Premium?",
+      "How do I manage workspace access?",
+      "Can Free users view shared content?",
+      "What is Power BI Premium capacity?",
+      "How do I set up row-level security?",
+      "What's the difference between Premium Per User and Premium Per Capacity?"
+    ],
+    "relatedQuestions": [
+      "How do I set up Power BI workspace roles?",
+      "What is Power BI Premium capacity?",
+      "How do I share reports across the organization?",
+      "What are Power BI embedding options?",
+      "How do I manage Power BI gateway access?",
+      "What are Power BI workspace access levels?",
+      "How do I implement row-level security?",
+      "What are Power BI capacity admin roles?",
+      "How do I monitor Power BI usage?",
+      "What are Power BI mobile app permissions?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming Free license is sufficient for business use",
+        "explanation": "Free license doesn't allow content sharing or collaboration, making it unsuitable for most business scenarios."
+      },
+      {
+        "mistake": "Confusing Premium Per User with Premium Per Capacity",
+        "explanation": "Premium Per User is individual licensing while Premium Per Capacity is organizational-level dedicated resources."
+      },
+      {
+        "mistake": "Overlooking workspace access requirements",
+        "explanation": "Users need appropriate workspace roles in addition to licenses to access and modify content."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "power-bi-visualization-types": {
+    "primaryQuestion": "What are the types of visualizations available in Power BI?",
+    "alternativeQuestions": [
+      "Which visualization types can I use in Power BI reports?",
+      "What are the different chart types supported in Power BI?",
+      "How many types of visuals does Power BI offer?",
+      "What are the standard visualization options in Power BI Desktop?",
+      "Can you list the built-in visualization types in Power BI?",
+      "What kinds of charts and graphs are available in Power BI?",
+      "Which visual elements can I add to my Power BI dashboard?",
+      "What are the core visualization components in Power BI?",
+      "How do I choose between different Power BI visualization types?",
+      "What visualization categories are available in Power BI?",
+      "Which types of graphs can I create in Power BI reports?",
+      "What are the default visualization options in Power BI?",
+      "How many built-in visuals come with Power BI?",
+      "What are the most common visualization types in Power BI?",
+      "Which visual formats are supported in Power BI?"
+    ],
+    "answerDescriptions": [
+      "Basic charts including bar, column, line, and pie charts for standard data visualization",
+      "Statistical visuals like scatter plots, box plots, and histograms for data analysis",
+      "Maps and geographical visualizations for spatial data representation",
+      "KPI cards and gauges for monitoring business metrics",
+      "Custom visuals from AppSource for specialized visualization needs"
+    ],
+    "answer": {
+      "summary": "Power BI offers a wide range of built-in visualizations from basic charts to advanced custom visuals, allowing users to effectively represent different types of data and insights.",
+      "detailed": "Power BI visualizations are graphical representations of data that help in understanding complex information patterns. The platform includes standard charts (bar, line, pie), statistical visuals (scatter plots, histograms), maps (basic maps, filled maps), gauges and cards (KPI indicators, multi-row cards), tables and matrices, as well as specialized visuals like waterfalls, funnels, and treemaps. Additionally, users can import custom visuals from the AppSource marketplace or create their own using the Power BI SDK.",
+      "whenToUse": "Use different visualization types when you need to present data insights effectively, choosing the appropriate visual based on the type of data and the story you want to tell.",
+      "realWorldContext": "A sales dashboard using bar charts for product performance, maps for regional sales distribution, and KPI cards for tracking monthly targets."
+    },
+    "category": "Power BI",
+    "subcategory": "Visualizations",
+    "difficulty": "beginner",
+    "tags": [
+      "data visualization",
+      "charts",
+      "dashboards",
+      "reporting",
+      "business intelligence",
+      "data analysis",
+      "power bi desktop",
+      "custom visuals",
+      "visual analytics",
+      "business reporting"
+    ],
+    "conceptTriggers": [
+      "data representation",
+      "visual selection",
+      "chart types",
+      "custom visuals",
+      "visualization best practices"
+    ],
+    "naturalFollowups": [
+      "How do I create a custom visual in Power BI?",
+      "What are the best practices for choosing visualizations?",
+      "How can I format visualizations in Power BI?",
+      "Can I import custom visuals from AppSource?",
+      "How do I add interactivity to Power BI visuals?",
+      "What are the limitations of different visual types?",
+      "How do I optimize visual performance?",
+      "Which visuals work best for time-series data?",
+      "How do I create drill-through actions in visuals?",
+      "What are the mobile-friendly visualization options?",
+      "How do I share custom visuals with my team?",
+      "What are the most performance-efficient visuals?"
+    ],
+    "relatedQuestions": [
+      "How do I create interactive dashboards in Power BI?",
+      "What are Power BI custom visuals?",
+      "How do I format visualization properties?",
+      "What is the difference between standard and custom visuals?",
+      "How do I implement drill-through functionality?",
+      "What are visual level filters in Power BI?",
+      "How do I create responsive visualizations?",
+      "What are the best practices for dashboard design?",
+      "How do I optimize visual performance?",
+      "What are visual interactions in Power BI?",
+      "How do I create mobile-friendly visuals?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Choosing inappropriate visualization types for the data",
+        "explanation": "Users often select visuals that don't effectively communicate the data story, like using pie charts for too many categories."
+      },
+      {
+        "mistake": "Overloading visualizations with too much information",
+        "explanation": "Adding too many data points or series to a single visual, making it difficult to interpret."
+      },
+      {
+        "mistake": "Ignoring mobile responsiveness",
+        "explanation": "Not considering how visualizations will appear on different screen sizes and devices."
+      },
+      {
+        "mistake": "Poor color choices and contrast",
+        "explanation": "Using colors that don't work well together or make it difficult to distinguish between data points."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-services-overview": {
+    "primaryQuestion": "What do we understand by Power BI services?",
+    "alternativeQuestions": [
+      "Can you explain what Power BI Service is?",
+      "What is the difference between Power BI Desktop and Power BI Service?",
+      "How does Power BI Service work in the cloud?",
+      "What are the main components of Power BI Service?",
+      "What features are available in Power BI Service?",
+      "How do you access Power BI Service?",
+      "What is the role of Power BI Service in business intelligence?",
+      "Can you describe the cloud capabilities of Power BI Service?",
+      "What are the collaboration features in Power BI Service?",
+      "How does Power BI Service handle report sharing?",
+      "What is the workspace concept in Power BI Service?",
+      "How does Power BI Service manage data refreshes?",
+      "What security features are available in Power BI Service?",
+      "How does Power BI Service integrate with other Microsoft products?",
+      "What are the licensing options for Power BI Service?"
+    ],
+    "answerDescriptions": [
+      "Cloud-based platform for publishing and sharing Power BI reports and dashboards",
+      "Enables collaboration and distribution of business intelligence content",
+      "Provides secure access to data with role-based permissions",
+      "Offers automated data refresh and scheduled updates",
+      "Supports embedding reports in applications and websites"
+    ],
+    "answer": {
+      "summary": "Power BI Service is a cloud-based platform that enables users to publish, share, and collaborate on Power BI reports and dashboards across an organization.",
+      "detailed": "Power BI Service is Microsoft's cloud-based business intelligence platform that provides a centralized location for publishing and sharing Power BI content. It offers features for collaboration, data refresh automation, security management, and report distribution. Users can access reports through web browsers, mobile devices, and embedded applications, making it easier to share insights across the organization. The service integrates seamlessly with Power BI Desktop and other Microsoft products, providing a comprehensive business intelligence solution.",
+      "whenToUse": "Use Power BI Service when you need to share reports across your organization, require cloud-based access to dashboards, or want to implement automated data refresh schedules.",
+      "realWorldContext": "A sales team uses Power BI Service to share daily sales reports with regional managers, who can access the latest data from any device without needing local software installation."
+    },
+    "category": "Power BI",
+    "subcategory": "Cloud Services",
+    "difficulty": "intermediate",
+    "tags": [
+      "power-bi-service",
+      "cloud-computing",
+      "business-intelligence",
+      "data-visualization",
+      "report-sharing",
+      "collaboration",
+      "data-refresh",
+      "security",
+      "workspaces",
+      "dashboards"
+    ],
+    "conceptTriggers": [
+      "cloud deployment",
+      "report sharing",
+      "workspace management",
+      "data refresh",
+      "security roles"
+    ],
+    "naturalFollowups": [
+      "How do I set up a Power BI workspace?",
+      "What are the different types of Power BI licenses?",
+      "How do I schedule data refresh in Power BI Service?",
+      "What is a Power BI Premium capacity?",
+      "How do I share reports in Power BI Service?",
+      "What are Power BI apps?",
+      "How do I set up row-level security?",
+      "Can I embed Power BI reports in other applications?",
+      "How do I create a dashboard in Power BI Service?",
+      "What are the limitations of Power BI Free vs Pro?"
+    ],
+    "relatedQuestions": [
+      "What is Power BI Desktop?",
+      "How do Power BI Gateway connections work?",
+      "What are Power BI Apps and App Workspaces?",
+      "How does Power BI handle data security?",
+      "What is Power BI Premium?",
+      "How do you create Power BI dashboards?",
+      "What are Power BI dataflows?",
+      "How do you manage Power BI capacity?",
+      "What are Power BI templates?",
+      "How does Power BI handle real-time data?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Confusing Power BI Service with Power BI Desktop",
+        "explanation": "Users often mix up the cloud service with the desktop application, not understanding their distinct roles and capabilities."
+      },
+      {
+        "mistake": "Assuming all features are available in free version",
+        "explanation": "Many users don't realize that advanced sharing and collaboration features require Power BI Pro or Premium licenses."
+      },
+      {
+        "mistake": "Neglecting gateway setup for on-premises data",
+        "explanation": "Users forget to configure Power BI Gateway for accessing on-premises data sources, leading to refresh failures."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-15",
+    "verified": false
+  },
+  "power-bi-24-comprehensive-working-system": {
+    "primaryQuestion": "What is the comprehensive working system of Power BI?",
+    "alternativeQuestions": [
+      "How does Power BI work from end to end?",
+      "Can you explain the complete workflow of Power BI?",
+      "What are the main components and how do they work together in Power BI?",
+      "How does data flow through the Power BI ecosystem?",
+      "What is the architecture of Power BI?",
+      "How does Power BI process data from source to visualization?",
+      "What are the key stages in Power BI's data processing pipeline?",
+      "How do different Power BI services interact with each other?",
+      "What is the relationship between Power BI Desktop and Service?",
+      "How does Power BI handle data from ingestion to reporting?",
+      "What are the core elements of Power BI's working system?",
+      "How does Power BI transform raw data into insights?",
+      "What is the data lifecycle in Power BI?",
+      "How do Power BI's components communicate?",
+      "What makes up Power BI's end-to-end solution?"
+    ],
+    "answerDescriptions": [
+      "Power BI consists of three main components: Desktop, Service, and Mobile apps",
+      "Data is extracted from sources, transformed using Power Query, and loaded into data model",
+      "DAX calculations and measures are created to analyze data",
+      "Visualizations and reports are built using the report canvas",
+      "Reports are published to Power BI Service for sharing and collaboration"
+    ],
+    "answer": {
+      "summary": "Power BI operates through a comprehensive system of data collection, transformation, modeling, visualization, and distribution components working together seamlessly.",
+      "detailed": "Power BI's working system is a complete business intelligence ecosystem that processes data through multiple stages. It starts with data connectivity, where Power BI connects to various data sources through native connectors or APIs. The data then goes through Power Query for ETL (Extract, Transform, Load) operations, creating a clean dataset. This cleaned data is loaded into the Vertipaq engine, where the data model is created using relationships and hierarchies. DAX (Data Analysis Expressions) is used for creating calculations and measures. The visualization layer allows creation of interactive reports and dashboards using various charts and visuals. Finally, the Power BI Service enables sharing, collaboration, and consumption of reports across the organization, with features like row-level security, workspace management, and automated refresh schedules.",
+      "whenToUse": "Use Power BI's comprehensive system when you need to create end-to-end business intelligence solutions, from data collection to visualization and distribution across an organization.",
+      "realWorldContext": "A retail company uses Power BI to connect to their sales database, transform the data, create sales metrics, visualize trends, and share automated daily reports with regional managers."
+    },
+    "category": "Power BI",
+    "subcategory": "Architecture",
+    "difficulty": "intermediate",
+    "tags": [
+      "power bi architecture",
+      "data modeling",
+      "power query",
+      "dax",
+      "data visualization",
+      "etl",
+      "power bi service",
+      "power bi desktop",
+      "data flow",
+      "business intelligence"
+    ],
+    "conceptTriggers": [
+      "data transformation",
+      "report publishing",
+      "data modeling",
+      "visualization creation",
+      "service deployment"
+    ],
+    "naturalFollowups": [
+      "How does Power Query work in Power BI?",
+      "What is the role of DAX in Power BI?",
+      "How do you optimize Power BI performance?",
+      "What are the best practices for data modeling in Power BI?",
+      "How does row-level security work in Power BI?",
+      "What are the different types of relationships in Power BI?",
+      "How do you schedule automatic refreshes in Power BI?",
+      "What are the limitations of Power BI Service?",
+      "How do you handle large datasets in Power BI?",
+      "What is the difference between imported and DirectQuery data?"
+    ],
+    "relatedQuestions": [
+      "What is Power BI Desktop used for?",
+      "How does Power BI handle data relationships?",
+      "What are the key features of Power BI Service?",
+      "How do you create calculated columns vs measures?",
+      "What are the different types of data refresh options?",
+      "How do you optimize DAX queries in Power BI?",
+      "What are the best practices for report design?",
+      "How do you implement row-level security?",
+      "What are the various licensing options in Power BI?",
+      "How do you manage Power BI workspaces?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Importing all data without proper transformation",
+        "explanation": "Users often skip the crucial data cleaning and transformation steps in Power Query, leading to performance issues and incorrect analysis."
+      },
+      {
+        "mistake": "Poor data model design",
+        "explanation": "Creating complicated relationships or not following star schema principles can lead to slow performance and calculation errors."
+      },
+      {
+        "mistake": "Overusing calculated columns instead of measures",
+        "explanation": "This increases model size and reduces performance, when measures would be more efficient for many calculations."
+      },
+      {
+        "mistake": "Publishing reports without proper testing",
+        "explanation": "Not testing reports across different devices and user scenarios can lead to poor user experience and performance issues."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "power-bi-custom-visuals-overview": {
+    "primaryQuestion": "What are custom visuals in Power BI and how do they enhance reporting capabilities?",
+    "alternativeQuestions": [
+      "How do I implement custom visuals in Power BI?",
+      "What is the purpose of using custom visuals in Power BI dashboards?",
+      "Can you explain the benefits of Power BI custom visuals?",
+      "How do custom visuals differ from standard Power BI visualizations?",
+      "Where can I find and download custom visuals for Power BI?",
+      "What are the limitations of Power BI custom visuals?",
+      "How do I create my own custom visuals in Power BI?",
+      "What is the Power BI Custom Visuals marketplace?",
+      "Are custom visuals in Power BI safe to use?",
+      "How do I integrate third-party visuals in Power BI?",
+      "What's the process of publishing custom visuals in Power BI?",
+      "Can custom visuals be shared across Power BI reports?",
+      "What are certified custom visuals in Power BI?",
+      "How do I manage custom visuals in an organization?",
+      "What development skills are needed for custom visual creation?"
+    ],
+    "answerDescriptions": [
+      "Custom visuals are third-party or self-developed visualization components that extend Power BI's standard visual library",
+      "They enable unique data presentation formats not available in default Power BI visualizations",
+      "Custom visuals can be downloaded from AppSource or created using the Power BI Custom Visuals SDK",
+      "They support specialized industry-specific reporting needs and branded visualization requirements",
+      "Custom visuals can be certified by Microsoft for enterprise-grade security and performance"
+    ],
+    "answer": {
+      "summary": "Custom visuals are specialized visualization components that extend Power BI's native visualization capabilities, allowing users to create unique and tailored data presentations.",
+      "detailed": "Custom visuals are extensions to Power BI's standard visualization library that enable users to create specialized, branded, or industry-specific data visualizations. They can be sourced from the AppSource marketplace, developed internally using the Power BI Custom Visuals SDK, or obtained from third-party providers. These visuals undergo a certification process for enterprise use and must comply with Power BI's performance and security standards. They support features like cross-filtering, drill-through capabilities, and responsive design, making them valuable tools for creating distinctive and powerful business intelligence solutions.",
+      "whenToUse": "Use custom visuals when standard Power BI visualizations don't meet specific reporting requirements, when brand-specific visualizations are needed, or when industry-specific data presentation formats are required.",
+      "realWorldContext": "A healthcare organization using custom visuals to display patient vital signs in medical-standard formats not available in standard Power BI visuals."
+    },
+    "category": "Power BI",
+    "subcategory": "Visualizations",
+    "difficulty": "intermediate",
+    "tags": [
+      "custom visuals",
+      "power bi development",
+      "visualization",
+      "appsource",
+      "custom visual sdk",
+      "power bi marketplace",
+      "data visualization",
+      "business intelligence",
+      "reporting",
+      "power bi extensions"
+    ],
+    "conceptTriggers": [
+      "visualization customization",
+      "visual marketplace",
+      "custom development",
+      "certification process",
+      "visual compatibility"
+    ],
+    "naturalFollowups": [
+      "How do I create a custom visual from scratch?",
+      "What is the certification process for custom visuals?",
+      "How do I publish custom visuals to AppSource?",
+      "What are the best practices for custom visual development?",
+      "How do I maintain custom visuals across reports?",
+      "What security considerations exist for custom visuals?",
+      "How do I test custom visuals before deployment?",
+      "What's the difference between certified and uncertified visuals?",
+      "How do custom visuals affect report performance?",
+      "Can custom visuals work in Power BI embedded?"
+    ],
+    "relatedQuestions": [
+      "How do I optimize Power BI report performance?",
+      "What are the best practices for Power BI development?",
+      "How do I manage Power BI deployments?",
+      "What is Power BI Premium capacity?",
+      "How do I implement row-level security in Power BI?",
+      "What are Power BI themes?",
+      "How do I create responsive Power BI reports?",
+      "What are Power BI templates?",
+      "How do I handle large datasets in Power BI?",
+      "What are Power BI deployment pipelines?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using uncertified custom visuals in enterprise environments",
+        "explanation": "Uncertified visuals may pose security risks and should be thoroughly vetted before deployment"
+      },
+      {
+        "mistake": "Not testing custom visuals with different dataset sizes",
+        "explanation": "Custom visuals may perform differently with large datasets and need proper performance testing"
+      },
+      {
+        "mistake": "Ignoring version compatibility when using custom visuals",
+        "explanation": "Custom visuals may break with Power BI updates and require regular maintenance"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  }
+}

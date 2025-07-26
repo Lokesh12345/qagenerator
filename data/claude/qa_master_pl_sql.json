@@ -1,0 +1,2265 @@
+{
+  "plsql-1-features-overview": {
+    "primaryQuestion": "What are the key features of PL/SQL?",
+    "alternativeQuestions": [
+      "What makes PL/SQL unique as a programming language?",
+      "What are the main characteristics of PL/SQL?",
+      "What capabilities does PL/SQL offer?",
+      "How does PL/SQL extend SQL functionality?",
+      "What are the fundamental components of PL/SQL?",
+      "What advantages does PL/SQL provide over standard SQL?",
+      "What are the core elements of PL/SQL programming?",
+      "How does PL/SQL enhance database programming?",
+      "What features make PL/SQL powerful for database development?",
+      "What are the built-in features of PL/SQL?",
+      "What functionalities are available in PL/SQL?",
+      "How does PL/SQL support procedural programming?",
+      "What are the programming constructs available in PL/SQL?",
+      "What makes PL/SQL a complete programming language?",
+      "What are the structural components of PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Supports procedural programming constructs like loops, conditions, and exceptions",
+      "Enables creation of stored procedures, functions, and packages",
+      "Provides tight integration with Oracle Database",
+      "Offers advanced error handling and exception management",
+      "Includes built-in optimization and security features"
+    ],
+    "answer": {
+      "summary": "PL/SQL is Oracle's procedural extension to SQL that provides programming constructs, database integration, and robust error handling capabilities.",
+      "detailed": "PL/SQL (Procedural Language/SQL) is Oracle's procedural extension that combines SQL capabilities with programming constructs.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| DECLARE | For variable declaration | `DECLARE v_count NUMBER;` |\n| BEGIN...END | To define execution blocks | `BEGIN statement; END;` |\n| IF...THEN...ELSE | For conditional logic | `IF condition THEN action; END IF;` |\n| LOOP constructs | For iterative operations | `FOR i IN 1..10 LOOP statement; END LOOP;` |\n| EXCEPTION | For error handling | `EXCEPTION WHEN no_data_found THEN handle;` |\n\n* Use named blocks for better code organization and reusability\n* Always handle exceptions to prevent uncontrolled termination\n* Leverage packages for related procedures and functions\n* Consider using cursors for row-by-row processing\n\n```sql\nDECLARE\n  v_count NUMBER;\nBEGIN\n  SELECT COUNT(*)\n  INTO v_count\n  FROM employees\n  WHERE department_id = 10;\n  \n  IF v_count > 0 THEN\n    DBMS_OUTPUT.PUT_LINE('Employees found: ' || v_count);\n  END IF;\nEXCEPTION\n  WHEN OTHERS THEN\n    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);\nEND;\n```",
+      "whenToUse": "Use PL/SQL when you need to implement complex business logic within the database, perform multiple DML operations, or create reusable database programs.",
+      "realWorldContext": "Banking applications use PL/SQL to implement transaction processing logic, ensuring data integrity and atomic operations for fund transfers."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Fundamentals",
+    "difficulty": "intermediate",
+    "tags": [
+      "plsql",
+      "oracle",
+      "database-programming",
+      "stored-procedures",
+      "database",
+      "error-handling",
+      "control-structures",
+      "packages",
+      "functions",
+      "blocks"
+    ],
+    "conceptTriggers": [
+      "procedural programming",
+      "database integration",
+      "error handling",
+      "stored procedures",
+      "package management"
+    ],
+    "naturalFollowups": [
+      "How do I create a stored procedure in PL/SQL?",
+      "What are PL/SQL packages?",
+      "How does exception handling work in PL/SQL?",
+      "What are the different types of loops in PL/SQL?",
+      "How do I declare variables in PL/SQL?",
+      "What are cursors in PL/SQL?",
+      "How do I create and use functions in PL/SQL?",
+      "What are triggers in PL/SQL?",
+      "How do I handle transactions in PL/SQL?",
+      "What are the different types of blocks in PL/SQL?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between SQL and PL/SQL?",
+      "How do I debug PL/SQL code?",
+      "What are anonymous blocks in PL/SQL?",
+      "How do I handle errors in PL/SQL?",
+      "What are the data types in PL/SQL?",
+      "How do I use cursors in PL/SQL?",
+      "What are PL/SQL collections?",
+      "How do I optimize PL/SQL performance?",
+      "What are the best practices for PL/SQL development?",
+      "How do I implement dynamic SQL in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not handling exceptions properly",
+        "explanation": "Failing to implement proper exception handling can lead to uncontrolled termination and difficult-to-debug issues."
+      },
+      {
+        "mistake": "Mixing SQL and PL/SQL syntax incorrectly",
+        "explanation": "Confusing SQL and PL/SQL syntax rules can result in compilation errors and incorrect code behavior."
+      },
+      {
+        "mistake": "Inefficient cursor usage",
+        "explanation": "Not using bulk collect or forall statements when processing large datasets can lead to poor performance."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-15",
+    "verified": false
+  },
+  "trigger-when-clause-purpose": {
+    "primaryQuestion": "What is the purpose of the WHEN clause in a PL/SQL trigger?",
+    "alternativeQuestions": [
+      "How does the WHEN clause filter trigger execution in PL/SQL?",
+      "Can you explain the conditional execution of triggers using WHEN clause?",
+      "What's the role of WHEN clause in Oracle PL/SQL triggers?",
+      "How to add conditions to PL/SQL triggers using WHEN clause?",
+      "When should I use a WHEN clause in my PL/SQL trigger?",
+      "What are the benefits of using WHEN clause in triggers?",
+      "How does WHEN clause differ from trigger body conditions?",
+      "Can you demonstrate WHEN clause usage in PL/SQL triggers?",
+      "What is the syntax for WHEN clause in trigger definition?",
+      "How to implement row-level conditions in triggers using WHEN?",
+      "What are the limitations of WHEN clause in PL/SQL triggers?",
+      "How to optimize trigger performance using WHEN clause?",
+      "Is WHEN clause evaluation different from IF statements in triggers?",
+      "What's the scope of WHEN clause in PL/SQL triggers?",
+      "How does WHEN clause affect trigger firing sequence?"
+    ],
+    "answerDescriptions": [
+      "Provides conditional execution of triggers based on specific criteria",
+      "Evaluates conditions before trigger body execution",
+      "Optimizes performance by preventing unnecessary trigger firings",
+      "Supports OLD and NEW qualifiers for accessing column values",
+      "Works with row-level triggers for granular control"
+    ],
+    "answer": {
+      "summary": "The WHEN clause in PL/SQL triggers specifies a condition that must be true for the trigger body to execute.",
+      "detailed": "A WHEN clause is a conditional filter that determines whether a trigger's body should execute.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| WHEN | For row-level triggers requiring conditional execution | `CREATE TRIGGER salary_check BEFORE UPDATE ON employees FOR EACH ROW WHEN (NEW.salary > OLD.salary * 1.2)` |\n| :NEW qualifier | To access new values in DML operations | `WHEN (NEW.status = 'ACTIVE')` |\n| :OLD qualifier | To access old values in DML operations | `WHEN (OLD.department_id != NEW.department_id)` |\n\n* Use simple conditions for better performance\n* WHEN clause is evaluated before trigger body\n* Cannot contain calls to functions or subqueries\n* Only available for row-level triggers\n* Prefer WHEN over IF statements for row-level filtering\n\n```sql\nCREATE OR REPLACE TRIGGER check_salary\nBEFORE UPDATE OF salary ON employees\nFOR EACH ROW\nWHEN (NEW.salary < OLD.salary)\nBEGIN\n  RAISE_APPLICATION_ERROR(-20000, 'Salary cannot be decreased');\nEND;\n```",
+      "whenToUse": "Use WHEN clause when you need to conditionally execute a trigger based on column values or when you want to optimize trigger performance by filtering unnecessary executions.",
+      "realWorldContext": "In a payroll system, using WHEN clause to trigger audit logs only when salary changes exceed 10% threshold."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Triggers",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "triggers",
+      "when-clause",
+      "conditional-execution",
+      "database",
+      "oracle",
+      "row-level-triggers",
+      "dml-triggers",
+      "performance-optimization",
+      "trigger-conditions"
+    ],
+    "conceptTriggers": [
+      "trigger fundamentals",
+      "conditional execution",
+      "row-level operations",
+      "performance optimization",
+      "error handling"
+    ],
+    "naturalFollowups": [
+      "What's the difference between WHEN clause and IF statement in triggers?",
+      "Can we use functions in WHEN clause?",
+      "How to handle exceptions in triggers with WHEN clause?",
+      "What are the performance implications of WHEN clause?",
+      "Can WHEN clause be used in statement-level triggers?",
+      "How to access OLD and NEW values in WHEN clause?",
+      "What are the restrictions of WHEN clause?",
+      "How to debug WHEN clause conditions?",
+      "Can we use multiple conditions in WHEN clause?",
+      "What's the execution order of multiple triggers with WHEN clauses?"
+    ],
+    "relatedQuestions": [
+      "What are the types of triggers in PL/SQL?",
+      "How to create a row-level trigger?",
+      "What is the difference between statement and row-level triggers?",
+      "How to handle exceptions in triggers?",
+      "What are mutating table restrictions in triggers?",
+      "How to use INSTEAD OF triggers?",
+      "What is the trigger firing sequence?",
+      "Can triggers call procedures and functions?",
+      "How to disable and enable triggers?",
+      "What are compound triggers in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using complex SQL queries in WHEN clause",
+        "explanation": "WHEN clause doesn't support subqueries or function calls, only simple conditions are allowed"
+      },
+      {
+        "mistake": "Attempting to use WHEN clause in statement-level triggers",
+        "explanation": "WHEN clause is only valid for row-level triggers"
+      },
+      {
+        "mistake": "Confusing WHEN clause with IF statements",
+        "explanation": "WHEN clause is evaluated before trigger body execution, while IF statements are part of the trigger body"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "pl-sql-declare-block-mandatory": {
+    "primaryQuestion": "When does a DECLARE block become mandatory in PL/SQL?",
+    "alternativeQuestions": [
+      "In what scenarios is a DECLARE section required in PL/SQL?",
+      "Can you explain when PL/SQL blocks must include a DECLARE section?",
+      "What makes a DECLARE block necessary in PL/SQL programming?",
+      "Why would you need to include a DECLARE section in a PL/SQL block?",
+      "Under what conditions is the DECLARE keyword required in PL/SQL?",
+      "How do you know if your PL/SQL block needs a DECLARE section?",
+      "What determines the necessity of a DECLARE block in PL/SQL?",
+      "Are there specific cases where PL/SQL DECLARE blocks cannot be omitted?",
+      "When is it mandatory to use DECLARE in PL/SQL anonymous blocks?",
+      "What situations require explicit declaration blocks in PL/SQL?",
+      "Can you list scenarios where DECLARE is not optional in PL/SQL?",
+      "What makes the DECLARE section mandatory in PL/SQL programming?",
+      "How to determine if your PL/SQL code needs a DECLARE block?",
+      "In which PL/SQL programming scenarios is DECLARE mandatory?",
+      "What triggers the requirement for a DECLARE section in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Required when local variables or cursors need to be defined",
+      "Mandatory for declaring exception handlers specific to the block",
+      "Necessary when using local types or record definitions",
+      "Required for declaring local constants within the block",
+      "Needed when defining local collection types or temporary variables"
+    ],
+    "answer": {
+      "summary": "A DECLARE block becomes mandatory when you need to define local variables, cursors, exceptions, or user-defined types that are specific to that PL/SQL block.",
+      "detailed": "The DECLARE block is a fundamental component of PL/SQL programming that becomes mandatory when local declarations are needed.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| Variables | For storing temporary data | `DECLARE v_count NUMBER;` |\n| Cursors | For custom result set handling | `DECLARE CURSOR c_emp IS SELECT * FROM employees;` |\n| Exception | For custom error handling | `DECLARE e_invalid EXCEPTION;` |\n\n* Always declare variables before referencing them in the execution block\n* Scope is limited to the current block only\n* Cannot be used in SQL*Plus without BEGIN-END block\n\n```sql\nDECLARE\n  v_employee_name VARCHAR2(100);\n  v_salary NUMBER;\n  CURSOR c_emp IS\n    SELECT first_name, salary\n    FROM employees\n    WHERE department_id = 10;\n  e_invalid_salary EXCEPTION;\nBEGIN\n  /* Block body */\nEND;\n```",
+      "whenToUse": "Use DECLARE blocks when you need local variables, cursors, exceptions, or custom types that are specific to a particular PL/SQL block and shouldn't be globally accessible.",
+      "realWorldContext": "In a payroll processing system, you might need local variables to store temporary calculations and cursors to process employee records, making DECLARE blocks essential."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Block Structure",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "declare",
+      "variables",
+      "cursors",
+      "exceptions",
+      "block-structure",
+      "local-variables",
+      "scope",
+      "anonymous-blocks",
+      "oracle"
+    ],
+    "conceptTriggers": [
+      "Variable Declaration",
+      "Scope Management",
+      "Exception Handling",
+      "Cursor Definition",
+      "Block Structure"
+    ],
+    "naturalFollowups": [
+      "What is the scope of variables declared in a DECLARE block?",
+      "How do you declare multiple variables in PL/SQL?",
+      "Can you declare variables without initializing them?",
+      "What's the difference between local and global variables in PL/SQL?",
+      "How do you handle exceptions in a DECLARE block?",
+      "What types of cursors can be declared in PL/SQL?",
+      "How do you declare custom record types in PL/SQL?",
+      "What are the naming conventions for declared variables?",
+      "Can you redeclare variables in nested blocks?",
+      "How do you declare and use collections in PL/SQL?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between implicit and explicit cursors?",
+      "How do you declare and use REF CURSOR in PL/SQL?",
+      "What are the different variable types in PL/SQL?",
+      "How do you handle exceptions in PL/SQL?",
+      "What is the difference between DECLARE and CREATE OR REPLACE?",
+      "How do you declare and use collections in PL/SQL?",
+      "What are the benefits of using custom exception handlers?",
+      "How do you declare and use records in PL/SQL?",
+      "What is the scope of variables in nested blocks?",
+      "How do you declare and use associative arrays?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Trying to use variables without declaring them first",
+        "explanation": "All variables must be declared in the DECLARE section before they can be used in the executable section."
+      },
+      {
+        "mistake": "Declaring variables after BEGIN statement",
+        "explanation": "Variables must be declared in the DECLARE section, not after the BEGIN statement."
+      },
+      {
+        "mistake": "Omitting DECLARE when using local cursors",
+        "explanation": "Cursors must be declared in the DECLARE section, even if no other variables are needed."
+      },
+      {
+        "mistake": "Attempting to declare variables globally without proper scope",
+        "explanation": "Variables declared in a block are only accessible within that block and its sub-blocks."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-10",
+    "verified": false
+  },
+  "ib-5-plsql-triggers-usage": {
+    "primaryQuestion": "What is a PL/SQL Trigger and when should it be used?",
+    "alternativeQuestions": [
+      "How do database triggers work in PL/SQL?",
+      "What are the different types of triggers available in PL/SQL?",
+      "Can you explain the concept of triggers in Oracle PL/SQL?",
+      "What is the syntax for creating triggers in PL/SQL?",
+      "How do you implement before and after triggers in PL/SQL?",
+      "What are statement-level triggers in PL/SQL?",
+      "How do row-level triggers differ from statement-level triggers?",
+      "What are compound triggers in Oracle PL/SQL?",
+      "When should I use INSTEAD OF triggers in PL/SQL?",
+      "How do you handle exceptions in PL/SQL triggers?",
+      "What are the best practices for implementing triggers in PL/SQL?",
+      "Can you explain trigger firing sequence in PL/SQL?",
+      "What is the difference between OLD and NEW qualifiers in triggers?",
+      "How do you disable and enable triggers in PL/SQL?",
+      "What are the limitations of PL/SQL triggers?"
+    ],
+    "answerDescriptions": [
+      "A trigger is a stored program unit that automatically executes in response to specific events",
+      "Triggers can be fired BEFORE, AFTER, or INSTEAD OF database operations",
+      "They can operate at both row-level and statement-level",
+      "Triggers are useful for maintaining data integrity and auditing",
+      "They can enforce complex business rules that cannot be handled by constraints"
+    ],
+    "answer": {
+      "summary": "A PL/SQL trigger is a stored program unit that automatically executes when specific database events occur, such as INSERT, UPDATE, or DELETE operations.",
+      "detailed": "A trigger is a special type of stored procedure that automatically executes when specific database events occur.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| BEFORE TRIGGER | Execute before DML operation | ```CREATE TRIGGER before_emp_update BEFORE UPDATE ON employees``` |\n| AFTER TRIGGER | Execute after DML operation | ```CREATE TRIGGER after_emp_insert AFTER INSERT ON employees``` |\n| INSTEAD OF | Used with views for DML operations | ```CREATE TRIGGER instead_of_emp_insert INSTEAD OF INSERT ON emp_view``` |\n\n* Use :NEW to access new values in INSERT/UPDATE triggers\n* Use :OLD to access old values in UPDATE/DELETE triggers\n* Always handle exceptions properly in triggers\n* Avoid recursive trigger chains\n\n```sql\nCREATE OR REPLACE TRIGGER audit_emp_changes\nBEFORE UPDATE ON employees\nFOR EACH ROW\nBEGIN\n  INSERT INTO audit_table\n  VALUES (:OLD.emp_id, :OLD.salary, :NEW.salary, SYSDATE);\nEND;\n/\n```",
+      "whenToUse": "Use triggers for maintaining data integrity, enforcing business rules, auditing changes, or automatically updating dependent data when specific database events occur.",
+      "realWorldContext": "In a banking system, triggers are used to automatically log all changes to customer account balances and maintain transaction history for audit purposes."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Database Triggers",
+    "difficulty": "intermediate",
+    "tags": [
+      "triggers",
+      "stored-procedures",
+      "database-events",
+      "data-integrity",
+      "oracle",
+      "dml-triggers",
+      "ddl-triggers",
+      "compound-triggers",
+      "error-handling",
+      "database-programming"
+    ],
+    "conceptTriggers": [
+      "Database Event Handling",
+      "Automatic Execution",
+      "Data Integrity",
+      "Business Rules",
+      "Audit Trail"
+    ],
+    "naturalFollowups": [
+      "How do you debug PL/SQL triggers?",
+      "What are the performance implications of using triggers?",
+      "How do you handle mutating table errors in triggers?",
+      "Can triggers call stored procedures?",
+      "How do you maintain triggers in a large database?",
+      "What is the difference between triggers and constraints?",
+      "How do you test PL/SQL triggers?",
+      "Can triggers be used for DDL operations?",
+      "How do you handle trigger firing order?",
+      "What are the alternatives to using triggers?"
+    ],
+    "relatedQuestions": [
+      "What are stored procedures in PL/SQL?",
+      "How do you handle exceptions in PL/SQL?",
+      "What are the different types of cursors in PL/SQL?",
+      "How do you implement error logging in PL/SQL?",
+      "What are packages in PL/SQL?",
+      "How do you optimize PL/SQL code?",
+      "What are autonomous transactions in PL/SQL?",
+      "How do you implement bulk operations in PL/SQL?",
+      "What are dynamic SQL statements in PL/SQL?",
+      "How do you handle dependencies in PL/SQL objects?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Creating recursive triggers",
+        "explanation": "Triggers that cause infinite loops by triggering themselves or other triggers repeatedly"
+      },
+      {
+        "mistake": "Not handling exceptions properly",
+        "explanation": "Failing to include exception handling logic leading to unhandled runtime errors"
+      },
+      {
+        "mistake": "Overusing triggers",
+        "explanation": "Implementing business logic in triggers that should be in application code or stored procedures"
+      },
+      {
+        "mistake": "Ignoring mutating table issues",
+        "explanation": "Not properly handling situations where triggers attempt to query the same table being modified"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-exception-naming-block": {
+    "primaryQuestion": "How can a name be assigned to an unnamed PL/SQL Exception Block?",
+    "alternativeQuestions": [
+      "What is the syntax for naming a PL/SQL exception?",
+      "How do you declare custom exception names in PL/SQL?",
+      "What's the process of converting unnamed exceptions to named ones in PL/SQL?",
+      "How to handle unnamed exception blocks in Oracle PL/SQL?",
+      "What's the method for declaring user-defined exception names?",
+      "How can I convert Oracle error codes to named exceptions?",
+      "What's the proper way to name exception handlers in PL/SQL blocks?",
+      "How do you associate a name with a runtime error number in PL/SQL?",
+      "What's the syntax for declaring exception names using PRAGMA EXCEPTION_INIT?",
+      "How to map Oracle error codes to custom exception names?",
+      "What's the best practice for naming PL/SQL exceptions?",
+      "How do you create meaningful exception names in PL/SQL?",
+      "What's the procedure for declaring named exceptions from system exceptions?",
+      "How to convert numeric error codes to named exceptions in PL/SQL?",
+      "What's the technique for assigning custom names to Oracle exceptions?"
+    ],
+    "answerDescriptions": [
+      "Use EXCEPTION_INIT pragma to associate exception name with error number",
+      "Declare custom exception name in the declarations section",
+      "Link error code using PRAGMA EXCEPTION_INIT(exception_name, -error_number)",
+      "Handle the named exception in EXCEPTION block using WHEN clause",
+      "Use meaningful names that describe the error condition"
+    ],
+    "answer": {
+      "summary": "Unnamed PL/SQL exceptions can be named using PRAGMA EXCEPTION_INIT directive and declaring a custom exception name.",
+      "detailed": "Exception naming in PL/SQL involves declaring an exception identifier and linking it to an error number.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| DECLARE | To declare custom exception | `custom_exception EXCEPTION;` |\n| PRAGMA EXCEPTION_INIT | To link exception to error code | `PRAGMA EXCEPTION_INIT(custom_exception, -20001);` |\n| RAISE | To explicitly raise the exception | `RAISE custom_exception;` |\n\n* Always declare exceptions in the declaration section\n* Use meaningful names that describe the error\n* Link system errors using negative error numbers\n* Custom errors typically use numbers in range -20000 to -20999\n\n```sql\nDECLARE\n  invalid_salary EXCEPTION;\n  PRAGMA EXCEPTION_INIT(invalid_salary, -20001);\nBEGIN\n  IF salary < 0 THEN\n    RAISE invalid_salary;\n  END IF;\nEXCEPTION\n  WHEN invalid_salary THEN\n    dbms_output.put_line('Salary cannot be negative');\nEND;\n```",
+      "whenToUse": "Use named exceptions when you need to handle specific error conditions or want to create custom error handling with meaningful names for better code readability and maintenance.",
+      "realWorldContext": "In a payroll system, naming exceptions helps identify specific validation errors like 'invalid_salary_range' or 'employee_not_found' for better error handling and debugging."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Exception Handling",
+    "difficulty": "intermediate",
+    "tags": [
+      "exception handling",
+      "error management",
+      "pragma",
+      "custom exceptions",
+      "oracle",
+      "error codes",
+      "exception_init",
+      "error handling",
+      "plsql blocks",
+      "database programming"
+    ],
+    "conceptTriggers": [
+      "Exception declaration",
+      "PRAGMA directives",
+      "Error code mapping",
+      "Custom error handling",
+      "Exception block structure"
+    ],
+    "naturalFollowups": [
+      "How to handle multiple exceptions in a single block?",
+      "What is the difference between named and unnamed exceptions?",
+      "Can we nest exception handlers in PL/SQL?",
+      "How to propagate exceptions to outer blocks?",
+      "What are the predefined exceptions in PL/SQL?",
+      "How to create custom error messages for exceptions?",
+      "What is the scope of named exceptions?",
+      "Can we reuse named exceptions across different procedures?",
+      "How to log custom exceptions in Oracle?",
+      "What are the best practices for exception handling in PL/SQL?"
+    ],
+    "relatedQuestions": [
+      "What are the types of exceptions in PL/SQL?",
+      "How to handle predefined exceptions in PL/SQL?",
+      "What is the difference between RAISE and RAISE_APPLICATION_ERROR?",
+      "How to create custom exception messages?",
+      "What is the scope of exception handlers?",
+      "How to propagate exceptions in nested blocks?",
+      "What are system-defined exceptions in PL/SQL?",
+      "How to handle exceptions in stored procedures?",
+      "What is the purpose of OTHERS exception handler?",
+      "How to debug PL/SQL exceptions?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Declaring exceptions after BEGIN statement",
+        "explanation": "Exceptions must be declared in the declaration section before BEGIN"
+      },
+      {
+        "mistake": "Using positive numbers for error codes",
+        "explanation": "Error numbers in PRAGMA EXCEPTION_INIT must be negative"
+      },
+      {
+        "mistake": "Not handling raised exceptions",
+        "explanation": "Every raised exception should have corresponding exception handler to avoid unhandled exceptions"
+      },
+      {
+        "mistake": "Using reserved words as exception names",
+        "explanation": "Exception names should not conflict with PL/SQL reserved words"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-cursor-where-current": {
+    "primaryQuestion": "What is the purpose and usage of WHERE CURRENT OF clause in PL/SQL cursors?",
+    "alternativeQuestions": [
+      "How does WHERE CURRENT OF work with PL/SQL cursors?",
+      "When should I use WHERE CURRENT OF in a PL/SQL cursor?",
+      "Can you explain the WHERE CURRENT OF clause in cursor operations?",
+      "What's the significance of WHERE CURRENT OF in PL/SQL cursor processing?",
+      "How do you implement row-level updates using WHERE CURRENT OF?",
+      "What are the benefits of using WHERE CURRENT OF with cursors?",
+      "How does cursor-based record updating work with WHERE CURRENT OF?",
+      "What's the syntax for using WHERE CURRENT OF in PL/SQL?",
+      "How do you modify the current row in a cursor using WHERE CURRENT OF?",
+      "Why would you use WHERE CURRENT OF instead of regular WHERE clause?",
+      "What are the limitations of WHERE CURRENT OF in PL/SQL cursors?",
+      "How does WHERE CURRENT OF maintain data consistency in cursors?",
+      "What's the difference between WHERE and WHERE CURRENT OF in cursors?",
+      "Can you demonstrate cursor updates using WHERE CURRENT OF?",
+      "How does WHERE CURRENT OF help in cursor-based record manipulation?"
+    ],
+    "answerDescriptions": [
+      "Allows modification of the current row being processed by a cursor",
+      "Ensures data consistency during cursor-based updates",
+      "Prevents accidental updates to wrong rows during cursor operations",
+      "Provides a way to uniquely identify the current cursor position",
+      "Enables row-level locking during cursor-based modifications"
+    ],
+    "answer": {
+      "summary": "WHERE CURRENT OF is a PL/SQL cursor clause that allows you to update or delete the current row being processed by the cursor without explicitly specifying the WHERE conditions.",
+      "detailed": "A clause used in PL/SQL cursor operations to modify the current row being processed.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| WHERE CURRENT OF | For updating/deleting current cursor row | UPDATE employees SET salary = salary * 1.1 WHERE CURRENT OF emp_cursor |\n| FOR UPDATE | With cursor declaration for row locking | CURSOR emp_cursor IS SELECT * FROM employees FOR UPDATE |\n| CURRENT OF | In DML statements referencing cursor | DELETE FROM employees WHERE CURRENT OF emp_cursor |\n\n* Always declare cursor with FOR UPDATE when using WHERE CURRENT OF\n* Ensure cursor is open and row is fetched before using WHERE CURRENT OF\n* Cannot use with complex views or non-updatable queries\n* Provides better performance than searching with primary keys\n\n```sql\nDECLARE\n  CURSOR emp_cur IS\n    SELECT * FROM employees\n    WHERE department_id = 20\n    FOR UPDATE;\n  emp_rec emp_cur%ROWTYPE;\nBEGIN\n  OPEN emp_cur;\n  LOOP\n    FETCH emp_cur INTO emp_rec;\n    EXIT WHEN emp_cur%NOTFOUND;\n    UPDATE employees\n    SET salary = salary * 1.1\n    WHERE CURRENT OF emp_cur;\n  END LOOP;\n  CLOSE emp_cur;\nEND;\n```",
+      "whenToUse": "Use WHERE CURRENT OF when you need to perform updates or deletes on the current row being processed by a cursor, especially in row-by-row processing scenarios where maintaining the exact position is crucial.",
+      "realWorldContext": "In a payroll system, using WHERE CURRENT OF to process salary updates for employees one at a time while ensuring each update affects only the currently processed employee record."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Cursors",
+    "difficulty": "intermediate",
+    "tags": [
+      "cursors",
+      "dml",
+      "where-current-of",
+      "row-processing",
+      "update",
+      "delete",
+      "for-update",
+      "row-locking",
+      "transaction-control",
+      "data-manipulation"
+    ],
+    "conceptTriggers": [
+      "cursor operations",
+      "row-level updates",
+      "transaction management",
+      "data consistency",
+      "record locking"
+    ],
+    "naturalFollowups": [
+      "What is the difference between implicit and explicit cursors?",
+      "How do you handle exceptions in cursor operations?",
+      "What are the performance implications of using WHERE CURRENT OF?",
+      "Can WHERE CURRENT OF be used with dynamic SQL?",
+      "How does row locking work with cursors?",
+      "What are the limitations of FOR UPDATE clause?",
+      "How to implement bulk updates using cursors?",
+      "What is the difference between NOWAIT and WAIT in FOR UPDATE?",
+      "How to handle deadlocks in cursor operations?",
+      "What are cursor attributes and how are they used?"
+    ],
+    "relatedQuestions": [
+      "How do you declare and use explicit cursors in PL/SQL?",
+      "What is the purpose of FOR UPDATE clause in cursors?",
+      "How do you implement cursor FOR loops?",
+      "What are cursor variables and ref cursors?",
+      "How do you handle cursor exceptions?",
+      "What is the difference between static and dynamic cursors?",
+      "How do you use parameterized cursors?",
+      "What are the best practices for cursor performance?",
+      "How do you implement cursor attributes?",
+      "What is the difference between BULK COLLECT and cursor loops?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not declaring cursor with FOR UPDATE clause",
+        "explanation": "WHERE CURRENT OF can only be used with cursors declared with FOR UPDATE clause, otherwise it results in an error"
+      },
+      {
+        "mistake": "Using WHERE CURRENT OF before fetching a row",
+        "explanation": "The cursor must have successfully fetched a row before WHERE CURRENT OF can be used"
+      },
+      {
+        "mistake": "Using WHERE CURRENT OF with complex views",
+        "explanation": "WHERE CURRENT OF cannot be used with complex views or queries that are not directly updatable"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-cursor-fundamentals": {
+    "primaryQuestion": "What is a PL/SQL cursor and how is it used?",
+    "alternativeQuestions": [
+      "How do cursors work in PL/SQL?",
+      "What are the different types of cursors in PL/SQL?",
+      "How do you declare and use explicit cursors in PL/SQL?",
+      "What is the difference between implicit and explicit cursors in PL/SQL?",
+      "How do you handle cursor attributes in PL/SQL?",
+      "What are cursor FOR loops in PL/SQL?",
+      "How do you fetch data using PL/SQL cursors?",
+      "What are the best practices for cursor management in PL/SQL?",
+      "How do you implement cursor parameters in PL/SQL?",
+      "What is a ref cursor in PL/SQL?",
+      "How do you handle cursor exceptions in PL/SQL?",
+      "What are cursor variables in PL/SQL?",
+      "How do you optimize cursor performance in PL/SQL?",
+      "What is the lifecycle of a PL/SQL cursor?",
+      "When should you use cursors versus bulk collect in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "A cursor is a pointer to a private SQL area containing query information",
+      "Cursors can be either implicit (automatically created) or explicit (user-defined)",
+      "Explicit cursors require DECLARE, OPEN, FETCH, and CLOSE operations",
+      "Cursor attributes include %FOUND, %NOTFOUND, %ISOPEN, and %ROWCOUNT",
+      "Cursors enable row-by-row processing of query results in PL/SQL"
+    ],
+    "answer": {
+      "summary": "A PL/SQL cursor is a memory pointer that manages the context area of a SELECT statement and allows row-by-row processing of query results.",
+      "detailed": "A cursor is a database object that acts as a pointer to a context area in memory containing SQL query information.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| CURSOR | To declare an explicit cursor | `CURSOR emp_cur IS SELECT * FROM employees;` |\n| OPEN | To initialize cursor and execute query | `OPEN emp_cur;` |\n| FETCH | To retrieve rows one at a time | `FETCH emp_cur INTO emp_record;` |\n| CLOSE | To release cursor resources | `CLOSE emp_cur;` |\n\n* Always close cursors when done to free memory\n* Use cursor FOR loops for simpler syntax\n* Check cursor attributes for status\n* Consider using parameters for flexible cursors\n* Use bulk collect for better performance\n\n```sql\nDECLARE\n  CURSOR emp_cur IS\n    SELECT employee_id, salary\n    FROM employees\n    WHERE department_id = 10;\n  emp_record emp_cur%ROWTYPE;\nBEGIN\n  OPEN emp_cur;\n  LOOP\n    FETCH emp_cur INTO emp_record;\n    EXIT WHEN emp_cur%NOTFOUND;\n    -- Process record\n  END LOOP;\n  CLOSE emp_cur;\nEND;\n```",
+      "whenToUse": "Use cursors when you need to process query results row by row, or when you need to maintain a specific context for query execution across multiple operations.",
+      "realWorldContext": "In a payroll system, cursors are used to process employee salaries one by one, applying specific calculations and updates to each record individually."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Cursors",
+    "difficulty": "intermediate",
+    "tags": [
+      "cursors",
+      "explicit cursors",
+      "implicit cursors",
+      "cursor attributes",
+      "ref cursors",
+      "cursor variables",
+      "cursor parameters",
+      "fetch",
+      "oracle",
+      "database programming"
+    ],
+    "conceptTriggers": [
+      "row-by-row processing",
+      "memory management",
+      "result set handling",
+      "cursor attributes",
+      "query execution"
+    ],
+    "naturalFollowups": [
+      "How do you handle cursor exceptions?",
+      "What are the performance implications of cursors?",
+      "How do you implement ref cursors?",
+      "What is the difference between static and dynamic cursors?",
+      "How do you pass parameters to cursors?",
+      "What are cursor expressions?",
+      "How do you use cursor FOR loops?",
+      "What are the best practices for cursor performance?",
+      "How do you implement nested cursors?",
+      "When should you use BULK COLLECT instead of cursors?"
+    ],
+    "relatedQuestions": [
+      "What is BULK COLLECT in PL/SQL?",
+      "How do you handle exceptions in PL/SQL?",
+      "What are PL/SQL collections?",
+      "How do you implement dynamic SQL in PL/SQL?",
+      "What are the different types of PL/SQL variables?",
+      "How do you optimize PL/SQL performance?",
+      "What are PL/SQL packages?",
+      "How do you debug PL/SQL code?",
+      "What are PL/SQL triggers?",
+      "How do you handle transactions in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not closing cursors after use",
+        "explanation": "Failing to close cursors can lead to memory leaks and exceed the maximum number of open cursors allowed by the database."
+      },
+      {
+        "mistake": "Using cursors when BULK COLLECT would be more efficient",
+        "explanation": "For large datasets, BULK COLLECT performs better than row-by-row processing with cursors."
+      },
+      {
+        "mistake": "Not handling NO_DATA_FOUND exception",
+        "explanation": "Failing to handle cursor exceptions can cause unexpected program termination."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-9-basic-structure": {
+    "primaryQuestion": "Explain the basic structure followed in PL/SQL?",
+    "alternativeQuestions": [
+      "What are the main components of a PL/SQL block?",
+      "How is a PL/SQL program block organized?",
+      "What is the standard structure of a PL/SQL program?",
+      "Can you describe the sections of a PL/SQL block?",
+      "What are the mandatory and optional parts of a PL/SQL block?",
+      "How do you write a basic PL/SQL block?",
+      "What is the syntax structure for PL/SQL programs?",
+      "Explain the declaration, execution, and exception sections in PL/SQL",
+      "What are the different parts of a PL/SQL anonymous block?",
+      "How are variables and logic organized in a PL/SQL block?",
+      "What is the difference between declaration and execution section in PL/SQL?",
+      "Where do you declare variables in a PL/SQL block?",
+      "How is exception handling structured in PL/SQL?",
+      "What is the BEGIN-END block structure in PL/SQL?",
+      "How do you organize code in a PL/SQL program?"
+    ],
+    "answerDescriptions": [
+      "PL/SQL blocks consist of three main sections: Declaration, Execution, and Exception handling",
+      "Declaration section (DECLARE) is optional and used for defining variables and cursors",
+      "Execution section (BEGIN...END) is mandatory and contains the actual program logic",
+      "Exception section (EXCEPTION) is optional and handles runtime errors",
+      "Each block must end with END followed by a semicolon"
+    ],
+    "answer": {
+      "summary": "PL/SQL follows a block structure with declaration, execution, and exception handling sections, where only the execution section is mandatory.",
+      "detailed": "Basic structure of PL/SQL blocks.\n\n| Section | When to Use | Code Syntax Example |\n|---------|------------|-------------------|\n| DECLARE | For variable/cursor declarations | `DECLARE v_count NUMBER;` |\n| BEGIN | Main program logic | `BEGIN SELECT COUNT(*) INTO v_count FROM employees;` |\n| EXCEPTION | Error handling | `EXCEPTION WHEN NO_DATA_FOUND THEN` |\n\n* Always end blocks with END; statement\n* Nested blocks are allowed within the execution section\n* Variables must be declared before use\n* Exception section must be the last section\n\n```sql\nDECLARE\n  v_employee_name VARCHAR2(100);\n  v_employee_count NUMBER;\nBEGIN\n  SELECT first_name INTO v_employee_name\n  FROM employees\n  WHERE employee_id = 100;\n  \n  -- Process data\n  DBMS_OUTPUT.PUT_LINE(v_employee_name);\nEXCEPTION\n  WHEN NO_DATA_FOUND THEN\n    DBMS_OUTPUT.PUT_LINE('Employee not found');\nEND;\n/\n```",
+      "whenToUse": "Use this structure when writing any PL/SQL program, whether it's an anonymous block, stored procedure, function, or trigger.",
+      "realWorldContext": "When creating a payroll processing system, each salary calculation routine would follow this structure, with variable declarations, calculation logic, and error handling for invalid data."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Basic Syntax",
+    "difficulty": "beginner",
+    "tags": [
+      "pl/sql",
+      "oracle",
+      "block structure",
+      "program structure",
+      "declaration section",
+      "execution section",
+      "exception handling",
+      "anonymous blocks",
+      "basic syntax"
+    ],
+    "conceptTriggers": [
+      "Block structure",
+      "Variable declaration",
+      "Error handling",
+      "Program flow",
+      "Code organization"
+    ],
+    "naturalFollowups": [
+      "How do you handle exceptions in PL/SQL?",
+      "What are the different types of PL/SQL blocks?",
+      "How do you declare variables in PL/SQL?",
+      "What is the scope of variables in PL/SQL?",
+      "How do you create nested blocks in PL/SQL?",
+      "What are the naming conventions in PL/SQL?",
+      "How do you comment code in PL/SQL?",
+      "What are anonymous blocks in PL/SQL?",
+      "How do you debug PL/SQL code?",
+      "What are the best practices for PL/SQL block structure?"
+    ],
+    "relatedQuestions": [
+      "What are the different types of variables in PL/SQL?",
+      "How do you implement exception handling in PL/SQL?",
+      "What is the difference between procedures and functions in PL/SQL?",
+      "How do you create and use cursors in PL/SQL?",
+      "What are packages in PL/SQL?",
+      "How do you handle NULL values in PL/SQL?",
+      "What are triggers in PL/SQL?",
+      "How do you use collections in PL/SQL?",
+      "What are the different types of loops in PL/SQL?",
+      "How do you optimize PL/SQL code performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Forgetting to end the block with END; and a forward slash (/)",
+        "explanation": "Each PL/SQL block must be terminated with END; and when executing from SQL*Plus or similar tools, a forward slash is required on a new line."
+      },
+      {
+        "mistake": "Placing declaration section after BEGIN",
+        "explanation": "Variables must be declared in the DECLARE section before the BEGIN statement, not within the execution section."
+      },
+      {
+        "mistake": "Putting exception handling in the middle of the block",
+        "explanation": "The EXCEPTION section must always come after the execution section and before the END statement."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-22",
+    "verified": false
+  },
+  "plsql-10-tables-collections": {
+    "primaryQuestion": "What is a PL/SQL table (collection)?",
+    "alternativeQuestions": [
+      "How do PL/SQL tables work as collections?",
+      "What are the characteristics of PL/SQL index-by tables?",
+      "How do you declare and use PL/SQL tables?",
+      "What is the difference between PL/SQL tables and database tables?",
+      "How to implement associative arrays in PL/SQL?",
+      "What are the benefits of using PL/SQL tables?",
+      "Can you explain PL/SQL nested tables?",
+      "How to iterate through PL/SQL table elements?",
+      "What are the limitations of PL/SQL tables?",
+      "How to handle exceptions in PL/SQL tables?",
+      "What is the syntax for creating PL/SQL table types?",
+      "How to modify elements in a PL/SQL table?",
+      "What are the best practices for PL/SQL table usage?",
+      "How to pass PL/SQL tables as parameters?",
+      "What is the maximum size of a PL/SQL table?"
+    ],
+    "answerDescriptions": [
+      "A memory-resident data structure that can hold an entire result set",
+      "Allows dynamic sizing and can be sparse (having non-consecutive indexes)",
+      "Can be used as associative arrays with string or numeric indexes",
+      "Provides faster data manipulation than database tables",
+      "Supports both scalar and composite datatypes as elements"
+    ],
+    "answer": {
+      "summary": "PL/SQL tables are session-specific collections that act as single-dimensional arrays to store and manipulate data in memory.",
+      "detailed": "PL/SQL tables are schema-level collection types that store rows of data in memory.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| TYPE table_type | Define table type | `TYPE number_table IS TABLE OF NUMBER INDEX BY BINARY_INTEGER;` |\n| table_name(index) | Access elements | `my_table(1) := 100;` |\n| COUNT | Get element count | `v_count := my_table.COUNT;` |\n\n* Use FIRST and LAST methods to get boundary indexes\n* Initialize before using with constructor or individual assignments\n* Remember tables are 1-based by default\n\n```sql\nDECLARE\n  TYPE emp_table_type IS TABLE OF employees%ROWTYPE INDEX BY PLS_INTEGER;\n  v_emp_table emp_table_type;\nBEGIN\n  SELECT * BULK COLLECT INTO v_emp_table\n  FROM employees\n  WHERE department_id = 10;\n  \n  FOR i IN v_emp_table.FIRST..v_emp_table.LAST LOOP\n    DBMS_OUTPUT.PUT_LINE(v_emp_table(i).employee_name);\n  END LOOP;\nEND;\n```",
+      "whenToUse": "Use PL/SQL tables when you need to work with collections of data in memory, especially for bulk operations or when temporary storage is needed during processing.",
+      "realWorldContext": "Commonly used in data migration scripts where you need to temporarily store and transform large sets of employee or transaction records before writing them to database tables."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Collections",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "collections",
+      "tables",
+      "associative arrays",
+      "bulk collect",
+      "index-by tables",
+      "memory structures",
+      "data structures",
+      "oracle",
+      "database programming"
+    ],
+    "conceptTriggers": [
+      "array operations",
+      "memory management",
+      "collection methods",
+      "bulk processing",
+      "data iteration"
+    ],
+    "naturalFollowups": [
+      "How to handle exceptions in PL/SQL tables?",
+      "What are the performance implications of large PL/SQL tables?",
+      "How to convert database tables to PL/SQL tables?",
+      "What are the differences between nested tables and varrays?",
+      "How to implement multi-dimensional PL/SQL tables?",
+      "What are the best practices for bulk operations with PL/SQL tables?",
+      "How to debug PL/SQL table operations?",
+      "Can PL/SQL tables be persisted across sessions?",
+      "How to optimize memory usage with PL/SQL tables?",
+      "What are the alternatives to PL/SQL tables?"
+    ],
+    "relatedQuestions": [
+      "What is a nested table in PL/SQL?",
+      "How to use BULK COLLECT with PL/SQL tables?",
+      "What are the differences between PL/SQL records and tables?",
+      "How to handle NULL values in PL/SQL tables?",
+      "What are the collection methods available for PL/SQL tables?",
+      "How to declare and use associative arrays?",
+      "What is the difference between VARRAY and TABLE types?",
+      "How to pass PL/SQL tables between procedures?",
+      "What are the performance considerations for PL/SQL tables?",
+      "How to implement error handling for PL/SQL table operations?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not initializing PL/SQL tables before use",
+        "explanation": "Attempting to access uninitialized table elements results in NO_DATA_FOUND exception"
+      },
+      {
+        "mistake": "Confusing PL/SQL tables with database tables",
+        "explanation": "PL/SQL tables are memory structures and don't persist beyond session scope"
+      },
+      {
+        "mistake": "Incorrect index handling",
+        "explanation": "Not checking for valid indexes using FIRST and LAST methods can lead to exceptions"
+      },
+      {
+        "mistake": "Memory management issues",
+        "explanation": "Not considering memory limitations when working with large collections can cause performance problems"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "pl-sql-sys-all-dependencies": {
+    "primaryQuestion": "What is the purpose and usage of SYS.ALL_DEPENDENCIES in PL/SQL?",
+    "alternativeQuestions": [
+      "How do I query object dependencies using SYS.ALL_DEPENDENCIES?",
+      "What information can I get from the ALL_DEPENDENCIES view in Oracle?",
+      "How to track PL/SQL object dependencies using system views?",
+      "What are the columns available in SYS.ALL_DEPENDENCIES?",
+      "Can you explain the structure of ALL_DEPENDENCIES in Oracle?",
+      "How do I find dependent objects using SYS.ALL_DEPENDENCIES?",
+      "What's the difference between USER_DEPENDENCIES and ALL_DEPENDENCIES?",
+      "How to use ALL_DEPENDENCIES for impact analysis in PL/SQL?",
+      "What role does SYS.ALL_DEPENDENCIES play in schema management?",
+      "How can I check package dependencies using ALL_DEPENDENCIES?",
+      "What are the best practices for using ALL_DEPENDENCIES view?",
+      "How to identify broken dependencies using SYS.ALL_DEPENDENCIES?",
+      "When should I use ALL_DEPENDENCIES vs DBA_DEPENDENCIES?",
+      "What permissions are needed to query SYS.ALL_DEPENDENCIES?",
+      "How does ALL_DEPENDENCIES help in database maintenance?"
+    ],
+    "answerDescriptions": [
+      "System view that shows dependencies between database objects accessible to current user",
+      "Contains information about parent objects and their dependent objects",
+      "Helps in impact analysis before making changes to database objects",
+      "Useful for tracking relationships between procedures, functions, and packages",
+      "Essential for maintaining database object integrity and troubleshooting"
+    ],
+    "answer": {
+      "summary": "SYS.ALL_DEPENDENCIES is a system view that displays dependency relationships between database objects that are accessible to the current user.",
+      "detailed": "A system view that tracks and displays dependencies between database objects in Oracle databases.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| OWNER | To find object owner | `SELECT OWNER FROM ALL_DEPENDENCIES WHERE REFERENCED_NAME = 'EMP'` |\n| REFERENCED_NAME | To find parent object | `SELECT DISTINCT REFERENCED_NAME FROM ALL_DEPENDENCIES` |\n| REFERENCED_TYPE | To check object type | `SELECT * FROM ALL_DEPENDENCIES WHERE REFERENCED_TYPE = 'TABLE'` |\n\n* Always check both direct and indirect dependencies\n* Use with USER_DEPENDENCIES for objects in your schema\n* Join with ALL_OBJECTS for additional object information\n* Consider using DBA_DEPENDENCIES for system-wide view\n\n```sql\nSELECT d.owner, d.name, d.type, \n       d.referenced_owner, \n       d.referenced_name, \n       d.referenced_type\nFROM SYS.ALL_DEPENDENCIES d\nWHERE d.referenced_name = 'EMPLOYEES'\nORDER BY d.owner, d.name;```",
+      "whenToUse": "Use when performing impact analysis, troubleshooting compilation issues, or tracking object dependencies before making schema changes.",
+      "realWorldContext": "Before dropping a table column, DBAs query ALL_DEPENDENCIES to identify all stored procedures and views that might break due to the change."
+    },
+    "category": "PL/SQL",
+    "subcategory": "System Views",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "oracle",
+      "system-views",
+      "dependencies",
+      "database-administration",
+      "schema-management",
+      "data-dictionary",
+      "object-management",
+      "database-objects",
+      "oracle-views"
+    ],
+    "conceptTriggers": [
+      "object dependencies",
+      "schema management",
+      "impact analysis",
+      "system views",
+      "data dictionary"
+    ],
+    "naturalFollowups": [
+      "What's the difference between DBA_DEPENDENCIES and ALL_DEPENDENCIES?",
+      "How to handle circular dependencies in PL/SQL?",
+      "Can ALL_DEPENDENCIES show dynamic SQL dependencies?",
+      "How to resolve invalid object dependencies?",
+      "What are the performance implications of querying ALL_DEPENDENCIES?",
+      "How to automate dependency checking in deployment scripts?",
+      "What are the common causes of broken dependencies?",
+      "How to maintain dependencies when moving objects between schemas?",
+      "What tools can complement ALL_DEPENDENCIES for impact analysis?",
+      "How often should dependency analysis be performed?"
+    ],
+    "relatedQuestions": [
+      "What is USER_DEPENDENCIES in PL/SQL?",
+      "How to use DBA_DEPENDENCIES?",
+      "What are invalid objects in Oracle?",
+      "How to handle broken dependencies?",
+      "What is the ALL_OBJECTS view?",
+      "How to track package dependencies?",
+      "What is cross-schema dependency?",
+      "How to manage object privileges?",
+      "What is the role of ALL_SOURCE?",
+      "How to validate PL/SQL objects?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming ALL_DEPENDENCIES shows all database dependencies",
+        "explanation": "It only shows dependencies visible to the current user, not all dependencies in the database"
+      },
+      {
+        "mistake": "Not checking indirect dependencies",
+        "explanation": "Missing cascading dependencies can lead to unexpected issues during object modifications"
+      },
+      {
+        "mistake": "Ignoring referenced_type column",
+        "explanation": "This can lead to incomplete dependency analysis as different object types have different dependency rules"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "trigger-virtual-tables-pl-sql": {
+    "primaryQuestion": "What are the virtual tables available during the execution of the database trigger?",
+    "alternativeQuestions": [
+      "How do :NEW and :OLD virtual tables work in PL/SQL triggers?",
+      "Can you explain the purpose of virtual tables in Oracle PL/SQL triggers?",
+      "What is the difference between :NEW and :OLD pseudo-records in PL/SQL triggers?",
+      "How do you access row data using virtual tables in PL/SQL triggers?",
+      "When should you use :NEW and :OLD tables in database triggers?",
+      "What are pseudo-records in Oracle PL/SQL trigger context?",
+      "How do virtual tables help in handling trigger events in PL/SQL?",
+      "What is the scope of :NEW and :OLD tables in PL/SQL triggers?",
+      "Can you modify :NEW values in before triggers?",
+      "How are virtual tables implemented in different trigger types?",
+      "What happens to :NEW and :OLD tables in INSTEAD OF triggers?",
+      "Are virtual tables available in all types of PL/SQL triggers?",
+      "How do you handle virtual tables in compound triggers?",
+      "What are the restrictions when using :NEW and :OLD tables?",
+      "How do statement-level triggers use virtual tables?"
+    ],
+    "answerDescriptions": [
+      ":NEW table contains new values being inserted or updated",
+      ":OLD table contains existing values before modification",
+      "INSERTING only provides :NEW table access",
+      "DELETING only provides :OLD table access",
+      "UPDATING provides both :NEW and :OLD table access"
+    ],
+    "answer": {
+      "summary": "Virtual tables :NEW and :OLD provide access to the affected row data before and after trigger-initiating DML operations.",
+      "detailed": "Virtual tables in PL/SQL triggers are special data structures that provide access to the row values involved in trigger operations.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| :NEW | Access new values in INSERT/UPDATE | :NEW.column_name |\n| :OLD | Access existing values in UPDATE/DELETE | :OLD.column_name |\n| :NEW.column_name := value | Modify new values in BEFORE triggers | :NEW.salary := :NEW.salary * 1.1 |\n\n* Use :NEW in BEFORE INSERT/UPDATE triggers to validate or modify incoming data\n* Use :OLD in auditing triggers to track changes\n* Both tables are read-only in AFTER triggers\n* Statement-level triggers can't reference these tables directly\n\n```sql\nCREATE OR REPLACE TRIGGER salary_check\nBEFORE UPDATE OF salary ON employees\nFOR EACH ROW\nBEGIN\n  IF :NEW.salary < :OLD.salary THEN\n    RAISE_APPLICATION_ERROR(-20001, 'Salary cannot decrease');\n  END IF;\nEND;\n```",
+      "whenToUse": "Use virtual tables when you need to access or compare row values before and after DML operations, or when implementing business rules that depend on data changes.",
+      "realWorldContext": "In a payroll system, virtual tables are used in triggers to ensure salary changes follow company policy by comparing new and old values."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Triggers",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "triggers",
+      "virtual-tables",
+      "database",
+      "oracle",
+      "dml",
+      "pseudo-records",
+      "trigger-events",
+      "data-validation",
+      "row-level-triggers"
+    ],
+    "conceptTriggers": [
+      "Database Triggers",
+      "DML Operations",
+      "Row-Level Processing",
+      "Data Validation",
+      "Event Handling"
+    ],
+    "naturalFollowups": [
+      "How do you handle exceptions in triggers?",
+      "What are the different types of triggers in PL/SQL?",
+      "Can triggers call stored procedures?",
+      "How do you disable triggers temporarily?",
+      "What is mutating table error in triggers?",
+      "How do compound triggers work?",
+      "What are the best practices for trigger development?",
+      "How do you debug triggers?",
+      "What is the execution order of multiple triggers?",
+      "How do you handle trigger recursion?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between BEFORE and AFTER triggers?",
+      "How do you create a compound trigger?",
+      "What are mutating table exceptions?",
+      "When should you use INSTEAD OF triggers?",
+      "How do you handle trigger errors?",
+      "What are statement-level triggers?",
+      "Can triggers call other triggers?",
+      "How do you maintain triggers?",
+      "What are trigger restrictions in PL/SQL?",
+      "How do you optimize trigger performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Attempting to modify :OLD values",
+        "explanation": "The :OLD virtual table is always read-only and cannot be modified."
+      },
+      {
+        "mistake": "Using :NEW/:OLD in statement-level triggers",
+        "explanation": "Virtual tables are only available in row-level triggers, not statement-level triggers."
+      },
+      {
+        "mistake": "Modifying :NEW in AFTER triggers",
+        "explanation": "AFTER triggers can only read :NEW values, not modify them."
+      },
+      {
+        "mistake": "Accessing unavailable virtual tables",
+        "explanation": "INSERT triggers only have :NEW, DELETE triggers only have :OLD available."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-cursor-procedure-vs-package": {
+    "primaryQuestion": "What are the key differences between cursors declared in procedures versus package specifications in PL/SQL?",
+    "alternativeQuestions": [
+      "How do procedure-level cursors differ from package-level cursors in PL/SQL?",
+      "What is the scope difference between package and procedure cursors?",
+      "When should I declare a cursor in a package spec vs. a procedure?",
+      "Can you explain the visibility rules for cursors in packages vs. procedures?",
+      "What are the advantages of declaring cursors in package specifications?",
+      "How does cursor persistence differ between package and procedure declarations?",
+      "What is the lifetime of a cursor declared in a package vs. procedure?",
+      "Are there performance implications between package and procedure cursor declarations?",
+      "How do you choose between package-level and procedure-level cursor declarations?",
+      "What are the reusability aspects of package vs. procedure cursors?",
+      "Can other procedures access cursors declared in package specifications?",
+      "How does cursor memory allocation differ between packages and procedures?",
+      "What is the impact of cursor scope in packages vs. procedures?",
+      "How do package cursors support code modularity compared to procedure cursors?",
+      "What are the best practices for cursor declaration location in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Package cursors are globally accessible while procedure cursors are locally scoped",
+      "Package cursors can be reused across multiple procedures and functions",
+      "Procedure cursors are destroyed after procedure execution completes",
+      "Package cursors support better code organization and modularity",
+      "Package cursors can be referenced in package body implementations"
+    ],
+    "answer": {
+      "summary": "Package specification cursors are globally accessible and reusable, while procedure cursors are local to the procedure and temporary in nature.",
+      "detailed": "Cursors in PL/SQL can be declared either in package specifications or procedures, with distinct characteristics affecting their scope and usage.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| Package Cursor | Global access needed | `CURSOR emp_cur RETURN employees%ROWTYPE;` |\n| Procedure Cursor | Local scope sufficient | `CURSOR dept_cur IS SELECT * FROM departments;` |\n| Package Ref Cursor | Flexible result sets | `TYPE emp_refcur IS REF CURSOR RETURN employees%ROWTYPE;` |\n\n* Package cursors provide better code organization and reusability\n* Procedure cursors are more memory-efficient for single-use scenarios\n* Package cursors can be shared across multiple program units\n* Local cursors are automatically cleaned up after procedure completion\n* Consider package cursors for frequently used queries\n\n```sql\n-- Package Specification Cursor\nCREATE OR REPLACE PACKAGE emp_pkg IS\n  CURSOR emp_cur IS\n    SELECT employee_id, first_name, salary\n    FROM employees\n    WHERE department_id = 10;\n END emp_pkg;\n\n-- Procedure Local Cursor\nCREATE OR REPLACE PROCEDURE process_dept IS\n  CURSOR dept_cur IS\n    SELECT department_id, department_name\n    FROM departments;\nBEGIN\n  FOR dept_rec IN dept_cur LOOP\n    -- Process department\n  END LOOP;\nEND process_dept;\n```",
+      "whenToUse": "Use package cursors when the cursor definition needs to be shared across multiple procedures or when implementing a standardized data access layer. Use procedure cursors for isolated, procedure-specific data operations.",
+      "realWorldContext": "In an HR system, package-level cursors are used for common employee queries shared across multiple modules, while procedure-level cursors handle specific report generation tasks."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Cursors",
+    "difficulty": "intermediate",
+    "tags": [
+      "plsql",
+      "cursors",
+      "packages",
+      "procedures",
+      "oracle",
+      "database",
+      "scope",
+      "sql",
+      "ref-cursors",
+      "data-access"
+    ],
+    "conceptTriggers": [
+      "cursor declaration",
+      "package specification",
+      "scope rules",
+      "procedure definition",
+      "cursor lifetime"
+    ],
+    "naturalFollowups": [
+      "How do you handle exceptions in package cursors?",
+      "Can you modify package cursor definitions?",
+      "What are the performance implications of cursor sharing?",
+      "How do you implement cursor parameters in packages?",
+      "What is the maximum number of cursors per package?",
+      "How do you manage cursor resources in packages?",
+      "Can you overload cursors in packages?",
+      "What are the best practices for cursor naming conventions?",
+      "How do you debug package cursor issues?",
+      "When should you use REF cursors instead of static cursors?"
+    ],
+    "relatedQuestions": [
+      "What is a REF cursor in PL/SQL?",
+      "How do you handle cursor parameters?",
+      "What are cursor attributes in PL/SQL?",
+      "How do you implement cursor FOR loops?",
+      "What is the difference between implicit and explicit cursors?",
+      "How do you handle cursor exceptions?",
+      "What are cursor variables in PL/SQL?",
+      "How do you optimize cursor performance?",
+      "What is cursor caching in PL/SQL?",
+      "How do you implement nested cursors?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not closing package cursors explicitly",
+        "explanation": "Package cursors remain open until explicitly closed or session ends, potentially causing resource issues"
+      },
+      {
+        "mistake": "Declaring all cursors in packages",
+        "explanation": "Over-using package cursors when procedure-level cursors would be more appropriate can lead to maintenance issues"
+      },
+      {
+        "mistake": "Ignoring cursor scope implications",
+        "explanation": "Not considering the visibility and accessibility requirements when choosing cursor declaration location"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-14-rollback-vs-rollback-to": {
+    "primaryQuestion": "What is the difference between ROLLBACK and ROLLBACK TO statements in PL/SQL?",
+    "alternativeQuestions": [
+      "How does ROLLBACK TO SAVEPOINT differ from a regular ROLLBACK in PL/SQL?",
+      "Can you explain the distinction between full ROLLBACK and partial ROLLBACK TO in PL/SQL transactions?",
+      "When should I use ROLLBACK versus ROLLBACK TO SAVEPOINT in PL/SQL?",
+      "What are the transaction control implications of ROLLBACK vs ROLLBACK TO?",
+      "How do savepoints affect ROLLBACK behavior in PL/SQL?",
+      "What happens to transaction state when using ROLLBACK compared to ROLLBACK TO?",
+      "Is there a difference in scope between ROLLBACK and ROLLBACK TO commands?",
+      "How can I partially roll back transactions using ROLLBACK TO in PL/SQL?",
+      "What are the use cases for ROLLBACK TO versus complete ROLLBACK?",
+      "How do ROLLBACK and ROLLBACK TO affect database consistency differently?",
+      "Can you compare the transaction boundaries of ROLLBACK and ROLLBACK TO?",
+      "What's the impact of ROLLBACK vs ROLLBACK TO on savepoints?",
+      "How do ROLLBACK and ROLLBACK TO handle nested transactions?",
+      "When would you choose ROLLBACK TO over a full ROLLBACK?",
+      "What are the performance implications of ROLLBACK vs ROLLBACK TO?"
+    ],
+    "answerDescriptions": [
+      "ROLLBACK undoes all changes in the current transaction",
+      "ROLLBACK TO only undoes changes back to a specified savepoint",
+      "ROLLBACK releases all savepoints in the transaction",
+      "ROLLBACK TO maintains savepoints created after the target savepoint",
+      "ROLLBACK ends the transaction while ROLLBACK TO continues it"
+    ],
+    "answer": {
+      "summary": "ROLLBACK undoes all changes in the current transaction, while ROLLBACK TO partially undoes changes only up to a specified savepoint.",
+      "detailed": "Transaction control statements that manage data consistency and recovery. \n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| ROLLBACK | To undo all changes in current transaction | ```ROLLBACK;``` |\n| ROLLBACK TO | To undo changes to a specific savepoint | ```ROLLBACK TO savepoint_name;``` |\n| SAVEPOINT | To create a point for partial rollback | ```SAVEPOINT save1;``` |\n\n* Always create savepoints before risky operations\n* ROLLBACK releases all locks and savepoints\n* ROLLBACK TO preserves subsequent savepoints\n* Use meaningful savepoint names\n\n```sql\nDECLARE\n  insufficient_funds EXCEPTION;\nBEGIN\n  SAVEPOINT before_transfer;\n  \n  UPDATE accounts SET balance = balance - 1000\n  WHERE account_id = 101;\n  \n  IF :new.balance < 0 THEN\n    ROLLBACK TO before_transfer;\n    RAISE insufficient_funds;\n  ELSE\n    COMMIT;\n  END IF;\nEXCEPTION\n  WHEN OTHERS THEN\n    ROLLBACK;\nEND;\n```",
+      "whenToUse": "Use ROLLBACK for complete transaction abort and ROLLBACK TO for partial undo when you need to maintain some changes while reverting others.",
+      "realWorldContext": "In a banking application, use ROLLBACK TO to undo a failed transfer while keeping previous successful operations, but use ROLLBACK to cancel an entire batch of invalid transactions."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Transaction Control",
+    "difficulty": "intermediate",
+    "tags": [
+      "transaction management",
+      "rollback",
+      "savepoint",
+      "error handling",
+      "data consistency",
+      "transaction control",
+      "database operations",
+      "exception handling",
+      "data integrity",
+      "recovery"
+    ],
+    "conceptTriggers": [
+      "transaction boundaries",
+      "savepoint management",
+      "partial rollback",
+      "data consistency",
+      "error recovery"
+    ],
+    "naturalFollowups": [
+      "How do you create and manage savepoints in PL/SQL?",
+      "What happens to savepoints after a COMMIT statement?",
+      "Can you nest savepoints in PL/SQL?",
+      "How do autonomous transactions interact with ROLLBACKs?",
+      "What are the performance implications of multiple savepoints?",
+      "How do ROLLBACK statements affect database locks?",
+      "Can you ROLLBACK TO after a COMMIT statement?",
+      "What happens to sequence numbers after a ROLLBACK?",
+      "How do triggers behave during ROLLBACK operations?",
+      "What is the maximum number of savepoints in a transaction?",
+      "How do ROLLBACKs affect temporary tables?",
+      "Can you ROLLBACK DDL operations in PL/SQL?"
+    ],
+    "relatedQuestions": [
+      "What is a SAVEPOINT in PL/SQL?",
+      "How does COMMIT work in PL/SQL transactions?",
+      "What are autonomous transactions in PL/SQL?",
+      "How do you handle transaction deadlocks in PL/SQL?",
+      "What is transaction isolation level in PL/SQL?",
+      "How do you implement distributed transactions in PL/SQL?",
+      "What are the different transaction states in PL/SQL?",
+      "How do you manage transaction timeouts in PL/SQL?",
+      "What is the difference between COMMIT and COMMIT WORK?",
+      "How do you handle transaction errors in PL/SQL?",
+      "What are implicit transactions in PL/SQL?",
+      "How do you monitor active transactions in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Attempting to ROLLBACK TO a savepoint that doesn't exist",
+        "explanation": "Always verify savepoint existence and maintain proper savepoint naming conventions"
+      },
+      {
+        "mistake": "Using ROLLBACK TO after a COMMIT statement",
+        "explanation": "COMMIT ends the transaction and releases all savepoints, making them invalid for ROLLBACK TO"
+      },
+      {
+        "mistake": "Assuming ROLLBACK TO will undo all subsequent savepoints",
+        "explanation": "ROLLBACK TO preserves savepoints created after the target savepoint, unlike full ROLLBACK"
+      },
+      {
+        "mistake": "Not handling exceptions after ROLLBACK TO",
+        "explanation": "ROLLBACK TO doesn't automatically handle exceptions; explicit exception handling is still needed"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-15-character-manipulation-functions": {
+    "primaryQuestion": "What are the various functions available for manipulating character data in PL/SQL?",
+    "alternativeQuestions": [
+      "Which string manipulation functions are commonly used in PL/SQL?",
+      "How can I modify and transform character data in PL/SQL?",
+      "What are the built-in string functions supported by PL/SQL?",
+      "Which functions help in text processing within PL/SQL?",
+      "How do you handle string operations in PL/SQL?",
+      "What are the most important character manipulation functions in PL/SQL?",
+      "Which PL/SQL functions are used for text transformation?",
+      "How can I perform string operations in Oracle PL/SQL?",
+      "What are the different ways to manipulate strings in PL/SQL?",
+      "Which built-in functions help with character data processing in PL/SQL?",
+      "How do you work with text data in PL/SQL programs?",
+      "What string manipulation capabilities does PL/SQL offer?",
+      "Which functions should I use for text handling in PL/SQL?",
+      "How can I modify string content using PL/SQL functions?",
+      "What are the essential string manipulation functions in Oracle PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Character functions modify or return information about string data",
+      "Case conversion functions like UPPER, LOWER, and INITCAP transform text case",
+      "String extraction functions like SUBSTR and INSTR help in text parsing",
+      "Character replacement functions like REPLACE and TRANSLATE modify string content",
+      "String padding functions like LPAD and RPAD format text alignment"
+    ],
+    "answer": {
+      "summary": "PL/SQL provides numerous built-in functions for manipulating character data, including case conversion, substring operations, padding, and replacement functions.",
+      "detailed": "Character manipulation functions in PL/SQL are built-in utilities for string processing and transformation.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| UPPER | Convert string to uppercase | `SELECT UPPER('hello') FROM DUAL;` |\n| LOWER | Convert string to lowercase | `SELECT LOWER('WORLD') FROM DUAL;` |\n| INITCAP | Capitalize first letter of each word | `SELECT INITCAP('hello world') FROM DUAL;` |\n| SUBSTR | Extract portion of string | `SELECT SUBSTR('HELLO', 1, 2) FROM DUAL;` |\n| INSTR | Find position of substring | `SELECT INSTR('HELLO', 'L') FROM DUAL;` |\n| REPLACE | Replace characters in string | `SELECT REPLACE('HELLO', 'L', 'X') FROM DUAL;` |\n| LPAD/RPAD | Add padding to string | `SELECT LPAD('SQL', 5, '*') FROM DUAL;` |\n\n- Use UPPER/LOWER for consistent case comparison\n- SUBSTR is 1-based indexing in PL/SQL\n- REPLACE is case-sensitive by default\n- INSTR returns 0 if substring not found\n\n```sql\nDECLARE\n  v_text VARCHAR2(100) := 'Hello World';\n  v_modified VARCHAR2(100);\nBEGIN\n  v_modified := UPPER(SUBSTR(v_text, 1, 5)) || \n                LOWER(SUBSTR(v_text, 7));\n  DBMS_OUTPUT.PUT_LINE(v_modified);\nEND;\n```",
+      "whenToUse": "Use these functions when you need to transform, extract, or modify character data within PL/SQL blocks, SQL queries, or stored procedures.",
+      "realWorldContext": "In a customer management system, character functions are used to standardize customer names (INITCAP), extract area codes from phone numbers (SUBSTR), and format product codes (LPAD)."
+    },
+    "category": "PL/SQL",
+    "subcategory": "String Functions",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "string-manipulation",
+      "oracle",
+      "character-functions",
+      "text-processing",
+      "database",
+      "sql",
+      "string-functions",
+      "data-manipulation",
+      "oracle-database"
+    ],
+    "conceptTriggers": [
+      "string manipulation",
+      "character processing",
+      "text transformation",
+      "data formatting",
+      "string functions"
+    ],
+    "naturalFollowups": [
+      "How do regular expressions work in PL/SQL?",
+      "What are the performance implications of using string functions?",
+      "How do you handle Unicode characters in PL/SQL?",
+      "What are the limitations of PL/SQL string functions?",
+      "How do you concatenate strings in PL/SQL?",
+      "What's the difference between INSTR and REGEXP_INSTR?",
+      "How do you handle NULL values in string functions?",
+      "What are the best practices for string manipulation in PL/SQL?",
+      "How do you compare strings in PL/SQL?",
+      "What are the character set considerations in PL/SQL string functions?"
+    ],
+    "relatedQuestions": [
+      "How do you handle NULL values in PL/SQL?",
+      "What are the numeric functions available in PL/SQL?",
+      "How do you use regular expressions in PL/SQL?",
+      "What are the date manipulation functions in PL/SQL?",
+      "How do you handle Unicode data in PL/SQL?",
+      "What are the conversion functions in PL/SQL?",
+      "How do you use CLOB data type in PL/SQL?",
+      "What are the aggregate functions in PL/SQL?",
+      "How do you handle exceptions in PL/SQL?",
+      "What are the best practices for PL/SQL performance?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming INSTR returns -1 for not found",
+        "explanation": "INSTR returns 0 when the substring is not found, not -1 as in some other programming languages."
+      },
+      {
+        "mistake": "Using zero-based indexing with SUBSTR",
+        "explanation": "PL/SQL uses 1-based indexing, not 0-based indexing like many programming languages."
+      },
+      {
+        "mistake": "Not handling NULL inputs properly",
+        "explanation": "String functions return NULL when input is NULL, which might cause unexpected results if not handled properly."
+      },
+      {
+        "mistake": "Incorrect use of case-sensitive functions",
+        "explanation": "Functions like REPLACE and INSTR are case-sensitive by default, which might lead to missed matches."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "pl-sql-type-rowtype-importance": {
+    "primaryQuestion": "What is the importance of %TYPE and %ROWTYPE data types in PL/SQL?",
+    "alternativeQuestions": [
+      "How do %TYPE and %ROWTYPE attributes help in PL/SQL development?",
+      "Why should we use %TYPE and %ROWTYPE in PL/SQL declarations?",
+      "What are the benefits of using %TYPE and %ROWTYPE in PL/SQL?",
+      "Can you explain the significance of anchor types in PL/SQL?",
+      "How do %TYPE and %ROWTYPE contribute to maintainable PL/SQL code?",
+      "What's the difference between %TYPE and %ROWTYPE in PL/SQL?",
+      "When should I use %TYPE vs %ROWTYPE in PL/SQL programming?",
+      "How do %TYPE and %ROWTYPE help with database schema changes?",
+      "What are the advantages of using %TYPE over explicit data type declarations?",
+      "How does %ROWTYPE simplify record handling in PL/SQL?",
+      "Why are %TYPE and %ROWTYPE considered PL/SQL best practices?",
+      "What problems do %TYPE and %ROWTYPE solve in PL/SQL development?",
+      "How do anchor types improve PL/SQL code maintenance?",
+      "What makes %TYPE and %ROWTYPE essential for robust PL/SQL programs?",
+      "How do %TYPE and %ROWTYPE support strong typing in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Ensures data type consistency with database columns",
+      "Automatically adapts to schema changes without code modification",
+      "Reduces maintenance effort and potential type mismatch errors",
+      "Simplifies variable declarations for complex record structures",
+      "Promotes better code readability and maintainability"
+    ],
+    "answer": {
+      "summary": "%TYPE and %ROWTYPE are anchor types that automatically inherit data types from database columns and tables, ensuring type consistency and reducing maintenance overhead.",
+      "detailed": "Anchor types that reference database column and row definitions for automatic type inheritance.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| %TYPE | For single column type reference | `v_name employees.last_name%TYPE;` |\n| %ROWTYPE | For entire record structure | `v_emp employees%ROWTYPE;` |\n| Nested %TYPE | For referencing another variable's type | `v_salary v_employee.salary%TYPE;` |\n\n* Use %TYPE for strong typing and schema independence\n* Apply %ROWTYPE when working with entire table rows\n* Combine with cursors for efficient record processing\n* Remember that %ROWTYPE includes all columns by default\n\n```sql\nDECLARE\n  v_emp_id    employees.employee_id%TYPE;\n  v_emp_rec   employees%ROWTYPE;\nBEGIN\n  SELECT *\n  INTO v_emp_rec\n  FROM employees\n  WHERE employee_id = v_emp_id;\nEND;\n```",
+      "whenToUse": "Use these attributes when declaring variables that correspond to database columns or entire table rows, especially in applications where database schema might change over time.",
+      "realWorldContext": "In an HR system, using %TYPE and %ROWTYPE ensures that employee data handling procedures automatically adapt when column definitions change, such as expanding the size of name fields."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Data Types",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "oracle",
+      "data-types",
+      "type-attributes",
+      "database-programming",
+      "anchor-types",
+      "variable-declaration",
+      "best-practices",
+      "schema-independence",
+      "type-safety"
+    ],
+    "conceptTriggers": [
+      "variable declaration",
+      "type inheritance",
+      "schema changes",
+      "record handling",
+      "type safety"
+    ],
+    "naturalFollowups": [
+      "How do you handle partial ROWTYPE assignments?",
+      "Can %TYPE be used with package variables?",
+      "How does %ROWTYPE work with views?",
+      "What are the limitations of %TYPE and %ROWTYPE?",
+      "How do you use %ROWTYPE with cursors?",
+      "Can %TYPE reference complex data types?",
+      "What's the performance impact of using %ROWTYPE?",
+      "How do you handle NULL values with %TYPE?",
+      "Can %ROWTYPE be used in function parameters?",
+      "What are alternatives to %TYPE and %ROWTYPE?"
+    ],
+    "relatedQuestions": [
+      "What are PL/SQL records and when should you use them?",
+      "How do you declare and use cursors in PL/SQL?",
+      "What are the different variable scopes in PL/SQL?",
+      "How do you handle exceptions in PL/SQL?",
+      "What are the benefits of using PL/SQL collections?",
+      "How do you work with composite data types in PL/SQL?",
+      "What are the best practices for PL/SQL variable naming?",
+      "How do you optimize PL/SQL code performance?",
+      "What are the different types of triggers in PL/SQL?",
+      "How do you debug PL/SQL code effectively?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using explicit data types instead of %TYPE",
+        "explanation": "This creates maintenance issues when database schema changes occur"
+      },
+      {
+        "mistake": "Assuming %ROWTYPE includes only specific columns",
+        "explanation": "ROWTYPE always includes all columns from the referenced table or view"
+      },
+      {
+        "mistake": "Using %TYPE with incompatible data types",
+        "explanation": "The target variable must be compatible with the referenced column's data type"
+      },
+      {
+        "mistake": "Not considering performance with large %ROWTYPE variables",
+        "explanation": "ROWTYPE can consume more memory when table has many columns"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-17-sql-vs-plsql-differences": {
+    "primaryQuestion": "What are the key differences between SQL and PL/SQL?",
+    "alternativeQuestions": [
+      "How does PL/SQL extend SQL's capabilities?",
+      "What features does PL/SQL add that aren't available in standard SQL?",
+      "Can you explain the main distinctions between SQL and PL/SQL?",
+      "Why would you choose PL/SQL over regular SQL?",
+      "What are the advantages of using PL/SQL compared to plain SQL?",
+      "How do SQL and PL/SQL complement each other?",
+      "What programming capabilities does PL/SQL add to SQL?",
+      "When should I use PL/SQL instead of regular SQL?",
+      "What makes PL/SQL a more powerful language than SQL?",
+      "How does the execution model differ between SQL and PL/SQL?",
+      "What are the structural differences between SQL and PL/SQL code?",
+      "Can you compare the processing capabilities of SQL vs PL/SQL?",
+      "What additional control structures does PL/SQL provide over SQL?",
+      "How does error handling differ between SQL and PL/SQL?",
+      "What are the performance implications of using PL/SQL versus SQL?"
+    ],
+    "answerDescriptions": [
+      "SQL is declarative while PL/SQL is procedural with programming constructs",
+      "PL/SQL can contain multiple SQL statements in a single block",
+      "PL/SQL supports variables, loops, conditions, and error handling",
+      "SQL executes statement-by-statement while PL/SQL executes in blocks",
+      "PL/SQL reduces network traffic by processing multiple operations server-side"
+    ],
+    "answer": {
+      "summary": "SQL is a declarative language for database operations, while PL/SQL is a procedural extension that adds programming capabilities like variables, loops, and error handling.",
+      "detailed": "SQL and PL/SQL serve different but complementary purposes in database programming.\n\n| Feature | SQL | PL/SQL |\n|---------|-----|---------||\n| Purpose | Data manipulation and querying | Procedural programming and business logic |\n| Execution | Statement-by-statement | Block-structured |\n| Features | Basic CRUD operations | Variables, loops, conditions, exceptions |\n\n- SQL focuses on WHAT to do, PL/SQL describes HOW to do it\n- PL/SQL blocks can contain multiple SQL statements\n- PL/SQL reduces network traffic by processing logic server-side\n- Error handling is more robust in PL/SQL with exception blocks\n\n```sql\n-- SQL Example\nSELECT * FROM employees WHERE salary > 5000;\n\n-- PL/SQL Example\nDECLARE\n  v_count NUMBER;\nBEGIN\n  SELECT COUNT(*) INTO v_count\n  FROM employees\n  WHERE salary > 5000;\n  \n  IF v_count > 10 THEN\n    DBMS_OUTPUT.PUT_LINE('Many high-paid employees');\n  END IF;\nEXCEPTION\n  WHEN OTHERS THEN\n    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);\nEND;\n```",
+      "whenToUse": "Use SQL for simple data operations and queries. Use PL/SQL when you need programming constructs, multiple SQL operations in a single unit, or complex business logic implementation.",
+      "realWorldContext": "In a banking system, SQL might be used for simple account queries, while PL/SQL would handle complex transactions involving multiple steps, error checking, and business rules."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Fundamentals",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "sql",
+      "oracle",
+      "database",
+      "programming",
+      "procedural",
+      "blocks",
+      "error-handling",
+      "control-structures",
+      "database-programming"
+    ],
+    "conceptTriggers": [
+      "procedural programming",
+      "block structure",
+      "exception handling",
+      "variable declaration",
+      "control flow"
+    ],
+    "naturalFollowups": [
+      "What are PL/SQL blocks and their types?",
+      "How do you handle exceptions in PL/SQL?",
+      "What are the different variable types in PL/SQL?",
+      "How do cursors work in PL/SQL?",
+      "What are PL/SQL packages?",
+      "How do you debug PL/SQL code?",
+      "What are PL/SQL procedures vs functions?",
+      "How do you optimize PL/SQL performance?",
+      "What are anonymous blocks in PL/SQL?",
+      "How do you handle transactions in PL/SQL?"
+    ],
+    "relatedQuestions": [
+      "How do you declare variables in PL/SQL?",
+      "What are the different types of PL/SQL blocks?",
+      "How do you handle errors in PL/SQL?",
+      "What are PL/SQL cursors and their types?",
+      "How do you create stored procedures in PL/SQL?",
+      "What are PL/SQL triggers and when to use them?",
+      "How do you use collections in PL/SQL?",
+      "What are the benefits of PL/SQL packages?",
+      "How do you implement loops in PL/SQL?",
+      "What are PL/SQL records and their usage?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Using PL/SQL for simple queries that could be done with SQL",
+        "explanation": "This adds unnecessary complexity and can impact performance"
+      },
+      {
+        "mistake": "Not handling exceptions properly in PL/SQL blocks",
+        "explanation": "This can lead to unclear error messages and difficult debugging"
+      },
+      {
+        "mistake": "Mixing SQL and PL/SQL syntax incorrectly",
+        "explanation": "Each language has its own syntax rules that must be followed"
+      },
+      {
+        "mistake": "Not understanding the scope of variables in PL/SQL blocks",
+        "explanation": "Variables declared in one block may not be accessible in another"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-22",
+    "verified": false
+  },
+  "plsql-cursor-implicit-vs-explicit": {
+    "primaryQuestion": "What is the difference between implicit and explicit cursors in PL/SQL?",
+    "alternativeQuestions": [
+      "How do implicit and explicit cursors differ in PL/SQL?",
+      "When should I use implicit vs explicit cursors in PL/SQL?",
+      "What are the advantages of explicit cursors over implicit cursors?",
+      "Can you explain the main distinctions between PL/SQL implicit and explicit cursors?",
+      "How does cursor management differ between implicit and explicit cursors?",
+      "What is the syntax difference between implicit and explicit cursors?",
+      "Which cursor type is better for performance: implicit or explicit?",
+      "How does memory handling differ between implicit and explicit cursors?",
+      "What control features are available in explicit cursors vs implicit cursors?",
+      "When do implicit cursors automatically close in PL/SQL?",
+      "What are the limitations of implicit cursors compared to explicit cursors?",
+      "How do you handle exceptions with implicit vs explicit cursors?",
+      "What is the scope difference between implicit and explicit cursors?",
+      "Can you explain cursor attributes for both implicit and explicit cursors?",
+      "What are the best practices for choosing between implicit and explicit cursors?"
+    ],
+    "answerDescriptions": [
+      "Implicit cursors are automatically managed by Oracle for single-row operations",
+      "Explicit cursors are user-defined and offer more control over result set processing",
+      "Implicit cursors use SQL%FOUND, SQL%NOTFOUND, SQL%ROWCOUNT attributes",
+      "Explicit cursors allow fetching multiple rows and custom processing logic",
+      "Explicit cursors require manual OPEN, FETCH, and CLOSE operations"
+    ],
+    "answer": {
+      "summary": "Implicit cursors are automatically managed by Oracle for single-row operations, while explicit cursors are user-defined and provide greater control over result set processing.",
+      "detailed": "A cursor is a pointer to a private SQL area that stores processing information. Implicit cursors are automatically created and managed by Oracle for all DML and single-row SELECT statements, while explicit cursors are declared and controlled by the programmer.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| Implicit Cursor | Single-row operations | `SELECT column INTO variable FROM table WHERE condition;` |\n| Explicit Cursor | Multi-row operations | `CURSOR emp_cur IS SELECT * FROM employees;` |\n| Cursor FOR Loop | Simplified iteration | `FOR rec IN emp_cur LOOP` |\n\n* Use implicit cursors for simple single-row operations\n* Use explicit cursors when you need precise control over result processing\n* Always close explicit cursors to free resources\n* Check cursor attributes to handle exceptions\n\n```sql\n-- Explicit Cursor Example\nDECLARE\n  CURSOR emp_cur IS\n    SELECT employee_id, salary\n    FROM employees\n    WHERE department_id = 10;\n  emp_rec emp_cur%ROWTYPE;\nBEGIN\n  OPEN emp_cur;\n  LOOP\n    FETCH emp_cur INTO emp_rec;\n    EXIT WHEN emp_cur%NOTFOUND;\n    -- Process record\n  END LOOP;\n  CLOSE emp_cur;\nEND;\n```",
+      "whenToUse": "Use implicit cursors for simple single-row operations and explicit cursors when you need control over multi-row processing or want to implement custom result set handling logic.",
+      "realWorldContext": "In a payroll system, explicit cursors are used to process employee salary updates in batches, while implicit cursors handle individual employee record updates."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Cursors",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "cursors",
+      "oracle",
+      "database",
+      "sql",
+      "cursor attributes",
+      "cursor management",
+      "data retrieval",
+      "performance",
+      "memory management"
+    ],
+    "conceptTriggers": [
+      "cursor declaration",
+      "result set processing",
+      "memory management",
+      "error handling",
+      "resource optimization"
+    ],
+    "naturalFollowups": [
+      "How do you handle cursor exceptions?",
+      "What are cursor attributes and how are they used?",
+      "How can you optimize cursor performance?",
+      "What is a cursor FOR loop?",
+      "How do you implement cursor parameters?",
+      "What are the best practices for cursor management?",
+      "How do you handle bulk operations with cursors?",
+      "What is a REF cursor?",
+      "How do you implement nested cursors?",
+      "What are cursor variables?"
+    ],
+    "relatedQuestions": [
+      "What is a REF cursor in PL/SQL?",
+      "How do you implement cursor parameters?",
+      "What are cursor attributes in PL/SQL?",
+      "How do you handle cursor exceptions?",
+      "What is a cursor FOR loop?",
+      "How do you optimize cursor performance?",
+      "What are cursor variables in PL/SQL?",
+      "How do you implement nested cursors?",
+      "What is bulk collect in PL/SQL?",
+      "How do you declare parameterized cursors?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Forgetting to close explicit cursors",
+        "explanation": "Not closing explicit cursors can lead to memory leaks and resource exhaustion"
+      },
+      {
+        "mistake": "Using explicit cursors for single-row operations",
+        "explanation": "This adds unnecessary complexity when implicit cursors would be more efficient"
+      },
+      {
+        "mistake": "Not checking cursor attributes before operations",
+        "explanation": "Failing to check %NOTFOUND or %FOUND can lead to unexpected results or errors"
+      },
+      {
+        "mistake": "Inefficient cursor loops",
+        "explanation": "Not using cursor FOR loops when appropriate can result in verbose and error-prone code"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-22",
+    "verified": false
+  },
+  "plsql-sysdate-user-keywords": {
+    "primaryQuestion": "Why are SYSDATE and USER keywords used in PL/SQL?",
+    "alternativeQuestions": [
+      "What is the purpose of SYSDATE in PL/SQL?",
+      "How does the USER keyword function in PL/SQL?",
+      "When should I use SYSDATE vs CURRENT_TIMESTAMP in PL/SQL?",
+      "What's the difference between USER and CURRENT_USER in PL/SQL?",
+      "How can I get the current date using SYSDATE in PL/SQL?",
+      "What are the common applications of USER keyword in PL/SQL?",
+      "Is SYSDATE timezone-aware in PL/SQL?",
+      "How accurate is SYSDATE for timestamp operations?",
+      "Can USER be used in stored procedures?",
+      "What privileges are needed to use SYSDATE and USER?",
+      "How do SYSDATE and USER affect performance?",
+      "Are SYSDATE and USER case-sensitive in PL/SQL?",
+      "What's the format of SYSDATE by default?",
+      "How to combine SYSDATE with date arithmetic?",
+      "When should I avoid using SYSDATE?"
+    ],
+    "answerDescriptions": [
+      "SYSDATE returns the current date and time from the operating system",
+      "USER returns the current schema/username executing the session",
+      "Both are built-in functions that don't require parameters",
+      "SYSDATE is commonly used for audit trails and timestamps",
+      "USER is crucial for security and logging purposes"
+    ],
+    "answer": {
+      "summary": "SYSDATE and USER are essential PL/SQL keywords for retrieving system date/time and current user context respectively.",
+      "detailed": "SYSDATE and USER are fundamental PL/SQL built-in functions for system information retrieval.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| SYSDATE | For current database server date/time | `SELECT SYSDATE FROM DUAL;` |\n| USER | For current schema name | `SELECT USER FROM DUAL;` |\n| CURRENT_DATE | For timezone-aware date | `SELECT CURRENT_DATE FROM DUAL;` |\n\n* SYSDATE returns date and time with seconds precision\n* USER returns the schema name in uppercase\n* Both are deterministic within a transaction\n* Use CURRENT_TIMESTAMP for millisecond precision\n\n```sql\nBEGIN\n  INSERT INTO audit_log (event_date, modified_by)\n  VALUES (SYSDATE, USER);\n  \n  DBMS_OUTPUT.PUT_LINE('Current Date: ' || TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS'));\n  DBMS_OUTPUT.PUT_LINE('Current User: ' || USER);\nEND;\n```",
+      "whenToUse": "Use SYSDATE for timestamp tracking and USER for audit trails, logging, and security implementations where user context is important.",
+      "realWorldContext": "In a banking system's transaction log, SYSDATE records exact transaction times while USER tracks which database user executed the transaction."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Built-in Functions",
+    "difficulty": "beginner",
+    "tags": [
+      "pl/sql",
+      "oracle",
+      "date-functions",
+      "system-functions",
+      "built-in-functions",
+      "database",
+      "user-context",
+      "security",
+      "auditing",
+      "session-management"
+    ],
+    "conceptTriggers": [
+      "date manipulation",
+      "user context",
+      "session management",
+      "system functions",
+      "audit trailing"
+    ],
+    "naturalFollowups": [
+      "How to format SYSDATE output?",
+      "What's the difference between SYSDATE and CURRENT_TIMESTAMP?",
+      "How to handle timezone differences with SYSDATE?",
+      "Can USER be changed during a session?",
+      "How to use SYSDATE in date calculations?",
+      "What's the performance impact of SYSDATE?",
+      "How to get millisecond precision with timestamps?",
+      "What are the alternatives to SYSDATE?",
+      "How does USER interact with proxy users?",
+      "Is SYSDATE affected by database timezone settings?"
+    ],
+    "relatedQuestions": [
+      "What is CURRENT_TIMESTAMP in PL/SQL?",
+      "How to use DATE data type in PL/SQL?",
+      "What are session variables in PL/SQL?",
+      "How to handle timezone conversion in PL/SQL?",
+      "What is SYSTIMESTAMP in PL/SQL?",
+      "How to use TO_CHAR with dates?",
+      "What is the difference between USER and CURRENT_USER?",
+      "How to implement audit trails in PL/SQL?",
+      "What are privileged and unprivileged users?",
+      "How to format dates in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Assuming SYSDATE includes milliseconds",
+        "explanation": "SYSDATE only provides seconds precision; use SYSTIMESTAMP for milliseconds"
+      },
+      {
+        "mistake": "Using SYSDATE for timezone-aware applications",
+        "explanation": "SYSDATE doesn't include timezone information; use CURRENT_TIMESTAMP instead"
+      },
+      {
+        "mistake": "Comparing USER with lowercase strings",
+        "explanation": "USER always returns uppercase; string comparisons must account for this"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-21-transaction-control-statements": {
+    "primaryQuestion": "What are COMMIT, ROLLBACK and SAVEPOINT statements in PL/SQL?",
+    "alternativeQuestions": [
+      "How do transaction control statements work in PL/SQL?",
+      "What is the purpose of COMMIT and ROLLBACK in PL/SQL?",
+      "How do you manage transaction boundaries in PL/SQL?",
+      "When should you use SAVEPOINT in PL/SQL transactions?",
+      "What's the difference between COMMIT and ROLLBACK in PL/SQL?",
+      "How can you implement transaction management in PL/SQL?",
+      "What happens when you execute a COMMIT statement in PL/SQL?",
+      "How do you roll back to a specific point in a PL/SQL transaction?",
+      "Can you explain transaction control mechanisms in PL/SQL?",
+      "What are the effects of COMMIT on database changes in PL/SQL?",
+      "How do SAVEPOINTs help in transaction management?",
+      "What is the scope of ROLLBACK in PL/SQL transactions?",
+      "How do you handle partial transaction rollbacks in PL/SQL?",
+      "When should you use transaction control statements in PL/SQL?",
+      "What are the best practices for transaction management in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "COMMIT permanently saves all transaction changes to the database",
+      "ROLLBACK undoes all changes made in the current transaction",
+      "SAVEPOINT creates markers within a transaction for partial rollbacks",
+      "Transaction control statements ensure data consistency and integrity",
+      "These statements help implement ACID properties in database operations"
+    ],
+    "answer": {
+      "summary": "Transaction control statements in PL/SQL manage database changes through COMMIT (save changes), ROLLBACK (undo changes), and SAVEPOINT (create restoration points).",
+      "detailed": "Transaction Control Statements are commands that manage changes to the database, ensuring data integrity and consistency.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| COMMIT | To permanently save changes | `COMMIT;` |\n| ROLLBACK | To undo all changes in current transaction | `ROLLBACK;` |\n| SAVEPOINT | To create a restoration point | `SAVEPOINT save1;` |\n| ROLLBACK TO | To undo changes to a specific savepoint | `ROLLBACK TO save1;` |\n\n* Always COMMIT or ROLLBACK explicitly to avoid holding locks\n* Use SAVEPOINTs for complex transactions requiring partial rollbacks\n* Remember that COMMIT ends the current transaction\n* ROLLBACK releases all locks and restores changed data\n\n```sql\nBEGIN\n  UPDATE employees SET salary = salary + 1000;\n  SAVEPOINT salary_update;\n  \n  DELETE FROM employees WHERE department_id = 10;\n  -- Something went wrong, roll back only the DELETE\n  ROLLBACK TO salary_update;\n  \n  COMMIT; -- Save the salary update\nEND;\n```",
+      "whenToUse": "Use these statements when implementing database operations that need to be treated as a single unit of work, especially in scenarios requiring data consistency and error recovery.",
+      "realWorldContext": "In a banking application, when transferring money between accounts, COMMIT ensures the transfer is permanent, while ROLLBACK can reverse failed transactions, and SAVEPOINT allows partial recovery if multi-step operations fail."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Transaction Management",
+    "difficulty": "intermediate",
+    "tags": [
+      "transaction control",
+      "database",
+      "commit",
+      "rollback",
+      "savepoint",
+      "data integrity",
+      "error handling",
+      "acid properties",
+      "concurrency control",
+      "database consistency"
+    ],
+    "conceptTriggers": [
+      "data persistence",
+      "transaction boundaries",
+      "error recovery",
+      "atomic operations",
+      "data consistency"
+    ],
+    "naturalFollowups": [
+      "What happens if you don't explicitly COMMIT in PL/SQL?",
+      "How do nested transactions work in PL/SQL?",
+      "Can you explain transaction isolation levels in PL/SQL?",
+      "What are autonomous transactions in PL/SQL?",
+      "How do locks work with transaction control statements?",
+      "What is the difference between ROLLBACK and ROLLBACK TO SAVEPOINT?",
+      "How do transaction control statements affect performance?",
+      "What happens to SAVEPOINTs after a COMMIT?",
+      "Can you use multiple SAVEPOINTs in a single transaction?",
+      "How do transaction control statements work in distributed databases?"
+    ],
+    "relatedQuestions": [
+      "How do you handle exceptions in PL/SQL transactions?",
+      "What are the ACID properties in PL/SQL?",
+      "How do you implement distributed transactions in PL/SQL?",
+      "What is transaction isolation in PL/SQL?",
+      "How do you manage deadlocks in PL/SQL?",
+      "What are autonomous transactions in PL/SQL?",
+      "How do you handle transaction timeouts?",
+      "What is the impact of transaction size on performance?",
+      "How do you implement transaction logging?",
+      "What are best practices for error handling in transactions?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Forgetting to COMMIT after DML operations",
+        "explanation": "Changes remain temporary and locks are held until session ends or explicit COMMIT/ROLLBACK"
+      },
+      {
+        "mistake": "Rolling back beyond a COMMIT",
+        "explanation": "ROLLBACK can only undo changes made after the most recent COMMIT"
+      },
+      {
+        "mistake": "Not handling SAVEPOINTs properly",
+        "explanation": "SAVEPOINTs are lost after a COMMIT, and trying to use them afterwards raises an error"
+      },
+      {
+        "mistake": "Assuming automatic transaction management",
+        "explanation": "PL/SQL requires explicit transaction control for proper data consistency"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-debugging-techniques": {
+    "primaryQuestion": "How can you debug PL/SQL code effectively?",
+    "alternativeQuestions": [
+      "What are the different methods to debug PL/SQL procedures?",
+      "Which tools are available for PL/SQL debugging?",
+      "How do I troubleshoot issues in PL/SQL code?",
+      "What debugging features does Oracle provide for PL/SQL?",
+      "How can I use DBMS_OUTPUT for PL/SQL debugging?",
+      "What's the best way to debug complex PL/SQL packages?",
+      "How do I set breakpoints in PL/SQL code?",
+      "Can you explain PL/SQL debugging in SQL Developer?",
+      "What are the steps to debug a stored procedure in PL/SQL?",
+      "How do I use exception handling for PL/SQL debugging?",
+      "What debugging techniques work best for PL/SQL triggers?",
+      "How can I trace PL/SQL execution?",
+      "What's the role of logging in PL/SQL debugging?",
+      "How do I use Oracle's built-in debugging utilities?",
+      "What are common PL/SQL debugging best practices?"
+    ],
+    "answerDescriptions": [
+      "Use DBMS_OUTPUT.PUT_LINE for basic debugging and logging",
+      "Leverage SQL Developer's integrated debugging features",
+      "Implement exception handling with error logging tables",
+      "Use Oracle's DBMS_DEBUG package for advanced debugging",
+      "Enable server-side tracing with DBMS_TRACE"
+    ],
+    "answer": {
+      "summary": "PL/SQL code can be debugged using various tools and techniques including DBMS_OUTPUT, SQL Developer's debugger, exception handling, and Oracle's built-in debugging packages.",
+      "detailed": "PL/SQL debugging involves using tools and techniques to identify and fix code issues.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| DBMS_OUTPUT | Basic message logging | ```SET SERVEROUTPUT ON; DBMS_OUTPUT.PUT_LINE('Debug message');``` |\n| Exception Handling | Error catching | ```WHEN OTHERS THEN LOG_ERROR(SQLERRM);``` |\n| DBMS_DEBUG | Advanced debugging | ```DBMS_DEBUG.ATTACH_SESSION(session_id);``` |\n\n* Always enable SERVEROUTPUT before using DBMS_OUTPUT\n* Use meaningful debug messages with variable values\n* Implement proper exception handling at each block level\n* Consider using custom debug packages for complex applications\n\n```sql\nCREATE OR REPLACE PROCEDURE debug_example IS\n  v_value NUMBER;\nBEGIN\n  -- Enable server output\n  DBMS_OUTPUT.ENABLE(1000000);\n  \n  -- Debug message\n  DBMS_OUTPUT.PUT_LINE('Starting procedure');\n  \n  -- Your code here\n  SELECT COUNT(*) INTO v_value FROM employees;\n  \n  DBMS_OUTPUT.PUT_LINE('Count: ' || v_value);\nEXCEPTION\n  WHEN OTHERS THEN\n    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);\n    RAISE;\nEND;\n```",
+      "whenToUse": "Use debugging techniques during development, testing, and troubleshooting phases of PL/SQL development, especially when dealing with complex logic or unexpected behavior.",
+      "realWorldContext": "When investigating why a financial calculation stored procedure is producing incorrect results, developers can use SQL Developer's debugger to step through the code and inspect variable values at each stage."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Debugging",
+    "difficulty": "intermediate",
+    "tags": [
+      "debugging",
+      "plsql",
+      "oracle",
+      "error-handling",
+      "dbms_output",
+      "sql-developer",
+      "exception-handling",
+      "troubleshooting",
+      "development-tools",
+      "logging"
+    ],
+    "conceptTriggers": [
+      "error messages",
+      "code execution flow",
+      "variable inspection",
+      "breakpoints",
+      "stack trace"
+    ],
+    "naturalFollowups": [
+      "How do I implement custom error logging?",
+      "What are the best practices for exception handling in PL/SQL?",
+      "How can I debug PL/SQL code in production?",
+      "What's the difference between DBMS_OUTPUT and custom logging?",
+      "How do I set up SQL Developer for debugging?",
+      "Can I debug multiple PL/SQL sessions simultaneously?",
+      "How do I handle debugging in a distributed database environment?",
+      "What are the performance implications of debugging tools?",
+      "How can I automate debug log analysis?",
+      "What security considerations exist for PL/SQL debugging?"
+    ],
+    "relatedQuestions": [
+      "How do you handle exceptions in PL/SQL?",
+      "What are the different types of errors in PL/SQL?",
+      "How do you create custom error messages?",
+      "What is the difference between RAISE_APPLICATION_ERROR and RAISE?",
+      "How do you implement logging in PL/SQL?",
+      "What are compiler warnings in PL/SQL?",
+      "How do you trace PL/SQL performance?",
+      "What is the purpose of DBMS_UTILITY package?",
+      "How do you debug dynamic SQL?",
+      "What are autonomous transactions in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Not enabling SERVEROUTPUT before using DBMS_OUTPUT",
+        "explanation": "DBMS_OUTPUT won't show any output unless SERVEROUTPUT is explicitly enabled using SET SERVEROUTPUT ON"
+      },
+      {
+        "mistake": "Overusing DBMS_OUTPUT in production code",
+        "explanation": "DBMS_OUTPUT can impact performance and should be used primarily during development, not in production code"
+      },
+      {
+        "mistake": "Failing to handle exceptions properly while debugging",
+        "explanation": "Not implementing proper exception handling can mask the real issues and make debugging more difficult"
+      },
+      {
+        "mistake": "Not cleaning up debug code before deployment",
+        "explanation": "Leaving debug statements in production code can create security vulnerabilities and performance issues"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "plsql-mutating-constraining-tables": {
+    "primaryQuestion": "What is the difference between a mutating table and a constraining table in PL/SQL?",
+    "alternativeQuestions": [
+      "How do mutating tables differ from constraining tables in PL/SQL?",
+      "Can you explain the concept of mutating vs constraining tables in Oracle PL/SQL?",
+      "What are the key distinctions between mutating and constraining tables in PL/SQL triggers?",
+      "When does a table become mutating in PL/SQL and how is it different from constraining?",
+      "What restrictions apply to mutating tables vs constraining tables in PL/SQL?",
+      "How do trigger restrictions differ for mutating and constraining tables?",
+      "Why can't we query a mutating table in PL/SQL triggers?",
+      "What are the workarounds for mutating table errors in PL/SQL?",
+      "How do compound triggers handle mutating and constraining tables?",
+      "What is the impact of mutating tables on trigger execution?",
+      "Can you access constraining tables in row-level triggers?",
+      "How do statement-level triggers handle mutating tables?",
+      "What are the best practices for dealing with mutating tables?",
+      "When should you use compound triggers for mutating table scenarios?",
+      "How do autonomous transactions relate to mutating table restrictions?"
+    ],
+    "answerDescriptions": [
+      "A mutating table is being modified by a DML statement while the trigger is executing",
+      "A constraining table is referenced by a foreign key of the mutating table",
+      "Row-level triggers cannot query or modify mutating tables",
+      "Statement-level triggers can access the table being modified",
+      "Compound triggers can help resolve mutating table issues"
+    ],
+    "answer": {
+      "summary": "A mutating table is one that is being modified by a DML operation, while a constraining table is referenced by foreign keys of the table being modified.",
+      "detailed": "Mutating and constraining tables are important concepts in PL/SQL trigger development.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|------------|-------------------|\n| Mutating Table | During DML operations when table is being modified | `UPDATE employees SET salary = salary * 1.1;` |\n| Constraining Table | When table is referenced by foreign keys | `SELECT * FROM departments WHERE dept_id = :new.dept_id;` |\n| Compound Trigger | To handle mutating table errors | `CREATE OR REPLACE TRIGGER trg_name FOR trigger_event ON table_name` |\n\n* Use statement-level triggers instead of row-level triggers when possible\n* Implement compound triggers for complex mutating table scenarios\n* Consider autonomous transactions for specific cases\n* Cache required data before trigger execution\n* Use package variables to store intermediate results\n\n```sql\nCREATE OR REPLACE TRIGGER check_salary\nFOR UPDATE OF salary ON employees\nCOMPOUND TRIGGER\n  -- Declaration section\n  TYPE t_salaries IS TABLE OF employees.salary%TYPE;\n  g_salaries t_salaries;\n  \n  BEFORE STATEMENT IS\n  BEGIN\n    SELECT salary BULK COLLECT INTO g_salaries\n    FROM employees;\n  END BEFORE STATEMENT;\n  \n  AFTER EACH ROW IS\n  BEGIN\n    -- Access g_salaries instead of querying employees table\n    IF :new.salary > 2 * g_salaries(:old.rowid) THEN\n      raise_application_error(-20001, 'Invalid salary increase');\n    END IF;\n  END AFTER EACH ROW;\nEND check_salary;\n```",
+      "whenToUse": "Use these concepts when developing triggers that need to access or modify the same table that triggered them, or when dealing with referential integrity constraints in triggers.",
+      "realWorldContext": "In an HR system, when updating employee salaries, you might need to verify the new salary against department budgets while maintaining referential integrity with the departments table."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Triggers",
+    "difficulty": "advanced",
+    "tags": [
+      "pl/sql",
+      "triggers",
+      "mutating-tables",
+      "constraining-tables",
+      "oracle",
+      "database",
+      "compound-triggers",
+      "error-handling",
+      "dml",
+      "referential-integrity"
+    ],
+    "conceptTriggers": [
+      "Database Triggers",
+      "DML Operations",
+      "Referential Integrity",
+      "Transaction Management",
+      "Error Handling"
+    ],
+    "naturalFollowups": [
+      "How can I avoid mutating table errors?",
+      "What are compound triggers in PL/SQL?",
+      "When should I use statement-level triggers instead of row-level triggers?",
+      "How do autonomous transactions help with mutating table issues?",
+      "What are the best practices for trigger development in PL/SQL?",
+      "How do you handle multiple triggers on the same table?",
+      "What is the order of trigger execution in PL/SQL?",
+      "How can I debug trigger-related issues?",
+      "What are the performance implications of using triggers?",
+      "How do you maintain referential integrity using triggers?"
+    ],
+    "relatedQuestions": [
+      "What is a compound trigger in PL/SQL?",
+      "How do you handle exceptions in PL/SQL triggers?",
+      "What are the different types of triggers in PL/SQL?",
+      "How do you debug PL/SQL triggers?",
+      "What is an autonomous transaction in PL/SQL?",
+      "How do you maintain referential integrity in PL/SQL?",
+      "What are the best practices for PL/SQL trigger development?",
+      "How do you optimize trigger performance in PL/SQL?",
+      "What are the limitations of triggers in PL/SQL?",
+      "How do you handle trigger recursion in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Attempting to query the same table in a row-level trigger",
+        "explanation": "This causes a mutating table error as the table is being modified during trigger execution"
+      },
+      {
+        "mistake": "Not using compound triggers when dealing with mutating tables",
+        "explanation": "Compound triggers provide a way to store data at statement level and use it in row-level operations"
+      },
+      {
+        "mistake": "Overusing triggers for business logic",
+        "explanation": "Complex business logic in triggers can lead to maintenance and performance issues"
+      },
+      {
+        "mistake": "Ignoring trigger firing order",
+        "explanation": "Multiple triggers on the same table fire in a specific order that needs to be considered"
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "ib-24-cursor-dml-attributes": {
+    "primaryQuestion": "In what cursor attributes are the outcomes of DML statement execution saved?",
+    "alternativeQuestions": [
+      "Which cursor attributes store DML operation results in PL/SQL?",
+      "How can I check the status of DML operations using cursor attributes?",
+      "What are the PL/SQL cursor attributes for tracking DML statement results?",
+      "How do cursor attributes reflect DML execution outcomes?",
+      "Which attributes can I use to monitor DML statement success in PL/SQL cursors?",
+      "What cursor properties store information about DML statement execution?",
+      "How are DML operation results captured in cursor attributes?",
+      "What are the built-in cursor attributes for DML result tracking?",
+      "Which cursor features help monitor DML statement execution status?",
+      "How do I access DML operation results using cursor attributes?",
+      "What cursor metadata is available after DML statement execution?",
+      "Which PL/SQL cursor properties reflect DML operation outcomes?",
+      "How can cursor attributes help debug DML operations?",
+      "What information do cursor attributes provide about DML execution?",
+      "Which cursor attributes should I check after executing DML statements?"
+    ],
+    "answerDescriptions": [
+      "SQL%ROWCOUNT stores the number of rows affected by the DML operation",
+      "SQL%FOUND returns TRUE if the DML affected at least one row",
+      "SQL%NOTFOUND returns TRUE if the DML affected no rows",
+      "SQL%ISOPEN is always FALSE for implicit cursors after DML execution",
+      "These attributes are accessible until another SQL statement is executed"
+    ],
+    "answer": {
+      "summary": "PL/SQL cursor attributes SQL%ROWCOUNT, SQL%FOUND, SQL%NOTFOUND, and SQL%ISOPEN store DML statement execution outcomes.",
+      "detailed": "Cursor attributes are special properties that track DML statement execution results.\n\n| Method/Keyword | When to Use | Code Syntax Example |\n|----------------|-------------|-------------------|\n| SQL%ROWCOUNT | To get number of affected rows | `IF SQL%ROWCOUNT > 0 THEN` |\n| SQL%FOUND | To check if any rows were affected | `IF SQL%FOUND THEN` |\n| SQL%NOTFOUND | To verify no rows were affected | `IF SQL%NOTFOUND THEN` |\n| SQL%ISOPEN | To check cursor state (always FALSE for implicit cursors) | `IF SQL%ISOPEN THEN` |\n\n* Always check these attributes immediately after DML execution\n* Values are reset by the next SQL statement\n* Valid for both implicit and explicit cursors\n\n```sql\nBEGIN\n  UPDATE employees SET salary = salary * 1.1\n  WHERE department_id = 20;\n  \n  IF SQL%FOUND THEN\n    DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' employees updated');\n  ELSE\n    DBMS_OUTPUT.PUT_LINE('No employees found in dept 20');\n  END IF;\nEND;\n```",
+      "whenToUse": "Use cursor attributes when you need to verify the success or impact of DML operations, especially in error handling and conditional logic.",
+      "realWorldContext": "In a payroll system, checking SQL%ROWCOUNT after a salary update ensures the correct number of employees were processed."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Cursors",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "cursors",
+      "dml",
+      "attributes",
+      "implicit cursors",
+      "explicit cursors",
+      "error handling",
+      "sql",
+      "oracle",
+      "database programming"
+    ],
+    "conceptTriggers": [
+      "DML Operations",
+      "Cursor Management",
+      "Error Handling",
+      "Row Processing",
+      "Transaction Control"
+    ],
+    "naturalFollowups": [
+      "What is the difference between implicit and explicit cursors?",
+      "How long do cursor attribute values persist?",
+      "Can cursor attributes be used in autonomous transactions?",
+      "How do cursor attributes behave in bulk operations?",
+      "What happens to cursor attributes after COMMIT or ROLLBACK?",
+      "Are cursor attributes available in nested blocks?",
+      "How do cursor attributes work with FOR UPDATE clause?",
+      "Can cursor attributes be used in exception handlers?",
+      "What are the performance implications of checking cursor attributes?",
+      "How do cursor attributes behave in FORALL statements?"
+    ],
+    "relatedQuestions": [
+      "How do you declare an explicit cursor in PL/SQL?",
+      "What are the different types of cursors in PL/SQL?",
+      "How do you handle cursor exceptions?",
+      "What is a cursor FOR loop?",
+      "How do you use parameterized cursors?",
+      "What is the difference between %NOTFOUND and %NO_DATA_FOUND?",
+      "How do you implement cursor variables?",
+      "What are cursor expression benefits?",
+      "How do you use REF cursors?",
+      "What are cursor performance best practices?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Checking cursor attributes after another SQL statement",
+        "explanation": "Cursor attributes are reset after each SQL statement, so they must be checked immediately after the DML operation."
+      },
+      {
+        "mistake": "Assuming SQL%ISOPEN is TRUE for implicit cursors",
+        "explanation": "SQL%ISOPEN is always FALSE for implicit cursors as they automatically close after statement execution."
+      },
+      {
+        "mistake": "Not handling NULL cases in SQL%ROWCOUNT",
+        "explanation": "SQL%ROWCOUNT might return NULL if no DML statement has been executed in the session."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  },
+  "ib-25-plsql-number-precision-scale": {
+    "primaryQuestion": "Is it possible to declare a NUMBER column in PL/SQL with a scale larger than precision?",
+    "alternativeQuestions": [
+      "Can I define a NUMBER column where scale exceeds precision in PL/SQL?",
+      "What happens if I declare NUMBER(10,100) in PL/SQL?",
+      "Are negative scales allowed in PL/SQL NUMBER data type?",
+      "How does PL/SQL handle NUMBER(10,-84) declaration?",
+      "What are the valid precision and scale combinations for NUMBER in PL/SQL?",
+      "Can scale be greater than precision in Oracle NUMBER data type?",
+      "What are the limitations of precision and scale in PL/SQL NUMBER columns?",
+      "Is NUMBER(10,100) a valid column definition in Oracle PL/SQL?",
+      "How does Oracle validate NUMBER precision and scale parameters?",
+      "What are the rules for NUMBER precision and scale in PL/SQL?",
+      "Can I use negative scale in PL/SQL NUMBER declarations?",
+      "What happens when scale exceeds precision in PL/SQL NUMBER type?",
+      "Is there a limit to NUMBER scale values in PL/SQL?",
+      "How does PL/SQL handle invalid NUMBER precision-scale combinations?",
+      "What are the constraints for NUMBER data type parameters in PL/SQL?"
+    ],
+    "answerDescriptions": [
+      "Scale must be less than or equal to precision in NUMBER data type",
+      "Negative scales are allowed but still must not exceed precision",
+      "Maximum precision allowed is 38 digits",
+      "Scale can range from -84 to 127",
+      "Invalid precision-scale combinations raise compilation errors"
+    ],
+    "answer": {
+      "summary": "No, it is not possible to declare a NUMBER column where scale is larger than precision in PL/SQL, as this violates Oracle's NUMBER data type rules.",
+      "detailed": "The Oracle NUMBER data type follows strict rules for precision and scale. The precision specifies the total number of significant digits, while scale determines the number of digits to the right of the decimal point. The scale must always be less than or equal to precision when precision is specified. For NUMBER(10,100) or NUMBER(10,-84), both declarations would raise compilation errors as they violate this fundamental rule. Valid examples include NUMBER(10,2), NUMBER(5,0), or simply NUMBER without parameters for maximum range.\n\nMethod/Keyword | When to Use | Code Syntax Example\n--------------|------------|-------------------\nNUMBER(p,s) | When specific precision and scale needed | `column_name NUMBER(10,2)`\nNUMBER(p) | When only precision matters, scale defaults to 0 | `amount NUMBER(8)`\nNUMBER | When maximum range needed without restrictions | `quantity NUMBER`\n\n- Always ensure scale \u2264 precision when both are specified\n- Use NUMBER without parameters for maximum flexibility\n- Consider BINARY_FLOAT or BINARY_DOUBLE for floating-point needs\n- Remember that negative scales round to the left of decimal point\n\n```sql\nCREATE TABLE example_table (\n  col1 NUMBER(10,2),    -- Valid: 10 total digits, 2 after decimal\n  col2 NUMBER(5),       -- Valid: 5 total digits, 0 after decimal\n  col3 NUMBER,          -- Valid: maximum range\n  col4 NUMBER(10,100)   -- Invalid: scale > precision\n);\n```",
+      "whenToUse": "Use these precision and scale rules when defining numeric columns that require specific decimal place control or when working with financial calculations requiring exact precision.",
+      "realWorldContext": "In a banking application, currency amounts are typically stored as NUMBER(19,4) to handle large monetary values with exactly four decimal places for cents and subcent calculations."
+    },
+    "category": "PL/SQL",
+    "subcategory": "Data Types",
+    "difficulty": "intermediate",
+    "tags": [
+      "pl/sql",
+      "oracle",
+      "number-datatype",
+      "precision",
+      "scale",
+      "data-definition",
+      "database",
+      "sql",
+      "numeric-types",
+      "data-accuracy"
+    ],
+    "conceptTriggers": [
+      "number data type",
+      "precision constraints",
+      "scale limitations",
+      "data type validation",
+      "numeric storage rules"
+    ],
+    "naturalFollowups": [
+      "What is the maximum precision allowed for NUMBER data type?",
+      "How do negative scales work in NUMBER data type?",
+      "When should I use NUMBER vs BINARY_FLOAT?",
+      "What happens when numeric values exceed declared precision?",
+      "How does Oracle handle NUMBER storage internally?",
+      "What are the performance implications of different NUMBER precisions?",
+      "How do I convert between different numeric data types in PL/SQL?",
+      "What are the best practices for choosing NUMBER precision and scale?",
+      "How does NUMBER compare to DECIMAL in other databases?",
+      "What are the memory implications of different NUMBER declarations?"
+    ],
+    "relatedQuestions": [
+      "What is the difference between NUMBER and BINARY_FLOAT?",
+      "How do I handle numeric overflow in PL/SQL?",
+      "What are the performance implications of using NUMBER without parameters?",
+      "How do I round numbers in PL/SQL?",
+      "What is the difference between NUMBER and VARCHAR2 for numeric storage?",
+      "How do I convert strings to NUMBER in PL/SQL?",
+      "What are the best practices for storing currency values?",
+      "How do I handle null values in NUMBER columns?",
+      "What is the difference between TRUNC and ROUND for NUMBER types?",
+      "How do I format NUMBER output in PL/SQL?"
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "Declaring scale larger than precision",
+        "explanation": "This is invalid and will result in a compilation error as scale must always be less than or equal to precision."
+      },
+      {
+        "mistake": "Using very large precision values unnecessarily",
+        "explanation": "Using NUMBER(38) when NUMBER(12) would suffice increases storage space and can impact performance."
+      },
+      {
+        "mistake": "Ignoring negative scale implications",
+        "explanation": "Negative scales round to the left of decimal point, which might lead to unexpected data truncation."
+      }
+    ],
+    "confidence": "high",
+    "lastUpdated": "2024-01-21",
+    "verified": false
+  }
+}
